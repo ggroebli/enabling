@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER – Listing Detail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-nda: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAV (same as suche) ===== */
+        .nav {
+            display: flex; align-items: center; padding: 0 48px; height: 72px;
+            border-bottom: 1px solid #EEE; position: fixed; top: 0; width: 1440px;
+            background: var(--white); z-index: 100;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: var(--black); text-decoration: none; margin-right: 48px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+        .nav-links a { font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-lang { display: flex; align-items: center; gap: 8px; font-size: 14px; border: 1px solid var(--grey-light); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .nav-avatar-wrapper { position: relative; }
+        .nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grey-light); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .nav-avatar i { font-size: 18px; color: var(--grey-dark); }
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== PAGE LAYOUT ===== */
+        .page-wrapper {
+            display: flex; justify-content: center; align-items: flex-start;
+            width: 1440px; margin-top: 72px; background: var(--white);
+        }
+
+        /* ===== LEFT: MAIN CONTENT ===== */
+        .content-area {
+            width: 1040px; padding: 48px 48px 0;
+            display: flex; flex-direction: column; gap: 24px;
+        }
+
+        /* Back link */
+        .back-link {
+            font-size: 16px; font-weight: 300; color: var(--black); text-decoration: none;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .back-link:hover { opacity: 0.7; }
+
+        /* Main card wrapper */
+        .detail-card {
+            display: flex; gap: 0; width: 100%;
+        }
+
+        .detail-left {
+            flex: 1; display: flex; flex-direction: column; gap: 40px;
+            padding: 24px 0 40px;
+        }
+
+        /* ===== TITLE ===== */
+        .listing-title {
+            font-size: 40px; font-weight: 600; line-height: 120%; color: var(--black);
+            max-width: 722px;
+        }
+
+        /* ===== FACTS GRID ===== */
+        .facts-grid { width: 944px; }
+
+        .facts-row {
+            display: flex; gap: 24px; width: 100%;
+        }
+
+        .fact-item {
+            flex: 1; display: flex; flex-direction: column; align-items: center;
+            padding: 24px 23px 8px; gap: 8px;
+            border-top: 1px solid var(--grey-light);
+        }
+
+        .facts-row.bottom .fact-item {
+            border-bottom: 1px solid var(--grey-light);
+            padding: 24px 23px;
+        }
+
+        .fact-header {
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+            width: 100%;
+        }
+
+        .fact-header i {
+            font-size: 32px; font-weight: 300; color: var(--black);
+        }
+
+        .fact-header .fact-label {
+            font-size: 16px; font-weight: 600; color: #000;
+        }
+
+        .fact-value {
+            font-size: 18px; font-weight: 300; color: var(--grey-dark); line-height: 150%;
+            text-align: center;
+        }
+
+        /* ===== SECTION TAG (pill) ===== */
+        .section-tag {
+            display: inline-flex; align-items: center; padding: 0 8px;
+            border: 1px solid var(--grey-light); border-radius: 32px;
+            font-size: 14px; font-weight: 300; color: var(--black); line-height: 150%;
+        }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .content-section {
+            display: flex; flex-direction: column; gap: 24px;
+            padding-bottom: 40px; border-bottom: 1px solid var(--grey-light);
+            width: 944px;
+        }
+
+        .content-section:last-child { border-bottom: none; }
+
+        .section-text {
+            font-size: 24px; font-weight: 300; line-height: 150%; color: var(--black);
+        }
+
+        .section-text-medium {
+            font-size: 18px; font-weight: 300; line-height: 150%; color: var(--black);
+        }
+
+        /* ===== CHART ===== */
+        .chart-container {
+            width: 944px; padding: 40px; border: 1px solid var(--grey-light);
+            border-radius: 16px; background: var(--white);
+            display: flex; flex-direction: column; gap: 50px;
+        }
+
+        .chart-header {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .chart-toggle {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 16px; font-weight: 300; color: var(--black);
+        }
+
+        .chart-toggle input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--black); }
+
+        .chart-legend {
+            display: flex; gap: 24px;
+        }
+
+        .legend-item {
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px; height: 20px; border-radius: 4px;
+        }
+
+        .legend-color.umsatz { background: #E9ABFF; }
+        .legend-color.ergebnis { background: #9EFCEF; }
+
+        .legend-label { font-size: 16px; font-weight: 800; color: var(--black); }
+
+        .chart-body {
+            display: flex; gap: 0; height: 300px; align-items: flex-end;
+        }
+
+        .chart-y-axis {
+            display: flex; flex-direction: column; justify-content: space-between;
+            height: 260px; padding-right: 16px; padding-bottom: 0;
+        }
+
+        .chart-y-label {
+            font-size: 14px; font-weight: 300; color: var(--grey-dark); text-align: right;
+            width: 80px;
+        }
+
+        .chart-bars-area {
+            flex: 1; display: flex; flex-direction: column;
+        }
+
+        .chart-bars {
+            display: flex; justify-content: space-around; align-items: flex-end;
+            flex: 1; border-left: 1px solid var(--grey-light); border-bottom: 1px solid var(--grey-light);
+            padding: 0 40px; height: 260px;
+        }
+
+        .bar-group {
+            display: flex; gap: 12px; align-items: flex-end;
+        }
+
+        .bar {
+            width: 80px; border-radius: 4px 4px 0 0; min-height: 4px;
+        }
+
+        .bar.ergebnis { background: #9EFCEF; }
+        .bar.umsatz { background: #E9ABFF; }
+
+        .chart-x-labels {
+            display: flex; justify-content: space-around; padding: 8px 40px 0;
+            border-left: 1px solid transparent;
+        }
+
+        .chart-x-label {
+            font-size: 16px; font-weight: 800; color: var(--grey-dark);
+        }
+
+        /* ===== ACCORDION ===== */
+        .accordion { width: 944px; }
+
+        .accordion-item {
+            border-top: 1px solid var(--grey-light);
+        }
+
+        .accordion-item:last-child {
+            border-bottom: 1px solid var(--grey-light);
+        }
+
+        .accordion-header {
+            display: flex; align-items: center; padding: 20px 0; gap: 12px;
+            cursor: pointer; width: 100%;
+        }
+
+        .accordion-header:hover { opacity: 0.7; }
+
+        .accordion-question {
+            flex: 1; font-size: 24px; font-weight: 300; line-height: 150%; color: #000;
+        }
+
+        .accordion-icon {
+            width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+        }
+
+        .accordion-icon i { font-size: 18px; color: var(--black); }
+
+        /* ===== RIGHT SIDEBAR ===== */
+        .sidebar-right {
+            width: 400px; padding: 48px 38px 20px 16px;
+            display: flex; flex-direction: column; gap: 16px;
+            position: sticky; top: 72px; align-self: flex-start;
+        }
+
+        /* Admin Dashboard card */
+        .admin-card {
+            display: flex; flex-direction: column; align-items: flex-start;
+            padding: 24px; gap: 16px; width: 346px;
+            background: var(--white); border: 1px solid var(--grey-light); border-radius: 8px;
+        }
+
+        .admin-card-title {
+            font-size: 20px; font-weight: 600; line-height: 140%; color: var(--black);
+        }
+
+        .admin-card .btn-outline-dark {
+            width: 100%; padding: 8px 20px; border: 1px solid var(--black);
+            border-radius: 4px; background: transparent; font-family: var(--font-main);
+            font-size: 16px; font-weight: 600; color: var(--black); cursor: pointer;
+            text-align: center;
+        }
+
+        /* Interest card */
+        .interest-card {
+            display: flex; flex-direction: column; padding: 24px; gap: 16px;
+            width: 346px; background: var(--gradient-nda); border-radius: 8px;
+        }
+
+        .interest-card-title {
+            font-size: 24px; font-weight: 600; line-height: 140%; color: var(--black);
+        }
+
+        .interest-card-desc {
+            font-size: 16px; font-weight: 300; line-height: 150%; color: var(--black);
+        }
+
+        .interest-card .secure-note {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 14px; font-weight: 300; color: var(--black);
+        }
+
+        .interest-card .secure-note i { font-size: 14px; }
+
+        .btn-actions {
+            display: flex; flex-direction: column; gap: 16px;
+        }
+
+        .btn-primary-dark {
+            width: 100%; padding: 8px 20px; background: var(--black);
+            border: none; border-radius: 4px; font-family: var(--font-main);
+            font-size: 18px; font-weight: 600; color: var(--white); cursor: pointer;
+            text-align: center; height: 43px;
+        }
+        .btn-primary-dark:hover { background: #333; }
+
+        .btn-outline {
+            width: 100%; padding: 8px 20px; border: 1px solid var(--black);
+            border-radius: 4px; background: transparent; font-family: var(--font-main);
+            font-size: 18px; font-weight: 600; color: var(--black); cursor: pointer;
+            text-align: center; height: 43px;
+        }
+        .btn-outline:hover { background: rgba(0,0,0,0.03); }
+
+        .sidebar-links {
+            display: flex; flex-direction: column; align-items: center; gap: 16px;
+            margin-top: 8px;
+        }
+
+        .sidebar-link {
+            font-size: 16px; font-weight: 300; color: var(--black);
+            text-decoration: underline; cursor: pointer;
+        }
+
+        .sidebar-link:hover { opacity: 0.7; }
+
+        .report-link {
+            font-size: 14px; font-weight: 300; color: var(--grey-dark);
+            text-decoration: underline; cursor: pointer; align-self: center;
+            margin-top: 8px;
+        }
+
+        /* Partners */
+        .partners-section {
+            display: flex; flex-direction: column; gap: 16px; width: 346px;
+        }
+
+        .partners-title {
+            font-size: 20px; font-weight: 600; color: var(--black);
+        }
+
+        .partner-badge {
+            font-size: 12px; font-weight: 600; color: var(--grey-dark);
+            background: #F5F5F5; padding: 4px 10px; border-radius: 4px;
+            display: inline-block; margin-bottom: 8px;
+        }
+
+        .partner-card {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 24px; gap: 16px; width: 346px;
+            border: 1px solid var(--grey-light); border-radius: 8px; background: var(--white);
+        }
+
+        .partner-card-logo {
+            font-size: 28px; font-weight: 800; letter-spacing: 2px; color: var(--black);
+            text-align: center;
+        }
+
+        .partner-card-desc {
+            font-size: 12px; font-weight: 300; color: var(--grey-dark); text-align: center;
+            line-height: 150%;
+        }
+
+        .partner-card .btn-outline-sm {
+            padding: 6px 16px; border: 1px solid var(--black); border-radius: 4px;
+            background: transparent; font-family: var(--font-main);
+            font-size: 14px; font-weight: 600; color: var(--black);
+            cursor: pointer; display: flex; align-items: center; gap: 6px;
+        }
+
+        /* ===== WEITERE INSERATE SECTION ===== */
+        .weitere-section {
+            width: 1440px; padding: 112px 64px;
+            display: flex; flex-direction: column; align-items: center; gap: 80px;
+            background: var(--white);
+        }
+
+        .weitere-header {
+            display: flex; flex-direction: column; align-items: center; gap: 16px;
+        }
+
+        .weitere-title {
+            font-size: 48px; font-weight: 600; line-height: 120%; color: var(--black);
+        }
+
+        .weitere-btn {
+            display: flex; align-items: center; gap: 12px;
+            padding: 8px 20px; border: 1px solid #000; border-radius: 4px;
+            background: transparent; font-family: var(--font-main);
+            font-size: 18px; font-weight: 600; color: #000; cursor: pointer;
+        }
+        .weitere-btn:hover { background: #f5f5f5; }
+
+        .weitere-cards {
+            display: flex; gap: 24px; width: 100%;
+        }
+
+        .weitere-card {
+            flex: 1; display: flex; flex-direction: column;
+            border-radius: 16px; overflow: hidden;
+            filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.15));
+            background: var(--white); cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+        .weitere-card:hover { transform: translateY(-2px); background: var(--gradient-nda); }
+
+        .weitere-card-content {
+            padding: 16px 0 0; display: flex; flex-direction: column; gap: 16px;
+        }
+
+        .weitere-card-meta {
+            display: flex; justify-content: center; align-items: center; gap: 16px;
+            padding: 0 16px;
+        }
+
+        .weitere-card-meta-item {
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        .weitere-card-meta-item i { font-size: 16px; color: var(--black); }
+
+        .weitere-card-meta-item span {
+            font-size: 14px; font-weight: 700; color: var(--black);
+        }
+
+        .weitere-card-title-wrap {
+            padding: 0 16px;
+        }
+
+        .weitere-card-title {
+            font-size: 24px; font-weight: 600; line-height: 140%; color: var(--black);
+            text-align: center;
+        }
+
+        .weitere-card-facts {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 8px; padding: 8px 0 24px;
+        }
+
+        .weitere-card-fact {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+
+        .weitere-card-fact i { font-size: 16px; color: var(--black); width: 20px; text-align: center; }
+
+        .weitere-card-fact span {
+            font-size: 14px; font-weight: 300; color: var(--black);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
+        }
+        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-logo { font-size: 36px; font-weight: 800; letter-spacing: 3px; color: var(--white); }
+        .footer-sub { font-size: 12px; font-weight: 300; letter-spacing: 3px; color: var(--grey-dark); text-transform: uppercase; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .footer-right p { font-size: 16px; font-weight: 300; line-height: 150%; }
+        .footer-right a { font-size: 16px; font-weight: 300; color: var(--white); text-decoration: underline; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #333; }
+        .footer-copyright { font-size: 14px; font-weight: 300; color: var(--grey-dark); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
+        .footer-links a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="suche.html" class="nav-logo">/AMBER</a>
+        <div class="nav-links">
+            <a href="suche.html">Suche</a>
+            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="mitteilungen.html">Mitteilungen</a>
+            <a href="postfach.html">Postfach</a>
+            <a href="transaktionen.html">Meine Transaktionen</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang"><span style="font-size:18px;">🇩🇪</span><span>German</span></div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="focus-group" id="focus-group">
+                    <a href="#">Zur Verkäuferansicht</a>
+                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Kontoeinstellungen</a>
+                    <a href="#">AMBER-Professional</a>
+                    <a href="#">Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE -->
+    <div class="page-wrapper">
+
+        <!-- LEFT: CONTENT -->
+        <div class="content-area">
+
+            <!-- Back -->
+            <a href="suche.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Zurück zur Suche
+            </a>
+
+            <div class="detail-card">
+                <!-- Detail Left -->
+                <div class="detail-left">
+
+                    <!-- Title -->
+                    <h1 class="listing-title">Wachstumsstarker Spezialanbieter für flexible Kraftübertragung und Präzisionsdrehtechnik</h1>
+
+                    <!-- Facts Row 1 -->
+                    <div class="facts-grid">
+                        <div class="facts-row">
+                            <div class="fact-item">
+                                <div class="fact-header">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span class="fact-label">Standort</span>
+                                </div>
+                                <div class="fact-value">Baden-Württemberg,<br>Deutschland</div>
+                            </div>
+                            <div class="fact-item">
+                                <div class="fact-header">
+                                    <i class="fa-solid fa-coins"></i>
+                                    <span class="fact-label">Umsatz</span>
+                                </div>
+                                <div class="fact-value">2.450.000 €</div>
+                            </div>
+                            <div class="fact-item">
+                                <div class="fact-header">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                    <span class="fact-label">Ergebnis</span>
+                                </div>
+                                <div class="fact-value">331.000 €</div>
+                            </div>
+                        </div>
+
+                        <!-- Facts Row 2 -->
+                        <div class="facts-row bottom">
+                            <div class="fact-item">
+                                <div class="fact-header">
+                                    <i class="fa-solid fa-user-group"></i>
+                                    <span class="fact-label">Mitarbeiter</span>
+                                </div>
+                                <div class="fact-value">20</div>
+                            </div>
+                            <div class="fact-item">
+                                <div class="fact-header">
+                                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                                    <span class="fact-label">Transaktionshintergrund</span>
+                                </div>
+                                <div class="fact-value">Altersnachfolge</div>
+                            </div>
+                            <div class="fact-item">
+                                <div class="fact-header">
+                                    <i class="fa-solid fa-chart-pie"></i>
+                                    <span class="fact-label">Abzugebender Anteil</span>
+                                </div>
+                                <div class="fact-value">100%-Verkauf</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Unternehmensbeschreibung -->
+                    <div class="content-section">
+                        <span class="section-tag">Unternehmensbeschreibung</span>
+                        <p class="section-text">
+                            Das Unternehmen ist ein etablierter, inhabergeführter Spezialanbieter für Bowdenzug- und Drahtseilltechnik mit breit diversifiziertem Produktportfolio; die Drehtechnik bildet ein zweites tragendes Standbein. Ergänzt wird das Angebot durch Kunststoff- und Druckgussteile sowie ein eigenes Formgedächtnis-System. Die Kombination aus Engineering-Kompetenz und eigener Fertigung ermöglicht maßgeschneiderte Lösungen für anspruchsvolle B2B-Kunden in Zukunftsmärkten wie Luft- und Raumfahrt, Medizintechnik und Defense.
+                        </p>
+                    </div>
+
+                    <!-- Finanzielle Entwicklung -->
+                    <div class="content-section">
+                        <span class="section-tag">Finanzielle Entwicklung</span>
+                        <p class="section-text">
+                            Steigende Nachfrage in adressierten Zukunftsmärkten hat zu kontinuierlichem Wachstum geführt.
+                        </p>
+
+                        <!-- Chart -->
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <div class="chart-toggle">
+                                    <input type="checkbox" id="future-toggle">
+                                    <label for="future-toggle">Künftige Entwicklung anzeigen</label>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <div class="legend-color ergebnis"></div>
+                                        <span class="legend-label">Ergebnis</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color umsatz"></div>
+                                        <span class="legend-label">Umsatz</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chart-body">
+                                <div class="chart-y-axis">
+                                    <span class="chart-y-label">24.000.000</span>
+                                    <span class="chart-y-label">18.000.000</span>
+                                    <span class="chart-y-label">12.000.000</span>
+                                    <span class="chart-y-label">6.000.000</span>
+                                </div>
+                                <div class="chart-bars-area">
+                                    <div class="chart-bars">
+                                        <div class="bar-group">
+                                            <div class="bar ergebnis" style="height: 36px;"></div>
+                                            <div class="bar umsatz" style="height: 140px;"></div>
+                                        </div>
+                                        <div class="bar-group">
+                                            <div class="bar ergebnis" style="height: 52px;"></div>
+                                            <div class="bar umsatz" style="height: 152px;"></div>
+                                        </div>
+                                        <div class="bar-group">
+                                            <div class="bar ergebnis" style="height: 66px;"></div>
+                                            <div class="bar umsatz" style="height: 187px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-x-labels">
+                                        <span class="chart-x-label">2020</span>
+                                        <span class="chart-x-label">2021</span>
+                                        <span class="chart-x-label">2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion FAQ sections -->
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <span class="accordion-question">Produkte & Dienstleistungen</span>
+                                <div class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <span class="accordion-question">Kunden</span>
+                                <div class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <span class="accordion-question">Markt</span>
+                                <div class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <span class="accordion-question">Wettbewerb</span>
+                                <div class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="sidebar-right">
+
+            <!-- Admin Dashboard -->
+            <div class="admin-card">
+                <span class="admin-card-title">Admin Dashboard</span>
+                <button class="btn-outline-dark">Im Dashboard anzeigen</button>
+            </div>
+
+            <!-- Interesse bekunden -->
+            <div class="interest-card">
+                <span class="interest-card-title">Interesse bekunden</span>
+                <p class="interest-card-desc">Bekunde dein Interesse, um Zugang zu detaillierteren Informationen über das Unternehmen zu erhalten.</p>
+                <div class="secure-note">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Wir versichern eine sichere Kommunikation.</span>
+                </div>
+                <div class="btn-actions">
+                    <button class="btn-primary-dark">Interesse bekunden</button>
+                    <button class="btn-outline">Zur Merkliste hinzufügen</button>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div class="sidebar-links">
+                <span class="sidebar-link">Aus der Suche ausblenden</span>
+                <span class="sidebar-link">Finanzierung prüfen</span>
+            </div>
+
+            <span class="report-link">Dieses Inserat melden</span>
+
+            <!-- Partners -->
+            <div class="partners-section">
+                <span class="partners-title">Unsere Partner</span>
+
+                <div class="partner-card">
+                    <span class="partner-badge">Premium Partner</span>
+                    <div class="partner-card-logo">Monaland</div>
+                    <p class="partner-card-desc">W&I Versicherung anfragen</p>
+                    <button class="btn-outline-sm"><i class="fa-solid fa-arrow-right"></i> Zum Partner</button>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-card-logo" style="font-size: 20px; font-weight: 600;">abat+ Kanzleigruppe GmbH</div>
+                    <p class="partner-card-desc">Steuerberatung, Wirtschaftsprüfung und Rechtsberatung aus einer Hand</p>
+                    <button class="btn-outline-sm"><i class="fa-solid fa-arrow-right"></i> Zum Partner</button>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-card-logo" style="font-size: 22px; font-weight: 700; letter-spacing: 3px;">FORIS</div>
+                    <p class="partner-card-desc">DSO Kalkulation: Testen Sie Ihren M&A-Rechtsschutz – kostenlos & unverbindlich mit FORIS</p>
+                    <button class="btn-outline-sm"><i class="fa-solid fa-arrow-right"></i> Zum Partner</button>
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- WEITERE INSERATE -->
+    <div class="weitere-section">
+        <div class="weitere-header">
+            <h2 class="weitere-title">Weitere Inserate</h2>
+            <button class="weitere-btn">
+                <i class="fa-solid fa-arrow-right"></i> Alle Inserate anzeigen
+            </button>
+        </div>
+
+        <div class="weitere-cards">
+            <!-- Card 1 -->
+            <div class="weitere-card">
+                <div class="weitere-card-content">
+                    <div class="weitere-card-meta">
+                        <div class="weitere-card-meta-item">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>12.01.2026</span>
+                        </div>
+                    </div>
+                    <div class="weitere-card-title-wrap">
+                        <h3 class="weitere-card-title">Etablierter Hersteller für Kunststoff-Prototypen mit breitem Kundenportfolio</h3>
+                    </div>
+                    <div class="weitere-card-facts">
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Bayern</span>
+                        </div>
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-coins"></i>
+                            <span>Umsatz: 3.400.000 €</span>
+                        </div>
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span>Ergebnis: 510.000 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="weitere-card">
+                <div class="weitere-card-content">
+                    <div class="weitere-card-meta">
+                        <div class="weitere-card-meta-item">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>08.12.2025</span>
+                        </div>
+                    </div>
+                    <div class="weitere-card-title-wrap">
+                        <h3 class="weitere-card-title">Spezialisierte Ingenieursberatung im Bereich erneuerbare Energien</h3>
+                    </div>
+                    <div class="weitere-card-facts">
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Niedersachsen</span>
+                        </div>
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-coins"></i>
+                            <span>Umsatz: 2.800.000 €</span>
+                        </div>
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span>Ergebnis: 420.000 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="weitere-card">
+                <div class="weitere-card-content">
+                    <div class="weitere-card-meta">
+                        <div class="weitere-card-meta-item">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>22.11.2025</span>
+                        </div>
+                    </div>
+                    <div class="weitere-card-title-wrap">
+                        <h3 class="weitere-card-title">Premium-Catering-Unternehmen mit starker Marke in Norddeutschland</h3>
+                    </div>
+                    <div class="weitere-card-facts">
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Hamburg</span>
+                        </div>
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-coins"></i>
+                            <span>Umsatz: 5.100.000 €</span>
+                        </div>
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span>Ergebnis: 780.000 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="weitere-card">
+                <div class="weitere-card-content">
+                    <div class="weitere-card-meta">
+                        <div class="weitere-card-meta-item">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>05.10.2025</span>
+                        </div>
+                    </div>
+                    <div class="weitere-card-title-wrap">
+                        <h3 class="weitere-card-title">Marktführer im Stahlbeton- und Tiefbau Norddeutschlands</h3>
+                    </div>
+                    <div class="weitere-card-facts">
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Schleswig-Holstein</span>
+                        </div>
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-coins"></i>
+                            <span>Umsatz: 8.200.000 €</span>
+                        </div>
+                        <div class="weitere-card-fact">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span>Ergebnis: 1.100.000 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-logo">/AMBER</div>
+                <div class="footer-sub">BY DEALCIRCLE</div>
+            </div>
+            <div class="footer-right">
+                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
+                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 AMBER. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">AGB</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFocusGroup(e) {
+            e.stopPropagation();
+            var fg = document.getElementById('focus-group');
+            fg.classList.toggle('open');
+        }
+        document.addEventListener('click', function() {
+            var fg = document.getElementById('focus-group');
+            if (fg) fg.classList.remove('open');
+        });
+    </script>
+
+</body>
+</html>

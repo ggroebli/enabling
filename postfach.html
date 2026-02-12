@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER – Postfach</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            display: flex; align-items: center; padding: 0 48px; height: 72px;
+            border-bottom: 1px solid #EEE; position: fixed; top: 0; width: 1440px;
+            background: var(--white); z-index: 100;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: var(--black); text-decoration: none; margin-right: 48px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+        .nav-links a { font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-lang { display: flex; align-items: center; gap: 8px; font-size: 14px; border: 1px solid var(--grey-light); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .nav-avatar-wrapper { position: relative; }
+        .nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grey-light); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .nav-avatar i { font-size: 18px; color: var(--grey-dark); }
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== MAIN ===== */
+        .main {
+            padding: 120px 48px 48px;
+            width: 1440px;
+            min-height: calc(100vh - 72px);
+            background: var(--white);
+            display: flex;
+            gap: 24px;
+        }
+
+        /* ===== LEFT SIDEBAR ===== */
+        .inbox-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 276px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-title {
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 120%;
+            color: var(--black);
+        }
+
+        .sidebar-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+        }
+
+        /* Search bar */
+        .inbox-search {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 3px;
+            gap: 8px;
+            width: 276px;
+            height: 48px;
+            background: var(--white);
+            border: 1px solid var(--grey-dark);
+            border-radius: 32px;
+        }
+
+        .inbox-search-inner {
+            display: flex;
+            align-items: center;
+            padding: 0 13px;
+            gap: 13px;
+            flex: 1;
+        }
+
+        .inbox-search-inner i {
+            font-size: 16px;
+            color: var(--black);
+        }
+
+        .inbox-search-inner input {
+            border: none;
+            outline: none;
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--black);
+            background: transparent;
+            width: 100%;
+        }
+
+        .inbox-search-inner input::placeholder {
+            color: var(--grey-dark);
+        }
+
+        .inbox-search-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 32px;
+            background: var(--gradient-cta);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .inbox-search-btn i {
+            font-size: 14px;
+            color: #000;
+        }
+
+        /* Conversation list */
+        .conversation-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            flex: 1;
+        }
+
+        .conversation-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            gap: 16px;
+            width: 276px;
+            height: 79px;
+            background: var(--white);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .conversation-item:hover {
+            background: #F5F5F5;
+        }
+
+        .conversation-item.active {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .conversation-avatar {
+            width: 43px;
+            height: 43px;
+            min-width: 43px;
+            border-radius: 50%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .conversation-avatar i {
+            font-size: 18px;
+            color: var(--white);
+        }
+
+        .conversation-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .conversation-name {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 150%;
+            color: #000;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .conversation-preview {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 150%;
+            color: #000;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* New message button */
+        .btn-new-message {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 20px;
+            gap: 8px;
+            width: 276px;
+            height: 43px;
+            background: var(--black);
+            border-radius: 4px;
+            border: none;
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .btn-new-message:hover {
+            opacity: 0.85;
+        }
+
+        /* ===== RIGHT CHAT AREA ===== */
+        .chat-area {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background: var(--white);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            min-height: 682px;
+        }
+
+        /* Chat header */
+        .chat-header {
+            display: flex;
+            align-items: center;
+            padding: 16px 25px;
+            gap: 16px;
+            border-bottom: 1px solid var(--grey-light);
+            border-radius: 8px 8px 0 0;
+        }
+
+        .chat-header-avatar {
+            width: 43px;
+            height: 43px;
+            min-width: 43px;
+            border-radius: 50%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-header-avatar i {
+            font-size: 18px;
+            color: var(--white);
+        }
+
+        .chat-header-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            flex: 1;
+        }
+
+        .chat-header-name {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 150%;
+            color: #000;
+        }
+
+        .chat-header-subject {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 150%;
+            color: #000;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--black);
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .chat-close:hover {
+            opacity: 0.7;
+        }
+
+        /* Chat messages area */
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .chat-message {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            max-width: 70%;
+        }
+
+        .chat-message.sent {
+            align-self: flex-end;
+        }
+
+        .chat-message.received {
+            align-self: flex-start;
+        }
+
+        .chat-message-sender {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 150%;
+            color: #000;
+        }
+
+        .chat-message-text {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 150%;
+            color: #000;
+        }
+
+        /* Chat input */
+        .chat-input-bar {
+            display: flex;
+            align-items: center;
+            padding: 0 25px 25px;
+            gap: 24px;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 18px;
+            gap: 8px;
+            flex: 1;
+            height: 43px;
+            border: 1px solid var(--grey-dark);
+            border-radius: 8px;
+        }
+
+        .chat-input-wrapper input {
+            border: none;
+            outline: none;
+            font-family: var(--font-main);
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--black);
+            background: transparent;
+            width: 100%;
+        }
+
+        .chat-input-wrapper input::placeholder {
+            color: var(--grey-dark);
+        }
+
+        .chat-input-wrapper .attach-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: var(--black);
+            cursor: pointer;
+        }
+
+        .chat-input-wrapper .attach-btn:hover {
+            opacity: 0.7;
+        }
+
+        .btn-send {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 20px;
+            gap: 8px;
+            height: 43px;
+            background: var(--gradient-cta);
+            border-radius: 40px;
+            border: none;
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--black);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-send:hover {
+            opacity: 0.85;
+        }
+
+        .btn-send i {
+            font-size: 18px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
+        }
+        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-logo { font-size: 36px; font-weight: 800; letter-spacing: 3px; color: var(--white); }
+        .footer-sub { font-size: 12px; font-weight: 300; letter-spacing: 3px; color: var(--grey-dark); text-transform: uppercase; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .footer-right p { font-size: 16px; font-weight: 300; line-height: 150%; }
+        .footer-right a { font-size: 16px; font-weight: 300; color: var(--white); text-decoration: underline; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #333; }
+        .footer-copyright { font-size: 14px; font-weight: 300; color: var(--grey-dark); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
+        .footer-links a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="suche.html" class="nav-logo">/AMBER</a>
+        <div class="nav-links">
+            <a href="suche.html">Suche</a>
+            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="mitteilungen.html">Mitteilungen</a>
+            <a href="postfach.html" class="active">Postfach</a>
+            <a href="transaktionen.html">Meine Transaktionen</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang"><span style="font-size:18px;">🇩🇪</span><span>German</span></div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="focus-group" id="focus-group">
+                    <a href="#">Zur Verkäuferansicht</a>
+                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Kontoeinstellungen</a>
+                    <a href="#">AMBER-Professional</a>
+                    <a href="#">Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- LEFT SIDEBAR -->
+        <div class="inbox-sidebar">
+            <h1 class="sidebar-title">Nachrichten</h1>
+
+            <div class="sidebar-content">
+                <!-- Search -->
+                <div class="inbox-search">
+                    <div class="inbox-search-inner">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Suche ...">
+                    </div>
+                    <button class="inbox-search-btn">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Conversations -->
+                <div class="conversation-list">
+                    <div class="conversation-item active">
+                        <div class="conversation-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="conversation-info">
+                            <span class="conversation-name">Fynn Jahnen</span>
+                            <span class="conversation-preview">Betreff: Etablierter Garten-...</span>
+                        </div>
+                    </div>
+                    <div class="conversation-item">
+                        <div class="conversation-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="conversation-info">
+                            <span class="conversation-name">Laura Meier</span>
+                            <span class="conversation-preview">Vielen Dank für Ihre Nachricht...</span>
+                        </div>
+                    </div>
+                    <div class="conversation-item">
+                        <div class="conversation-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="conversation-info">
+                            <span class="conversation-name">Thomas Berger</span>
+                            <span class="conversation-preview">Können wir einen Termin...</span>
+                        </div>
+                    </div>
+                    <div class="conversation-item">
+                        <div class="conversation-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="conversation-info">
+                            <span class="conversation-name">Sarah Koch</span>
+                            <span class="conversation-preview">Die Unterlagen sind bereit...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New message button -->
+                <button class="btn-new-message">Neue Nachricht</button>
+            </div>
+        </div>
+
+        <!-- RIGHT CHAT AREA -->
+        <div class="chat-area">
+            <!-- Chat header -->
+            <div class="chat-header">
+                <div class="chat-header-avatar"><i class="fa-solid fa-user"></i></div>
+                <div class="chat-header-info">
+                    <span class="chat-header-name">Fynn Jahnen</span>
+                    <span class="chat-header-subject">Betreff: Etablierter Garten- &amp; Landschaftsbauer mit langfristigen Verträgen</span>
+                </div>
+                <button class="chat-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Chat messages -->
+            <div class="chat-messages">
+                <div class="chat-message received">
+                    <span class="chat-message-sender">Fynn Jahnen</span>
+                    <span class="chat-message-text">Guten Tag, vielen Dank für Ihr Interesse an dem Inserat. Ich freue mich, dass Sie sich gemeldet haben.</span>
+                </div>
+                <div class="chat-message received">
+                    <span class="chat-message-sender">Fynn Jahnen</span>
+                    <span class="chat-message-text">Das Unternehmen ist seit über 20 Jahren am Markt etabliert und verfügt über langfristige Verträge mit kommunalen Auftraggebern.</span>
+                </div>
+                <div class="chat-message sent">
+                    <span class="chat-message-sender">Du</span>
+                    <span class="chat-message-text">Vielen Dank für die Informationen. Könnten Sie mir weitere Details zu den bestehenden Verträgen und der Mitarbeiterstruktur zukommen lassen?</span>
+                </div>
+                <div class="chat-message received">
+                    <span class="chat-message-sender">Fynn Jahnen</span>
+                    <span class="chat-message-text">Selbstverständlich. Ich werde Ihnen die entsprechenden Unterlagen im Laufe der Woche zusenden.</span>
+                </div>
+            </div>
+
+            <!-- Chat input -->
+            <div class="chat-input-bar">
+                <div class="chat-input-wrapper">
+                    <input type="text" placeholder="Nachricht eingeben">
+                    <button class="attach-btn"><i class="fa-solid fa-paperclip"></i></button>
+                </div>
+                <button class="btn-send">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Senden
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-logo">/AMBER</div>
+                <div class="footer-sub">BY DEALCIRCLE</div>
+            </div>
+            <div class="footer-right">
+                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
+                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 AMBER. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">AGB</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFocusGroup(e) {
+            e.stopPropagation();
+            var fg = document.getElementById('focus-group');
+            fg.classList.toggle('open');
+        }
+        document.addEventListener('click', function() {
+            var fg = document.getElementById('focus-group');
+            if (fg) fg.classList.remove('open');
+        });
+    </script>
+
+</body>
+</html>

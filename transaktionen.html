@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER – Meine Transaktionen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            display: flex; align-items: center; padding: 0 48px; height: 72px;
+            border-bottom: 1px solid #EEE; position: fixed; top: 0; width: 1440px;
+            background: var(--white); z-index: 100;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: var(--black); text-decoration: none; margin-right: 48px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+        .nav-links a { font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-lang { display: flex; align-items: center; gap: 8px; font-size: 14px; border: 1px solid var(--grey-light); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .nav-avatar-wrapper { position: relative; }
+        .nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grey-light); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .nav-avatar i { font-size: 18px; color: var(--grey-dark); }
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== MAIN ===== */
+        .main {
+            padding: 120px 48px 0;
+            width: 1440px;
+            min-height: calc(100vh - 72px);
+            background: var(--white);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 1344px;
+        }
+
+        /* Header row: title left, filter pills right */
+        .page-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .page-title {
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 120%;
+            color: var(--black);
+            width: 276px;
+            flex-shrink: 0;
+        }
+
+        .filter-pills {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-top: 8px;
+        }
+
+        .filter-pill {
+            display: flex;
+            align-items: center;
+            padding: 4px 18px;
+            gap: 4px;
+            height: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--grey-light);
+            background: var(--white);
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--black);
+            cursor: pointer;
+        }
+
+        .filter-pill.active {
+            border-color: var(--black);
+            font-weight: 600;
+        }
+
+        .filter-pill:hover {
+            border-color: var(--black);
+        }
+
+        .pill-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--black);
+        }
+
+        /* Content row: sidebar + main */
+        .content-row {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+        }
+
+        /* Left sub-navigation */
+        .sub-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 276px;
+            flex-shrink: 0;
+        }
+
+        .sub-nav-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            gap: 8px;
+            background: var(--white);
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-main);
+            width: auto;
+        }
+
+        .sub-nav-item:hover {
+            background: #F5F5F5;
+        }
+
+        .sub-nav-item.active {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .sub-nav-item i {
+            width: 20px;
+            font-size: 16px;
+            color: var(--black);
+            text-align: center;
+        }
+
+        .sub-nav-item span {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 150%;
+            color: #000;
+        }
+
+        .sub-nav-item.active span {
+            font-weight: 600;
+        }
+
+        /* Right content area */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            flex: 1;
+        }
+
+        /* Transaction cards */
+        .tx-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+            gap: 24px;
+            background: var(--white);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+        }
+
+        .tx-card-title {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 150%;
+            color: #000;
+        }
+
+        .tx-card-desc {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 150%;
+            color: #000;
+        }
+
+        .tx-card-actions {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .tx-action {
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 150%;
+            letter-spacing: 0.02em;
+            text-decoration: underline;
+            color: var(--black);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .tx-action:hover {
+            opacity: 0.7;
+        }
+
+        /* Empty state */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 25px;
+            gap: 16px;
+            background: var(--white);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+        }
+
+        .empty-state-text {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 150%;
+            color: #000;
+        }
+
+        /* Tab panels */
+        .tab-panel { display: none; }
+        .tab-panel.active { display: flex; flex-direction: column; gap: 24px; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
+            margin-top: 80px;
+        }
+        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-logo { font-size: 36px; font-weight: 800; letter-spacing: 3px; color: var(--white); }
+        .footer-sub { font-size: 12px; font-weight: 300; letter-spacing: 3px; color: var(--grey-dark); text-transform: uppercase; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .footer-right p { font-size: 16px; font-weight: 300; line-height: 150%; }
+        .footer-right a { font-size: 16px; font-weight: 300; color: var(--white); text-decoration: underline; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #333; }
+        .footer-copyright { font-size: 14px; font-weight: 300; color: var(--grey-dark); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
+        .footer-links a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="suche.html" class="nav-logo">/AMBER</a>
+        <div class="nav-links">
+            <a href="suche.html">Suche</a>
+            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="mitteilungen.html">Mitteilungen</a>
+            <a href="postfach.html">Postfach</a>
+            <a href="transaktionen.html" class="active">Meine Transaktionen</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang"><span style="font-size:18px;">🇩🇪</span><span>German</span></div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="focus-group" id="focus-group">
+                    <a href="#">Zur Verkäuferansicht</a>
+                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Kontoeinstellungen</a>
+                    <a href="#">AMBER-Professional</a>
+                    <a href="#">Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="container">
+
+            <!-- Header row -->
+            <div class="page-header">
+                <h1 class="page-title">Transaktionen</h1>
+                <!-- Filter pills change per tab -->
+                <div class="filter-pills" id="filter-pills"></div>
+            </div>
+
+            <!-- Content row -->
+            <div class="content-row">
+
+                <!-- Left sub-nav -->
+                <div class="sub-nav">
+                    <button class="sub-nav-item" onclick="switchTab('merkliste')" id="nav-merkliste">
+                        <i class="fa-regular fa-bookmark"></i>
+                        <span>Merkliste</span>
+                    </button>
+                    <button class="sub-nav-item active" onclick="switchTab('interessensbekundungen')" id="nav-interessensbekundungen">
+                        <i class="fa-regular fa-file"></i>
+                        <span>Interessensbekundungen</span>
+                    </button>
+                    <button class="sub-nav-item" onclick="switchTab('matches')" id="nav-matches">
+                        <i class="fa-regular fa-heart"></i>
+                        <span>Matches</span>
+                    </button>
+                </div>
+
+                <!-- Right content -->
+                <div class="content-area">
+
+                    <!-- MERKLISTE -->
+                    <div class="tab-panel" id="tab-merkliste">
+                        <div class="tx-card">
+                            <h3 class="tx-card-title">Investitionsgelegenheit in der dynamisch wachsenden ästhetischen Medizin</h3>
+                            <p class="tx-card-desc">In der attraktiven Nische der ästhetischen Medizin bietet dieses Unternehmen ein umfangreiches Portfolio an hochklassigen Dienstleistungen. Angeführt von einem Team aus Spitzenärzten garantiert es exzellente Behandlungserfolge. Mit einer starken Marke und einer steigenden Nachfrage nach ästhetischen Behandlungen...</p>
+                            <div class="tx-card-actions">
+                                <button class="tx-action">Von Merkliste entfernen</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INTERESSENSBEKUNDUNGEN -->
+                    <div class="tab-panel active" id="tab-interessensbekundungen">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">👋</div>
+                            <span class="empty-state-text">Du hast keine offenen Interessensbekundungen</span>
+                        </div>
+                    </div>
+
+                    <!-- MATCHES -->
+                    <div class="tab-panel" id="tab-matches">
+                        <div class="tx-card">
+                            <h3 class="tx-card-title">TEST - Marktführender Dachdeckerbetrieb mit PV-Anlagen-Expertise</h3>
+                            <p class="tx-card-desc">Das Unternehmen ist ein etablierter Marktführer in der Dachdeckerei mit spezialisierter Kompetenz bei der Installation von Photovoltaik-Anlagen. Es zeichnet sich durch innovative Methoden und eine hohe Qualitätsorientierung aus, wodurch es im Sektor der erneuerbaren Energien heraussticht. Eine Verschmelzung von traditionellem Handwerk und...</p>
+                            <div class="tx-card-actions">
+                                <button class="tx-action">Käuferprofil ansehen</button>
+                                <button class="tx-action">Verkäufer kontaktieren</button>
+                                <button class="tx-action">NDA herunterladen</button>
+                                <button class="tx-action">Match auflösen</button>
+                            </div>
+                        </div>
+                        <div class="tx-card">
+                            <h3 class="tx-card-title">Etablierter Garten- &amp; Landschaftsbauer mit langfristigen Verträgen</h3>
+                            <p class="tx-card-desc">Das etablierte Unternehmen im Garten- und Landschaftsbau überzeugt mit Vielseitigkeit und einem gesicherten Kundenstamm aus B2B, B2G und privaten Segmenten. Seine Marktdominanz in einer Kleinstadt und langfristige Verträge garantieren stetige Umsätze und Wachstumspotenzial.</p>
+                            <div class="tx-card-actions">
+                                <button class="tx-action">Käuferprofil ansehen</button>
+                                <button class="tx-action">Verkäufer kontaktieren</button>
+                                <button class="tx-action">NDA herunterladen</button>
+                                <button class="tx-action">Match auflösen</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-logo">/AMBER</div>
+                <div class="footer-sub">BY DEALCIRCLE</div>
+            </div>
+            <div class="footer-right">
+                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
+                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 AMBER. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">AGB</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFocusGroup(e) {
+            e.stopPropagation();
+            var fg = document.getElementById('focus-group');
+            fg.classList.toggle('open');
+        }
+        document.addEventListener('click', function() {
+            var fg = document.getElementById('focus-group');
+            if (fg) fg.classList.remove('open');
+        });
+
+        var filterConfigs = {
+            merkliste: [],
+            interessensbekundungen: [
+                { label: 'Offen', active: true },
+                { label: 'Abgelehnt', active: false }
+            ],
+            matches: [
+                { label: 'Aktiv', active: true },
+                { label: 'Inaktiv', active: false }
+            ]
+        };
+
+        function switchTab(tab) {
+            // Update sub-nav
+            document.querySelectorAll('.sub-nav-item').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            document.getElementById('nav-' + tab).classList.add('active');
+
+            // Update tab panels
+            document.querySelectorAll('.tab-panel').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            document.getElementById('tab-' + tab).classList.add('active');
+
+            // Update filter pills
+            var pillsContainer = document.getElementById('filter-pills');
+            pillsContainer.innerHTML = '';
+            var filters = filterConfigs[tab];
+            filters.forEach(function(f) {
+                var btn = document.createElement('button');
+                btn.className = 'filter-pill' + (f.active ? ' active' : '');
+                if (f.active) {
+                    btn.innerHTML = '<span class="pill-dot"></span> ' + f.label;
+                } else {
+                    btn.innerHTML = f.label;
+                }
+                pillsContainer.appendChild(btn);
+            });
+        }
+
+        // Initialize
+        switchTab('interessensbekundungen');
+    </script>
+
+</body>
+</html>

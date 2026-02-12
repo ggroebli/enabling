@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER – Suche</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* TWK Lausanne fallback: Inter is visually close */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --grey-bg: #F5F5F5;
+            --white: #FFFFFF;
+            --gradient-nda: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            display: flex;
+            align-items: center;
+            padding: 0 48px;
+            height: 72px;
+            border-bottom: 1px solid #EEEEEE;
+            position: fixed;
+            top: 0;
+            width: 1440px;
+            background: var(--white);
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--black);
+            text-decoration: none;
+            margin-right: 48px;
+        }
+
+        .nav-logo span {
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex: 1;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--black);
+            text-decoration: none;
+            line-height: 150%;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links .has-dropdown {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links .has-dropdown i {
+            font-size: 10px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-lang {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--black);
+            cursor: pointer;
+            border: 1px solid var(--grey-light);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .nav-lang img {
+            width: 20px;
+            height: 14px;
+            border-radius: 2px;
+        }
+
+        .nav-avatar-wrapper {
+            position: relative;
+        }
+
+        .nav-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--grey-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .nav-avatar i {
+            font-size: 18px;
+            color: var(--grey-dark);
+        }
+
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== MAIN LAYOUT ===== */
+        .page-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            width: 1440px;
+            min-height: calc(100vh - 72px);
+            margin-top: 72px;
+        }
+
+        /* ===== LEFT SIDEBAR / FILTER ===== */
+        .sidebar {
+            width: 300px;
+            min-height: calc(100vh - 72px);
+            padding: 48px 22px 48px 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: sticky;
+            top: 72px;
+            align-self: flex-start;
+            background: var(--white);
+        }
+
+        .filter-groups {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            width: 230px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .filter-label i {
+            font-size: 16px;
+            color: var(--black);
+            width: 20px;
+            text-align: center;
+        }
+
+        .filter-label span {
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 150%;
+            color: #000000;
+        }
+
+        .filter-inputs {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+        }
+
+        .filter-input {
+            flex: 1;
+            height: 40px;
+            border: 1px solid var(--grey-light);
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-family: var(--font-main);
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            outline: none;
+            width: 109px;
+        }
+
+        .filter-input:focus {
+            border-color: var(--grey-dark);
+        }
+
+        .filter-input.active {
+            border-color: var(--grey-dark);
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Activation date filter */
+        .filter-group-date {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-date-inputs {
+            display: flex;
+            gap: 12px;
+        }
+
+        .filter-date-input {
+            flex: 1;
+            height: 40px;
+            border: 1px solid var(--grey-light);
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-family: var(--font-main);
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            outline: none;
+            background: var(--white);
+        }
+
+        /* Checkbox filter */
+        .filter-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .filter-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--black);
+        }
+
+        .filter-checkbox label {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--black);
+            cursor: pointer;
+            line-height: 150%;
+        }
+
+        .filter-more {
+            font-size: 18px;
+            color: var(--black);
+            text-decoration: underline;
+            cursor: pointer;
+            padding-top: 12px;
+            font-weight: 400;
+            line-height: 150%;
+            text-align: center;
+        }
+
+        .sidebar-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            width: 230px;
+        }
+
+        .sidebar-search-btn {
+            width: 230px;
+            height: 43px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            background: transparent;
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--black);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .sidebar-search-btn:hover {
+            background: #f5f5f5;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            flex: 1;
+            padding: 0 48px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 1140px;
+        }
+
+        /* ===== SEARCH BAR ===== */
+        .search-bar-wrapper {
+            position: sticky;
+            top: 72px;
+            z-index: 50;
+            background: var(--white);
+            padding: 24px 0 0;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            height: 52px;
+            border: 1px solid var(--grey-light);
+            border-radius: 8px;
+            padding: 0 4px 0 16px;
+            gap: 12px;
+            background: var(--white);
+        }
+
+        .search-bar i.fa-magnifying-glass {
+            font-size: 16px;
+            color: var(--grey-dark);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--black);
+            background: transparent;
+        }
+
+        .search-bar input::placeholder {
+            color: var(--grey-dark);
+        }
+
+        .search-btn {
+            width: 44px;
+            height: 44px;
+            background: #22C55E;
+            border: none;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .search-btn i {
+            color: var(--white);
+            font-size: 18px;
+        }
+
+        .search-btn:hover {
+            background: #1DB954;
+        }
+
+        /* ===== RESULTS AREA ===== */
+        .results {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding-top: 24px;
+        }
+
+        /* ===== NDA BANNER ===== */
+        .nda-banner {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 25px;
+            gap: 30px;
+            background: var(--gradient-nda);
+            border-radius: 8px;
+            filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.15));
+        }
+
+        .nda-banner-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nda-banner-text h6 {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 140%;
+            color: #000000;
+        }
+
+        .nda-banner-text p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 150%;
+            color: #000000;
+        }
+
+        .nda-btn {
+            padding: 8px 20px;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            border-radius: 40px;
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 150%;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .nda-btn:hover {
+            background: #333;
+        }
+
+        /* ===== LISTING CARD ===== */
+        .listing-card {
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            gap: 24px;
+            background: var(--white);
+            border-radius: 8px;
+            filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.15));
+            min-height: 120px;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        .listing-card:hover {
+            background: var(--gradient-nda);
+        }
+
+        .listing-card-inner {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+        }
+
+        .listing-card-left {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            flex: 0 0 595px;
+            max-width: 595px;
+        }
+
+        .listing-card-title {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 130%;
+            color: var(--black);
+        }
+
+
+        .listing-card-desc {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 150%;
+            color: var(--black);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .listing-card-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .listing-meta {
+            display: flex;
+            gap: 0;
+            width: 100%;
+            position: relative;
+        }
+
+        .listing-meta-labels {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 115px;
+        }
+
+        .listing-meta-values {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-left: 24px;
+        }
+
+        .meta-row {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            height: 24px;
+        }
+
+        .meta-row i {
+            width: 20px;
+            font-size: 16px;
+            color: var(--black);
+            text-align: center;
+        }
+
+        .meta-row .meta-label {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 150%;
+            color: #000000;
+        }
+
+        .meta-row .meta-value {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 150%;
+            color: var(--grey-dark);
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            padding: 16px 0;
+        }
+
+        .pagination-input {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--grey-light);
+            border-radius: 6px;
+            text-align: center;
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--black);
+            outline: none;
+        }
+
+        .pagination-text {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--black);
+            line-height: 150%;
+        }
+
+        .pagination-next {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--black);
+            cursor: pointer;
+            text-decoration: none;
+            background: none;
+            border: none;
+            font-family: var(--font-main);
+        }
+
+        .pagination-next:hover {
+            opacity: 0.7;
+        }
+
+        .pagination-next i {
+            font-size: 14px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 48px 48px 32px;
+            width: 1440px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 48px;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: var(--white);
+        }
+
+        .footer-sub {
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--grey-dark);
+            text-transform: uppercase;
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+
+        .footer-right p {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 150%;
+            color: var(--white);
+        }
+
+        .footer-right a {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 24px;
+            border-top: 1px solid #333333;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--grey-dark);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">/AMBER</a>
+        <div class="nav-links">
+            <a href="suche.html">Suche</a>
+            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="mitteilungen.html">Mitteilungen</a>
+            <a href="postfach.html">Postfach</a>
+            <a href="transaktionen.html">Meine Transaktionen</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang">
+                <span style="font-size: 18px;">🇩🇪</span>
+                <span>German</span>
+            </div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="toggleFocusGroup(event)">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="focus-group" id="focus-group">
+                    <a href="#">Zur Verkäuferansicht</a>
+                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Kontoeinstellungen</a>
+                    <a href="#">AMBER-Professional</a>
+                    <a href="#">Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE WRAPPER ===== -->
+    <div class="page-wrapper">
+
+        <!-- ===== SIDEBAR / FILTER ===== -->
+        <aside class="sidebar">
+            <div class="filter-groups">
+                <!-- Umsatz -->
+                <div class="filter-group">
+                    <div class="filter-label">
+                        <i class="fa-solid fa-euro-sign"></i>
+                        <span>Umsatz <span style="font-weight: 300; color: #666; font-size: 14px;">(in €)</span></span>
+                    </div>
+                    <div class="filter-inputs">
+                        <input type="text" class="filter-input" placeholder="Min">
+                        <input type="text" class="filter-input" placeholder="Max">
+                    </div>
+                </div>
+
+                <!-- Ergebnis -->
+                <div class="filter-group">
+                    <div class="filter-label">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Ergebnis <span style="font-weight: 300; color: #666; font-size: 14px;">(in €)</span></span>
+                    </div>
+                    <div class="filter-inputs">
+                        <input type="text" class="filter-input" placeholder="Min">
+                        <input type="text" class="filter-input" placeholder="Max">
+                    </div>
+                </div>
+
+                <!-- Gewinnmarge -->
+                <div class="filter-group">
+                    <div class="filter-label">
+                        <i class="fa-solid fa-percent"></i>
+                        <span>Gewinnmarge <span style="font-weight: 300; color: #666; font-size: 14px;">(in €)</span></span>
+                    </div>
+                    <div class="filter-inputs">
+                        <input type="text" class="filter-input" placeholder="Min">
+                        <input type="text" class="filter-input" placeholder="Max">
+                    </div>
+                </div>
+
+                <!-- Mitarbeiter -->
+                <div class="filter-group">
+                    <div class="filter-label">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Mitarbeiter</span>
+                    </div>
+                    <div class="filter-inputs">
+                        <input type="text" class="filter-input" placeholder="Min">
+                        <input type="text" class="filter-input" placeholder="Max">
+                    </div>
+                </div>
+
+                <!-- Aktivierungsdatum -->
+                <div class="filter-group">
+                    <div class="filter-label">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span>Aktivierungsdatum</span>
+                    </div>
+                    <div class="filter-inputs">
+                        <input type="text" class="filter-input" placeholder="Von">
+                        <input type="text" class="filter-input" placeholder="Bis">
+                    </div>
+                </div>
+
+                <!-- Checkbox -->
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="hidden-listings">
+                        <label for="hidden-listings">Ausgeblendete Inserate In Suche anzeigen</label>
+                    </div>
+                </div>
+
+                <!-- Mehr anzeigen -->
+                <div class="filter-more">Mehr anzeigen</div>
+            </div>
+
+            <div class="sidebar-bottom" style="margin-top: 32px;">
+                <button class="sidebar-search-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                    Filter zurücksetzen
+                </button>
+            </div>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="main-content">
+            <!-- Search Bar -->
+            <div class="search-bar-wrapper">
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Suche">
+                    <button class="search-btn">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="results">
+
+                <!-- Card 1 -->
+                <a href="listing.html" style="text-decoration:none;color:inherit;display:block;"><div class="listing-card">
+                    <div class="listing-card-inner">
+                        <div class="listing-card-left">
+                            <h3 class="listing-card-title">
+Wachstumsstarker Spezialanbieter für flexible Kraftübertragung und Präzisionsdrehtechnik
+                            </h3>
+                            <p class="listing-card-desc">
+                                Die dynamische Entwicklung in den von dem Unternehmen adressierten Zukunftsmärkten – darunter Luft- und Raumfahrt, Medizintechnik sowie Defense – bildet die Grundlage für eine signifikante Wachstumsprognose. Auf dieser Grundlage ist für den Zeitraum von 2025 bis 2031...
+                            </p>
+                        </div>
+                        <div class="listing-card-right">
+                            <div class="listing-meta">
+                                <div class="listing-meta-labels">
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span class="meta-label">Standort</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-coins"></i>
+                                        <span class="meta-label">Umsatz</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-chart-simple"></i>
+                                        <span class="meta-label">Ergebnis</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-user-group"></i>
+                                        <span class="meta-label">Mitarbeiter</span>
+                                    </div>
+                                </div>
+                                <div class="listing-meta-values">
+                                    <div class="meta-row">
+                                        <span class="meta-value">Baden-Württemberg</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">2.400.000 €</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">331.000 €</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></a>
+
+                <!-- Card 2 -->
+                <a href="listing.html" style="text-decoration:none;color:inherit;display:block;"><div class="listing-card">
+                    <div class="listing-card-inner">
+                        <div class="listing-card-left">
+                            <h3 class="listing-card-title">
+Indoor-Leisure-Gruppe (&gt;3,2 Mio. € EBITDA) | Buy &amp; Build
+                            </h3>
+                            <p class="listing-card-desc">
+                                Das Unternehmen, eine Premium-Indoor-Freizeitgruppe, bietet ein einzigartiges "Multi-Category"-Konzept mit moderner E-Kart-Bahn und High-Tech-Bowlingcenter. Mit einer EBITDA-Marge von >46%, führender Technologie für Skalierung und einer soliden Position im wachsenden Markt für "Experience...
+                            </p>
+                        </div>
+                        <div class="listing-card-right">
+                            <div class="listing-meta">
+                                <div class="listing-meta-labels">
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span class="meta-label">Standort</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-coins"></i>
+                                        <span class="meta-label">Umsatz</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-chart-simple"></i>
+                                        <span class="meta-label">Ergebnis</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-user-group"></i>
+                                        <span class="meta-label">Mitarbeiter</span>
+                                    </div>
+                                </div>
+                                <div class="listing-meta-values">
+                                    <div class="meta-row">
+                                        <span class="meta-value">Deutschland</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">6.800.000 €</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">3.200.000 €</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">–</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></a>
+
+                <!-- Card 3 -->
+                <a href="listing.html" style="text-decoration:none;color:inherit;display:block;"><div class="listing-card">
+                    <div class="listing-card-inner">
+                        <div class="listing-card-left">
+                            <h3 class="listing-card-title">
+Etablierter IT-Dienstleister mit starkem Kundenstamm im Mittelstand
+                            </h3>
+                            <p class="listing-card-desc">
+                                Das Unternehmen bietet seit über 15 Jahren maßgeschneiderte IT-Lösungen für mittelständische Unternehmen an. Mit einem diversifizierten Portfolio aus Managed Services, Cloud-Migration und Cybersecurity-Beratung hat sich das Unternehmen eine starke Marktposition erarbeitet...
+                            </p>
+                        </div>
+                        <div class="listing-card-right">
+                            <div class="listing-meta">
+                                <div class="listing-meta-labels">
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span class="meta-label">Standort</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-coins"></i>
+                                        <span class="meta-label">Umsatz</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-chart-simple"></i>
+                                        <span class="meta-label">Ergebnis</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-user-group"></i>
+                                        <span class="meta-label">Mitarbeiter</span>
+                                    </div>
+                                </div>
+                                <div class="listing-meta-values">
+                                    <div class="meta-row">
+                                        <span class="meta-value">Bayern</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">4.500.000 €</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">890.000 €</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">35</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></a>
+
+                <!-- Card 4 -->
+                <a href="listing.html" style="text-decoration:none;color:inherit;display:block;"><div class="listing-card">
+                    <div class="listing-card-inner">
+                        <div class="listing-card-left">
+                            <h3 class="listing-card-title">
+Spezialisierte Personalberatung mit Fokus auf Führungskräfte im Healthcare-Sektor
+                            </h3>
+                            <p class="listing-card-desc">
+                                Das Beratungsunternehmen hat sich auf die Vermittlung von Führungskräften und Spezialisten im Gesundheitswesen spezialisiert. Durch langjährige Beziehungen zu Kliniken, Pharmakonzernen und MedTech-Unternehmen verfügt das Unternehmen über ein einzigartiges Netzwerk...
+                            </p>
+                        </div>
+                        <div class="listing-card-right">
+                            <div class="listing-meta">
+                                <div class="listing-meta-labels">
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span class="meta-label">Standort</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-coins"></i>
+                                        <span class="meta-label">Umsatz</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-chart-simple"></i>
+                                        <span class="meta-label">Ergebnis</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-user-group"></i>
+                                        <span class="meta-label">Mitarbeiter</span>
+                                    </div>
+                                </div>
+                                <div class="listing-meta-values">
+                                    <div class="meta-row">
+                                        <span class="meta-value">Hamburg</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">3.200.000 €</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">520.000 €</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">28</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></a>
+
+                <!-- Card 5 -->
+                <a href="listing.html" style="text-decoration:none;color:inherit;display:block;"><div class="listing-card">
+                    <div class="listing-card-inner">
+                        <div class="listing-card-left">
+                            <h3 class="listing-card-title">
+Wachstumsstarke Zeitarbeitsfirma mit Top-Kundenportfolio
+                            </h3>
+                            <p class="listing-card-desc">
+                                Das Unternehmen zeichnet sich in der Zeitarbeitsbranche durch ein diversifiziertes attraktives Kundenportfolio und langjährige Partnerschaften aus. Spezialisiert auf Fach- und Führungskräfte, bietet es maßgeschneiderte Personallösungen und qualitativ hochwertige Dienstleistungen, die...
+                            </p>
+                        </div>
+                        <div class="listing-card-right">
+                            <div class="listing-meta">
+                                <div class="listing-meta-labels">
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span class="meta-label">Standort</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-coins"></i>
+                                        <span class="meta-label">Umsatz</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-chart-simple"></i>
+                                        <span class="meta-label">Ergebnis</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-user-group"></i>
+                                        <span class="meta-label">Mitarbeiter</span>
+                                    </div>
+                                </div>
+                                <div class="listing-meta-values">
+                                    <div class="meta-row">
+                                        <span class="meta-value">Nordrhein-Westfalen</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">7.000.000 €</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">700.000 €</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-value">170</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></a>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <input type="text" class="pagination-input" value="1">
+                <span class="pagination-text">von 45</span>
+                <button class="pagination-next">
+                    Nächste <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-logo">/AMBER</div>
+                <div class="footer-sub">BY DEALCIRCLE</div>
+            </div>
+            <div class="footer-right">
+                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
+                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 AMBER. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">AGB</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFocusGroup(e) {
+            e.stopPropagation();
+            var fg = document.getElementById('focus-group');
+            fg.classList.toggle('open');
+        }
+        document.addEventListener('click', function() {
+            var fg = document.getElementById('focus-group');
+            if (fg) fg.classList.remove('open');
+        });
+    </script>
+
+</body>
+</html>

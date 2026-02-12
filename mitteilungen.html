@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER – Mitteilungen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            --purple: #D55FFF;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            display: flex; align-items: center; padding: 0 48px; height: 72px;
+            border-bottom: 1px solid #EEE; position: fixed; top: 0; width: 1440px;
+            background: var(--white); z-index: 100;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: var(--black); text-decoration: none; margin-right: 48px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+        .nav-links a { font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-lang { display: flex; align-items: center; gap: 8px; font-size: 14px; border: 1px solid var(--grey-light); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .nav-avatar-wrapper { position: relative; }
+        .nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grey-light); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .nav-avatar i { font-size: 18px; color: var(--grey-dark); }
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== MAIN ===== */
+        .main {
+            padding: 120px 48px 0;
+            width: 1440px;
+            min-height: calc(100vh - 72px);
+            background: var(--white);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 1344px;
+        }
+
+        /* Page title */
+        .page-title {
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 120%;
+            color: var(--black);
+        }
+
+        /* Filter bar row */
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .filter-tabs {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .filter-tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--black);
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .filter-tab.active {
+            font-weight: 600;
+            border-bottom: 2px solid var(--black);
+        }
+
+        .filter-tab:hover {
+            opacity: 0.7;
+        }
+
+        .filter-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .filter-dot.purple { background: var(--purple); }
+        .filter-dot.orange { background: #FF8C00; }
+        .filter-dot.grey { background: var(--grey-light); }
+
+        .mark-all-read {
+            font-family: var(--font-main);
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            text-decoration: underline;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mark-all-read:hover {
+            color: var(--black);
+        }
+
+        /* Notification list */
+        .notification-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .notification-card {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 25px;
+            gap: 24px;
+            background: var(--white);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        .notification-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 36px;
+            flex: 1;
+        }
+
+        .notification-date-col {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 132px;
+        }
+
+        .unread-dot {
+            width: 16px;
+            height: 16px;
+            min-width: 16px;
+            border-radius: 50%;
+            background: var(--purple);
+        }
+
+        .unread-dot.hidden {
+            visibility: hidden;
+        }
+
+        .notification-date {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 150%;
+            color: var(--black);
+            white-space: nowrap;
+        }
+
+        .notification-text {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 150%;
+            color: #000000;
+            flex: 1;
+        }
+
+        .notification-action {
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 150%;
+            color: var(--black);
+            text-decoration: underline;
+            background: none;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+
+        .notification-action:hover {
+            opacity: 0.7;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
+            margin-top: 80px;
+        }
+        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-logo { font-size: 36px; font-weight: 800; letter-spacing: 3px; color: var(--white); }
+        .footer-sub { font-size: 12px; font-weight: 300; letter-spacing: 3px; color: var(--grey-dark); text-transform: uppercase; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .footer-right p { font-size: 16px; font-weight: 300; line-height: 150%; }
+        .footer-right a { font-size: 16px; font-weight: 300; color: var(--white); text-decoration: underline; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #333; }
+        .footer-copyright { font-size: 14px; font-weight: 300; color: var(--grey-dark); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
+        .footer-links a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="suche.html" class="nav-logo">/AMBER</a>
+        <div class="nav-links">
+            <a href="suche.html">Suche</a>
+            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="mitteilungen.html" class="active">Mitteilungen</a>
+            <a href="postfach.html">Postfach</a>
+            <a href="transaktionen.html">Meine Transaktionen</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang"><span style="font-size:18px;">🇩🇪</span><span>German</span></div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="focus-group" id="focus-group">
+                    <a href="#">Zur Verkäuferansicht</a>
+                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Kontoeinstellungen</a>
+                    <a href="#">AMBER-Professional</a>
+                    <a href="#">Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="container">
+
+            <!-- Title -->
+            <h1 class="page-title">Mitteilungen</h1>
+
+            <!-- Filter bar -->
+            <div class="filter-bar">
+                <div class="filter-tabs">
+                    <button class="filter-tab active">
+                        <span class="filter-dot purple"></span>
+                        Alle
+                    </button>
+                    <button class="filter-tab">
+                        <span class="filter-dot orange"></span>
+                        Ungelesen
+                    </button>
+                    <button class="filter-tab">
+                        <span class="filter-dot grey"></span>
+                        Gelesen
+                    </button>
+                </div>
+                <button class="mark-all-read">Alle als gelesen markieren</button>
+            </div>
+
+            <!-- Notification list -->
+            <div class="notification-list">
+
+                <!-- Notification 1 - unread -->
+                <div class="notification-card">
+                    <div class="notification-left">
+                        <div class="notification-date-col">
+                            <div class="unread-dot"></div>
+                            <span class="notification-date">08.02.2026</span>
+                        </div>
+                        <p class="notification-text">Benjamin Tischanneri hat dein Match für "Exklusive Innenarchitektur &amp; Bauplanungsunternehmen mit stetigem Wachstum" aufgelöst, sodass dein Status auf "Ausgeschieden" geändert wurde.</p>
+                    </div>
+                    <button class="notification-action">Verkäufer kontaktieren</button>
+                </div>
+
+                <!-- Notification 2 - read -->
+                <div class="notification-card">
+                    <div class="notification-left">
+                        <div class="notification-date-col">
+                            <div class="unread-dot hidden"></div>
+                            <span class="notification-date">03.02.2026</span>
+                        </div>
+                        <p class="notification-text">Gerade wurde ein Inserat mit dem Titel "Umweltfreundliche Bienenwachsprodukte Marke mit etablierten ASINs" hochgeladen, das den Kriterien deines Suchauftrags "E-Commerce" entspricht.</p>
+                    </div>
+                    <button class="notification-action">Inserat ansehen</button>
+                </div>
+
+                <!-- Notification 3 - read -->
+                <div class="notification-card">
+                    <div class="notification-left">
+                        <div class="notification-date-col">
+                            <div class="unread-dot hidden"></div>
+                            <span class="notification-date">29.01.2026</span>
+                        </div>
+                        <p class="notification-text">Gerade wurde ein Inserat mit dem Titel "Etablierte Amazon FBA Handtuch Marke " hochgeladen, das den Kriterien deines Suchauftrags "E-Commerce" entspricht.</p>
+                    </div>
+                    <button class="notification-action">Inserat ansehen</button>
+                </div>
+
+                <!-- Notification 4 - read -->
+                <div class="notification-card">
+                    <div class="notification-left">
+                        <div class="notification-date-col">
+                            <div class="unread-dot hidden"></div>
+                            <span class="notification-date">27.01.2026</span>
+                        </div>
+                        <p class="notification-text">Gerade wurde ein Inserat mit dem Titel "Führende europäische E-Commerce-Plattform für personalisierte Bekleidung und Geschenkartikel mit einem skalierbaren Print-on-Demand-Geschäftsmodell" hochgeladen, das den Kriterien deines Suchauftrags "Suchalarm Nr. 7" entspricht.</p>
+                    </div>
+                    <button class="notification-action">Inserat ansehen</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-logo">/AMBER</div>
+                <div class="footer-sub">BY DEALCIRCLE</div>
+            </div>
+            <div class="footer-right">
+                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
+                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 AMBER. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">AGB</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFocusGroup(e) {
+            e.stopPropagation();
+            var fg = document.getElementById('focus-group');
+            fg.classList.toggle('open');
+        }
+        document.addEventListener('click', function() {
+            var fg = document.getElementById('focus-group');
+            if (fg) fg.classList.remove('open');
+        });
+    </script>
+
+</body>
+</html>

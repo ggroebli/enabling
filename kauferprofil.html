@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER – Käuferprofil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            display: flex; align-items: center; padding: 0 48px; height: 72px;
+            border-bottom: 1px solid #EEE; position: fixed; top: 0; width: 1440px;
+            background: var(--white); z-index: 100;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: var(--black); text-decoration: none; margin-right: 48px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+        .nav-links a { font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-lang { display: flex; align-items: center; gap: 8px; font-size: 14px; border: 1px solid var(--grey-light); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .nav-avatar-wrapper { position: relative; }
+        .nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grey-light); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .nav-avatar i { font-size: 18px; color: var(--grey-dark); }
+
+        /* Focus Group Dropdown */
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== MAIN ===== */
+        .main {
+            padding: 120px 48px 0;
+            width: 1440px;
+            min-height: calc(100vh - 72px);
+            background: var(--white);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 1344px;
+        }
+
+        /* Page title */
+        .page-title {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 130%;
+            color: var(--black);
+            padding-bottom: 24px;
+        }
+
+        /* Profile sections - shared card style */
+        .profile-card {
+            display: flex;
+            align-items: flex-start;
+            padding: 48px;
+            gap: 48px;
+            background: var(--white);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+        }
+
+        /* Profile header card */
+        .profile-photo {
+            width: 216px;
+            height: 216px;
+            border-radius: 108px;
+            background: #E0E0E0;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .profile-photo i {
+            font-size: 90px;
+            color: #000;
+            opacity: 0.3;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 24px;
+            flex: 1;
+            min-height: 216px;
+        }
+
+        .profile-name-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 150%;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .verified-badge {
+            width: 20px;
+            height: 20px;
+            background: #4A90D9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .verified-badge i {
+            font-size: 11px;
+            color: var(--white);
+        }
+
+        .btn-edit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 20px;
+            height: 43px;
+            background: var(--black);
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-edit:hover {
+            opacity: 0.85;
+        }
+
+        .btn-edit i {
+            font-size: 16px;
+        }
+
+        .info-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .info-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 300px;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 150%;
+            color: var(--black);
+        }
+
+        .info-label i {
+            width: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .info-value {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 150%;
+            color: var(--black);
+        }
+
+        /* Section cards (Über mich, Kontakt, Weiterführende) */
+        .section-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 150%;
+            color: #000;
+        }
+
+        .section-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .section-text {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 150%;
+            color: var(--black);
+        }
+
+        .section-btn {
+            display: flex;
+            align-items: flex-start;
+            flex-shrink: 0;
+        }
+
+        .info-value a {
+            color: var(--black);
+            text-decoration: underline;
+        }
+
+        .info-value a:hover {
+            opacity: 0.7;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
+            margin-top: 80px;
+        }
+        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-logo { font-size: 36px; font-weight: 800; letter-spacing: 3px; color: var(--white); }
+        .footer-sub { font-size: 12px; font-weight: 300; letter-spacing: 3px; color: var(--grey-dark); text-transform: uppercase; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .footer-right p { font-size: 16px; font-weight: 300; line-height: 150%; }
+        .footer-right a { font-size: 16px; font-weight: 300; color: var(--white); text-decoration: underline; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #333; }
+        .footer-copyright { font-size: 14px; font-weight: 300; color: var(--grey-dark); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
+        .footer-links a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="suche.html" class="nav-logo">/AMBER</a>
+        <div class="nav-links">
+            <a href="suche.html">Suche</a>
+            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="mitteilungen.html">Mitteilungen</a>
+            <a href="postfach.html">Postfach</a>
+            <a href="transaktionen.html">Meine Transaktionen</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang"><span style="font-size:18px;">🇩🇪</span><span>German</span></div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="focus-group" id="focus-group">
+                    <a href="#">Zur Verkäuferansicht</a>
+                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Kontoeinstellungen</a>
+                    <a href="#">AMBER-Professional</a>
+                    <a href="#">Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="container">
+
+            <!-- Title -->
+            <h1 class="page-title">Mein Käuferprofil</h1>
+
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <div class="profile-photo">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name-row">
+                        <span class="profile-name">
+                            Florian Adomeit
+                            <span class="verified-badge"><i class="fa-solid fa-check"></i></span>
+                        </span>
+                        <button class="btn-edit">
+                            <i class="fa-solid fa-pen"></i>
+                            Bearbeiten
+                        </button>
+                    </div>
+                    <div class="info-rows">
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-user"></i> Position</span>
+                            <span class="info-value">Chief Platform Officer</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-building"></i> Unternehmen</span>
+                            <span class="info-value">DealCircle</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-file"></i> Rechtsform eingeben</span>
+                            <span class="info-value">Keine Angabe</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-solid fa-list"></i> Käufertyp</span>
+                            <span class="info-value">Finanzinvestor</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-solid fa-briefcase"></i> Branchenfokus</span>
+                            <span class="info-value">FinTech, Agentur</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-circle-dot"></i> Verfügbares Eigenkapital</span>
+                            <span class="info-value">Keine Angabe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Über mich -->
+            <div class="profile-card">
+                <div class="section-content">
+                    <h2 class="section-title">Über mich</h2>
+                    <div class="section-rows">
+                        <span class="section-text">Keine Angabe</span>
+                    </div>
+                </div>
+                <div class="section-btn">
+                    <button class="btn-edit">
+                        <i class="fa-solid fa-pen"></i>
+                        Bearbeiten
+                    </button>
+                </div>
+            </div>
+
+            <!-- Kontakt -->
+            <div class="profile-card">
+                <div class="section-content">
+                    <h2 class="section-title">Kontakt</h2>
+                    <div class="section-rows">
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-envelope"></i> E-Mail</span>
+                            <span class="info-value">florian.adomeit@dealcircle.com</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-solid fa-phone"></i> Telefon</span>
+                            <span class="info-value">0176 30384726</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-map"></i> Adresse</span>
+                            <span class="info-value">Speersort 1, 20095 Hamburg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-btn">
+                    <button class="btn-edit">
+                        <i class="fa-solid fa-pen"></i>
+                        Bearbeiten
+                    </button>
+                </div>
+            </div>
+
+            <!-- Weiterführende Informationen -->
+            <div class="profile-card">
+                <div class="section-content">
+                    <h2 class="section-title">Weiterführende Informationen</h2>
+                    <div class="section-rows">
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-solid fa-globe"></i> Website</span>
+                            <span class="info-value"><a href="#">https://www.amber.deals/</a></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</span>
+                            <span class="info-value"><a href="#">https://www.linkedin.com/in/florian-adomeit/</a></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-file-lines"></i> Lebenslauf</span>
+                            <span class="info-value">Keine Angabe</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-btn">
+                    <button class="btn-edit">
+                        <i class="fa-solid fa-pen"></i>
+                        Bearbeiten
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-logo">/AMBER</div>
+                <div class="footer-sub">BY DEALCIRCLE</div>
+            </div>
+            <div class="footer-right">
+                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
+                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 AMBER. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">AGB</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFocusGroup(e) {
+            e.stopPropagation();
+            var fg = document.getElementById('focus-group');
+            fg.classList.toggle('open');
+        }
+        document.addEventListener('click', function() {
+            var fg = document.getElementById('focus-group');
+            if (fg) fg.classList.remove('open');
+        });
+    </script>
+
+</body>
+</html>
