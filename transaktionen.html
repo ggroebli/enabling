@@ -259,6 +259,114 @@
         .tab-panel { display: none; }
         .tab-panel.active { display: flex; flex-direction: column; gap: 24px; }
 
+        /* ===== ENABLEMENT: Contextual Academy Cards ===== */
+        .academy-context {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 24px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF;
+            border-radius: 8px;
+        }
+
+        .academy-context-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .academy-context-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .academy-context-title i {
+            color: #10B981;
+            font-size: 18px;
+        }
+
+        .academy-context-link {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--grey-dark);
+            text-decoration: none;
+        }
+
+        .academy-context-link:hover {
+            color: var(--black);
+            text-decoration: underline;
+        }
+
+        .academy-modules-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .academy-mini-card {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .academy-mini-card:hover {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #10B981;
+        }
+
+        .mini-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .mini-card-icon.prep { background: #EDE9FE; color: #7C3AED; }
+        .mini-card-icon.deal { background: #DBEAFE; color: #2563EB; }
+
+        .mini-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+
+        .mini-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 140%;
+        }
+
+        .mini-card-meta {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--grey-dark);
+        }
+
+        .mini-card-arrow {
+            font-size: 14px;
+            color: var(--grey-light);
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
@@ -289,9 +397,10 @@
             <a href="mitteilungen.html">Mitteilungen</a>
             <a href="postfach.html">Postfach</a>
             <a href="transaktionen.html" class="active">Meine Transaktionen</a>
+            <a href="academy.html">Academy</a>
         </div>
         <div class="nav-right">
-            <div class="nav-lang"><span style="font-size:18px;">🇩🇪</span><span>German</span></div>
+            <div class="nav-lang"><span style="font-weight:600; font-size:12px; background:#F3F4F6; padding:2px 6px; border-radius:3px;">DE</span><span>Deutsch</span></div>
             <div class="nav-avatar-wrapper">
                 <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
                 <div class="focus-group" id="focus-group">
@@ -347,6 +456,31 @@
                                 <button class="tx-action">Von Merkliste entfernen</button>
                             </div>
                         </div>
+                        <!-- ENABLEMENT: Contextual Academy -->
+                        <div class="academy-context">
+                            <div class="academy-context-header">
+                                <span class="academy-context-title"><i class="fa-solid fa-graduation-cap"></i> Passende Academy-Module</span>
+                                <a href="academy.html" class="academy-context-link">Alle Module ansehen →</a>
+                            </div>
+                            <div class="academy-modules-row">
+                                <a href="academy.html" class="academy-mini-card">
+                                    <div class="mini-card-icon deal"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                                    <div class="mini-card-content">
+                                        <span class="mini-card-title">Inserate richtig lesen</span>
+                                        <span class="mini-card-meta">10 Min. · Video</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right mini-card-arrow"></i>
+                                </a>
+                                <a href="academy.html" class="academy-mini-card">
+                                    <div class="mini-card-icon deal"><i class="fa-solid fa-calculator"></i></div>
+                                    <div class="mini-card-content">
+                                        <span class="mini-card-title">Unternehmensbewertung</span>
+                                        <span class="mini-card-meta">20 Min. · Video</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right mini-card-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- INTERESSENSBEKUNDUNGEN -->
@@ -355,10 +489,68 @@
                             <div class="empty-state-icon">👋</div>
                             <span class="empty-state-text">Du hast keine offenen Interessensbekundungen</span>
                         </div>
+                        <!-- ENABLEMENT: Contextual Academy for empty state -->
+                        <div class="academy-context">
+                            <div class="academy-context-header">
+                                <span class="academy-context-title"><i class="fa-solid fa-graduation-cap"></i> Bereite dich vor, während du wartest</span>
+                                <a href="academy.html" class="academy-context-link">Alle Module ansehen →</a>
+                            </div>
+                            <div class="academy-modules-row">
+                                <a href="academy.html" class="academy-mini-card">
+                                    <div class="mini-card-icon prep"><i class="fa-solid fa-piggy-bank"></i></div>
+                                    <div class="mini-card-content">
+                                        <span class="mini-card-title">Finanzierung verstehen</span>
+                                        <span class="mini-card-meta">15 Min. · Video · +10% Score</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right mini-card-arrow"></i>
+                                </a>
+                                <a href="academy.html" class="academy-mini-card">
+                                    <div class="mini-card-icon prep"><i class="fa-solid fa-id-card"></i></div>
+                                    <div class="mini-card-content">
+                                        <span class="mini-card-title">Überzeuge mit deinem Profil</span>
+                                        <span class="mini-card-meta">5 Min. · Guide · +5% Score</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right mini-card-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- MATCHES -->
                     <div class="tab-panel" id="tab-matches">
+                        <!-- ENABLEMENT: Contextual Academy for Match phase -->
+                        <div class="academy-context">
+                            <div class="academy-context-header">
+                                <span class="academy-context-title"><i class="fa-solid fa-graduation-cap"></i> Du hast Matches – bereite dich auf den nächsten Schritt vor</span>
+                                <a href="academy.html" class="academy-context-link">Alle Module ansehen →</a>
+                            </div>
+                            <div class="academy-modules-row">
+                                <a href="academy.html" class="academy-mini-card">
+                                    <div class="mini-card-icon deal"><i class="fa-solid fa-handshake"></i></div>
+                                    <div class="mini-card-content">
+                                        <span class="mini-card-title">NDA & Erstkontakt</span>
+                                        <span class="mini-card-meta">12 Min. · Checkliste</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right mini-card-arrow"></i>
+                                </a>
+                                <a href="academy.html" class="academy-mini-card">
+                                    <div class="mini-card-icon deal"><i class="fa-solid fa-file-signature"></i></div>
+                                    <div class="mini-card-content">
+                                        <span class="mini-card-title">LOI & Verhandlung</span>
+                                        <span class="mini-card-meta">15 Min. · Template</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right mini-card-arrow"></i>
+                                </a>
+                                <a href="academy.html" class="academy-mini-card">
+                                    <div class="mini-card-icon deal"><i class="fa-solid fa-clipboard-check"></i></div>
+                                    <div class="mini-card-content">
+                                        <span class="mini-card-title">Due Diligence</span>
+                                        <span class="mini-card-meta">15 Min. · Checkliste</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right mini-card-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
                         <div class="tx-card">
                             <h3 class="tx-card-title">TEST - Marktführender Dachdeckerbetrieb mit PV-Anlagen-Expertise</h3>
                             <p class="tx-card-desc">Das Unternehmen ist ein etablierter Marktführer in der Dachdeckerei mit spezialisierter Kompetenz bei der Installation von Photovoltaik-Anlagen. Es zeichnet sich durch innovative Methoden und eine hohe Qualitätsorientierung aus, wodurch es im Sektor der erneuerbaren Energien heraussticht. Eine Verschmelzung von traditionellem Handwerk und...</p>

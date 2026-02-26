@@ -450,6 +450,780 @@
             font-size: 14px; font-weight: 300; color: var(--black);
         }
 
+        /* ===== ENABLEMENT: KI-Analyse ===== */
+        .ki-analyse {
+            width: 944px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF;
+            border-radius: 12px;
+            padding: 12px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .ki-analyse-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 2px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .ki-analyse-header:hover {
+            background: rgba(124, 58, 237, 0.05);
+        }
+
+        .ki-analyse-header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .ki-analyse-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .ki-analyse-title i {
+            font-size: 20px;
+            color: #7C3AED;
+        }
+
+        .ki-analyse-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--grey-dark);
+        }
+
+        .ki-analyse-badge i {
+            font-size: 12px;
+            color: #7C3AED;
+        }
+
+        .ki-analyse-match-inline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 12px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+            margin-right: 12px;
+        }
+
+        .ki-match-score-inline {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #10B981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .ki-match-text-inline {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .ki-match-label-inline {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 1.2;
+        }
+
+        .ki-match-reasons-inline {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 1.2;
+        }
+
+        .ki-analyse-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(124, 58, 237, 0.1);
+            flex-shrink: 0;
+            transition: transform 0.3s, background 0.2s;
+        }
+
+        .ki-analyse-toggle i {
+            font-size: 14px;
+            color: #7C3AED;
+            transition: transform 0.3s;
+        }
+
+        .ki-analyse-toggle.open i {
+            transform: rotate(180deg);
+        }
+
+        .ki-analyse-body {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+
+        .ki-analyse-body.open {
+            max-height: 2000px;
+            opacity: 1;
+        }
+
+        .ki-analyse-match {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 24px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .ki-match-score {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #10B981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .ki-match-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .ki-match-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .ki-match-reasons {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 150%;
+        }
+
+        .ki-analyse-columns {
+            display: flex;
+            gap: 16px;
+        }
+
+        .ki-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .ki-column-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .ki-column-header.chancen { color: #059669; }
+        .ki-column-header.chancen i { color: #10B981; }
+        .ki-column-header.risiken { color: #DC2626; }
+        .ki-column-header.risiken i { color: #EF4444; }
+
+        .ki-column-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .ki-column-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--black);
+            line-height: 150%;
+        }
+
+        .ki-column-list li i {
+            font-size: 12px;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .ki-column.chancen li i { color: #10B981; }
+        .ki-column.risiken li i { color: #EF4444; }
+
+        .ki-analyse-questions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .ki-questions-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #2563EB;
+        }
+
+        .ki-questions-header i {
+            color: #2563EB;
+        }
+
+        .ki-questions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .ki-questions-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--black);
+            line-height: 150%;
+        }
+
+        .ki-questions-list li i {
+            font-size: 12px;
+            margin-top: 5px;
+            flex-shrink: 0;
+            color: #2563EB;
+        }
+
+        .ki-analyse-hint {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 150%;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ki-analyse-hint i {
+            font-size: 12px;
+            color: var(--grey-light);
+        }
+
+        /* ===== ENABLEMENT: Finanzierung ===== */
+        .finanzierung-modul {
+            width: 944px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF;
+            border-radius: 12px;
+            padding: 12px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .finanzierung-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 2px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .finanzierung-header:hover {
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .finanzierung-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.1);
+            flex-shrink: 0;
+            transition: transform 0.3s, background 0.2s;
+        }
+
+        .finanzierung-toggle i {
+            font-size: 14px;
+            color: #2563EB;
+            transition: transform 0.3s;
+        }
+
+        .finanzierung-toggle.open i {
+            transform: rotate(180deg);
+        }
+
+        .finanzierung-body {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+
+        .finanzierung-body.open {
+            max-height: 2000px;
+            opacity: 1;
+        }
+
+        .finanzierung-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .finanzierung-title i {
+            font-size: 18px;
+            color: #2563EB;
+        }
+
+        .finanzierung-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--grey-dark);
+        }
+
+        .finanzierung-estimate {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 20px 24px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .estimate-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .estimate-label {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--grey-dark);
+        }
+
+        .estimate-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .estimate-description {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            font-style: italic;
+        }
+
+        .finanzierung-equity {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px 24px;
+            background: #DBEAFE;
+            border-radius: 8px;
+            border: 1px solid #2563EB;
+        }
+
+        .equity-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #2563EB;
+        }
+
+        .equity-header i {
+            font-size: 16px;
+            color: #2563EB;
+        }
+
+        .equity-range {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .equity-amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E40AF;
+        }
+
+        .equity-hint {
+            font-size: 13px;
+            font-weight: 300;
+            color: #1E40AF;
+            font-style: italic;
+        }
+
+        .finanzierung-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--black);
+        }
+
+        .option-item i {
+            font-size: 16px;
+            color: #2563EB;
+            flex-shrink: 0;
+        }
+
+        .finanzierung-cta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-finanzierung-primary {
+            padding: 12px 24px;
+            background: #2563EB;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-finanzierung-primary:hover {
+            background: #1E40AF;
+        }
+
+        .finanzierung-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #2563EB;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .finanzierung-link:hover {
+            opacity: 0.7;
+        }
+
+        .finanzierung-link i {
+            font-size: 12px;
+        }
+
+        .finanzierung-disclaimer {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 150%;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .finanzierung-disclaimer i {
+            font-size: 12px;
+            color: var(--grey-light);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* ===== ENABLEMENT: Interest Modal ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal {
+            width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 32px 20px;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: #F5F5F5;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--grey-dark);
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover {
+            background: #E5E5E5;
+        }
+
+        .modal-body {
+            padding: 28px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .modal-intro {
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 150%;
+        }
+
+        .modal-profile-hint {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #F0FDF4;
+            border: 1px solid #BBF7D0;
+            border-radius: 8px;
+        }
+
+        .modal-profile-hint i {
+            font-size: 16px;
+            color: #10B981;
+            flex-shrink: 0;
+        }
+
+        .modal-profile-hint span {
+            font-size: 13px;
+            font-weight: 400;
+            color: #065F46;
+            line-height: 150%;
+        }
+
+        .modal-questions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .modal-question {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .modal-question-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 150%;
+        }
+
+        .modal-question-hint {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            font-style: italic;
+        }
+
+        .modal-textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 12px 14px;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--black);
+            resize: vertical;
+            line-height: 150%;
+            transition: border-color 0.2s;
+        }
+
+        .modal-textarea:focus {
+            outline: none;
+            border-color: var(--black);
+        }
+
+        .modal-textarea::placeholder {
+            color: var(--grey-light);
+        }
+
+        .modal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 32px 24px;
+            border-top: 1px solid #EEE;
+            gap: 12px;
+        }
+
+        .modal-footer-hint {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .modal-footer-hint i {
+            font-size: 12px;
+        }
+
+        .modal-btn-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .modal-btn-cancel {
+            padding: 10px 24px;
+            border: 1px solid var(--grey-light);
+            border-radius: 4px;
+            background: transparent;
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--grey-dark);
+            cursor: pointer;
+        }
+
+        .modal-btn-cancel:hover {
+            background: #F5F5F5;
+        }
+
+        .modal-btn-submit {
+            padding: 10px 28px;
+            background: var(--black);
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .modal-btn-submit:hover {
+            background: #333;
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
@@ -479,9 +1253,10 @@
             <a href="mitteilungen.html">Mitteilungen</a>
             <a href="postfach.html">Postfach</a>
             <a href="transaktionen.html">Meine Transaktionen</a>
+            <a href="academy.html">Academy</a>
         </div>
         <div class="nav-right">
-            <div class="nav-lang"><span style="font-size:18px;">🇩🇪</span><span>German</span></div>
+            <div class="nav-lang"><span style="font-weight:600; font-size:12px; background:#F3F4F6; padding:2px 6px; border-radius:3px;">DE</span><span>Deutsch</span></div>
             <div class="nav-avatar-wrapper">
                 <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
                 <div class="focus-group" id="focus-group">
@@ -562,6 +1337,100 @@
                                 </div>
                                 <div class="fact-value">100%-Verkauf</div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- ENABLEMENT: KI-Analyse -->
+                    <div class="ki-analyse">
+                        <div class="ki-analyse-header" onclick="toggleKIAnalyse()">
+                            <div class="ki-analyse-header-left">
+                                <span class="ki-analyse-title"><i class="fa-solid fa-wand-magic-sparkles"></i> KI-Deal-Check</span>
+                                <span class="ki-analyse-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Basierend auf deinem Käuferprofil</span>
+                            </div>
+                            <div class="ki-analyse-match-inline">
+                                <div class="ki-match-score-inline">82%</div>
+                                <div class="ki-match-text-inline">
+                                    <span class="ki-match-label-inline">Hohe Übereinstimmung</span>
+                                    <span class="ki-match-reasons-inline">mit deinem Suchprofil</span>
+                                </div>
+                            </div>
+                            <div class="ki-analyse-toggle">
+                                <i class="fa-solid fa-chevron-down" id="ki-analyse-icon"></i>
+                            </div>
+                        </div>
+
+                        <div class="ki-analyse-body" id="ki-analyse-body">
+                        <div class="ki-analyse-columns">
+                            <div class="ki-column chancen">
+                                <div class="ki-column-header chancen"><i class="fa-solid fa-arrow-trend-up"></i> Chancen</div>
+                                <ul class="ki-column-list">
+                                    <li><i class="fa-solid fa-circle"></i> Starke Nischenposition in Zukunftsmärkten (Luft- & Raumfahrt, Medizintechnik)</li>
+                                    <li><i class="fa-solid fa-circle"></i> Kontinuierliches Umsatzwachstum über 3 Jahre zeigt stabile Nachfrage</li>
+                                    <li><i class="fa-solid fa-circle"></i> Eigene Fertigung + Engineering als Eintrittsbarriere für Wettbewerber</li>
+                                    <li><i class="fa-solid fa-circle"></i> Diversifiziertes Produktportfolio reduziert Abhängigkeit von Einzelprodukten</li>
+                                </ul>
+                            </div>
+                            <div class="ki-column risiken">
+                                <div class="ki-column-header risiken"><i class="fa-solid fa-triangle-exclamation"></i> Risiken</div>
+                                <ul class="ki-column-list">
+                                    <li><i class="fa-solid fa-circle"></i> Inhabergeführt – mögliche Personenabhängigkeit bei Kundenbeziehungen</li>
+                                    <li><i class="fa-solid fa-circle"></i> 20 Mitarbeiter – Fachkräfterisiko im spezialisierten Fertigungsbereich</li>
+                                    <li><i class="fa-solid fa-circle"></i> B2B-Kunden in regulierten Märkten – lange Zertifizierungszyklen bei Kundenwechsel</li>
+                                    <li><i class="fa-solid fa-circle"></i> Hohe regulatorische Anforderungen in Luft-/Raumfahrt und Medizintechnik – kontinuierliche Compliance-Kosten</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="ki-analyse-questions">
+                            <div class="ki-questions-header"><i class="fa-solid fa-comments"></i> Erste mögliche Fragen an die Verkäuferseite</div>
+                            <ul class="ki-questions-list">
+                                <li><i class="fa-solid fa-circle-question"></i> Wie stark sind die Kundenbeziehungen personengebunden an den aktuellen Inhaber?</li>
+                                <li><i class="fa-solid fa-circle-question"></i> Gibt es einen strukturierten Übergabeplan für das Engineering- und Fertigungs-Know-how?</li>
+                                <li><i class="fa-solid fa-circle-question"></i> Welche Kundenkonzentrationsrisiken bestehen (Top 3-Kunden-Anteil am Umsatz)?</li>
+                                <li><i class="fa-solid fa-circle-question"></i> Wie ist die Auftragslage und Pipeline für die nächsten 12-24 Monate?</li>
+                                <li><i class="fa-solid fa-circle-question"></i> Welche kritischen Mitarbeiter müssen gehalten werden und wie ist deren Bindung?</li>
+                            </ul>
+                        </div>
+
+                        <span class="ki-analyse-hint"><i class="fa-solid fa-circle-info"></i> Diese Analyse wurde automatisch erstellt und ersetzt keine professionelle Beratung. Basierend auf öffentlichen Inseratsdaten und deinem Käuferprofil.</span>
+                        </div>
+                    </div>
+
+                    <!-- ENABLEMENT: Finanzierung -->
+                    <div class="finanzierung-modul">
+                        <div class="finanzierung-header" onclick="toggleFinanzierung()">
+                            <span class="finanzierung-title"><i class="fa-solid fa-landmark"></i> Finanzierung-Check</span>
+                            <div class="finanzierung-toggle">
+                                <i class="fa-solid fa-chevron-down" id="finanzierung-icon"></i>
+                            </div>
+                        </div>
+
+                        <div class="finanzierung-body" id="finanzierung-body">
+                            <div class="finanzierung-estimate">
+                                <div class="estimate-row">
+                                    <div class="estimate-label">Geschätzter Kaufpreis</div>
+                                    <div class="estimate-value">1,4 - 3,2 Mio. €</div>
+                                </div>
+                                <div class="estimate-description">Basierend auf 4,1-9,7x EBIT-Multiple (DUB KMU-Multiples für Maschinenbau, Ø 6,9x)</div>
+                            </div>
+
+                            <div class="finanzierung-equity">
+                                <div class="equity-header">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <span>Notwendiges Eigenkapital (Typische Eigenkapitalquote bei Bankenfinanzierung = 15-25%)</span>
+                                </div>
+                                <div class="equity-range">
+                                    <div class="equity-amount">210.000 - 800.000 €</div>
+                                    <div class="equity-hint">Hinweis: Verkäufferdarlehen und Earn-outs werden von Banken in der Regel als Teil des erbrachten Eigenkapitals gewertet, sofern der Käufer selbst ca. 10% als Eigenkapital mitbringt und bereit ist, entsprechende Sicherheiten abzugeben.</div>
+                                </div>
+                            </div>
+
+                            <div class="finanzierung-cta">
+                                <a href="https://dealcircle.com/anfrage-akquisitionsfinanzierung/" class="btn-finanzierung-primary" target="_blank">Finanzierung prüfen</a>
+                                <a href="academy.html" class="finanzierung-link">Academy-Modul: Finanzierungsstrategien <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+
+                            <span class="finanzierung-disclaimer"><i class="fa-solid fa-circle-info"></i> Dies ist eine unverbindliche Schätzung. Tatsächliche Konditionen hängen von deiner Bonität, Sicherheiten und Bankverhandlungen ab.</span>
                         </div>
                     </div>
 
@@ -681,7 +1550,7 @@
                     <span>Wir versichern eine sichere Kommunikation.</span>
                 </div>
                 <div class="btn-actions">
-                    <button class="btn-primary-dark">Interesse bekunden</button>
+                    <button class="btn-primary-dark" onclick="openModal()">Interesse bekunden</button>
                     <button class="btn-outline">Zur Merkliste hinzufügen</button>
                 </div>
             </div>
@@ -850,6 +1719,49 @@
         </div>
     </div>
 
+    <!-- ENABLEMENT: Interest Modal -->
+    <div class="modal-overlay" id="interest-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Interesse bekunden</span>
+                <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Der Verkäufer bzw. sein Berater hat einige Fragen hinterlegt, um passende Käufer besser einschätzen zu können. Bitte beantworte diese, um deine Interessensbekundung abzuschicken.</p>
+
+                <div class="modal-profile-hint">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Dein <strong>Käuferprofil</strong> wird automatisch mitgesendet. Stelle sicher, dass es vollständig ist – das erhöht deine Chancen deutlich.</span>
+                </div>
+
+                <div class="modal-questions">
+                    <div class="modal-question">
+                        <label class="modal-question-label">Welche konkreten Synergien sehen Sie zwischen Ihrem bestehenden Geschäft und diesem Unternehmen?</label>
+                        <span class="modal-question-hint">Vom Berater hinterlegt</span>
+                        <textarea class="modal-textarea" placeholder="Beschreiben Sie, wie dieses Unternehmen zu Ihrer Strategie passt..."></textarea>
+                    </div>
+                    <div class="modal-question">
+                        <label class="modal-question-label">Wie stellen Sie sich die Finanzierung der Übernahme vor?</label>
+                        <span class="modal-question-hint">Vom Berater hinterlegt</span>
+                        <textarea class="modal-textarea" placeholder="z.B. Eigenkapital, Bankfinanzierung, Earn-Out..."></textarea>
+                    </div>
+                    <div class="modal-question">
+                        <label class="modal-question-label">Welche Erfahrung haben Sie in der Branche oder mit vergleichbaren Unternehmen?</label>
+                        <span class="modal-question-hint">Vom Verkäufer hinterlegt</span>
+                        <textarea class="modal-textarea" placeholder="Ihre relevante Erfahrung..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="modal-footer-hint"><i class="fa-solid fa-lock"></i> Deine Antworten sind nur für den Verkäufer/Berater sichtbar</span>
+                <div class="modal-btn-group">
+                    <button class="modal-btn-cancel" onclick="closeModal()">Abbrechen</button>
+                    <button class="modal-btn-submit">Interesse bekunden</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-top">
@@ -882,6 +1794,35 @@
             var fg = document.getElementById('focus-group');
             if (fg) fg.classList.remove('open');
         });
+
+        // Interest Modal
+        function openModal() {
+            document.getElementById('interest-modal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('interest-modal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('interest-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // KI-Analyse Toggle
+        function toggleKIAnalyse() {
+            var body = document.getElementById('ki-analyse-body');
+            var icon = document.getElementById('ki-analyse-icon');
+            body.classList.toggle('open');
+            icon.parentElement.classList.toggle('open');
+        }
+
+        // Finanzierung Toggle
+        function toggleFinanzierung() {
+            var body = document.getElementById('finanzierung-body');
+            var icon = document.getElementById('finanzierung-icon');
+            body.classList.toggle('open');
+            icon.parentElement.classList.toggle('open');
+        }
     </script>
 
 </body>

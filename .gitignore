@@ -1,0 +1,10 @@
+# System
+.DS_Store
+Thumbs.db
+nul
+
+# Claude Code (lokale Session-Daten)
+.claude/
+
+# PowerShell-Scripts (nur lokal gebraucht)
+*.ps1

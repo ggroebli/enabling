@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserat erstellen – Käufer-Gating – AMBER</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: #F9FAFB;
+            color: var(--black);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        /* ===== Container ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        /* ===== Header ===== */
+        .page-header {
+            padding: 32px 40px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border-bottom: 1px solid #E0E7FF;
+        }
+
+        .page-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            font-size: 14px;
+            color: var(--grey-dark);
+        }
+
+        /* ===== Form Content ===== */
+        .form-content {
+            padding: 40px;
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+        .form-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--grey-dark);
+            margin-bottom: 20px;
+        }
+
+        /* ===== Mock Form Fields (for context) ===== */
+        .mock-field {
+            margin-bottom: 24px;
+        }
+
+        .mock-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .mock-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 14px;
+            color: var(--black);
+        }
+
+        .mock-divider {
+            height: 1px;
+            background: #E5E7EB;
+            margin: 40px 0;
+        }
+
+        /* ===== ENABLEMENT: Gating Section ===== */
+        .gating-section {
+            padding: 32px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 2px solid #C7D2FE;
+            border-radius: 12px;
+        }
+
+        .gating-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .gating-header-content {
+            flex: 1;
+        }
+
+        .gating-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gating-subtitle {
+            font-size: 14px;
+            color: var(--grey-dark);
+            line-height: 1.5;
+        }
+
+        .info-tooltip {
+            width: 24px;
+            height: 24px;
+            background: #7C3AED;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: help;
+            flex-shrink: 0;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        /* ===== Gating Options ===== */
+        .gating-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .gating-option {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 20px;
+            border: 2px solid #E5E7EB;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--white);
+        }
+
+        .gating-option:hover {
+            border-color: #C7D2FE;
+            background: #F5F3FF;
+        }
+
+        .gating-option.selected {
+            border-color: #7C3AED;
+            background: #F5F3FF;
+            box-shadow: 0px 4px 12px rgba(124, 58, 237, 0.15);
+        }
+
+        .radio-circle {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #D1D5DB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .gating-option.selected .radio-circle {
+            border-color: #7C3AED;
+            background: #7C3AED;
+        }
+
+        .radio-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--white);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .gating-option.selected .radio-dot {
+            opacity: 1;
+        }
+
+        .option-content {
+            flex: 1;
+        }
+
+        .option-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+
+        .gating-option.selected .option-title {
+            color: #7C3AED;
+        }
+
+        .option-description {
+            font-size: 13px;
+            color: var(--grey-dark);
+            line-height: 1.5;
+        }
+
+        .option-requirement {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #EDE9FE;
+            color: #7C3AED;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 12px;
+            margin-top: 6px;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            padding: 4px 12px;
+            background: #10B981;
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 12px;
+            box-shadow: 0px 2px 8px rgba(16, 185, 129, 0.3);
+        }
+
+        /* ===== Live Feedback ===== */
+        .live-feedback {
+            padding: 20px 24px;
+            background: var(--white);
+            border: 1px solid #E0E7FF;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .feedback-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .feedback-content {
+            flex: 1;
+        }
+
+        .feedback-percentage {
+            font-size: 24px;
+            font-weight: 700;
+            color: #7C3AED;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .feedback-text {
+            font-size: 13px;
+            color: var(--grey-dark);
+        }
+
+        .feedback-bar-container {
+            width: 120px;
+            height: 8px;
+            background: #E9D5FF;
+            border-radius: 4px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .feedback-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7C3AED 0%, #A78BFA 100%);
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        /* ===== Info Box ===== */
+        .info-box {
+            padding: 16px 20px;
+            background: #DBEAFE;
+            border: 1px solid #93C5FD;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .info-box-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1E40AF;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-box-text {
+            font-size: 13px;
+            color: #1E3A8A;
+            line-height: 1.5;
+        }
+
+        /* ===== AMBER-Score Explainer ===== */
+        .quality-explainer {
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--white);
+            border: 1px solid #E0E7FF;
+            border-radius: 8px;
+        }
+
+        .explainer-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .explainer-formula {
+            padding: 12px 16px;
+            background: #F5F3FF;
+            border-left: 3px solid #7C3AED;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--grey-dark);
+            margin-bottom: 12px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .explainer-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .explainer-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--grey-dark);
+        }
+
+        .explainer-item i {
+            color: #7C3AED;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* ===== Action Buttons ===== */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--grey-dark);
+            border: 2px solid #D1D5DB;
+        }
+
+        .btn-secondary:hover {
+            background: #F9FAFB;
+        }
+
+        .btn-primary {
+            background: var(--gradient-cta);
+            color: var(--black);
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1><i class="fa-solid fa-file-circle-plus"></i> Neues Inserat erstellen</h1>
+            <p>Fülle die Details zu deinem Unternehmensverkauf aus</p>
+        </div>
+
+        <!-- Form Content -->
+        <div class="form-content">
+            <!-- Mock Fields (for context) -->
+            <div class="form-section">
+                <div class="section-title">Unternehmensdetails</div>
+                <div class="section-subtitle">Grundlegende Informationen zu deinem Unternehmen</div>
+
+                <div class="mock-field">
+                    <label class="mock-label">Unternehmensname (anonymisiert)</label>
+                    <input type="text" class="mock-input" placeholder="z.B. 'Etabliertes Maschinenbauunternehmen in Bayern'" value="Traditionsreiches Softwareunternehmen im B2B-Bereich">
+                </div>
+
+                <div class="mock-field">
+                    <label class="mock-label">Branche</label>
+                    <input type="text" class="mock-input" value="IT / Software / SaaS">
+                </div>
+
+                <div class="mock-field">
+                    <label class="mock-label">EBITDA (€)</label>
+                    <input type="text" class="mock-input" value="750.000">
+                </div>
+            </div>
+
+            <div class="mock-divider"></div>
+
+            <!-- ENABLEMENT: Gating Section -->
+            <div class="form-section">
+                <div class="gating-section">
+                    <div class="gating-header">
+                        <div class="gating-header-content">
+                            <div class="gating-title">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                Wer kann dieses Inserat sehen?
+                            </div>
+                            <div class="gating-subtitle">
+                                Steuere, welche Käufer Zugang zu deinem Inserat erhalten. Höhere Anforderungen führen zu qualifizierteren Interessenten.
+                            </div>
+                        </div>
+                        <div class="info-tooltip" title="Der AMBER-Score kombiniert die Vorbereitung (Readiness) eines Käufers mit seiner Erfahrung (Endorsements von Verkäufern). Jeder Verkäufer, der endorsed, gibt +5 Punkte (max. 40 Punkte = 8 Verkäufer). Du kannst Mindestanforderungen setzen, um sicherzustellen, dass nur qualifizierte Käufer dein Inserat sehen.">
+                            <i class="fa-solid fa-info"></i>
+                        </div>
+                    </div>
+
+                    <!-- Gating Options -->
+                    <div class="gating-options">
+                        <!-- Option 1: Alle Käufer -->
+                        <div class="gating-option" onclick="selectOption(this, 0, 100)">
+                            <div class="radio-circle">
+                                <div class="radio-dot"></div>
+                            </div>
+                            <div class="option-content">
+                                <div class="option-title">Alle Käufer</div>
+                                <div class="option-description">
+                                    Jeder registrierte Käufer kann dein Inserat sehen, unabhängig von Vorbereitung oder Erfahrung.
+                                </div>
+                                <span class="option-requirement">Minimum: 0% AMBER-Score</span>
+                            </div>
+                        </div>
+
+                        <!-- Option 2: Nur vorbereitete Käufer (RECOMMENDED, DEFAULT) -->
+                        <div class="gating-option selected" onclick="selectOption(this, 50, 78)">
+                            <span class="recommended-badge">Empfohlen</span>
+                            <div class="radio-circle">
+                                <div class="radio-dot"></div>
+                            </div>
+                            <div class="option-content">
+                                <div class="option-title">Nur vorbereitete Käufer</div>
+                                <div class="option-description">
+                                    Käufer mit grundlegender Vorbereitung – haben ihr Profil vervollständigt und einige Academy-Module absolviert.
+                                </div>
+                                <span class="option-requirement">Minimum: 50% AMBER-Score</span>
+                            </div>
+                        </div>
+
+                        <!-- Option 3: Nur erfahrene Käufer -->
+                        <div class="gating-option" onclick="selectOption(this, 70, 42)">
+                            <div class="radio-circle">
+                                <div class="radio-dot"></div>
+                            </div>
+                            <div class="option-content">
+                                <div class="option-title">Nur erfahrene Käufer</div>
+                                <div class="option-description">
+                                    Käufer mit hoher Vorbereitung UND nachgewiesener Erfahrung – ideal für hochwertige Deals.
+                                </div>
+                                <span class="option-requirement">Minimum: 70% AMBER-Score</span>
+                            </div>
+                        </div>
+
+                        <!-- Option 4: Nur Top-Käufer -->
+                        <div class="gating-option" onclick="selectOption(this, 85, 18)">
+                            <div class="radio-circle">
+                                <div class="radio-dot"></div>
+                            </div>
+                            <div class="option-content">
+                                <div class="option-title">Nur Top-Käufer</div>
+                                <div class="option-description">
+                                    Exklusiver Zugang für die besten Käufer auf der Plattform – maximale Qualität, geringere Reichweite.
+                                </div>
+                                <span class="option-requirement">Minimum: 85% AMBER-Score</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Feedback -->
+                    <div class="live-feedback">
+                        <div class="feedback-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="feedback-content">
+                            <div class="feedback-percentage" id="feedbackPercentage">78%</div>
+                            <div class="feedback-text">der Käufer auf AMBER erfüllen diese Anforderung</div>
+                        </div>
+                        <div class="feedback-bar-container">
+                            <div class="feedback-bar-fill" id="feedbackBar" style="width: 78%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Info Box -->
+                    <div class="info-box">
+                        <div class="info-box-title">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            Empfehlung
+                        </div>
+                        <div class="info-box-text">
+                            Die Standardeinstellung "Nur vorbereitete Käufer" bietet einen guten Kompromiss zwischen Reichweite und Qualität. Du kannst diese Einstellung jederzeit ändern.
+                        </div>
+                    </div>
+
+                    <!-- AMBER-Score Explainer -->
+                    <div class="quality-explainer">
+                        <div class="explainer-title">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            Was ist der AMBER-Score?
+                        </div>
+                        <div class="explainer-formula">
+                            AMBER-Score = (Readiness × 60%) + (Endorsements × 40%)
+                        </div>
+                        <div class="explainer-items">
+                            <div class="explainer-item">
+                                <i class="fa-solid fa-check-circle"></i>
+                                <span><strong>Readiness (60%):</strong> Academy-Module, Profilvollständigkeit, Eigenkapitalnachweis</span>
+                            </div>
+                            <div class="explainer-item">
+                                <i class="fa-solid fa-star"></i>
+                                <span><strong>Endorsements (40%):</strong> Anzahl unterschiedlicher Verkäufer, die endorsed haben. Jeder Verkäufer = +5 Punkte (max. 8 Verkäufer × 5 = 40 Punkte = 100%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-secondary">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Zurück
+                </button>
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-check"></i>
+                    Inserat veröffentlichen
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Option Selection Logic
+        function selectOption(element, minScore, buyerPercentage) {
+            // Remove 'selected' from all options
+            document.querySelectorAll('.gating-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            // Add 'selected' to clicked option
+            element.classList.add('selected');
+
+            // Update live feedback
+            const feedbackPercentage = document.getElementById('feedbackPercentage');
+            const feedbackBar = document.getElementById('feedbackBar');
+
+            feedbackPercentage.textContent = buyerPercentage + '%';
+            feedbackBar.style.width = buyerPercentage + '%';
+
+            // Log selection (for demo purposes)
+            console.log('Selected minimum AMBER-Score:', minScore + '%');
+            console.log('Buyers matching:', buyerPercentage + '%');
+        }
+    </script>
+
+</body>
+</html>

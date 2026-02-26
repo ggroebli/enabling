@@ -1,0 +1,2607 @@
+/* app.go-flint.com/Verkäufer/Desktop/Suchaufträge */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+position: relative;
+width: 1440px;
+height: 900px;
+overflow-y: scroll;
+
+
+
+/* Main */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 120px 48px 0px;
+gap: 0px;
+
+width: 1440px;
+height: 850px;
+min-height: 850px;
+
+background: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 1344px;
+height: 730px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 1344px;
+height: 67px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Headline */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 276px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Suchaufträge */
+
+width: 253px;
+height: 48px;
+
+/* Heading/Desktop/H3 */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 120%;
+/* identical to box height, or 48px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 1044px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filter 01 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+margin: 0 auto;
+display: none;
+width: 522px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Filter 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #1A1A1A;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filer 2 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #FFFFFF;
+border: 1px solid #CCCCCC;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filer 3 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #FFFFFF;
+border: 1px solid #CCCCCC;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filer 4 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #FFFFFF;
+border: 1px solid #CCCCCC;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CTA */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-end;
+padding: 0px;
+gap: 10px;
+
+margin: 0 auto;
+width: 1044px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* CTA */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 20px;
+gap: 8px;
+
+margin: 0 auto;
+width: 225px;
+height: 43px;
+
+/* VErlauf */
+background: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+border-radius: 40px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon */
+
+width: 18px;
+height: 27px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+text-align: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 159px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 1344px;
+height: 210px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Subnavbar */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+display: none;
+width: 276px;
+height: 161px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Nav 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 16px;
+gap: 8px;
+
+width: 230px;
+height: 43px;
+
+background: #FFFFFF;
+/* Card */
+box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20px;
+min-width: 20px;
+max-width: 230px;
+height: 24px;
+
+/* Icon Regular */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Submenu selected */
+
+width: 157px;
+max-width: 230px;
+height: 27px;
+
+/* Text/Medium/Bold */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Nav 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 16px;
+gap: 8px;
+
+width: 230px;
+height: 43px;
+
+background: #FFFFFF;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20px;
+min-width: 20px;
+max-width: 230px;
+height: 24px;
+
+/* Icon Regular */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Submenu nummer 2 */
+
+width: 162px;
+max-width: 230px;
+height: 27px;
+
+/* Text/Medium/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Nav 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 16px;
+gap: 8px;
+
+width: 230px;
+height: 43px;
+
+background: #FFFFFF;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20px;
+min-width: 20px;
+max-width: 230px;
+height: 24px;
+
+/* Icon Regular */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Submenu nummer 3 */
+
+width: 161px;
+max-width: 230px;
+height: 27px;
+
+/* Text/Medium/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 1344px;
+height: 210px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Filter 02 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+display: none;
+width: 522px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #1A1A1A;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filer 2 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #FFFFFF;
+border: 1px solid #CCCCCC;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filer 3 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #FFFFFF;
+border: 1px solid #CCCCCC;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filer 4 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #FFFFFF;
+border: 1px solid #CCCCCC;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 1344px;
+height: 210px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 129 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 25px;
+gap: 24px;
+
+width: 1344px;
+height: 93px;
+
+background: #FFFFFF;
+/* Card */
+box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 195 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 24px;
+
+margin: 0 auto;
+width: 623px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 197 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 150px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* FinTech */
+
+width: 90px;
+height: 36px;
+
+/* Text/Large/Bold */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 24px;
+line-height: 150%;
+/* identical to box height, or 36px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 196 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 150px;
+height: 21px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Erstellt am 23.03.2024 */
+
+width: 150px;
+height: 21px;
+
+/* Text/Small/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 198 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 179px;
+height: 21px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Keywords, Umsatz, Ergebnis */
+
+width: 179px;
+height: 21px;
+
+/* Text/Small/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5px 12px;
+gap: 8px;
+
+width: 72px;
+height: 31px;
+
+/* VErlauf */
+background: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+border-radius: 40px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* 2 Neue */
+
+width: 48px;
+height: 21px;
+
+/* Text/Small/Bold */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Action */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 24px;
+
+margin: 0 auto;
+width: 318px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 20px;
+gap: 8px;
+
+width: 158px;
+height: 43px;
+
+background: #1A1A1A;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon */
+
+width: 18px;
+height: 27px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 92px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 20px;
+gap: 8px;
+
+width: 136px;
+height: 43px;
+
+border: 1px solid #1A1A1A;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Icon */
+
+width: 16px;
+height: 27px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+text-align: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 72px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 132 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 25px;
+gap: 24px;
+
+width: 1344px;
+height: 93px;
+
+background: #FFFFFF;
+/* Card */
+box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 195 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 24px;
+
+margin: 0 auto;
+width: 498px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 197 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+width: 150px;
+height: 36px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Mode */
+
+width: 66px;
+height: 36px;
+
+/* Text/Large/Bold */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 24px;
+line-height: 150%;
+/* identical to box height, or 36px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 196 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 150px;
+height: 21px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Erstellt am 12.04.2024 */
+
+width: 150px;
+height: 21px;
+
+/* Text/Small/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame 198 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+width: 150px;
+height: 21px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* 5 Suchergebnisse */
+
+width: 113px;
+height: 21px;
+
+/* Text/Small/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5px 12px;
+gap: 8px;
+
+display: none;
+width: 163px;
+height: 31px;
+
+/* VErlauf */
+background: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+border-radius: 40px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Neue Suchergebisse */
+
+width: 139px;
+height: 21px;
+
+/* Text/Small/Bold */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Action */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+margin: 0 auto;
+width: 318px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 20px;
+gap: 8px;
+
+width: 158px;
+height: 43px;
+
+background: #1A1A1A;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon */
+
+width: 18px;
+height: 27px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 92px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 20px;
+gap: 8px;
+
+width: 136px;
+height: 43px;
+
+border: 1px solid #1A1A1A;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Icon */
+
+width: 16px;
+height: 27px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+text-align: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 72px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Footer neu */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 80px 64px 64px;
+gap: 64px;
+
+width: 1440px;
+height: 374px;
+
+background: #1A1A1A;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-start;
+padding: 0px;
+gap: 64px;
+
+width: 1312px;
+height: 112px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Column */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+margin: 0 auto;
+width: 328px;
+height: 98px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* AMBER Anmeldung 1 */
+
+width: 328px;
+height: 98px;
+
+background: url(AMBER Anmeldung.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Column */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-end;
+padding: 0px;
+gap: 48px;
+
+margin: 0 auto;
+width: 349px;
+height: 112px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 349px;
+height: 112px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Fragen zu FLINT? Wir helfen euch gerne bei euren Anliegen. contactus@go-flint.com */
+
+width: 349px;
+height: 112px;
+
+/* Heading/Desktop/H6 */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 140%;
+/* or 28px */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Credits */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+width: 1312px;
+height: 54px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Divider */
+
+box-sizing: border-box;
+
+width: 1312px;
+height: 1px;
+
+background: #FFFFFF;
+border: 1px solid #666666;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Row */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-start;
+padding: 0px;
+gap: 64px;
+
+width: 1312px;
+height: 21px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* © 2024 FLINT. All rights reserved. */
+
+margin: 0 auto;
+width: 206px;
+height: 21px;
+
+/* Text/Small/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+
+color: #ECECEC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Footer Links */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+margin: 0 auto;
+width: 345px;
+height: 21px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Privacy Policy */
+
+width: 86px;
+height: 21px;
+
+/* Text/Small/Link */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+text-decoration-line: underline;
+
+color: #ECECEC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Terms of Service */
+
+width: 104px;
+height: 21px;
+
+/* Text/Small/Link */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+text-decoration-line: underline;
+
+color: #ECECEC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Cookies Settings */
+
+width: 107px;
+height: 21px;
+
+/* Text/Small/Link */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+text-decoration-line: underline;
+
+color: #ECECEC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Nav */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 20px 48px;
+gap: 110px;
+
+position: absolute;
+width: 1440px;
+height: 72px;
+left: 0px;
+top: 0px;
+
+background: #FFFFFF;
+box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Logo */
+
+margin: 0 auto;
+width: 174px;
+height: 33.76px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Group */
+
+position: absolute;
+left: -0.01%;
+right: 0%;
+top: 0.05%;
+bottom: -0.03%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: -0.01%;
+right: 88.12%;
+top: 0.05%;
+bottom: -0.03%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 22.63%;
+right: 65.43%;
+top: 0.05%;
+bottom: -0.03%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 59.69%;
+right: 24.99%;
+top: 0.05%;
+bottom: -0.03%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 85.6%;
+right: 0%;
+top: 0.05%;
+bottom: -0.03%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 44%;
+right: 50.02%;
+top: 0.05%;
+bottom: -0.03%;
+
+background: #000000;
+
+
+/* Frame 146 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+margin: 0 auto;
+width: 1044px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Nav */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 48px;
+
+margin: 0 auto;
+width: 658px;
+height: 27px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 54px;
+height: 27px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 54px;
+height: 27px;
+
+/* Text/Medium/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 114px;
+height: 27px;
+
+border-bottom: 1px solid #000000;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 114px;
+height: 27px;
+
+/* Text/Medium/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 106px;
+height: 27px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 106px;
+height: 27px;
+
+/* Text/Medium/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 74px;
+height: 27px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 74px;
+height: 27px;
+
+/* Text/Medium/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 118px;
+height: 27px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 118px;
+height: 27px;
+
+/* Text/Medium/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 20px;
+gap: 8px;
+
+margin: 0 auto;
+display: none;
+width: 123px;
+height: 43px;
+
+background: #1A1A1A;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Group 136 */
+
+margin: 0 auto;
+width: 43px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Rectangle 91 */
+
+position: absolute;
+width: 43px;
+height: 43px;
+left: 1001px;
+top: 0px;
+
+background: #000000;
+border-radius: 21.5px;
+
+
+/*  */
+
+position: absolute;
+width: 16px;
+height: 27px;
+left: 1014.54px;
+top: 7.96px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 300;
+font-size: 17.9167px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+

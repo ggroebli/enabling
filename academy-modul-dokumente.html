@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER – Academy: Dokumente im M&A-Prozess</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            --phase-blue: #2563EB;
+            --phase-blue-bg: #DBEAFE;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            display: flex; align-items: center; padding: 0 48px; height: 72px;
+            border-bottom: 1px solid #EEE; position: fixed; top: 0; width: 1440px;
+            background: var(--white); z-index: 100;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: var(--black); text-decoration: none; margin-right: 48px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+        .nav-links a { font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-lang { display: flex; align-items: center; gap: 8px; font-size: 14px; border: 1px solid var(--grey-light); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .nav-avatar-wrapper { position: relative; }
+        .nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grey-light); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .nav-avatar i { font-size: 18px; color: var(--grey-dark); }
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== PAGE LAYOUT ===== */
+        .page-wrapper {
+            display: flex;
+            width: 1440px;
+            margin-top: 72px;
+            min-height: calc(100vh - 72px);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .content-main {
+            flex: 1;
+            max-width: 1000px;
+            padding: 40px 48px 80px;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .content-sidebar {
+            width: 400px;
+            padding: 40px 48px 40px 16px;
+            position: sticky;
+            top: 72px;
+            align-self: flex-start;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-height: calc(100vh - 72px);
+            overflow-y: auto;
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            margin-bottom: 24px;
+        }
+        .breadcrumb a {
+            color: var(--grey-dark);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: var(--black);
+        }
+        .breadcrumb .separator {
+            color: var(--grey-light);
+        }
+        .breadcrumb .current {
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        /* ===== MODULE HEADER ===== */
+        .module-header {
+            margin-bottom: 32px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--phase-blue);
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        .back-link:hover { opacity: 0.7; }
+
+        .phase-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--phase-blue-bg);
+            color: var(--phase-blue);
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .module-title-main {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 120%;
+            color: var(--black);
+            margin-bottom: 12px;
+        }
+
+        .module-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: var(--grey-dark);
+            margin-bottom: 16px;
+        }
+
+        .module-meta-row i {
+            margin-right: 4px;
+        }
+
+        .meta-divider {
+            width: 1px;
+            height: 16px;
+            background: var(--grey-light);
+        }
+
+        .format-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .format-badge.guide {
+            background: #DBEAFE;
+            color: #2563EB;
+        }
+
+        .format-badge.checklist {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .module-intro {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 170%;
+            color: var(--grey-dark);
+        }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .section {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--phase-blue);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .section h2 {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 8px;
+            margin-top: 20px;
+        }
+
+        .section p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 170%;
+            color: var(--black);
+            margin-bottom: 12px;
+        }
+
+        .section ul {
+            margin: 8px 0 16px 20px;
+        }
+
+        .section ul li {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 180%;
+            color: var(--black);
+        }
+
+        .section ul li strong {
+            font-weight: 600;
+        }
+
+        /* ===== HIGHLIGHT BOX (Begriffe) ===== */
+        .highlight-box {
+            background: linear-gradient(135deg, #EDE9FE 0%, #DBEAFE 50%, #D1FAE5 100%);
+            border: 1px solid #E0E7FF;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 16px 0;
+        }
+
+        .highlight-box .highlight-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .highlight-box p, .highlight-box ul li {
+            font-size: 14px;
+            line-height: 170%;
+        }
+
+        /* ===== TIPP BOX ===== */
+        .tipp-box {
+            background: #F0FDF4;
+            border-left: 4px solid #10B981;
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .tipp-box .tipp-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tipp-box p, .tipp-box ul li {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 170%;
+            color: var(--black);
+        }
+
+        /* ===== WARNING BOX ===== */
+        .warn-box {
+            background: #FFFBEB;
+            border-left: 4px solid #F59E0B;
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .warn-box .warn-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #D97706;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .warn-box p, .warn-box ul li {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 170%;
+            color: var(--black);
+        }
+
+        /* ===== CHECKLIST BOX ===== */
+        .checklist-box {
+            background: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 16px 0;
+        }
+
+        .checklist-box .checklist-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .checklist-box .checklist-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .checklist-box .checklist-icon.blue {
+            background: #DBEAFE;
+            color: #2563EB;
+        }
+
+        .checklist-box .checklist-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .checklist-box ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .checklist-box ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 160%;
+            color: var(--black);
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .checklist-box ul li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-box ul li .check-icon {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--grey-light);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ===== KEY TAKEAWAYS ===== */
+        .takeaways-box {
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 40px 0 32px;
+        }
+
+        .takeaways-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+
+        .takeaways-title i {
+            color: #F59E0B;
+        }
+
+        .takeaways-box ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .takeaways-box ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 170%;
+            color: var(--black);
+            padding: 6px 0;
+        }
+
+        .takeaways-box ul li i {
+            color: #10B981;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        /* ===== COMPLETION & NAV ===== */
+        .module-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding-top: 32px;
+            border-top: 1px solid #F0F0F0;
+        }
+
+        .btn-complete {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px 32px;
+            background: var(--gradient-cta);
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+            cursor: pointer;
+        }
+
+        .btn-complete:hover {
+            opacity: 0.85;
+        }
+
+        .module-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .module-nav a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--phase-blue);
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid var(--phase-blue);
+            border-radius: 8px;
+        }
+
+        .module-nav a:hover {
+            background: var(--phase-blue-bg);
+        }
+
+        /* ===== SIDEBAR CARDS ===== */
+        .sidebar-card {
+            background: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .sidebar-card-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Progress Ring Card */
+        .progress-card {
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF;
+            text-align: center;
+            padding: 24px 20px;
+        }
+
+        .progress-card .progress-label {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            margin-top: 8px;
+        }
+
+        .progress-card .progress-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        /* Phase Module List */
+        .phase-modules-card .phase-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--phase-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .phase-module-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--black);
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+
+        .phase-module-item:hover {
+            background: #F5F5F5;
+        }
+
+        .phase-module-item.active {
+            background: var(--phase-blue-bg);
+            font-weight: 600;
+            color: var(--phase-blue);
+        }
+
+        .phase-module-item .module-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--grey-light);
+            flex-shrink: 0;
+        }
+
+        .phase-module-item.active .module-dot {
+            background: var(--phase-blue);
+        }
+
+        .phase-module-item .module-check {
+            color: #10B981;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        /* Download Card */
+        .download-card {
+            background: #FAFAFA;
+        }
+
+        .download-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #F0F0F0;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--black);
+            cursor: pointer;
+        }
+
+        .download-item:last-child {
+            border-bottom: none;
+        }
+
+        .download-item i {
+            color: var(--phase-blue);
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .download-item:hover {
+            color: var(--phase-blue);
+        }
+
+        /* Next Module CTA */
+        .next-module-card {
+            border: 2px solid var(--phase-blue);
+        }
+
+        .next-module-card .next-label {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            margin-bottom: 4px;
+        }
+
+        .next-module-card .next-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 12px;
+        }
+
+        .next-module-card a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--phase-blue);
+            color: var(--white);
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .next-module-card a:hover {
+            opacity: 0.85;
+        }
+
+        /* Berater CTA Sidebar */
+        .berater-cta-card {
+            background: var(--black);
+            border: none;
+            color: var(--white);
+        }
+
+        .berater-cta-card .sidebar-card-title {
+            color: var(--white);
+        }
+
+        .berater-cta-card p {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 160%;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .berater-cta-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--gradient-cta);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .berater-cta-card a:hover {
+            opacity: 0.85;
+        }
+
+        /* ===== VIDEO PLAYER ===== */
+        .video-section {
+            margin-bottom: 32px;
+        }
+
+        .video-section-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--phase-blue);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .video-player {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 */
+            background: #111827;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .video-play-btn {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .video-player:hover .video-play-btn {
+            transform: scale(1.08);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .video-play-btn i {
+            color: var(--white);
+            font-size: 28px;
+            margin-left: 4px;
+        }
+
+        .video-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .video-progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .video-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--phase-blue);
+            border-radius: 0 2px 2px 0;
+            transition: width 0.3s;
+        }
+
+        .video-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 13px;
+            color: var(--grey-dark);
+        }
+
+        .video-meta .video-duration {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-meta .video-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .video-meta .video-status.pending {
+            color: var(--grey-dark);
+        }
+
+        .video-meta .video-status.watched {
+            color: #10B981;
+        }
+
+        /* ===== REFERENCE TOGGLE ===== */
+        .reference-section {
+            margin-top: 40px;
+            border-top: 1px solid #F0F0F0;
+            padding-top: 32px;
+        }
+
+        .reference-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s;
+            margin-bottom: 0;
+        }
+
+        .reference-toggle:hover {
+            background: #F3F4F6;
+        }
+
+        .reference-toggle-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reference-toggle-left i {
+            color: var(--phase-blue);
+            font-size: 16px;
+        }
+
+        .reference-toggle-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .reference-toggle-sub {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            margin-left: 8px;
+        }
+
+        .reference-toggle .toggle-chevron {
+            font-size: 14px;
+            color: var(--grey-dark);
+            transition: transform 0.2s;
+        }
+
+        .reference-toggle.open .toggle-chevron {
+            transform: rotate(180deg);
+        }
+
+        .reference-content {
+            display: none;
+            padding-top: 24px;
+        }
+
+        .reference-content.open {
+            display: block;
+        }
+
+        /* ===== QUIZ SECTION ===== */
+        .quiz-section {
+            margin: 40px 0 32px;
+            padding: 32px;
+            background: var(--white);
+            border: 2px solid #E0E7FF;
+            border-radius: 12px;
+        }
+
+        .quiz-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .quiz-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #EDE9FE 0%, #DBEAFE 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quiz-icon i {
+            font-size: 20px;
+            color: var(--phase-blue);
+        }
+
+        .quiz-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .quiz-subtitle {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 160%;
+            margin-bottom: 28px;
+        }
+
+        .quiz-question {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .quiz-question:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-question-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .quiz-q-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--phase-blue-bg);
+            color: var(--phase-blue);
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .quiz-q-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 150%;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-left: 34px;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .quiz-option:hover {
+            background: #F3F4F6;
+            border-color: #D1D5DB;
+        }
+
+        .quiz-option.selected {
+            background: var(--phase-blue-bg);
+            border-color: var(--phase-blue);
+        }
+
+        .quiz-option.correct {
+            background: #D1FAE5;
+            border-color: #10B981;
+        }
+
+        .quiz-option.incorrect {
+            background: #FEE2E2;
+            border-color: #EF4444;
+        }
+
+        .quiz-radio {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #D1D5DB;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.15s;
+        }
+
+        .quiz-option.selected .quiz-radio {
+            border-color: var(--phase-blue);
+        }
+
+        .quiz-option.selected .quiz-radio::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--phase-blue);
+        }
+
+        .quiz-option.correct .quiz-radio {
+            border-color: #10B981;
+            background: #10B981;
+        }
+
+        .quiz-option.correct .quiz-radio::after {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 10px;
+            color: white;
+        }
+
+        .quiz-option.incorrect .quiz-radio {
+            border-color: #EF4444;
+            background: #EF4444;
+        }
+
+        .quiz-option.incorrect .quiz-radio::after {
+            content: '\f00d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 10px;
+            color: white;
+        }
+
+        .quiz-option-text {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--black);
+        }
+
+        .quiz-submit-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #F0F0F0;
+        }
+
+        .quiz-submit-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--phase-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .quiz-submit-btn:hover {
+            opacity: 0.85;
+        }
+
+        .quiz-progress-text {
+            font-size: 13px;
+            color: var(--grey-dark);
+        }
+
+        .quiz-result {
+            display: none;
+            margin-top: 20px;
+            padding: 20px 24px;
+            border-radius: 8px;
+        }
+
+        .quiz-result.passed {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #D1FAE5;
+            border: 1px solid #10B981;
+        }
+
+        .quiz-result.failed {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #FEE2E2;
+            border: 1px solid #EF4444;
+        }
+
+        .quiz-result-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .quiz-result.passed .quiz-result-icon {
+            background: #10B981;
+            color: white;
+        }
+
+        .quiz-result.failed .quiz-result-icon {
+            background: #EF4444;
+            color: white;
+        }
+
+        .quiz-result-text {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 150%;
+        }
+
+        .quiz-result.passed .quiz-result-text {
+            color: #065F46;
+        }
+
+        .quiz-result.failed .quiz-result-text {
+            color: #991B1B;
+        }
+
+        .quiz-retry-btn {
+            margin-left: auto;
+            padding: 8px 18px;
+            background: white;
+            border: 1px solid #EF4444;
+            border-radius: 6px;
+            color: #DC2626;
+            font-family: var(--font-main);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+            transition: background 0.15s;
+        }
+
+        .quiz-retry-btn:hover {
+            background: #FEF2F2;
+        }
+
+        /* ===== COMPLETION REQUIREMENTS ===== */
+        .completion-requirements {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: #F9FAFB;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--black);
+        }
+
+        .requirement-item .req-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 11px;
+        }
+
+        .requirement-item .req-icon.done {
+            background: #D1FAE5;
+            color: #10B981;
+        }
+
+        .requirement-item .req-icon.pending {
+            background: #F3F4F6;
+            border: 2px solid #D1D5DB;
+        }
+
+        .btn-complete.locked {
+            background: #F3F4F6;
+            color: #9CA3AF;
+            cursor: not-allowed;
+        }
+
+        /* ===== SIDEBAR MODULE STATUS ===== */
+        .sidebar-status-card .status-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sidebar-status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--black);
+        }
+
+        .sidebar-status-item .status-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 10px;
+        }
+
+        .sidebar-status-item .status-dot.done {
+            background: #D1FAE5;
+            color: #10B981;
+        }
+
+        .sidebar-status-item .status-dot.pending {
+            background: #F3F4F6;
+            border: 2px solid #D1D5DB;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
+            margin-top: 0;
+        }
+        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-logo { font-size: 36px; font-weight: 800; letter-spacing: 3px; color: var(--white); }
+        .footer-sub { font-size: 12px; font-weight: 300; letter-spacing: 3px; color: var(--grey-dark); text-transform: uppercase; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .footer-right p { font-size: 16px; font-weight: 300; line-height: 150%; }
+        .footer-right a { font-size: 16px; font-weight: 300; color: var(--white); text-decoration: underline; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #333; }
+        .footer-copyright { font-size: 14px; font-weight: 300; color: var(--grey-dark); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
+        .footer-links a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="suche.html" class="nav-logo">/AMBER</a>
+        <div class="nav-links">
+            <a href="suche.html">Suche</a>
+            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="mitteilungen.html">Mitteilungen</a>
+            <a href="postfach.html">Postfach</a>
+            <a href="transaktionen.html">Meine Transaktionen</a>
+            <a href="academy.html" class="active">Academy</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang"><span style="font-weight:600; font-size:12px; background:#F3F4F6; padding:2px 6px; border-radius:3px;">DE</span><span>Deutsch</span></div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="focus-group" id="focus-group">
+                    <a href="#">Zur Verkäuferansicht</a>
+                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Kontoeinstellungen</a>
+                    <a href="#">AMBER-Professional</a>
+                    <a href="#">Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <div class="page-wrapper">
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <div class="content-main">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="academy.html">Academy</a>
+                <span class="separator">/</span>
+                <span>Phase 2: Suche & Analyse</span>
+                <span class="separator">/</span>
+                <span class="current">Dokumente im M&A-Prozess</span>
+            </div>
+
+            <!-- Module Header -->
+            <div class="module-header">
+                <a href="academy.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Zurück zur Academy</a>
+                <div>
+                    <span class="phase-badge"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Phase 2: Suche & Analyse</span>
+                </div>
+                <h1 class="module-title-main">Dokumente im M&A-Prozess</h1>
+                <div class="module-meta-row">
+                    <span><i class="fa-regular fa-clock"></i> 12 Min.</span>
+                    <div class="meta-divider"></div>
+                    <span class="format-badge" style="background:#EDE9FE; color:#7C3AED;"><i class="fa-solid fa-play" style="font-size: 10px;"></i> Video</span>
+                    <span class="format-badge guide"><i class="fa-solid fa-book-open" style="font-size: 10px;"></i> Guide</span>
+                    <span class="format-badge checklist"><i class="fa-solid fa-list-check" style="font-size: 10px;"></i> Checklisten</span>
+                    <span class="format-badge" style="background:#FEF3C7; color:#D97706;"><i class="fa-solid fa-clipboard-question" style="font-size: 10px;"></i> Quiz</span>
+                    <div class="meta-divider"></div>
+                    <span>Modul 4 von 9</span>
+                </div>
+                <p class="module-intro">Welche Unterlagen bekommst du im Kaufprozess? Teaser, Vertraulichkeitsvereinbarung und Unternehmensexposé richtig lesen und bewerten. Mit Checklisten für jedes Dokument.</p>
+            </div>
+
+            <!-- ===== VIDEO SECTION ===== -->
+            <div class="video-section">
+                <div class="video-section-label">
+                    <i class="fa-solid fa-play-circle"></i> Video-Lektion
+                </div>
+                <div class="video-player" onclick="toggleVideoState()">
+                    <div class="video-overlay" id="video-overlay">
+                        <div class="video-play-btn">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                        <span class="video-label">Video abspielen</span>
+                    </div>
+                    <div class="video-progress-bar">
+                        <div class="video-progress-fill" id="video-progress"></div>
+                    </div>
+                </div>
+                <div class="video-meta">
+                    <span class="video-duration"><i class="fa-regular fa-clock"></i> 12:34 Min.</span>
+                    <span class="video-status pending" id="video-status-label">
+                        <i class="fa-regular fa-circle"></i> Noch nicht angesehen
+                    </span>
+                </div>
+            </div>
+
+            <!-- ===== REFERENZ-MATERIAL (aufklappbar) ===== -->
+            <div class="reference-section">
+                <div class="reference-toggle" id="reference-toggle" onclick="toggleReference()">
+                    <div class="reference-toggle-left">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span class="reference-toggle-title">Referenz-Material</span>
+                        <span class="reference-toggle-sub">– Vollständiger Text zum Nachlesen</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down toggle-chevron"></i>
+                </div>
+                <div class="reference-content" id="reference-content">
+
+            <!-- ===== SECTION 1: Der Teaser ===== -->
+            <div class="section">
+                <h2><span class="section-number">1</span> Der Teaser</h2>
+                <p>Der Teaser ist ein anonymisiertes Kurzprofil eines Unternehmens, das zum Verkauf steht. Er gibt dir einen ersten Überblick – ohne den Namen oder genauen Standort des Unternehmens zu verraten.</p>
+
+                <div class="warn-box">
+                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Wichtig: Berater vs. Direktverkauf</div>
+                    <p>Einen professionellen Teaser gibt es in der Regel nur, wenn ein <strong>M&A-Berater</strong> den Verkaufsprozess begleitet. Bei kleinen Unternehmen (unter 2 Mio. EUR), die <strong>direkt vom Verkäufer</strong> inseriert werden, gibt es oft keinen separaten Teaser – hier dient das <strong>Inserat auf AMBER</strong> selbst als erste Informationsquelle. Die folgenden Punkte gelten vor allem für beratergestützte Verkaufsprozesse.</p>
+                </div>
+
+                <h3>Was steht im Teaser?</h3>
+                <ul>
+                    <li><strong>Branche und Geschäftsmodell</strong> – Was macht das Unternehmen? In welchem Markt ist es aktiv?</li>
+                    <li><strong>Eckdaten</strong> – Ungefährer Umsatz, Mitarbeiterzahl, Region</li>
+                    <li><strong>Verkaufsgrund</strong> – Warum wird verkauft? (z.B. Nachfolge, Ruhestand)</li>
+                    <li><strong>Transaktionsstruktur</strong> – Welche Art von Deal ist geplant? (Share Deal, Asset Deal)</li>
+                    <li><strong>Kaufpreisvorstellung</strong> – Oft als Bandbreite angegeben</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Gut zu wissen</div>
+                    <p>Auf AMBER findest du sowohl beratergestützte Inserate (mit professionellem Teaser) als auch Direkt-Inserate von Verkäufern. Bei Direkt-Inseraten enthält das Listing selbst die wesentlichen Eckdaten – prüfe es mit derselben Sorgfalt wie einen klassischen Teaser.</p>
+                </div>
+
+                <h3>Worauf solltest du achten?</h3>
+                <ul>
+                    <li><strong>Passt die Branche?</strong> – Vergleiche mit deinem Käuferprofil</li>
+                    <li><strong>Stimmt die Größenordnung?</strong> – Umsatz und Kaufpreis im Rahmen deines Budgets?</li>
+                    <li><strong>Ist der Verkaufsgrund plausibel?</strong> – Nachfolge ist häufig und positiv, "strategische Neuausrichtung" kann vieles bedeuten</li>
+                    <li><strong>Sind die Angaben vollständig?</strong> – Fehlende Finanzdaten im Teaser sind ein Warnsignal</li>
+                </ul>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp</div>
+                    <p>Lass dich nicht von einem schönen Teaser blenden. Manche Unternehmen werden professionell "aufgehübscht". Achte auf harte Fakten (Umsatz, Gewinn, Mitarbeiterzahl) statt auf Marketingsprache.</p>
+                </div>
+
+                <!-- Checklist: Teaser -->
+                <div class="checklist-box">
+                    <div class="checklist-header">
+                        <div class="checklist-icon blue"><i class="fa-solid fa-file-lines"></i></div>
+                        <span class="checklist-label">Checkliste: Teaser bewerten</span>
+                    </div>
+                    <ul>
+                        <li><div class="check-icon"></div> Branche und Geschäftsmodell klar beschrieben?</li>
+                        <li><div class="check-icon"></div> Umsatz und/oder Ergebnis (EBIT/EBITDA) angegeben?</li>
+                        <li><div class="check-icon"></div> Mitarbeiterzahl und Region genannt?</li>
+                        <li><div class="check-icon"></div> Verkaufsgrund plausibel und nachvollziehbar?</li>
+                        <li><div class="check-icon"></div> Kaufpreisvorstellung in deinem Budgetrahmen?</li>
+                        <li><div class="check-icon"></div> Passt das Unternehmen zu deinem Käuferprofil?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 2: Die NDA ===== -->
+            <div class="section">
+                <h2><span class="section-number">2</span> Die Vertraulichkeitsvereinbarung (NDA)</h2>
+                <p>Bevor du detaillierte Informationen über ein Unternehmen erhältst, musst du eine Vertraulichkeitsvereinbarung (Non-Disclosure Agreement, kurz NDA) unterschreiben. Das ist Standard und schützt beide Seiten.</p>
+
+                <h3>Warum ist die NDA nötig?</h3>
+                <ul>
+                    <li><strong>Schutz des Verkäufers</strong> – Vertrauliche Unternehmensdaten (Kunden, Umsätze, Verträge) sollen nicht an Dritte gelangen</li>
+                    <li><strong>Schutz für dich</strong> – Auch dein Interesse am Kauf bleibt vertraulich</li>
+                    <li><strong>Vertrauensbasis</strong> – Die NDA signalisiert Ernsthaftigkeit auf beiden Seiten</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Gut zu wissen</div>
+                    <p>Auf AMBER wird die NDA digital abgeschlossen, wenn du dein Interesse an einem Listing bekundest. Du musst sie nicht selbst aufsetzen – aber du solltest sie trotzdem lesen und verstehen.</p>
+                </div>
+
+                <h3>Die 7 wichtigsten Punkte einer NDA</h3>
+                <ul>
+                    <li><strong>Gegenstand</strong> – Was genau ist "vertraulich"? (Alle Infos zum Zielunternehmen)</li>
+                    <li><strong>Laufzeit</strong> – Wie lange gilt die Vertraulichkeit? (Üblich: 2-3 Jahre)</li>
+                    <li><strong>Erlaubte Weitergabe</strong> – Darfst du Berater (Anwalt, Steuerberater) einbeziehen? (Sollte erlaubt sein)</li>
+                    <li><strong>Abwerbeverbot</strong> – Darfst du keine Mitarbeiter des Unternehmens abwerben</li>
+                    <li><strong>Rückgabepflicht</strong> – Was passiert mit den Unterlagen, wenn der Deal nicht zustande kommt?</li>
+                    <li><strong>Vertragsstrafe</strong> – Gibt es eine Strafe bei Verstoß? (Nicht immer, aber möglich)</li>
+                    <li><strong>Keine Kaufverpflichtung</strong> – Die NDA verpflichtet dich nicht zum Kauf</li>
+                </ul>
+
+                <div class="warn-box">
+                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Achtung</div>
+                    <p>Vorsicht bei NDAs, die <strong>pauschale Vertragsstrafen</strong> oder das Recht auf <strong>einstweilige Verfügungen</strong> gegen dich als Käufer vorsehen. Solche Klauseln sind unverhältnismäßig – bitte den Verkäufer oder seinen Berater, diese Passagen zu streichen.</p>
+                </div>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp</div>
+                    <p>Sei pragmatisch bei der NDA: Konzentriere dich auf echte Dealbreaker wie pauschale Vertragsstrafen oder ungewöhnlich lange Laufzeiten. Kleinigkeiten zu verhandeln signalisiert Unerfahrenheit und kann dazu führen, dass Verkäufer oder Berater das Interesse an dir verlieren. Die NDA ist ein Standarddokument – behandle sie auch so.</p>
+                </div>
+
+                <!-- Checklist: NDA -->
+                <div class="checklist-box">
+                    <div class="checklist-header">
+                        <div class="checklist-icon blue"><i class="fa-solid fa-shield-halved"></i></div>
+                        <span class="checklist-label">Checkliste: NDA prüfen</span>
+                    </div>
+                    <ul>
+                        <li><div class="check-icon"></div> Gegenstand der Vertraulichkeit klar definiert?</li>
+                        <li><div class="check-icon"></div> Laufzeit angemessen (max. 2-3 Jahre)?</li>
+                        <li><div class="check-icon"></div> Einbeziehung von Beratern erlaubt?</li>
+                        <li><div class="check-icon"></div> Keine überzogenen Vertragsstrafen?</li>
+                        <li><div class="check-icon"></div> Keine pauschale Vertragsstrafe oder einstweilige Verfügung vorgesehen?</li>
+                        <li><div class="check-icon"></div> Rückgabe-/Löschpflicht für Unterlagen geregelt?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 3: Das Unternehmensexposé (IM) ===== -->
+            <div class="section">
+                <h2><span class="section-number">3</span> Detaillierte Unternehmensinfos: IM vs. Jahresabschlüsse</h2>
+                <p>Nach Unterzeichnung der NDA erhältst du detaillierte Informationen über das Unternehmen. <strong>Welche Unterlagen du bekommst, hängt davon ab, ob ein M&A-Berater eingeschaltet ist oder der Verkäufer den Prozess selbst führt.</strong></p>
+
+                <div class="highlight-box">
+                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Zwei typische Wege</div>
+                    <p><strong>Mit Verkaufsberater:</strong> Du erhältst ein professionell erstelltes Information Memorandum (IM) – ein umfassendes Unternehmensexposé.<br>
+                    <strong>Direktverkauf (häufig bei kleinen Deals):</strong> Nach NDA und persönlichem Gespräch stellt der Verkäufer Jahresabschlüsse und betriebswirtschaftliche Auswertungen (BWA) zur Verfügung. Ein formelles IM gibt es in der Regel nicht.</p>
+                </div>
+
+                <h3>Weg 1: Das Information Memorandum (IM)</h3>
+                <p>Ein IM wird typischerweise vom M&A-Berater des Verkäufers erstellt – vor allem bei Targets ab ca. 5 Mio. EUR Kaufpreis. Es ist ein umfassendes Dokument, das das Unternehmen professionell darstellt.</p>
+
+                <h3>Was steht im IM?</h3>
+                <ul>
+                    <li><strong>Unternehmensprofil</strong> – Geschichte, Rechtsform, Standort, Eigentümerstruktur</li>
+                    <li><strong>Geschäftsmodell</strong> – Produkte/Dienstleistungen, Wertschöpfungskette, Alleinstellungsmerkmale</li>
+                    <li><strong>Markt und Wettbewerb</strong> – Marktgröße, Wachstumstrends, Wettbewerbsposition</li>
+                    <li><strong>Kunden und Vertrieb</strong> – Kundenstruktur, Top-Kunden, Vertriebskanäle, Abhängigkeiten</li>
+                    <li><strong>Mitarbeiter und Organisation</strong> – Organigramm, Schlüsselpersonen, Fluktuation</li>
+                    <li><strong>Finanzen</strong> – GuV der letzten Jahre, Bilanz, Cashflow, Bereinigungen</li>
+                    <li><strong>Zukunftsaussichten</strong> – Planung, Investitionsbedarf, Chancen und Risiken</li>
+                </ul>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp</div>
+                    <p>Das IM stellt das Unternehmen naturgemäß positiv dar. Lies es kritisch und gleiche die Angaben später in der Due Diligence ab. Besonders die Finanzzahlen verdienen eine genaue Prüfung.</p>
+                </div>
+
+                <h3>Weg 2: Jahresabschlüsse & BWA (typisch bei kleinen Deals)</h3>
+                <p>Bei kleinen Unternehmen unter 2 Mio. EUR führt der Verkäufer den Prozess oft selbst – ohne M&A-Berater. Das Geschäftsmodell ist meist leicht verständlich. Statt eines formellen IM erhältst du nach NDA und einem persönlichen Kennenlerngespräch:</p>
+
+                <ul>
+                    <li><strong>Jahresabschlüsse</strong> – Bilanz und GuV der letzten Jahre, erstellt vom Steuerberater</li>
+                    <li><strong>BWA (Betriebswirtschaftliche Auswertung)</strong> – Monatliche oder quartalsweise Auswertung der laufenden Geschäftszahlen</li>
+                    <li><strong>Weiterführende Unterlagen</strong> – Mietverträge, Kundenlisten, Mitarbeiterübersicht etc. werden in der Regel erst im Rahmen der Due Diligence nahe Abgabe eines indikativen Angebots oder Abschlusses eines LOI zur Verfügung gestellt</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Gut zu wissen</div>
+                    <p>Bei Direktverkäufen ist das <strong>persönliche Gespräch</strong> mit dem Verkäufer oft die wichtigste Informationsquelle. Hier erfährst du Details zu Geschäftsmodell, Kunden, Mitarbeitern und Verkaufsgrund, die in keinem Dokument stehen. Bereite dich mit konkreten Fragen vor.</p>
+                </div>
+
+                <h3>Finanzen – worauf du in beiden Fällen achten solltest</h3>
+                <ul>
+                    <li><strong>Umsatzentwicklung</strong> – Wächst das Unternehmen, stagniert es oder schrumpft es?</li>
+                    <li><strong>EBITDA / EBIT</strong> – Die entscheidende Kennzahl für die Bewertung. Ist sie bereinigt? Um welche Positionen?</li>
+                    <li><strong>Inhaberabhängigkeit</strong> – Wie hoch ist das Inhabergehalt? Welche Privatausgaben laufen über die Firma?</li>
+                    <li><strong>Kundenkonzentration</strong> – Machen wenige Kunden den Großteil des Umsatzes aus?</li>
+                    <li><strong>Investitionsstau</strong> – Wurde in den letzten Jahren ausreichend investiert?</li>
+                </ul>
+
+                <div class="warn-box">
+                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Red Flags – egal ob IM oder Jahresabschlüsse</div>
+                    <ul>
+                        <li>Verkäufer zögert, Finanzdaten herauszugeben</li>
+                        <li>Bereinigte Zahlen ohne nachvollziehbare Erklärung</li>
+                        <li>Keine Informationen zu Schlüsselpersonen oder Mitarbeitern</li>
+                        <li>Unrealistische Wachstumsprognosen ohne Basis</li>
+                        <li>Fehlende oder unvollständige Bilanz</li>
+                    </ul>
+                </div>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp</div>
+                    <p>Erstelle dir eine eigene Zusammenfassung der erhaltenen Unterlagen mit den wichtigsten Kennzahlen und deinen offenen Fragen. Diese Liste ist die Grundlage für das nächste Gespräch mit dem Verkäufer oder Berater – und später für die Due Diligence.</p>
+                </div>
+
+                <!-- Checklist: IM / Unterlagen -->
+                <div class="checklist-box">
+                    <div class="checklist-header">
+                        <div class="checklist-icon blue"><i class="fa-solid fa-book-open"></i></div>
+                        <span class="checklist-label">Checkliste: Unternehmensunterlagen bewerten</span>
+                    </div>
+                    <ul>
+                        <li><div class="check-icon"></div> Geschäftsmodell verständlich und nachvollziehbar (aus IM oder Gespräch)?</li>
+                        <li><div class="check-icon"></div> Finanzdaten für mehrere Jahre vorhanden (Jahresabschlüsse oder IM)?</li>
+                        <li><div class="check-icon"></div> EBITDA/EBIT-Bereinigungen plausibel erklärt?</li>
+                        <li><div class="check-icon"></div> Kundenstruktur offengelegt (keine extreme Konzentration)?</li>
+                        <li><div class="check-icon"></div> Schlüsselpersonen und Nachfolgeregelung thematisiert?</li>
+                        <li><div class="check-icon"></div> Investitionsbedarf und -stau transparent dargestellt?</li>
+                        <li><div class="check-icon"></div> Eigene Fragenliste für das nächste Gespräch erstellt?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 4: Checkliste: Dokumente bewerten ===== -->
+            <div class="section" style="border-bottom: none;">
+                <h2><span class="section-number">4</span> Alle Dokumente auf einen Blick</h2>
+                <p>Im Kaufprozess erhältst du die Dokumente in einer logischen Reihenfolge. <strong>Der genaue Ablauf hängt davon ab, ob ein M&A-Berater den Verkauf begleitet oder der Verkäufer den Prozess selbst führt.</strong></p>
+
+                <h3>Mit M&A-Berater (typisch ab ca. 5 Mio. EUR)</h3>
+                <div style="display: flex; align-items: center; gap: 12px; margin: 12px 0 20px; padding: 16px 20px; background: #F9FAFB; border-radius: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="padding: 6px 14px; background: var(--phase-blue-bg); border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--phase-blue);">1. Teaser</div>
+                        <i class="fa-solid fa-arrow-right" style="color: var(--grey-light); font-size: 12px;"></i>
+                        <div style="padding: 6px 14px; background: var(--phase-blue-bg); border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--phase-blue);">2. NDA</div>
+                        <i class="fa-solid fa-arrow-right" style="color: var(--grey-light); font-size: 12px;"></i>
+                        <div style="padding: 6px 14px; background: var(--phase-blue-bg); border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--phase-blue);">3. IM</div>
+                        <i class="fa-solid fa-arrow-right" style="color: var(--grey-light); font-size: 12px;"></i>
+                        <div style="padding: 6px 14px; background: #F3F4F6; border-radius: 6px; font-size: 14px; font-weight: 500; color: var(--grey-dark);">LOI / DD</div>
+                    </div>
+                </div>
+
+                <h3>Direktverkauf ohne Berater (häufig unter 2 Mio. EUR)</h3>
+                <div style="display: flex; align-items: center; gap: 12px; margin: 12px 0 20px; padding: 16px 20px; background: #F9FAFB; border-radius: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="padding: 6px 14px; background: #FEF3C7; border-radius: 6px; font-size: 14px; font-weight: 600; color: #D97706;">1. Inserat</div>
+                        <i class="fa-solid fa-arrow-right" style="color: var(--grey-light); font-size: 12px;"></i>
+                        <div style="padding: 6px 14px; background: #FEF3C7; border-radius: 6px; font-size: 14px; font-weight: 600; color: #D97706;">2. NDA + Gespräch</div>
+                        <i class="fa-solid fa-arrow-right" style="color: var(--grey-light); font-size: 12px;"></i>
+                        <div style="padding: 6px 14px; background: #FEF3C7; border-radius: 6px; font-size: 14px; font-weight: 600; color: #D97706;">3. JA / BWA</div>
+                        <i class="fa-solid fa-arrow-right" style="color: var(--grey-light); font-size: 12px;"></i>
+                        <div style="padding: 6px 14px; background: #F3F4F6; border-radius: 6px; font-size: 14px; font-weight: 500; color: var(--grey-dark);">LOI / DD</div>
+                    </div>
+                </div>
+
+                <h3>So ordnest du die Dokumente ein</h3>
+                <ul>
+                    <li><strong>Teaser / Inserat</strong> – Deine erste Einschätzung: Passt das Unternehmen grundsätzlich? Entscheide hier, ob du weitermachen willst.</li>
+                    <li><strong>NDA</strong> – Der Schlüssel zu den Details. In beiden Fällen Pflicht.</li>
+                    <li><strong>IM oder Jahresabschlüsse/BWA</strong> – Deine Hauptinformationsquelle. Hier entscheidest du, ob du ein Angebot (LOI) formulieren willst.</li>
+                </ul>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp</div>
+                    <p>Nimm dir für die Unterlagen genug Zeit – egal ob IM oder Jahresabschlüsse. Mache dir Notizen und formuliere deine Fragen schriftlich. Das hilft dir im weiteren Prozess und zeigt dem Verkäufer, dass du es ernst meinst.</p>
+                </div>
+            </div>
+
+            <!-- ===== KEY TAKEAWAYS ===== -->
+            <div class="takeaways-box">
+                <div class="takeaways-title"><i class="fa-solid fa-star"></i> Key Takeaways</div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> <strong>Teaser und IM</strong> gibt es in der Regel nur bei beratergestützten Verkaufsprozessen</li>
+                    <li><i class="fa-solid fa-check"></i> Bei <strong>kleinen Deals ohne Berater</strong> erhältst du nach NDA und Gespräch Jahresabschlüsse und BWA</li>
+                    <li><i class="fa-solid fa-check"></i> Die <strong>NDA</strong> ist in beiden Fällen Standard – lies sie sorgfältig, achte auf Laufzeit und Vertragsstrafen</li>
+                    <li><i class="fa-solid fa-check"></i> Fehlende oder unvollständige Angaben sind immer ein <strong>Warnsignal</strong></li>
+                    <li><i class="fa-solid fa-check"></i> Nutze die <strong>Checklisten</strong> bei jedem neuen Unternehmen, das du prüfst</li>
+                </ul>
+            </div>
+
+                </div><!-- /reference-content -->
+            </div><!-- /reference-section -->
+
+            <!-- ===== QUIZ SECTION ===== -->
+            <div class="quiz-section" id="quiz-section">
+                <div class="quiz-header">
+                    <div class="quiz-icon"><i class="fa-solid fa-clipboard-question"></i></div>
+                    <div class="quiz-title">Wissens-Check</div>
+                </div>
+                <p class="quiz-subtitle">Beantworte 7 Fragen zu den Dokumenten im M&A-Prozess. Alle Antworten müssen korrekt sein, um das Modul abzuschließen.</p>
+
+                <!-- Frage 1 -->
+                <div class="quiz-question" data-correct="1">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">1</div>
+                        <div class="quiz-q-text">Was ist der Hauptzweck des Teasers?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Den genauen Kaufpreis festlegen</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Einen anonymisierten Überblick über das Unternehmen geben</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Die Due Diligence starten</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Den Kaufvertrag vorbereiten</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 2 -->
+                <div class="quiz-question" data-correct="2">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">2</div>
+                        <div class="quiz-q-text">Wie lange gilt eine NDA typischerweise?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">6 Monate</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">1 Jahr</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">2–3 Jahre</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Unbegrenzt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 3 -->
+                <div class="quiz-question" data-correct="1">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">3</div>
+                        <div class="quiz-q-text">Wofür steht "IM" im M&A-Kontext?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Investment Management</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Information Memorandum</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Internal Matching</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Initial Memorandum</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 4 -->
+                <div class="quiz-question" data-correct="2">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">4</div>
+                        <div class="quiz-q-text">Wann erhältst du detaillierte Unternehmensunterlagen (IM oder Jahresabschlüsse)?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Sofort beim ersten Kontakt</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Gleichzeitig mit dem Teaser/Inserat</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Nach Unterzeichnung der NDA</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Erst nach dem LOI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 5 -->
+                <div class="quiz-question" data-correct="2">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">5</div>
+                        <div class="quiz-q-text">In welcher Reihenfolge erhältst du die Dokumente bei einem beratergestützten Verkaufsprozess?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">NDA → Teaser → IM</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">IM → NDA → Teaser</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Teaser → NDA → IM</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Teaser → IM → NDA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 6 -->
+                <div class="quiz-question" data-correct="1">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">6</div>
+                        <div class="quiz-q-text">Was ist ein Red Flag im Teaser?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Der Verkaufsgrund ist Nachfolge</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Fehlende Finanzdaten</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Eine Kaufpreisbandbreite wird angegeben</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Die Branche ist klar benannt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 7 -->
+                <div class="quiz-question" data-correct="1">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">7</div>
+                        <div class="quiz-q-text">Worauf solltest du bei einer NDA besonders achten?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Dass sie möglichst lang ist</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Dass sie keine pauschale Vertragsstrafe enthält</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Dass sie digital unterschrieben wird</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Dass sie vom Verkäufer aufgesetzt wurde</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Submit -->
+                <div class="quiz-submit-area">
+                    <span class="quiz-progress-text" id="quiz-progress">0 von 7 beantwortet</span>
+                    <button class="quiz-submit-btn" id="quiz-submit" onclick="submitQuiz()">
+                        <i class="fa-solid fa-check"></i> Antworten prüfen
+                    </button>
+                </div>
+
+                <!-- Quiz Result -->
+                <div class="quiz-result" id="quiz-result"></div>
+            </div>
+
+            <!-- ===== COMPLETION & NAV ===== -->
+            <div class="module-actions">
+                <div class="completion-requirements">
+                    <div class="requirement-item">
+                        <div class="req-icon pending" id="req-video"><i class="fa-solid fa-check" style="display:none"></i></div>
+                        Video angesehen
+                    </div>
+                    <div class="requirement-item">
+                        <div class="req-icon pending" id="req-quiz"><i class="fa-solid fa-check" style="display:none"></i></div>
+                        Wissens-Check bestanden (7/7)
+                    </div>
+                </div>
+                <button class="btn-complete locked" id="btn-complete" disabled>
+                    <i class="fa-solid fa-lock"></i>
+                    Zuerst Video ansehen & Quiz bestehen
+                </button>
+                <div class="module-nav">
+                    <a href="academy-modul-bewertung.html"><i class="fa-solid fa-arrow-left"></i> Bewertung & Preisfindung</a>
+                    <a href="academy-modul-angebotsstrategie.html">Angebotsstrategie und LOI-Verhandlung <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="content-sidebar">
+
+            <!-- Progress Card -->
+            <div class="sidebar-card progress-card">
+                <svg width="80" height="80" viewBox="0 0 80 80">
+                    <circle cx="40" cy="40" r="34" fill="none" stroke="#E5E7EB" stroke-width="6"/>
+                    <circle cx="40" cy="40" r="34" fill="none" stroke="#10B981" stroke-width="6"
+                        stroke-dasharray="213.6" stroke-dashoffset="166.6"
+                        stroke-linecap="round" transform="rotate(-90 40 40)"/>
+                    <text x="40" y="44" text-anchor="middle" font-family="Inter" font-size="18" font-weight="700" fill="#1A1A1A">22%</text>
+                </svg>
+                <div class="progress-value">2 von 9 Modulen</div>
+                <div class="progress-label">abgeschlossen</div>
+            </div>
+
+            <!-- Module Status -->
+            <div class="sidebar-card sidebar-status-card">
+                <div class="sidebar-card-title"><i class="fa-solid fa-list-check"></i> Modul-Fortschritt</div>
+                <div class="status-items">
+                    <div class="sidebar-status-item">
+                        <div class="status-dot pending" id="sidebar-video"><i class="fa-solid fa-check" style="display:none"></i></div>
+                        Video ansehen
+                    </div>
+                    <div class="sidebar-status-item">
+                        <div class="status-dot pending" id="sidebar-quiz"><i class="fa-solid fa-check" style="display:none"></i></div>
+                        Wissens-Check bestehen
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase Module List -->
+            <div class="sidebar-card phase-modules-card">
+                <div class="sidebar-card-title"><i class="fa-solid fa-layer-group"></i> Phase 2: Suche & Analyse</div>
+                <a href="academy-modul-dokumente.html" class="phase-module-item active">
+                    <div class="module-dot"></div>
+                    Dokumente im M&A-Prozess
+                </a>
+                <a href="academy-modul-angebotsstrategie.html" class="phase-module-item">
+                    <div class="module-dot"></div>
+                    Angebotsstrategie und LOI-Verhandlung
+                </a>
+            </div>
+
+            <!-- Downloads -->
+            <div class="sidebar-card download-card">
+                <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
+                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Checkliste: Teaser bewerten</div>
+                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Checkliste: NDA prüfen</div>
+                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Checkliste: IM bewerten</div>
+            </div>
+
+            <!-- Next Module -->
+            <div class="sidebar-card next-module-card">
+                <div class="next-label">Nächstes Modul</div>
+                <div class="next-title">Angebotsstrategie und LOI-Verhandlung</div>
+                <a href="academy-modul-angebotsstrategie.html"><i class="fa-solid fa-arrow-right"></i> Modul starten</a>
+            </div>
+
+            <!-- Berater CTA -->
+            <div class="sidebar-card berater-cta-card">
+                <div class="sidebar-card-title"><i class="fa-solid fa-user-tie"></i> Persönliche Beratung</div>
+                <p>Du brauchst Hilfe beim Lesen und Bewerten von Unternehmensexposés? Unsere Beraterbörse verbindet dich mit erfahrenen M&A-Beratern.</p>
+                <a href="#"><i class="fa-solid fa-arrow-right"></i> Berater finden</a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-logo">/AMBER</div>
+                <div class="footer-sub">BY DEALCIRCLE</div>
+            </div>
+            <div class="footer-right">
+                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
+                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 AMBER. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">AGB</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Focus Group
+        function toggleFocusGroup(e) {
+            e.stopPropagation();
+            var fg = document.getElementById('focus-group');
+            fg.classList.toggle('open');
+        }
+        document.addEventListener('click', function() {
+            var fg = document.getElementById('focus-group');
+            if (fg) fg.classList.remove('open');
+        });
+
+        // --- State ---
+        var videoWatched = false;
+        var quizPassed = false;
+
+        // --- Video Simulation ---
+        function toggleVideoState() {
+            if (videoWatched) return;
+            videoWatched = true;
+            document.getElementById('video-progress').style.width = '100%';
+            var label = document.getElementById('video-status-label');
+            label.className = 'video-status watched';
+            label.innerHTML = '<i class="fa-solid fa-check-circle"></i> Angesehen';
+            document.getElementById('video-overlay').innerHTML =
+                '<div class="video-play-btn"><i class="fa-solid fa-rotate-right"></i></div>' +
+                '<span class="video-label">Video erneut ansehen</span>';
+            // Update requirements
+            var reqIcon = document.getElementById('req-video');
+            reqIcon.className = 'req-icon done';
+            reqIcon.querySelector('i').style.display = '';
+            var sidebarDot = document.getElementById('sidebar-video');
+            sidebarDot.className = 'status-dot done';
+            sidebarDot.querySelector('i').style.display = '';
+            checkCompletion();
+        }
+
+        // --- Reference Toggle ---
+        function toggleReference() {
+            var toggle = document.getElementById('reference-toggle');
+            var content = document.getElementById('reference-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+
+        // --- Quiz ---
+        function selectOption(el) {
+            var question = el.closest('.quiz-question');
+            var options = question.querySelectorAll('.quiz-option');
+            options.forEach(function(opt) {
+                opt.classList.remove('selected', 'correct', 'incorrect');
+            });
+            el.classList.add('selected');
+            updateQuizProgress();
+        }
+
+        function updateQuizProgress() {
+            var questions = document.querySelectorAll('.quiz-question');
+            var answered = 0;
+            questions.forEach(function(q) {
+                if (q.querySelector('.quiz-option.selected')) answered++;
+            });
+            document.getElementById('quiz-progress').textContent = answered + ' von 7 beantwortet';
+        }
+
+        function submitQuiz() {
+            var questions = document.querySelectorAll('.quiz-question');
+            var correctCount = 0;
+            questions.forEach(function(q) {
+                var correctIdx = q.getAttribute('data-correct');
+                var selected = q.querySelector('.quiz-option.selected');
+                var options = q.querySelectorAll('.quiz-option');
+                options.forEach(function(opt) {
+                    opt.classList.remove('correct', 'incorrect', 'selected');
+                    opt.style.pointerEvents = 'none';
+                });
+                if (selected) {
+                    var selectedIdx = selected.getAttribute('data-idx');
+                    if (selectedIdx === correctIdx) {
+                        selected.classList.add('correct');
+                        correctCount++;
+                    } else {
+                        selected.classList.add('incorrect');
+                        options[parseInt(correctIdx)].classList.add('correct');
+                    }
+                } else {
+                    options[parseInt(correctIdx)].classList.add('correct');
+                }
+            });
+
+            var resultEl = document.getElementById('quiz-result');
+            if (correctCount === 7) {
+                quizPassed = true;
+                resultEl.className = 'quiz-result passed';
+                resultEl.innerHTML =
+                    '<div class="quiz-result-icon"><i class="fa-solid fa-check"></i></div>' +
+                    '<div class="quiz-result-text"><strong>Bestanden!</strong> Alle 7 Fragen richtig beantwortet. Wissens-Check abgeschlossen.</div>';
+                var reqIcon = document.getElementById('req-quiz');
+                reqIcon.className = 'req-icon done';
+                reqIcon.querySelector('i').style.display = '';
+                var sidebarDot = document.getElementById('sidebar-quiz');
+                sidebarDot.className = 'status-dot done';
+                sidebarDot.querySelector('i').style.display = '';
+            } else {
+                resultEl.className = 'quiz-result failed';
+                resultEl.innerHTML =
+                    '<div class="quiz-result-icon"><i class="fa-solid fa-xmark"></i></div>' +
+                    '<div class="quiz-result-text"><strong>Nicht bestanden.</strong> Du hast ' + correctCount + ' von 7 Fragen richtig. Alle 7 müssen korrekt sein.</div>' +
+                    '<button class="quiz-retry-btn" onclick="retryQuiz()"><i class="fa-solid fa-rotate-right"></i> Erneut versuchen</button>';
+            }
+            document.getElementById('quiz-submit').style.display = 'none';
+            checkCompletion();
+        }
+
+        function retryQuiz() {
+            var questions = document.querySelectorAll('.quiz-question');
+            questions.forEach(function(q) {
+                var options = q.querySelectorAll('.quiz-option');
+                options.forEach(function(opt) {
+                    opt.classList.remove('correct', 'incorrect', 'selected');
+                    opt.style.pointerEvents = '';
+                });
+            });
+            document.getElementById('quiz-result').className = 'quiz-result';
+            document.getElementById('quiz-result').innerHTML = '';
+            document.getElementById('quiz-submit').style.display = '';
+            updateQuizProgress();
+        }
+
+        // --- Completion Check ---
+        function checkCompletion() {
+            var btn = document.getElementById('btn-complete');
+            if (videoWatched && quizPassed) {
+                btn.className = 'btn-complete';
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> Als abgeschlossen markieren';
+            }
+        }
+    </script>
+
+</body>
+</html>

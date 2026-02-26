@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red-Flag Meldung – AMBER</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: #F9FAFB;
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* ===== Modal Overlay ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* ===== Modal Container ===== */
+        .modal {
+            background: var(--white);
+            width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 12px;
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Modal Header ===== */
+        .modal-header {
+            padding: 32px 32px 24px 32px;
+            border-bottom: 1px solid #FCA5A5;
+            background: linear-gradient(135deg, #FEF2F2 0%, #FFEDD5 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .modal-header-content h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #991B1B;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-header-content p {
+            font-size: 14px;
+            font-weight: 400;
+            color: #DC2626;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #DC2626;
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(220, 38, 38, 0.1);
+        }
+
+        /* ===== Modal Body ===== */
+        .modal-body {
+            padding: 32px;
+        }
+
+        /* ===== Buyer Info Card ===== */
+        .buyer-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .buyer-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .buyer-details h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+
+        .buyer-stats {
+            display: flex;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--grey-dark);
+        }
+
+        .buyer-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ===== ENABLEMENT: Red Flag Categories ===== */
+        .form-section {
+            margin-bottom: 28px;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .form-hint {
+            font-size: 13px;
+            color: var(--grey-dark);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .category-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--white);
+        }
+
+        .category-option:hover {
+            border-color: #FCA5A5;
+            background: #FEF2F2;
+        }
+
+        .category-option.selected {
+            border-color: #DC2626;
+            background: #FEF2F2;
+        }
+
+        .category-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #D1D5DB;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .category-option.selected .category-checkbox {
+            background: #DC2626;
+            border-color: #DC2626;
+            color: var(--white);
+        }
+
+        .category-content {
+            flex: 1;
+        }
+
+        .category-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+
+        .category-option.selected .category-title {
+            color: #DC2626;
+        }
+
+        .category-description {
+            font-size: 13px;
+            color: var(--grey-dark);
+            line-height: 1.5;
+        }
+
+        /* ===== Text Area ===== */
+        .form-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 14px;
+            color: var(--black);
+            resize: vertical;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #DC2626;
+        }
+
+        .form-textarea::placeholder {
+            color: #9CA3AF;
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 12px;
+            color: var(--grey-dark);
+            margin-top: 6px;
+        }
+
+        /* ===== Warning Box ===== */
+        .warning-box {
+            padding: 16px;
+            background: #FFFBEB;
+            border: 1px solid #FCD34D;
+            border-radius: 8px;
+            margin-bottom: 28px;
+        }
+
+        .warning-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #92400E;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .warning-text {
+            font-size: 13px;
+            color: #78350F;
+            line-height: 1.5;
+        }
+
+        /* ===== Confidentiality Box ===== */
+        .confidentiality-box {
+            padding: 16px;
+            background: #F0FDFA;
+            border: 1px solid #5EEAD4;
+            border-radius: 8px;
+            margin-bottom: 28px;
+        }
+
+        .confidentiality-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #115E59;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .confidentiality-text {
+            font-size: 13px;
+            color: #134E4A;
+            line-height: 1.5;
+        }
+
+        /* ===== Modal Footer ===== */
+        .modal-footer {
+            padding: 24px 32px;
+            border-top: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--grey-dark);
+            border: 1px solid #D1D5DB;
+        }
+
+        .btn-secondary:hover {
+            background: #F9FAFB;
+        }
+
+        .btn-danger {
+            background: #DC2626;
+            color: var(--white);
+            padding: 12px 32px;
+        }
+
+        .btn-danger:hover {
+            background: #B91C1C;
+        }
+
+        .btn-danger:disabled {
+            background: #D1D5DB;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENABLEMENT: Red-Flag Meldeformular -->
+    <div class="modal-overlay">
+        <div class="modal">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-header-content">
+                    <h2>
+                        <i class="fa-solid fa-flag"></i>
+                        Problematisches Verhalten melden
+                    </h2>
+                    <p>Bitte beschreibe, welches Problem aufgetreten ist</p>
+                </div>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <!-- Buyer Info Card -->
+                <div class="buyer-info">
+                    <div class="buyer-avatar">MM</div>
+                    <div class="buyer-details">
+                        <h3>Max Mustermann</h3>
+                        <div class="buyer-stats">
+                            <div class="buyer-stat">
+                                <i class="fa-solid fa-star" style="color: #7C3AED;"></i>
+                                <span>AMBER-Score: 70%</span>
+                            </div>
+                            <div class="buyer-stat">
+                                <i class="fa-solid fa-users"></i>
+                                <span>5 Endorsements</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Red Flag Categories -->
+                <div class="form-section">
+                    <label class="form-label">Was ist vorgefallen?</label>
+                    <div class="form-hint">
+                        Wähle eine oder mehrere Kategorien aus, die das Verhalten am besten beschreiben.
+                    </div>
+                    <div class="categories-grid">
+                        <div class="category-option" onclick="toggleCategory(this)">
+                            <div class="category-checkbox"></div>
+                            <div class="category-content">
+                                <div class="category-title">
+                                    <i class="fa-solid fa-ghost"></i> Ghosting
+                                </div>
+                                <div class="category-description">
+                                    Der Käufer hat nach dem Erstkontakt nicht mehr geantwortet oder ist plötzlich verschwunden.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="category-option" onclick="toggleCategory(this)">
+                            <div class="category-checkbox"></div>
+                            <div class="category-content">
+                                <div class="category-title">
+                                    <i class="fa-solid fa-hourglass"></i> Zeitverschwendung
+                                </div>
+                                <div class="category-description">
+                                    Der Käufer hatte endlose Fragen ohne echte Kaufabsicht oder hat den Prozess unnötig in die Länge gezogen.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="category-option" onclick="toggleCategory(this)">
+                            <div class="category-checkbox"></div>
+                            <div class="category-content">
+                                <div class="category-title">
+                                    <i class="fa-solid fa-user-slash"></i> Unprofessionelles Verhalten
+                                </div>
+                                <div class="category-description">
+                                    Der Käufer war unhöflich, stellte unrealistische Forderungen oder verhielt sich respektlos.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="category-option" onclick="toggleCategory(this)">
+                            <div class="category-checkbox"></div>
+                            <div class="category-content">
+                                <div class="category-title">
+                                    <i class="fa-solid fa-eye"></i> Fake-Interesse / Informationssammlung
+                                </div>
+                                <div class="category-description">
+                                    Der Käufer hatte kein echtes Interesse am Kauf, sondern wollte nur Informationen sammeln (z.B. für Wettbewerber).
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="category-option" onclick="toggleCategory(this)">
+                            <div class="category-checkbox"></div>
+                            <div class="category-content">
+                                <div class="category-title">
+                                    <i class="fa-solid fa-circle-exclamation"></i> Sonstiges
+                                </div>
+                                <div class="category-description">
+                                    Anderes problematisches Verhalten (bitte im Textfeld beschreiben).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Details Text Area -->
+                <div class="form-section">
+                    <label class="form-label">Details zum Vorfall (optional)</label>
+                    <div class="form-hint">
+                        Beschreibe so konkret wie möglich, was vorgefallen ist. Dies hilft unserem Team, die Situation zu verstehen.
+                    </div>
+                    <textarea
+                        class="form-textarea"
+                        id="detailsTextarea"
+                        placeholder="z.B. 'Nach drei E-Mails mit detaillierten Fragen zum Unternehmen kam keine Antwort mehr. Telefonnummer war plötzlich nicht mehr erreichbar.'"
+                        maxlength="1000"
+                        oninput="updateCharCount()"
+                    ></textarea>
+                    <div class="char-count">
+                        <span id="charCount">0</span> / 1000 Zeichen
+                    </div>
+                </div>
+
+                <!-- Warning Box -->
+                <div class="warning-box">
+                    <div class="warning-title">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Wichtig
+                    </div>
+                    <div class="warning-text">
+                        Red-Flag-Meldungen werden ernst genommen. Bei wiederholten Meldungen können wir Maßnahmen ergreifen (z.B. eingeschränkte Sichtbarkeit des Käufers). Der gemeldete Käufer erfährt nicht, dass du eine Meldung abgegeben hast.
+                    </div>
+                </div>
+
+                <!-- Confidentiality Box -->
+                <div class="confidentiality-box">
+                    <div class="confidentiality-title">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Vertraulichkeit
+                    </div>
+                    <div class="confidentiality-text">
+                        Deine Meldung wird vertraulich behandelt. Der Käufer wird nicht erfahren, wer die Meldung abgegeben hat. Nur unser Plattform-Team hat Zugriff auf diese Informationen.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="cancelReport()">
+                    Abbrechen
+                </button>
+                <button class="btn btn-danger" id="submitBtn" onclick="submitRedFlag()" disabled>
+                    <i class="fa-solid fa-flag"></i>
+                    Red-Flag melden
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Category Selection Logic
+        function toggleCategory(element) {
+            element.classList.toggle('selected');
+            const checkbox = element.querySelector('.category-checkbox');
+
+            if (element.classList.contains('selected')) {
+                checkbox.innerHTML = '<i class="fa-solid fa-check"></i>';
+            } else {
+                checkbox.innerHTML = '';
+            }
+
+            // Enable submit button if at least one category is selected
+            updateSubmitButton();
+        }
+
+        // Update Submit Button State
+        function updateSubmitButton() {
+            const selectedCategories = document.querySelectorAll('.category-option.selected');
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = selectedCategories.length === 0;
+        }
+
+        // Character Count Update
+        function updateCharCount() {
+            const textarea = document.getElementById('detailsTextarea');
+            const charCount = document.getElementById('charCount');
+            charCount.textContent = textarea.value.length;
+        }
+
+        // Modal Actions
+        function closeModal() {
+            alert('Modal geschlossen (in echter Implementierung würde das Modal verschwinden)');
+        }
+
+        function cancelReport() {
+            if (confirm('Möchtest du die Meldung wirklich abbrechen?')) {
+                alert('Meldung abgebrochen');
+            }
+        }
+
+        function submitRedFlag() {
+            const selectedCategories = Array.from(document.querySelectorAll('.category-option.selected'))
+                .map(cat => cat.querySelector('.category-title').textContent.trim());
+            const details = document.getElementById('detailsTextarea').value;
+
+            console.log('Selected Categories:', selectedCategories);
+            console.log('Details:', details);
+
+            alert(`🚩 Red-Flag erfolgreich gemeldet!\n\nKategorien: ${selectedCategories.join(', ')}\n\nVielen Dank für dein Feedback. Unser Team wird die Meldung prüfen.`);
+        }
+    </script>
+
+</body>
+</html>

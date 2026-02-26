@@ -32,12 +32,12 @@ Im Meeting wurden drei integrierte Enablement-Ebenen definiert:
 **Ziel:** Nutzer vorbereiten, bevor sie in einen Deal eintreten
 
 #### Käufer-Readiness
-- [ ] **Profilvervollständigung** – Readiness Score basierend auf ausgefülltem Profil
+- [x] **Profilvervollständigung** – Readiness Score basierend auf ausgefülltem Profil *(Mockup: kauferprofil.html – SVG Ring 45%, Missing-Field Hints)*
 - [ ] **Selbsttest: Persönliche Eignung** – Bin ich als Käufer geeignet? Welche Targets passen zu mir?
 - [ ] **Finanzierungsvorbereitung** – Eigenkapitalnachweis, Hausbank-Kontakt, Finanzierungsbereitschaft
-- [ ] **Suchstrategie definieren** – Branche, Größe, Region, Kaufgründe
+- [x] **Suchstrategie definieren** – Branche, Größe, Region, Kaufgründe *(Mockup: suchauftraege.html – Academy-Tip "Suchstrategie optimieren")*
 - [ ] **Vorlagen-Paket Käufer** – Liquiditätsplanung, Bankpräsentation, Käuferprofil-Vorlage
-- [ ] **Wissensmodule** – Was ist ein LOI? Was ist Due Diligence? Wie verhandelt man?
+- [x] **Wissensmodule** – Was ist ein LOI? Was ist Due Diligence? Wie verhandelt man? *(Mockup: academy.html – 12 Module in 3 Phasen)*
 
 #### Verkäufer-Readiness
 - [ ] **Selbsttest: Ist mein Unternehmen verkäuflich?** – Kundenabhängigkeiten, Personenabhängigkeiten, Dokumentenlage
@@ -86,11 +86,11 @@ Die aktuelle Ember-Prozesskette muss deutlich **granularer** werden. Für jeden 
 **Wann:** Jederzeit verfügbar, kontextabhängig
 **Ziel:** Persönlicher M&A-Berater als Chatbot
 
-- [ ] **Wissensbasis:** Trainiert auf Academy-Inhalten + allgemeinem M&A-Wissen
-- [ ] **Deal-Kontext:** Kennt (mit Nutzer-Zustimmung) die konkreten Deal-Informationen
-- [ ] **Anwendungsfälle:** "Was sollte ich als nächstes tun?", "Ist dieser Preis realistisch?", "Welche Unterlagen brauche ich für die DD?"
-- [ ] **Datenschutz:** Explizite Nutzer-Zustimmung bevor Deal-Daten einbezogen werden
-- [ ] **MVP-Version:** Auch ohne Deal-Kontext wertvoll – allgemeine M&A-Fragen beantworten
+- [ ] **Wissensbasis:** Trainiert auf Academy-Inhalten + allgemeinem M&A-Wissen *(Mockup: noch offen)*
+- [ ] **Deal-Kontext:** Kennt (mit Nutzer-Zustimmung) die konkreten Deal-Informationen *(Mockup: noch offen)*
+- [ ] **Anwendungsfälle:** "Was sollte ich als nächstes tun?", "Ist dieser Preis realistisch?", "Welche Unterlagen brauche ich für die DD?" *(Mockup: noch offen)*
+- [ ] **Datenschutz:** Explizite Nutzer-Zustimmung bevor Deal-Daten einbezogen werden *(Mockup: noch offen)*
+- [ ] **MVP-Version:** Auch ohne Deal-Kontext wertvoll – allgemeine M&A-Fragen beantworten *(Mockup: noch offen)*
 
 **Abhängigkeit:** Braucht Inhalte aus Ebene 1 & 2 als Trainingsbasis. Ein "dummer" Chatbot mit allgemeinem M&A-Wissen wäre aber auch schon ein Mehrwert beim Launch.
 
@@ -179,32 +179,33 @@ Für die nächsten Sessions zu klären:
 
 Dieses Dokument wird in mehreren Sessions bearbeitet. Vorgeschlagene Struktur:
 
-### Session 1 (aktuell): Problemverständnis & Strukturierung
+### Session 1: Problemverständnis & Strukturierung
 - [x] Meeting-Inhalte strukturieren
-- [ ] Gemeinsames Brainstorming zu offenen Fragen
+- [x] Gemeinsames Brainstorming zu offenen Fragen
 - [ ] Priorisierung validieren
 
-### Session 2: Käufer-Journey Mockup
-- [ ] Käufer-Readiness-Flow durchdesignen
-- [ ] Academy-Startseite + 1-2 Module mockupen
-- [ ] Readiness Score UI-Konzept
+### Session 2: Käufer-Journey Mockup (abgeschlossen 12. Feb 2026)
+- [x] Käufer-Readiness-Flow durchdesignen → `kauferprofil.html` (Score Banner, Missing Hints)
+- [x] Academy-Startseite + Module mockupen → `academy.html` (3 Phasen, 12 Module)
+- [x] Readiness Score UI-Konzept → SVG Ring (45%), Score-Impact Badges
+- [x] In-Flow Guidance auf allen Käufer-Seiten:
+  - `suche.html` – Gating/Blurring bei niedrigem Score
+  - `suchauftraege.html` – Competition, Gesperrt-Badges, Tooltips, CTA
+  - `transaktionen.html` – Kontextuelle Academy-Cards pro Tab
+  - `listing.html` – KI-Analyse (Chancen/Risiken) + Interest-Modal mit Verkäufer-Fragen
 
-### Session 3: Verkäufer-Journey Mockup
+### Session 3: Verkäufer-Journey Mockup (offen)
 - [ ] Verkäufer-Readiness-Flow durchdesignen
 - [ ] Selbsttest "Ist mein Unternehmen verkäuflich?" mockupen
 - [ ] Bewertungsbandbreiten-UI (wenn im Scope)
 
-### Session 4: In-Flow Guidance Mockup
-- [ ] Prozesskette definieren (alle Schritte)
-- [ ] Trigger-Notifications designen (Mitteilungen, E-Mail)
+### Session 4: In-Flow Guidance + Vertiefung (offen)
+- [ ] KI-Assistent Chat-UI designen
+- [ ] Mitteilungen mit Enablement-Trigger-Notifications
+- [ ] Academy Modul-Detailseite (einzelnes Modul geöffnet)
 - [ ] Beraterbörsen-Integration mockupen
 
-### Session 5: KI-Assistent Mockup
-- [ ] Chat-UI designen
-- [ ] Beispieldialoge definieren
-- [ ] Einbettung in bestehende Seiten
-
-### Session 6: Review & Finalisierung
+### Session 5: Review & Finalisierung
 - [ ] Alle Mockups verlinken
 - [ ] Finales Konzeptpapier generieren
 - [ ] Tech-Handoff vorbereiten
@@ -222,4 +223,39 @@ Dieses Dokument wird in mehreren Sessions bearbeitet. Vorgeschlagene Struktur:
 
 ---
 
-*Dieses Dokument wird iterativ in Sessions mit Claude Code weiterentwickelt.*
+## 9. Mockup-Status (Stand: 12. Februar 2026)
+
+Die folgenden HTML-Mockups wurden in Claude Code Sessions erstellt. Alle Mockups zeigen die **Käuferseite** der Plattform mit integrierten Enablement-Features.
+
+### Fertige Mockups
+
+| Seite | Datei | Enablement-Features |
+|---|---|---|
+| **Suche** | `suche.html` | Listings mit niedrigem Score sind geblurrt + Overlay "Readiness Score verbessern" |
+| **Listing-Detail** | `listing.html` | KI-Analyse (82% Match-Score, 4 Chancen, 4 Risiken) + Interest-Modal mit 3 Verkäufer-Fragen |
+| **Suchaufträge** | `suchauftraege.html` | Per-Alert Wettbewerbsdaten ("5 Käufer, 80% mit höherem Score"), Ergebnis/Gesperrt-Badges mit Tooltip, Locked-Summary CTA, Academy-Tip |
+| **Transaktionen** | `transaktionen.html` | Kontextuelle Academy-Cards pro Tab: Merkliste (Inserate lesen, Bewertung), Interessensbekundungen (Finanzierung, Profil), Matches (NDA, LOI, DD) |
+| **Käuferprofil** | `kauferprofil.html` | Readiness Score Banner (45%, SVG Ring, 5 Items: 2 erledigt, 3 fehlend), Missing-Field Hints bei leeren Feldern |
+| **Academy** | `academy.html` | Hero mit Score-Ring, 3 Phasen (Vorbereitung 5 Module, Im Deal 5 Module, Nach dem Deal 2 Module), Berater-CTA |
+| **Mitteilungen** | `mitteilungen.html` | Noch keine Enablement-Features |
+| **Postfach** | `postfach.html` | Noch keine Enablement-Features |
+
+### Design-Entscheidungen (aus den Sessions)
+
+1. **Dual-Purpose Content:** Academy-Module erscheinen sowohl auf der Academy-Startseite als auch kontextuell auf anderen Seiten (Transaktionen, Suchaufträge). Gleiche Module, verschiedene Kontexte.
+
+2. **Gating statt Blocking:** Gesperrte Listings sind sichtbar (geblurrt), nicht komplett versteckt. Der User sieht, was ihm entgeht → Motivation den Score zu verbessern.
+
+3. **Competition als Motivator:** Auf Suchaufträgen wird pro Alert angezeigt, wie viele Käufer ähnliche Kriterien haben und welcher Prozentsatz einen höheren Score hat. Das erzeugt Dringlichkeit ohne Panik.
+
+4. **KI-Analyse pro Listing:** Automatische Chancen/Risiken-Analyse basierend auf Käuferprofil + Inseratsdaten. Zeigt dem Käufer sofort, warum das Listing relevant ist (oder nicht).
+
+5. **Interest-Modal mit Verkäufer-Fragen:** Beim "Interesse bekunden" beantwortet der Käufer Fragen, die der Verkäufer/Berater hinterlegt hat (Synergien, Finanzierung, Erfahrung). Das verbessert die Lead-Qualität und den Verkäufer-Eindruck.
+
+6. **Enablement-Gradient:** Alle Enablement-Elemente nutzen den gleichen Gradient-Hintergrund (Grün→Türkis→Lila), damit sie visuell als zusammengehörig erkennbar sind, aber sich vom normalen UI abheben.
+
+7. **Tooltips auf Gesperrt-Badges:** Bei Mouseover erklären die Gesperrt-Badges, warum Inserate gesperrt sind ("Verkäufer verlangen einen höheren Readiness Score. Vervollständige dein Käuferprofil...").
+
+---
+
+*Dieses Dokument wird iterativ in Sessions mit Claude Code weiterentwickelt. Technische Details zum Design-System stehen in `CLAUDE.md`.*

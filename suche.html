@@ -692,6 +692,129 @@
         .footer-links a:hover {
             color: var(--white);
         }
+
+        /* ===== ENABLEMENT: Readiness Banner ===== */
+        .search-readiness-banner {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            gap: 16px;
+            background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+            border: 1px solid #FCD34D;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .search-readiness-banner i.banner-icon {
+            font-size: 20px;
+            color: #F59E0B;
+            flex-shrink: 0;
+        }
+
+        .search-readiness-banner .banner-text {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 150%;
+            color: var(--black);
+        }
+
+        .search-readiness-banner .banner-text strong {
+            font-weight: 600;
+        }
+
+        .search-readiness-banner .banner-link {
+            flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+            padding: 6px 16px;
+            background: var(--white);
+            border: 1px solid var(--black);
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .search-readiness-banner .banner-link:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* ===== ENABLEMENT: Gated / Locked Cards ===== */
+        .listing-card-gated {
+            position: relative;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .listing-card-gated .listing-card-inner {
+            filter: blur(6px);
+            opacity: 0.5;
+        }
+
+        .gated-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            pointer-events: all;
+            z-index: 5;
+        }
+
+        .gated-lock {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gated-lock i {
+            font-size: 20px;
+            color: var(--white);
+        }
+
+        .gated-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+            text-align: center;
+        }
+
+        .gated-sub {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .gated-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 20px;
+            background: var(--gradient-nda);
+            border: none;
+            border-radius: 40px;
+            font-family: var(--font-main);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            cursor: pointer;
+            text-decoration: none;
+            pointer-events: all;
+        }
+
+        .gated-cta:hover {
+            opacity: 0.85;
+        }
     </style>
 </head>
 <body>
@@ -705,11 +828,12 @@
             <a href="mitteilungen.html">Mitteilungen</a>
             <a href="postfach.html">Postfach</a>
             <a href="transaktionen.html">Meine Transaktionen</a>
+            <a href="academy.html">Academy</a>
         </div>
         <div class="nav-right">
             <div class="nav-lang">
-                <span style="font-size: 18px;">🇩🇪</span>
-                <span>German</span>
+                <span style="font-weight:600; font-size:12px; background:#F3F4F6; padding:2px 6px; border-radius:3px;">DE</span>
+                <span>Deutsch</span>
             </div>
             <div class="nav-avatar-wrapper">
                 <div class="nav-avatar" onclick="toggleFocusGroup(event)">
@@ -823,6 +947,13 @@
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
+            </div>
+
+            <!-- ENABLEMENT: Readiness Banner -->
+            <div class="search-readiness-banner">
+                <i class="fa-solid fa-triangle-exclamation banner-icon"></i>
+                <span class="banner-text"><strong>2 Inserate sind für dich gesperrt.</strong> Dein Readiness Score beträgt 45% – einige Verkäufer verlangen mindestens 70%. Vervollständige dein Profil und schließe Academy-Module ab.</span>
+                <a href="kauferprofil.html" class="banner-link">Score verbessern</a>
             </div>
 
             <!-- Results -->
@@ -978,8 +1109,8 @@ Etablierter IT-Dienstleister mit starkem Kundenstamm im Mittelstand
                     </div>
                 </div></a>
 
-                <!-- Card 4 -->
-                <a href="listing.html" style="text-decoration:none;color:inherit;display:block;"><div class="listing-card">
+                <!-- Card 4 – GATED -->
+                <div class="listing-card listing-card-gated">
                     <div class="listing-card-inner">
                         <div class="listing-card-left">
                             <h3 class="listing-card-title">
@@ -1026,10 +1157,16 @@ Spezialisierte Personalberatung mit Fokus auf Führungskräfte im Healthcare-Sek
                             </div>
                         </div>
                     </div>
-                </div></a>
+                    <div class="gated-overlay">
+                        <div class="gated-lock"><i class="fa-solid fa-lock"></i></div>
+                        <div class="gated-text">Readiness Score zu niedrig</div>
+                        <div class="gated-sub">Der Verkäufer verlangt einen Score von mindestens 70%. Dir fehlen: Eigenkapitalnachweis, Finanzierungsstrategie</div>
+                        <a href="academy.html" class="gated-cta"><i class="fa-solid fa-graduation-cap"></i> Score verbessern</a>
+                    </div>
+                </div>
 
-                <!-- Card 5 -->
-                <a href="listing.html" style="text-decoration:none;color:inherit;display:block;"><div class="listing-card">
+                <!-- Card 5 – GATED -->
+                <div class="listing-card listing-card-gated">
                     <div class="listing-card-inner">
                         <div class="listing-card-left">
                             <h3 class="listing-card-title">
@@ -1076,7 +1213,13 @@ Wachstumsstarke Zeitarbeitsfirma mit Top-Kundenportfolio
                             </div>
                         </div>
                     </div>
-                </div></a>
+                    <div class="gated-overlay">
+                        <div class="gated-lock"><i class="fa-solid fa-lock"></i></div>
+                        <div class="gated-text">Readiness Score zu niedrig</div>
+                        <div class="gated-sub">Der Verkäufer verlangt einen Score von mindestens 60%. Dir fehlen: Academy-Module abschließen</div>
+                        <a href="academy.html" class="gated-cta"><i class="fa-solid fa-graduation-cap"></i> Score verbessern</a>
+                    </div>
+                </div>
 
             </div>
 

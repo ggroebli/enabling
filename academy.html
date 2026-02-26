@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER – Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            display: flex; align-items: center; padding: 0 48px; height: 72px;
+            border-bottom: 1px solid #EEE; position: fixed; top: 0; width: 1440px;
+            background: var(--white); z-index: 100;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: var(--black); text-decoration: none; margin-right: 48px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+        .nav-links a { font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-lang { display: flex; align-items: center; gap: 8px; font-size: 14px; border: 1px solid var(--grey-light); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .nav-avatar-wrapper { position: relative; }
+        .nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grey-light); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .nav-avatar i { font-size: 18px; color: var(--grey-dark); }
+
+        /* Focus Group Dropdown */
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== MAIN ===== */
+        .main {
+            padding: 120px 48px 0;
+            width: 1440px;
+            min-height: calc(100vh - 72px);
+            background: var(--white);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            width: 1344px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .academy-hero {
+            display: flex;
+            align-items: center;
+            padding: 48px;
+            gap: 48px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF;
+            border-radius: 8px;
+        }
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #10B981;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 120%;
+            color: var(--black);
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 160%;
+            color: var(--grey-dark);
+            max-width: 640px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 8px;
+        }
+
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .hero-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .hero-stat-label {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--grey-dark);
+        }
+
+        /* Readiness ring in hero */
+        .hero-ring {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .readiness-ring {
+            position: relative;
+            width: 160px;
+            height: 160px;
+        }
+
+        .readiness-ring svg {
+            transform: rotate(-90deg);
+        }
+
+        .readiness-ring-bg {
+            fill: none;
+            stroke: #E5E7EB;
+            stroke-width: 10;
+        }
+
+        .readiness-ring-fill {
+            fill: none;
+            stroke: #10B981;
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-dasharray: 408;
+            stroke-dashoffset: 224; /* 408 - (408 * 0.45) = 224.4 → 45% */
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .readiness-ring-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .readiness-percent {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--black);
+            line-height: 1;
+        }
+
+        .readiness-label {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            margin-top: 4px;
+        }
+
+        .hero-ring-sub {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            text-align: center;
+        }
+
+        .hero-ring-sub strong {
+            color: #F59E0B;
+            font-weight: 600;
+        }
+
+        /* ===== PHASE SECTIONS ===== */
+        .phase-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #F0F0F0;
+        }
+
+        .phase-header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .phase-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--black);
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .phase-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 140%;
+        }
+
+        .phase-progress {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .phase-progress-bar {
+            width: 120px;
+            height: 6px;
+            background: #E5E7EB;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .phase-progress-fill {
+            height: 100%;
+            background: #10B981;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .phase-progress-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--grey-dark);
+            white-space: nowrap;
+        }
+
+        /* Module cards grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .module-card {
+            display: flex;
+            flex-direction: column;
+            padding: 24px 24px 24px 28px;
+            gap: 12px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+            border-left: 4px solid #D1D5DB;
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .module-card:hover {
+            box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+        }
+
+        /* Phase colors via left border */
+        .phase-prep .module-card { border-left-color: #7C3AED; }
+        .phase-search .module-card { border-left-color: #2563EB; }
+        .phase-check .module-card { border-left-color: #0D9488; }
+        .phase-close .module-card { border-left-color: #059669; }
+        .phase-post .module-card { border-left-color: #D97706; }
+
+        .module-card.completed {
+            border-left-color: #10B981;
+            background: #FAFFFE;
+        }
+
+        .module-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .module-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .module-status.done {
+            background: #D1FAE5;
+            color: #10B981;
+        }
+
+        .module-status.done i {
+            font-size: 12px;
+        }
+
+        .module-status.todo {
+            background: #F9FAFB;
+            border: 2px solid #D1D5DB;
+        }
+
+        .module-title {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 140%;
+            color: var(--black);
+        }
+
+        .module-title .priority-star {
+            color: #D97706;
+            font-size: 13px;
+            margin-right: 4px;
+        }
+
+        .module-desc {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 160%;
+            color: var(--grey-dark);
+            flex: 1;
+        }
+
+        .module-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 12px;
+            border-top: 1px solid #F3F4F6;
+        }
+
+        .module-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .module-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--grey-dark);
+        }
+
+        .module-meta-item i {
+            font-size: 11px;
+        }
+
+        .module-format {
+            font-size: 12px;
+            font-weight: 400;
+            color: #999;
+        }
+
+        /* ===== READINESS CHECK BANNER ===== */
+        .readiness-check-banner {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            padding: 36px 48px;
+            background: linear-gradient(135deg, #EDE9FE 0%, #DBEAFE 50%, #D1FAE5 100%);
+            border-radius: 12px;
+            border: 1px solid #E0E7FF;
+        }
+
+        .readiness-check-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            background: white;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .readiness-check-icon i {
+            font-size: 24px;
+            color: #7C3AED;
+        }
+
+        .readiness-check-content {
+            flex: 1;
+        }
+
+        .readiness-check-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 6px;
+        }
+
+        .readiness-check-desc {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            line-height: 160%;
+        }
+
+        .readiness-check-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .readiness-check-meta {
+            font-size: 13px;
+            color: var(--grey-dark);
+        }
+
+        .readiness-check-meta i {
+            margin-right: 4px;
+        }
+
+        .readiness-check-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--black);
+            color: white;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .readiness-check-btn:hover {
+            opacity: 0.85;
+        }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            display: flex;
+            align-items: center;
+            padding: 32px 48px;
+            gap: 32px;
+            background: var(--black);
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+
+        .cta-banner-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .cta-banner-icon i {
+            font-size: 28px;
+            color: var(--white);
+        }
+
+        .cta-banner-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .cta-banner-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .cta-banner-desc {
+            font-size: 14px;
+            font-weight: 300;
+            color: #999;
+            line-height: 150%;
+        }
+
+        .cta-banner-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: var(--gradient-cta);
+            border: none;
+            border-radius: 40px;
+            font-family: var(--font-main);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--black);
+            cursor: pointer;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .cta-banner-btn:hover {
+            opacity: 0.85;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
+            margin-top: 80px;
+        }
+        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-logo { font-size: 36px; font-weight: 800; letter-spacing: 3px; color: var(--white); }
+        .footer-sub { font-size: 12px; font-weight: 300; letter-spacing: 3px; color: var(--grey-dark); text-transform: uppercase; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .footer-right p { font-size: 16px; font-weight: 300; line-height: 150%; }
+        .footer-right a { font-size: 16px; font-weight: 300; color: var(--white); text-decoration: underline; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #333; }
+        .footer-copyright { font-size: 14px; font-weight: 300; color: var(--grey-dark); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
+        .footer-links a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="suche.html" class="nav-logo">/AMBER</a>
+        <div class="nav-links">
+            <a href="suche.html">Suche</a>
+            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="mitteilungen.html">Mitteilungen</a>
+            <a href="postfach.html">Postfach</a>
+            <a href="transaktionen.html">Meine Transaktionen</a>
+            <a href="academy.html" class="active">Academy</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang"><span style="font-weight:600; font-size:12px; background:#F3F4F6; padding:2px 6px; border-radius:3px;">DE</span><span>Deutsch</span></div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="focus-group" id="focus-group">
+                    <a href="#">Zur Verkäuferansicht</a>
+                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Kontoeinstellungen</a>
+                    <a href="#">AMBER-Professional</a>
+                    <a href="#">Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="container">
+
+            <!-- ===== HERO ===== -->
+            <div class="academy-hero">
+                <div class="hero-content">
+                    <div class="hero-eyebrow">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        Käufer Academy
+                    </div>
+                    <h1 class="hero-title">Werde ein besserer Käufer.<br>Schritt für Schritt.</h1>
+                    <p class="hero-desc">Die AMBER Academy bereitet dich auf jeden Schritt deiner Akquisitionsreise vor – von der Suchstrategie über die Finanzierung bis zum 100-Tage-Plan. Verbessere deinen Readiness Score und erhalte Zugang zu exklusiven Inseraten.</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">9</span>
+                            <span class="hero-stat-label">Module</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">~2 Std.</span>
+                            <span class="hero-stat-label">Gesamtdauer</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">5</span>
+                            <span class="hero-stat-label">Phasen</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-ring">
+                    <div class="readiness-ring">
+                        <svg width="160" height="160" viewBox="0 0 160 160">
+                            <circle class="readiness-ring-bg" cx="80" cy="80" r="65"/>
+                            <circle class="readiness-ring-fill" cx="80" cy="80" r="65"/>
+                        </svg>
+                        <div class="readiness-ring-text">
+                            <div class="readiness-percent">45%</div>
+                            <div class="readiness-label">Readiness</div>
+                        </div>
+                    </div>
+                    <div class="hero-ring-sub">Noch <strong>25%</strong> bis zur vollen Inseratsfreigabe</div>
+                </div>
+            </div>
+
+            <!-- ===== PHASE 1: VORBEREITUNG ===== -->
+            <div class="phase-section phase-prep">
+                <div class="phase-header">
+                    <div class="phase-header-left">
+                        <div class="phase-number">1</div>
+                        <h2 class="phase-title">Vorbereitung</h2>
+                    </div>
+                    <div class="phase-progress">
+                        <div class="phase-progress-bar">
+                            <div class="phase-progress-fill" style="width: 33%"></div>
+                        </div>
+                        <span class="phase-progress-text">1 von 3 abgeschlossen</span>
+                    </div>
+                </div>
+
+                <div class="modules-grid">
+
+                    <a href="academy-modul-suchstrategie.html" class="module-card completed">
+                        <div class="module-card-top">
+                            <div class="module-title"><i class="fa-solid fa-star priority-star"></i> Suchstrategie & Käuferprofil</div>
+                            <div class="module-status done"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                        <div class="module-desc">Welches Unternehmen passt zu dir? Definiere dein Käuferprofil mit Branche, Region und Budget – und lerne, wo du passende Unternehmen zum Kauf findest.</div>
+                        <div class="module-footer">
+                            <div class="module-meta">
+                                <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 15 Min.</span>
+                            </div>
+                            <span class="module-format">Guide + Selbsttest</span>
+                        </div>
+                    </a>
+
+                    <a href="academy-modul-transaktionsstrukturen.html" class="module-card">
+                        <div class="module-card-top">
+                            <div class="module-title"><i class="fa-solid fa-star priority-star"></i> Transaktionsstrukturen verstehen</div>
+                            <div class="module-status todo"></div>
+                        </div>
+                        <div class="module-desc">Wie ist ein Unternehmenskauf aufgebaut? Die wichtigsten Vertragsmodelle einfach erklärt – von Ratenzahlung über Earn-Out bis zur Verkäuferbeteiligung.</div>
+                        <div class="module-footer">
+                            <div class="module-meta">
+                                <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 15 Min.</span>
+                            </div>
+                            <span class="module-format">Video + Text</span>
+                        </div>
+                    </a>
+
+                    <a href="academy-modul-bewertung.html" class="module-card">
+                        <div class="module-card-top">
+                            <div class="module-title">Bewertung & Preisfindung</div>
+                            <div class="module-status todo"></div>
+                        </div>
+                        <div class="module-desc">Was ist ein Unternehmen wert? Lerne die gängigsten Bewertungsmethoden kennen und wie du einen realistischen Kaufpreis einschätzt.</div>
+                        <div class="module-footer">
+                            <div class="module-meta">
+                                <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 12 Min.</span>
+                                <span class="module-meta-item"><i class="fa-solid fa-download"></i> Template</span>
+                            </div>
+                            <span class="module-format">Video + Template</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ===== PHASE 2: SUCHE & ANALYSE ===== -->
+            <div class="phase-section phase-search">
+                <div class="phase-header">
+                    <div class="phase-header-left">
+                        <div class="phase-number">2</div>
+                        <h2 class="phase-title">Suche & Analyse</h2>
+                    </div>
+                    <div class="phase-progress">
+                        <div class="phase-progress-bar">
+                            <div class="phase-progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="phase-progress-text">0 von 2 abgeschlossen</span>
+                    </div>
+                </div>
+
+                <div class="modules-grid">
+
+                    <a href="academy-modul-dokumente.html" class="module-card">
+                        <div class="module-card-top">
+                            <div class="module-title">Dokumente im M&A-Prozess</div>
+                            <div class="module-status todo"></div>
+                        </div>
+                        <div class="module-desc">Welche Unterlagen bekommst du im Kaufprozess? Teaser, Vertraulichkeitsvereinbarung und Unternehmensexposé richtig lesen und bewerten. Mit Checklisten für jedes Dokument.</div>
+                        <div class="module-footer">
+                            <div class="module-meta">
+                                <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 12 Min.</span>
+                                <span class="module-meta-item"><i class="fa-solid fa-download"></i> 3 Checklisten</span>
+                            </div>
+                            <span class="module-format">Guide + Checklisten</span>
+                        </div>
+                    </a>
+
+                    <a href="academy-modul-angebotsstrategie.html" class="module-card">
+                        <div class="module-card-top">
+                            <div class="module-title">Angebotsstrategie und LOI-Verhandlung</div>
+                            <div class="module-status todo"></div>
+                        </div>
+                        <div class="module-desc">Wie formulierst du ein erstes Angebot? Lerne, einen LOI (Letter of Intent) zu schreiben – mit Kaufpreis, Bedingungen und Exklusivität.</div>
+                        <div class="module-footer">
+                            <div class="module-meta">
+                                <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 12 Min.</span>
+                                <span class="module-meta-item"><i class="fa-solid fa-download"></i> LOI-Vorlage</span>
+                            </div>
+                            <span class="module-format">Guide + Template</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ===== PHASE 3: PRÜFUNG & FINANZIERUNG ===== -->
+            <div class="phase-section phase-check">
+                <div class="phase-header">
+                    <div class="phase-header-left">
+                        <div class="phase-number">3</div>
+                        <h2 class="phase-title">Prüfung & Finanzierung</h2>
+                    </div>
+                    <div class="phase-progress">
+                        <div class="phase-progress-bar">
+                            <div class="phase-progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="phase-progress-text">0 von 2 abgeschlossen</span>
+                    </div>
+                </div>
+
+                <div class="modules-grid">
+
+                    <a href="academy-modul-due-diligence.html" class="module-card">
+                        <div class="module-card-top">
+                            <div class="module-title">Due Diligence meistern</div>
+                            <div class="module-status todo"></div>
+                        </div>
+                        <div class="module-desc">Was musst du vor dem Kauf prüfen? Finanzen, Verträge, Steuern und Kunden systematisch durchleuchten – auch ohne großes Beraterteam.</div>
+                        <div class="module-footer">
+                            <div class="module-meta">
+                                <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 15 Min.</span>
+                                <span class="module-meta-item"><i class="fa-solid fa-download"></i> DD-Checkliste</span>
+                            </div>
+                            <span class="module-format">Guide + Checkliste</span>
+                        </div>
+                    </a>
+
+                    <a href="academy-modul-finanzierung.html" class="module-card">
+                        <div class="module-card-top">
+                            <div class="module-title"><i class="fa-solid fa-star priority-star"></i> Akquisitionsfinanzierung (Fremdkapital)</div>
+                            <div class="module-status todo"></div>
+                        </div>
+                        <div class="module-desc">Wie finanzierst du den Kauf? Eigenkapital, Bankkredit und Fördermittel kombinieren. Finanzierungsplan erstellen und das Bankgespräch vorbereiten.</div>
+                        <div class="module-footer">
+                            <div class="module-meta">
+                                <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 15 Min.</span>
+                            </div>
+                            <span class="module-format">Video + Guide</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ===== PHASE 4: ABSCHLUSS ===== -->
+            <div class="phase-section phase-close">
+                <div class="phase-header">
+                    <div class="phase-header-left">
+                        <div class="phase-number">4</div>
+                        <h2 class="phase-title">Abschluss</h2>
+                    </div>
+                    <div class="phase-progress">
+                        <div class="phase-progress-bar">
+                            <div class="phase-progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="phase-progress-text">0 von 1 abgeschlossen</span>
+                    </div>
+                </div>
+
+                <div class="modules-grid">
+
+                    <a href="academy-modul-kaufvertrag.html" class="module-card">
+                        <div class="module-card-top">
+                            <div class="module-title">Kaufvertrag & Closing</div>
+                            <div class="module-status todo"></div>
+                        </div>
+                        <div class="module-desc">Was steht im Kaufvertrag? Die wichtigsten Klauseln, Garantien und Haftungsregeln verstehen. Closing-Plan erstellen und den Notartermin vorbereiten.</div>
+                        <div class="module-footer">
+                            <div class="module-meta">
+                                <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 12 Min.</span>
+                                <span class="module-meta-item"><i class="fa-solid fa-download"></i> Checkliste</span>
+                            </div>
+                            <span class="module-format">Guide + Checkliste</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ===== PHASE 5: NACH DEM DEAL ===== -->
+            <div class="phase-section phase-post">
+                <div class="phase-header">
+                    <div class="phase-header-left">
+                        <div class="phase-number">5</div>
+                        <h2 class="phase-title">Nach dem Deal</h2>
+                    </div>
+                    <div class="phase-progress">
+                        <div class="phase-progress-bar">
+                            <div class="phase-progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="phase-progress-text">0 von 1 abgeschlossen</span>
+                    </div>
+                </div>
+
+                <div class="modules-grid">
+
+                    <a href="academy-modul-100-tage-plan.html" class="module-card">
+                        <div class="module-card-top">
+                            <div class="module-title">100-Tage-Plan</div>
+                            <div class="module-status todo"></div>
+                        </div>
+                        <div class="module-desc">Tag 1 gestalten, Mitarbeiter und Schlüsselkunden sichern, 100-Tage-Plan entwickeln. Vom neuen Eigentümer zum erfolgreichen Unternehmer.</div>
+                        <div class="module-footer">
+                            <div class="module-meta">
+                                <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 15 Min.</span>
+                            </div>
+                            <span class="module-format">Video + Text</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ===== READINESS CHECK BANNER ===== -->
+            <div class="readiness-check-banner">
+                <div class="readiness-check-icon">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+                <div class="readiness-check-content">
+                    <div class="readiness-check-title">Deal-Readiness-Check</div>
+                    <div class="readiness-check-desc">Prüfe dein Wissen über den gesamten Kaufprozess und erhalte deinen finalen Readiness-Score mit persönlicher Go/No-Go-Empfehlung.</div>
+                </div>
+                <div class="readiness-check-right">
+                    <span class="readiness-check-meta"><i class="fa-regular fa-clock"></i> 10 Min. Selbsttest</span>
+                    <a href="#" class="readiness-check-btn">
+                        <i class="fa-solid fa-play"></i>
+                        Check starten
+                    </a>
+                </div>
+            </div>
+
+            <!-- ===== CTA: BERATER ===== -->
+            <div class="cta-banner">
+                <div class="cta-banner-icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div class="cta-banner-content">
+                    <div class="cta-banner-title">Du brauchst persönliche Unterstützung?</div>
+                    <div class="cta-banner-desc">Unsere Beraterbörse verbindet dich mit erfahrenen M&A-Beratern, die auf deine Branche und Unternehmensgröße spezialisiert sind.</div>
+                </div>
+                <a href="#" class="cta-banner-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Berater finden
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-logo">/AMBER</div>
+                <div class="footer-sub">BY DEALCIRCLE</div>
+            </div>
+            <div class="footer-right">
+                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
+                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 AMBER. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">AGB</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFocusGroup(e) {
+            e.stopPropagation();
+            var fg = document.getElementById('focus-group');
+            fg.classList.toggle('open');
+        }
+        document.addEventListener('click', function() {
+            var fg = document.getElementById('focus-group');
+            if (fg) fg.classList.remove('open');
+        });
+    </script>
+
+</body>
+</html>

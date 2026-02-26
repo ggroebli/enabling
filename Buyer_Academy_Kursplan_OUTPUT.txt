@@ -1,0 +1,511 @@
+﻿
+===== SHEET: Buyer Academy - 26 Kurse FULL =====
+
+COLUMNS: Phase | Kurs Nr. | Titel | Dauer (Min) | Lernziele (3-5) | Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen) | Praxis-Output (1-2) | Vorlagen / Assets (KB-Quelle) | Entscheidungstor / Qualitätssignal | Berater-Touchpoint | Compliance-Hinweis
+----------------------------------------------------------------------------------------------------
+
+--- Kurs 1 ---
+  Phase: Vorbereitung
+  Kurs Nr.: 1
+  Titel: Käuferstrategie definieren
+  Dauer (Min): 9
+  Lernziele (3-5): • Persönliche Ziele
+• Zusammenahng zwischen verfügbarem Eigekapital und max. Deal-Größe
+• Fit Skillset mit Zielunternehmen
+• Zeitplan
+• Dealsourcing-Kanäle
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Dealgröße definieren
+• Welche Unternehmen passen zu mir?
+• Risikoappetit bestimmen
+• Transaktionskosten planen
+• Exit-Denken (Allgemeinwissen)
+  Praxis-Output (1-2): Käuferprofil/Selbstdarstellung
+Suchkriterien
+Deal-Sourcing-Strategie
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Budget tragfähig?
+  Berater-Touchpoint: Strategie-Review
+  Compliance-Hinweis: -
+
+--- Kurs 2 ---
+  Phase: Vorbereitung
+  Kurs Nr.: 2
+  Titel: Bewertungsgrundlagen verstehen
+  Dauer (Min): 12
+  Lernziele (3-5): • EBIT/EBITDA
+• Multiple
+• Cashflow-Logik
+• IRR
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Bewertungsmethoden (Allgemeinwissen)
+• Multiple-Bandbreiten
+• Cashflow-Fokus
+• KB: Best Practices - Quick Guide LBO Model
+• Sensitivitätsanalyse
+  Praxis-Output (1-2): Preisrange v1
+Bewertungsnotiz
+  Vorlagen / Assets (KB-Quelle): KB: Best Practices - Quick Guide LBO Model
+  Entscheidungstor / Qualitätssignal: Preis plausibel?
+  Berater-Touchpoint: Bewertung spiegeln
+  Compliance-Hinweis: -
+
+--- Kurs 3 ---
+  Phase: Vorbereitung
+  Kurs Nr.: 3
+  Titel: Dealstrukturen verstehen
+  Dauer (Min): 10
+  Lernziele (3-5): • Asset vs Share
+• Earn-Out
+• Vendor Loan
+• Haftungslogik
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Strukturvergleich
+• Earn-Out Mechanik
+• Kaufpreismechanik
+• KB: DealCircle LOI Best Practice Guide
+• Garantie & Haftung
+  Praxis-Output (1-2): Struktur v1
+  Vorlagen / Assets (KB-Quelle): KB: DealCircle LOI Best Practice Guide
+  Entscheidungstor / Qualitätssignal: Finanzierbar?
+  Berater-Touchpoint: Juristische Einschätzung
+  Compliance-Hinweis: Keine Rechts-/Steuerberatung
+
+--- Kurs 4 ---
+  Phase: Suche
+  Kurs Nr.: 4
+  Titel: Teaser analysieren
+  Dauer (Min): 8
+  Lernziele (3-5): • Aufbau verstehen
+• Risiken erkennen
+• Chancen bewerten
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Unternehmenszweck
+• Marktüberblick
+• Finanz-Snapshot
+• Transaktionsgrund
+• KB: How to create a teaser + SAMPLE Teaser
+  Praxis-Output (1-2): Teaser-Checkliste
+Go/No-Go
+  Vorlagen / Assets (KB-Quelle): KB: How to create a teaser + SAMPLE Teaser
+  Entscheidungstor / Qualitätssignal: Weiter prüfen?
+  Berater-Touchpoint: -
+  Compliance-Hinweis: -
+
+--- Kurs 5 ---
+  Phase: Suche
+  Kurs Nr.: 5
+  Titel: Shortlist systematisch erstellen
+  Dauer (Min): 10
+  Lernziele (3-5): • Priorisierung
+• Zielsegmente
+• Käuferlogik verstehen
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • 7 Schritte Shortlist
+• Wettbewerberanalyse
+• Add-on Logik
+• Finanzinvestoren
+• KB: How to create a shortlist
+  Praxis-Output (1-2): Shortlist (10 Targets)
+  Vorlagen / Assets (KB-Quelle): KB: How to create a shortlist
+  Entscheidungstor / Qualitätssignal: ≥5 qualifizierte Targets
+  Berater-Touchpoint: -
+  Compliance-Hinweis: -
+
+--- Kurs 6 ---
+  Phase: Suche
+  Kurs Nr.: 6
+  Titel: NDA verstehen & prüfen
+  Dauer (Min): 8
+  Lernziele (3-5): • Marktstandard
+• Laufzeit
+• Vertragsstrafen
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Do’s & Don’ts
+• Kontaktverbot
+• Beweislast
+• Informationsweitergabe
+• KB: Best practices - NDA
+  Praxis-Output (1-2): NDA-Checkliste
+  Vorlagen / Assets (KB-Quelle): KB: Best practices - NDA
+  Entscheidungstor / Qualitätssignal: Marktüblich?
+  Berater-Touchpoint: Jurist bei Sonderklauseln
+  Compliance-Hinweis: Keine Rechtsberatung
+
+--- Kurs 7 ---
+  Phase: Analyse
+  Kurs Nr.: 7
+  Titel: IM professionell analysieren
+  Dauer (Min): 12
+  Lernziele (3-5): • Geschäftsmodell
+• Markt & Wettbewerb
+• Finanzanalyse
+• SWOT
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Executive Summary
+• Marktanalyse
+• Finanzkennzahlen
+• Risiken
+• KB: How to create an IM + TEMPLATE IM
+  Praxis-Output (1-2): Investment-Memo (1 Seite)
+  Vorlagen / Assets (KB-Quelle): KB: How to create an IM + TEMPLATE IM
+  Entscheidungstor / Qualitätssignal: These klar?
+  Berater-Touchpoint: -
+  Compliance-Hinweis: -
+
+--- Kurs 8 ---
+  Phase: Bewertung
+  Kurs Nr.: 8
+  Titel: LBO-Light anwenden
+  Dauer (Min): 12
+  Lernziele (3-5): • IRR berechnen
+• Exit-Szenarien
+• Fremdkapital-Effekt
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Entry Multiple
+• Exit Multiple
+• Debt Struktur
+• IRR-Fokus
+• KB: Best Practices - Quick Guide LBO Model
+  Praxis-Output (1-2): LBO-Modell v1
+  Vorlagen / Assets (KB-Quelle): KB: Best Practices - Quick Guide LBO Model
+  Entscheidungstor / Qualitätssignal: IRR Ziel erreicht?
+  Berater-Touchpoint: Modell validieren
+  Compliance-Hinweis: -
+
+--- Kurs 9 ---
+  Phase: Bewertung
+  Kurs Nr.: 9
+  Titel: Indikatives Angebot vorbereiten
+  Dauer (Min): 9
+  Lernziele (3-5): • Preisband
+• Annahmen
+• Struktur
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Bewertungsergebnis
+• Finanzierungsannahmen
+• Risikoabschlag
+• Timing
+• KB: DealCircle LOI Best Practice Guide
+  Praxis-Output (1-2): Angebot v1
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Strategisch konsistent?
+  Berater-Touchpoint: -
+  Compliance-Hinweis: -
+
+--- Kurs 10 ---
+  Phase: Verhandlung
+  Kurs Nr.: 10
+  Titel: LOI sicher strukturieren
+  Dauer (Min): 12
+  Lernziele (3-5): • Zweck
+• Exklusivität
+• Kaufpreislogik
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • LOI Zweck
+• Kaufpreismechanik
+• Zeitplan
+• Vollzugsvoraussetzungen
+• KB: DealCircle LOI Best Practice Guide
+  Praxis-Output (1-2): LOI Entwurf v1
+  Vorlagen / Assets (KB-Quelle): KB: DealCircle LOI Best Practice Guide
+  Entscheidungstor / Qualitätssignal: LOI vollständig?
+  Berater-Touchpoint: Juristische Prüfung
+  Compliance-Hinweis: Keine Rechtsberatung
+
+--- Kurs 11 ---
+  Phase: Due Diligence
+  Kurs Nr.: 11
+  Titel: DD vorbereiten & strukturieren
+  Dauer (Min): 9
+  Lernziele (3-5): • DD-Arten
+• Zeitplan
+• Teamaufstellung
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Commercial DD
+• Financial DD
+• Legal DD
+• ESG
+• KB: Due Diligence Checklist (Guide & Excel)
+  Praxis-Output (1-2): DD-Plan
+Risikenliste
+  Vorlagen / Assets (KB-Quelle): KB: Due Diligence Checklist (Guide & Excel)
+  Entscheidungstor / Qualitätssignal: Datenraum >80%?
+  Berater-Touchpoint: Berater einbinden
+  Compliance-Hinweis: Keine Rechts-/Steuerberatung
+
+--- Kurs 12 ---
+  Phase: Due Diligence
+  Kurs Nr.: 12
+  Titel: Financial DD durchführen
+  Dauer (Min): 10
+  Lernziele (3-5): • EBIT Adjustierung
+• Working Capital
+• Cashflow
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Normalisierung
+• Einmaleffekte
+• Forderungen/Verbindlichkeiten
+• Liquidität
+• KB: Due Diligence Checklist (Guide & Excel)
+  Praxis-Output (1-2): Financial Report
+  Vorlagen / Assets (KB-Quelle): KB: Due Diligence Checklist (Guide & Excel)
+  Entscheidungstor / Qualitätssignal: EBIT validiert?
+  Berater-Touchpoint: Steuerberater
+  Compliance-Hinweis: Keine Steuerberatung
+
+--- Kurs 13 ---
+  Phase: Due Diligence
+  Kurs Nr.: 13
+  Titel: Legal & Tax DD verstehen
+  Dauer (Min): 8
+  Lernziele (3-5): • Verträge
+• Steuerrisiken
+• Haftung
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Gesellschaftsstruktur
+• Kundenverträge
+• Steuerprüfung
+• Garantien
+• KB: Due Diligence Checklist (Guide & Excel)
+  Praxis-Output (1-2): Risikenliste Legal/Tax
+  Vorlagen / Assets (KB-Quelle): KB: Due Diligence Checklist (Guide & Excel)
+  Entscheidungstor / Qualitätssignal: Major Risks geklärt?
+  Berater-Touchpoint: Jurist
+  Compliance-Hinweis: Keine Rechts-/Steuerberatung
+
+--- Kurs 14 ---
+  Phase: Due Diligence
+  Kurs Nr.: 14
+  Titel: Q&A & Datenraum managen
+  Dauer (Min): 7
+  Lernziele (3-5): • Struktur
+• Transparenz
+• Effizienz
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Datenraumaufbau
+• Q&A-Log
+• Versionierung
+• Fristenmanagement
+• KB: Due Diligence Checklist (Guide & Excel)
+  Praxis-Output (1-2): Q&A-Log aktuell
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Offene Punkte <10?
+  Berater-Touchpoint: -
+  Compliance-Hinweis: -
+
+--- Kurs 15 ---
+  Phase: Finanzierung
+  Kurs Nr.: 15
+  Titel: Finanzierungsbausteine verstehen
+  Dauer (Min): 12
+  Lernziele (3-5): • EK-Anteil
+• Fremdkapital
+• DSCR
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Eigenkapital
+• Bankdarlehen
+• Bürgschaftsbank
+• Vendor Loan
+• Tilgungsfähigkeit (Allgemeinwissen)
+  Praxis-Output (1-2): Finanzierungsstruktur v1
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Debt tragfähig?
+  Berater-Touchpoint: Bankgespräch simulieren
+  Compliance-Hinweis: -
+
+--- Kurs 16 ---
+  Phase: Finanzierung
+  Kurs Nr.: 16
+  Titel: Bankgespräch vorbereiten
+  Dauer (Min): 9
+  Lernziele (3-5): • Unterlagen
+• Pitch
+• Risikoargumente
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Business Case
+• Cashflow-Projektion
+• Sicherheiten
+• DSCR
+• Szenarioanalyse
+  Praxis-Output (1-2): Bank-Memo
+Pitch Deck
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Term Sheet erhalten?
+  Berater-Touchpoint: Bankberater
+  Compliance-Hinweis: -
+
+--- Kurs 17 ---
+  Phase: Closing
+  Kurs Nr.: 17
+  Titel: Kaufvertrag verstehen
+  Dauer (Min): 10
+  Lernziele (3-5): • Garantien
+• Freistellungen
+• Kaufpreismechanik
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Closing Conditions
+• Haftungsregime
+• Kaufpreisadjustierung
+• Escrow
+• KB: DealCircle LOI Best Practice Guide
+  Praxis-Output (1-2): Vertrags-Checkliste
+  Vorlagen / Assets (KB-Quelle): KB: DealCircle LOI Best Practice Guide
+  Entscheidungstor / Qualitätssignal: Haftungsumfang verstanden?
+  Berater-Touchpoint: Notar/Jurist
+  Compliance-Hinweis: Keine Rechtsberatung
+
+--- Kurs 18 ---
+  Phase: Closing
+  Kurs Nr.: 18
+  Titel: Closing-Plan erstellen
+  Dauer (Min): 8
+  Lernziele (3-5): • Timeline
+• Aufgaben
+• Kommunikation
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Signing vs Closing
+• Zahlungsabwicklung
+• Mitarbeiterinfo
+• Kundenkommunikation
+• Übergabeplan
+  Praxis-Output (1-2): Closing-Plan
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Tag 1 vorbereitet?
+  Berater-Touchpoint: -
+  Compliance-Hinweis: -
+
+--- Kurs 19 ---
+  Phase: Post-Akquisition
+  Kurs Nr.: 19
+  Titel: Tag 1 professionell gestalten
+  Dauer (Min): 7
+  Lernziele (3-5): • Führung zeigen
+• Sicherheit geben
+• Klar kommunizieren
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Mitarbeiteransprache
+• Vision vermitteln
+• Q&A Session
+• Transparenz
+• Rollenklärung
+  Praxis-Output (1-2): Tag-1-Agenda
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Team informiert?
+  Berater-Touchpoint: Mentor spiegeln
+  Compliance-Hinweis: -
+
+--- Kurs 20 ---
+  Phase: Post-Akquisition
+  Kurs Nr.: 20
+  Titel: Mitarbeiterbindung sichern
+  Dauer (Min): 8
+  Lernziele (3-5): • Schlüsselkräfte
+• Incentives
+• Kultur
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Identifikation
+• Gespräche
+• Bonusmodelle
+• Verantwortung übertragen
+• Kulturarbeit
+  Praxis-Output (1-2): Retention-Plan
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Schlüsselkräfte gesichert?
+  Berater-Touchpoint: HR-Berater optional
+  Compliance-Hinweis: -
+
+--- Kurs 21 ---
+  Phase: Post-Akquisition
+  Kurs Nr.: 21
+  Titel: Kunden & Lieferanten sichern
+  Dauer (Min): 7
+  Lernziele (3-5): • Top-Kunden
+• Lieferanten
+• Vertragsstabilität
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • 80/20 Analyse
+• Persönliche Gespräche
+• Vertragsprüfung
+• Preisstruktur
+• Vertrauen sichern
+  Praxis-Output (1-2): Top-10-Kundenplan
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: 80% Umsatz gesichert?
+  Berater-Touchpoint: -
+  Compliance-Hinweis: -
+
+--- Kurs 22 ---
+  Phase: Post-Akquisition
+  Kurs Nr.: 22
+  Titel: 90-Tage-Plan entwickeln
+  Dauer (Min): 12
+  Lernziele (3-5): • Prioritäten
+• KPIs
+• Quick Wins
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Liquidität sichern
+• Organisation prüfen
+• Kostenstruktur
+• KPI-Dashboard
+• Reporting-Rhythmus
+  Praxis-Output (1-2): 90-Tage-Plan final
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: KPIs definiert?
+  Berater-Touchpoint: Plan review
+  Compliance-Hinweis: -
+
+--- Kurs 23 ---
+  Phase: Branchenmodul
+  Kurs Nr.: 23
+  Titel: Handwerk Besonderheiten
+  Dauer (Min): 8
+  Lernziele (3-5): • Inhaberabhängigkeit
+• Meisterpflicht
+• Fachkräftemangel
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Kundenbindung lokal
+• Auftragsbestand
+• Kalkulation
+• Gewährleistung
+• Nachfolge-Struktur
+  Praxis-Output (1-2): Handwerks-Checkliste
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Abhängigkeit reduziert?
+  Berater-Touchpoint: -
+  Compliance-Hinweis: -
+
+--- Kurs 24 ---
+  Phase: Branchenmodul
+  Kurs Nr.: 24
+  Titel: E-Commerce Besonderheiten
+  Dauer (Min): 9
+  Lernziele (3-5): • Plattformrisiko
+• CAC
+• Working Capital
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Plattformabhängigkeit
+• Retourenquote
+• Lagerbestand
+• Performance Marketing
+• Skalierbarkeit
+  Praxis-Output (1-2): E-Com Risikoanalyse
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Plattformrisiko akzeptabel?
+  Berater-Touchpoint: -
+  Compliance-Hinweis: -
+
+--- Kurs 25 ---
+  Phase: Branchenmodul
+  Kurs Nr.: 25
+  Titel: Einzelhandel Besonderheiten
+  Dauer (Min): 8
+  Lernziele (3-5): • Standort
+• Mietvertrag
+• Frequenzanalyse
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Mietlaufzeit
+• Lagebewertung
+• Sortiment
+• Personalstruktur
+• Konkurrenzumfeld
+  Praxis-Output (1-2): Standort-Check
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Mietrisiko bewertet?
+  Berater-Touchpoint: -
+  Compliance-Hinweis: -
+
+--- Kurs 26 ---
+  Phase: Abschluss
+  Kurs Nr.: 26
+  Titel: Deal-Readiness-Check
+  Dauer (Min): 10
+  Lernziele (3-5): • Gesamtbewertung
+• Finanzierung
+• Risikoabwägung
+  Kernaussagen & Inhalte (5-8 inkl. KB-Referenzen): • Investment-These
+• IRR Check
+• Risiko-Matrix
+• Finanzierungszusage
+• Go/No-Go
+  Praxis-Output (1-2): Readiness-Score
+Go/No-Go Entscheidung
+  Vorlagen / Assets (KB-Quelle): -
+  Entscheidungstor / Qualitätssignal: Go/No-Go klar?
+  Berater-Touchpoint: Mentor Review
+  Compliance-Hinweis: -

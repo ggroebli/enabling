@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verkäufer Bewertung – AMBER</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: #F9FAFB;
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* ===== Modal Overlay ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* ===== Modal Container ===== */
+        .modal {
+            background: var(--white);
+            width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 12px;
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Modal Header ===== */
+        .modal-header {
+            padding: 32px 32px 24px 32px;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .modal-header-content h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .modal-header-content p {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--grey-dark);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--grey-dark);
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: #F3F4F6;
+        }
+
+        /* ===== Modal Body ===== */
+        .modal-body {
+            padding: 32px;
+        }
+
+        /* ===== Buyer Info Card ===== */
+        .buyer-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            margin-bottom: 32px;
+        }
+
+        .buyer-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .buyer-details h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+
+        .buyer-stats {
+            display: flex;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--grey-dark);
+        }
+
+        .buyer-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ===== ENABLEMENT: Endorsement Slider Section ===== */
+        .rating-section {
+            margin-bottom: 32px;
+        }
+
+        .rating-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .rating-container {
+            padding: 24px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF;
+            border-radius: 8px;
+        }
+
+        .rating-description {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 150%;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .rating-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rating-option {
+            padding: 18px 20px;
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .rating-option:hover {
+            border-color: #7C3AED;
+            background: #F5F3FF;
+            transform: translateY(-1px);
+            box-shadow: 0px 4px 12px rgba(124, 58, 237, 0.12);
+        }
+
+        .rating-option.selected {
+            border-color: #7C3AED;
+            background: #EDE9FE;
+            box-shadow: 0px 4px 12px rgba(124, 58, 237, 0.2);
+        }
+
+        .rating-option-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rating-option-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #7C3AED;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .rating-option.selected .rating-option-icon {
+            background: #7C3AED;
+            color: var(--white);
+        }
+
+        .rating-option-description {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 140%;
+            margin-left: 26px;
+        }
+
+        .rating-option-points {
+            font-size: 11px;
+            font-weight: 600;
+            color: #7C3AED;
+            margin-left: 26px;
+            margin-top: 2px;
+        }
+
+        /* ===== Text Badges Section ===== */
+        .badges-section {
+            margin-bottom: 32px;
+        }
+
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .badge-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--white);
+        }
+
+        .badge-option:hover {
+            border-color: #C7D2FE;
+            background: #F5F3FF;
+        }
+
+        .badge-option.selected {
+            border-color: #7C3AED;
+            background: #F5F3FF;
+        }
+
+        .badge-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #D1D5DB;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .badge-option.selected .badge-checkbox {
+            background: #7C3AED;
+            border-color: #7C3AED;
+            color: var(--white);
+        }
+
+        .badge-icon {
+            font-size: 16px;
+            color: #6B7280;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .badge-option.selected .badge-icon {
+            color: #7C3AED;
+        }
+
+        .badge-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--black);
+            flex: 1;
+        }
+
+        /* ===== Red Flag Section ===== */
+        .red-flag-section {
+            padding: 20px;
+            background: #FEF2F2;
+            border: 1px solid #FECACA;
+            border-radius: 8px;
+            margin-bottom: 32px;
+        }
+
+        .red-flag-checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .red-flag-checkbox-box {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #DC2626;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .red-flag-checkbox-wrapper.checked .red-flag-checkbox-box {
+            background: #DC2626;
+            color: var(--white);
+        }
+
+        .red-flag-content {
+            flex: 1;
+        }
+
+        .red-flag-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #DC2626;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .red-flag-description {
+            font-size: 13px;
+            color: #991B1B;
+            line-height: 1.5;
+        }
+
+        .red-flag-categories {
+            margin-top: 16px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .red-flag-categories.visible {
+            display: flex;
+        }
+
+        .red-flag-category-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            background: var(--white);
+            border: 1px solid #FECACA;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .red-flag-category-item:hover {
+            background: #FEF2F2;
+            border-color: #DC2626;
+        }
+
+        .red-flag-category-item.selected {
+            background: #FEE2E2;
+            border-color: #DC2626;
+        }
+
+        .red-flag-category-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #DC2626;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .red-flag-category-item.selected .red-flag-category-checkbox {
+            background: #DC2626;
+            color: var(--white);
+        }
+
+        .red-flag-category-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #991B1B;
+            flex: 1;
+        }
+
+        .red-flag-textarea {
+            width: 100%;
+            margin-top: 8px;
+            padding: 10px 12px;
+            border: 1px solid #FECACA;
+            border-radius: 6px;
+            font-family: var(--font-main);
+            font-size: 13px;
+            color: var(--black);
+            resize: vertical;
+            min-height: 80px;
+            display: none;
+            transition: all 0.2s ease;
+        }
+
+        .red-flag-textarea.visible {
+            display: block;
+        }
+
+        .red-flag-textarea:focus {
+            outline: none;
+            border-color: #DC2626;
+            background: #FEF2F2;
+        }
+
+        /* ===== Modal Footer ===== */
+        .modal-footer {
+            padding: 24px 32px;
+            border-top: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--grey-dark);
+            border: 1px solid #D1D5DB;
+        }
+
+        .btn-secondary:hover {
+            background: #F9FAFB;
+        }
+
+        .btn-primary {
+            background: #7C3AED;
+            color: var(--white);
+            padding: 12px 32px;
+        }
+
+        .btn-primary:hover {
+            background: #6D28D9;
+        }
+
+        .btn-primary:disabled {
+            background: #D1D5DB;
+            cursor: not-allowed;
+        }
+
+        .skip-text {
+            font-size: 13px;
+            color: var(--grey-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENABLEMENT: Verkäufer-Bewertungs-Modal -->
+    <div class="modal-overlay">
+        <div class="modal">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-header-content">
+                    <h2>Käufer-Bewertung</h2>
+                    <p>Hilf anderen Verkäufern, gute Käufer zu finden</p>
+                </div>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <!-- Buyer Info Card -->
+                <div class="buyer-info">
+                    <div class="buyer-avatar">MM</div>
+                    <div class="buyer-details">
+                        <h3>Max Mustermann</h3>
+                        <div class="buyer-stats">
+                            <div class="buyer-stat">
+                                <i class="fa-solid fa-star" style="color: #7C3AED;"></i>
+                                <span>AMBER-Score: 70%</span>
+                            </div>
+                            <div class="buyer-stat">
+                                <i class="fa-solid fa-users"></i>
+                                <span>5 Endorsements</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating Section -->
+                <div class="rating-section">
+                    <label class="rating-label">Wie war deine Erfahrung mit diesem Käufer?</label>
+                    <div class="rating-container">
+                        <div class="rating-options">
+                            <div class="rating-option" onclick="selectRating(this, 0)">
+                                <div class="rating-option-title">
+                                    <div class="rating-option-icon">
+                                        <i class="fa-solid fa-check" style="font-size: 10px;"></i>
+                                    </div>
+                                    Überwiegend negativ
+                                </div>
+                                <div class="rating-option-description">Die Zusammenarbeit war problematisch und ich kann kein Endorsement geben</div>
+                            </div>
+                            <div class="rating-option" onclick="selectRating(this, 1)">
+                                <div class="rating-option-title">
+                                    <div class="rating-option-icon">
+                                        <i class="fa-solid fa-check" style="font-size: 10px;"></i>
+                                    </div>
+                                    Neutral
+                                </div>
+                                <div class="rating-option-description">Die Zusammenarbeit war in Ordnung, weder besonders positiv noch negativ</div>
+                            </div>
+                            <div class="rating-option" onclick="selectRating(this, 2)">
+                                <div class="rating-option-title">
+                                    <div class="rating-option-icon">
+                                        <i class="fa-solid fa-check" style="font-size: 10px;"></i>
+                                    </div>
+                                    Überwiegend positiv
+                                </div>
+                                <div class="rating-option-description">Die Zusammenarbeit war gut bis sehr gut, professionelles Verhalten</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Badges Section -->
+                <div class="badges-section">
+                    <label class="rating-label">Was hat dir besonders gut gefallen? (optional)</label>
+                    <div class="badges-grid">
+                        <div class="badge-option" onclick="toggleBadge(this)">
+                            <div class="badge-checkbox"></div>
+                            <div class="badge-icon"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="badge-text">Schnelle & klare Kommunikation</div>
+                        </div>
+                        <div class="badge-option" onclick="toggleBadge(this)">
+                            <div class="badge-checkbox"></div>
+                            <div class="badge-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                            <div class="badge-text">Gut vorbereitet</div>
+                        </div>
+                        <div class="badge-option" onclick="toggleBadge(this)">
+                            <div class="badge-checkbox"></div>
+                            <div class="badge-icon"><i class="fa-solid fa-handshake"></i></div>
+                            <div class="badge-text">Realistische Transaktionsstrukturen</div>
+                        </div>
+                        <div class="badge-option" onclick="toggleBadge(this)">
+                            <div class="badge-checkbox"></div>
+                            <div class="badge-icon"><i class="fa-solid fa-briefcase"></i></div>
+                            <div class="badge-text">Professionell</div>
+                        </div>
+                        <div class="badge-option" onclick="toggleBadge(this)">
+                            <div class="badge-checkbox"></div>
+                            <div class="badge-icon"><i class="fa-solid fa-check-circle"></i></div>
+                            <div class="badge-text">Verbindlich</div>
+                        </div>
+                        <div class="badge-option" onclick="toggleBadge(this)">
+                            <div class="badge-checkbox"></div>
+                            <div class="badge-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                            <div class="badge-text">Strukturierte Due Diligence</div>
+                        </div>
+                        <div class="badge-option" onclick="toggleBadge(this)">
+                            <div class="badge-checkbox"></div>
+                            <div class="badge-icon"><i class="fa-solid fa-chart-line"></i></div>
+                            <div class="badge-text">Branchenkenntnis</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Red Flag Section -->
+                <div class="red-flag-section">
+                    <div class="red-flag-checkbox-wrapper" onclick="toggleRedFlag(this)">
+                        <div class="red-flag-checkbox-box"></div>
+                        <div class="red-flag-content">
+                            <div class="red-flag-title">
+                                <i class="fa-solid fa-flag"></i>
+                                Problematisches Verhalten melden
+                            </div>
+                            <div class="red-flag-description">
+                                Nutze dies, wenn der Käufer unprofessionell war, Zeit verschwendet hat oder nicht ernsthaft interessiert war. Dies wird vertraulich behandelt.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Red Flag Categories (shown when checkbox is checked) -->
+                    <div class="red-flag-categories" id="redFlagCategories">
+                        <div class="red-flag-category-item" onclick="toggleRedFlagCategory(this)">
+                            <div class="red-flag-category-checkbox"></div>
+                            <div class="red-flag-category-text">Ausgebliebene Rückmeldung nach Kontaktierung</div>
+                        </div>
+                        <div class="red-flag-category-item" onclick="toggleRedFlagCategory(this)">
+                            <div class="red-flag-category-checkbox"></div>
+                            <div class="red-flag-category-text">Unprofessionelle Kommunikation</div>
+                        </div>
+                        <div class="red-flag-category-item" onclick="toggleRedFlagCategory(this)">
+                            <div class="red-flag-category-checkbox"></div>
+                            <div class="red-flag-category-text">Irrealistische Transaktionsstrukturen oder unzureichendes Eigenkapital</div>
+                        </div>
+                        <div class="red-flag-category-item" onclick="toggleRedFlagCategory(this, true)">
+                            <div class="red-flag-category-checkbox"></div>
+                            <div class="red-flag-category-text">Sonstiges</div>
+                        </div>
+                        <textarea
+                            class="red-flag-textarea"
+                            id="redFlagTextarea"
+                            placeholder="Bitte beschreiben Sie das problematische Verhalten..."
+                        ></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <div>
+                    <button class="btn btn-secondary" onclick="skipRating()">
+                        Überspringen
+                    </button>
+                    <div class="skip-text" style="margin-top: 4px;">Bewertung ist freiwillig</div>
+                </div>
+                <button class="btn btn-primary" id="submitBtn" onclick="submitRating()" disabled>
+                    <i class="fa-solid fa-check"></i>
+                    Bewertung abgeben
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Rating Selection Logic
+        let selectedRatingValue = null;
+
+        function selectRating(element, value) {
+            // Remove selection from all options
+            document.querySelectorAll('.rating-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            // Select clicked option
+            element.classList.add('selected');
+            selectedRatingValue = value;
+
+            // Update submit button state
+            const submitBtn = document.getElementById('submitBtn');
+            const redFlagChecked = document.querySelector('.red-flag-checkbox-wrapper').classList.contains('checked');
+            submitBtn.disabled = selectedRatingValue === null && !redFlagChecked;
+        }
+
+        // Badge Selection Logic
+        function toggleBadge(element) {
+            element.classList.toggle('selected');
+            const checkbox = element.querySelector('.badge-checkbox');
+
+            if (element.classList.contains('selected')) {
+                checkbox.innerHTML = '<i class="fa-solid fa-check"></i>';
+            } else {
+                checkbox.innerHTML = '';
+            }
+        }
+
+        // Red Flag Checkbox Logic
+        function toggleRedFlag(element) {
+            element.classList.toggle('checked');
+            const checkbox = element.querySelector('.red-flag-checkbox-box');
+            const categories = document.getElementById('redFlagCategories');
+            const textarea = document.getElementById('redFlagTextarea');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (element.classList.contains('checked')) {
+                checkbox.innerHTML = '<i class="fa-solid fa-check"></i>';
+                categories.classList.add('visible');
+            } else {
+                checkbox.innerHTML = '';
+                categories.classList.remove('visible');
+                // Uncheck all categories
+                document.querySelectorAll('.red-flag-category-item').forEach(item => {
+                    item.classList.remove('selected');
+                    item.querySelector('.red-flag-category-checkbox').innerHTML = '';
+                });
+                // Hide and clear textarea
+                textarea.classList.remove('visible');
+                textarea.value = '';
+            }
+
+            // Update submit button state
+            const redFlagChecked = element.classList.contains('checked');
+            submitBtn.disabled = selectedRatingValue === null && !redFlagChecked;
+        }
+
+        // Red Flag Category Selection Logic
+        function toggleRedFlagCategory(element, isSonstiges = false) {
+            element.classList.toggle('selected');
+            const checkbox = element.querySelector('.red-flag-category-checkbox');
+            const textarea = document.getElementById('redFlagTextarea');
+
+            if (element.classList.contains('selected')) {
+                checkbox.innerHTML = '<i class="fa-solid fa-check" style="font-size: 10px;"></i>';
+
+                // Show textarea only if "Sonstiges" is selected
+                if (isSonstiges) {
+                    textarea.classList.add('visible');
+                }
+            } else {
+                checkbox.innerHTML = '';
+
+                // Hide textarea if "Sonstiges" is deselected
+                if (isSonstiges) {
+                    textarea.classList.remove('visible');
+                    textarea.value = ''; // Clear textarea content
+                }
+            }
+        }
+
+        // Modal Actions
+        function closeModal() {
+            alert('Modal geschlossen (in echter Implementierung würde das Modal verschwinden)');
+        }
+
+        function skipRating() {
+            alert('Bewertung übersprungen – Du kannst dies jederzeit später nachholen');
+        }
+
+        function submitRating() {
+            const ratingValue = selectedRatingValue !== null ? selectedRatingValue : 0;
+            const ratingLabels = ['Überwiegend negativ', 'Neutral', 'Überwiegend positiv'];
+            const ratingLabel = ratingLabels[ratingValue];
+
+            const selectedBadges = Array.from(document.querySelectorAll('.badge-option.selected'))
+                .map(badge => badge.querySelector('.badge-text').textContent);
+            const redFlagChecked = document.querySelector('.red-flag-checkbox-wrapper').classList.contains('checked');
+            const selectedCategories = Array.from(document.querySelectorAll('.red-flag-category-item.selected'))
+                .map(item => item.querySelector('.red-flag-category-text').textContent);
+            const sonstigesText = document.getElementById('redFlagTextarea').value.trim();
+
+            console.log('Rating Value:', ratingValue);
+            console.log('Rating Label:', ratingLabel);
+            console.log('Badges:', selectedBadges);
+            console.log('Red Flag:', redFlagChecked);
+            console.log('Red Flag Categories:', selectedCategories);
+            console.log('Sonstiges Details:', sonstigesText);
+
+            if (redFlagChecked) {
+                const categoriesText = selectedCategories.length > 0
+                    ? `\n🚩 Kategorien: ${selectedCategories.join(', ')}`
+                    : '';
+                const sonstigesDetails = sonstigesText
+                    ? `\n📝 Zusätzliche Details: ${sonstigesText}`
+                    : '';
+                const ratingText = ratingValue > 0 ? `✅ Bewertung: ${ratingLabel}\n` : '';
+                alert(`Bewertung gespeichert:\n\n${ratingText}${selectedBadges.length > 0 ? `✅ ${selectedBadges.length} positive Eigenschaften\n` : ''}🚩 Red-Flag gemeldet${categoriesText}${sonstigesDetails}\n\nDu wirst zum Red-Flag-Formular weitergeleitet.`);
+            } else {
+                alert(`Bewertung gespeichert:\n\n✅ Bewertung: ${ratingLabel}\n✅ ${selectedBadges.length} positive Eigenschaften ausgewählt\n\nVielen Dank für dein Feedback!`);
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,2419 @@
+/* app.go-flint.com/Verkäufer/Desktop/Template */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+position: relative;
+width: 1440px;
+height: 900px;
+overflow-y: scroll;
+
+
+
+/* Main */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 120px 48px 0px;
+gap: 0px;
+
+width: 1440px;
+height: 850px;
+min-height: 850px;
+
+background: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 1344px;
+height: 730px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 1344px;
+height: 67px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Headline */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 276px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Transaktionen */
+
+width: 262px;
+height: 48px;
+
+/* Heading/Desktop/H3 */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 120%;
+/* identical to box height, or 48px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 1044px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* CTA */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-end;
+padding: 0px;
+gap: 10px;
+
+margin: 0 auto;
+display: none;
+width: 522px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* CTA */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 20px;
+gap: 8px;
+
+margin: 0 auto;
+width: 167px;
+height: 43px;
+
+/* VErlauf */
+background: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+border-radius: 40px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+margin: 0 auto;
+width: 1044px;
+height: 32px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Filter */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 18px;
+gap: 4px;
+
+width: 77px;
+height: 32px;
+
+border: 1px solid #CCCCCC;
+border-radius: 16px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/*  */
+
+display: none;
+width: 15px;
+min-width: 15px;
+max-width: 230.1px;
+height: 18px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 150%;
+/* identical to box height, or 18px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 41px;
+max-width: 230.1px;
+height: 24px;
+
+/* Text/Regular/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filter */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 18px;
+gap: 4px;
+
+width: 111px;
+height: 32px;
+
+border-radius: 16px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/*  */
+
+display: none;
+width: 15px;
+min-width: 15px;
+max-width: 230.1px;
+height: 18px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 150%;
+/* identical to box height, or 18px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 75px;
+max-width: 230.1px;
+height: 24px;
+
+/* Text/Regular/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 1344px;
+height: 598px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Subnavbar */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 276px;
+height: 161px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Submenu */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 16px;
+gap: 8px;
+
+width: 133px;
+height: 43px;
+
+background: #FFFFFF;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20px;
+min-width: 20px;
+max-width: 230px;
+height: 24px;
+
+/* Icon Regular */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Submenu */
+
+width: 73px;
+max-width: 230px;
+height: 27px;
+
+/* Text/Medium/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Submenu */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 16px;
+gap: 8px;
+
+width: 274px;
+height: 43px;
+
+background: #FFFFFF;
+/* Card */
+box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20px;
+min-width: 20px;
+max-width: 230px;
+height: 24px;
+
+/* Icon Regular */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Submenu */
+
+width: 214px;
+max-width: 230px;
+height: 27px;
+
+/* Text/Medium/Bold */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Submenu */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8px 16px;
+gap: 8px;
+
+width: 130px;
+height: 43px;
+
+background: #FFFFFF;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20px;
+min-width: 20px;
+max-width: 230px;
+height: 24px;
+
+/* Icon Regular */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Submenu */
+
+width: 70px;
+max-width: 230px;
+height: 27px;
+
+/* Text/Medium/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Container */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 1044px;
+height: 598px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Filter 02 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+
+display: none;
+width: 522px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #1A1A1A;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filer 2 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #FFFFFF;
+border: 1px solid #CCCCCC;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filer 3 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #FFFFFF;
+border: 1px solid #CCCCCC;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Filer 4 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 8.00352px 16.007px;
+gap: 8px;
+
+width: 100.03px;
+height: 43px;
+
+background: #FFFFFF;
+border: 1px solid #CCCCCC;
+border-radius: 8.00352px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/*  */
+
+width: 20.01px;
+min-width: 20.01px;
+max-width: 230.1px;
+height: 21px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+display: flex;
+align-items: center;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Filter */
+
+width: 40px;
+max-width: 230.1px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18.0079px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+width: 1044px;
+height: 598px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 130 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 25px;
+gap: 24px;
+
+width: 1044px;
+height: 269px;
+
+background: #FFFFFF;
+/* Card */
+box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* FinTech für M&A mit Investorendatenbank und Akquisitionsberatung */
+
+width: 994px;
+height: 36px;
+
+/* Text/Large/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 150%;
+/* identical to box height, or 36px */
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Das Unternehmen bietet eine wegweisende FinTech-Lösung in der M&A-Branche mit einer umfassenden Investorendatenbank zur Optimierung der Suchprozesse. Mit fundierter Beratung in der Akquisitionsfinanzierung stärkt es seinen Status als holistischer M&A-Dienstleister. Die innovative Technologie vereint Effizienz und Marktführung. */
+
+width: 994px;
+height: 108px;
+
+/* Text/Medium/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* or 27px */
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 173 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 40px;
+
+width: 994px;
+height: 27px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 124px;
+height: 27px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 122px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: 0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: -64px 0px;
+
+
+/* Button */
+
+width: 124px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: -0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+opacity: 0;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 190px;
+height: 27px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 187px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: 0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: -64px 0px;
+
+
+/* Button */
+
+width: 190px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: -0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+opacity: 0;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 160px;
+height: 27px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 160px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: 0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: -64px 0px;
+
+
+/* Button */
+
+width: 160px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: -0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+opacity: 0;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 129px;
+height: 27px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 128px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: 0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: -64px 0px;
+
+
+/* Button */
+
+width: 129px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: -0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+opacity: 0;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Frame 131 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 25px;
+gap: 24px;
+
+width: 1044px;
+height: 305px;
+
+background: #FFFFFF;
+/* Card */
+box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Medienkonzern mit Digital-Business-Konferenz, Podcast-Produktion und EdTech-Plattform */
+
+width: 994px;
+height: 72px;
+
+/* Text/Large/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 150%;
+/* or 36px */
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Als einflussreiches Medienhaus an der Spitze der digitalen Transformation bietet das Unternehmen eine Plattform für 70.000 Fachbesucher bei seiner renommierten Digital-Business-Konferenz. Es prägt die Wissens-und Bildungslandschaft mit qualitativen Podcasts und anerkannten Weiterbildungsprogrammen und steht durch seine Softwarevergleichs-Plattform für Innovation im EdTech-Bereich. */
+
+width: 994px;
+height: 108px;
+
+/* Text/Medium/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* or 27px */
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Frame 173 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 40px;
+
+width: 994px;
+height: 27px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 124px;
+height: 27px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 122px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: 0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: -64px 0px;
+
+
+/* Button */
+
+width: 124px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: -0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+opacity: 0;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 190px;
+height: 27px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 187px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: 0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: -64px 0px;
+
+
+/* Button */
+
+width: 190px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: -0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+opacity: 0;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 160px;
+height: 27px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 160px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: 0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: -64px 0px;
+
+
+/* Button */
+
+width: 160px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: -0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+opacity: 0;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* ButtonHover */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 129px;
+height: 27px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 128px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: 0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: -64px 0px;
+
+
+/* Button */
+
+width: 129px;
+height: 27px;
+
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+letter-spacing: -0.02em;
+text-decoration-line: underline;
+
+color: #1A1A1A;
+
+opacity: 0;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Footer neu */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 80px 64px 64px;
+gap: 64px;
+
+width: 1440px;
+height: 374px;
+
+background: #1A1A1A;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-start;
+padding: 0px;
+gap: 64px;
+
+width: 1312px;
+height: 112px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Column */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+margin: 0 auto;
+width: 328px;
+height: 98px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* AMBER Anmeldung 1 */
+
+width: 328px;
+height: 98px;
+
+background: url(AMBER Anmeldung.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Column */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-end;
+padding: 0px;
+gap: 48px;
+
+margin: 0 auto;
+width: 349px;
+height: 112px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 4px;
+
+width: 349px;
+height: 112px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Fragen zu FLINT? Wir helfen euch gerne bei euren Anliegen. contactus@go-flint.com */
+
+width: 349px;
+height: 112px;
+
+/* Heading/Desktop/H6 */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 140%;
+/* or 28px */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Credits */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+width: 1312px;
+height: 54px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Divider */
+
+box-sizing: border-box;
+
+width: 1312px;
+height: 1px;
+
+background: #FFFFFF;
+border: 1px solid #666666;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Row */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-start;
+padding: 0px;
+gap: 64px;
+
+width: 1312px;
+height: 21px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* © 2024 FLINT. All rights reserved. */
+
+margin: 0 auto;
+width: 206px;
+height: 21px;
+
+/* Text/Small/Normal */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+
+color: #ECECEC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Footer Links */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 24px;
+
+margin: 0 auto;
+width: 345px;
+height: 21px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Privacy Policy */
+
+width: 86px;
+height: 21px;
+
+/* Text/Small/Link */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+text-decoration-line: underline;
+
+color: #ECECEC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Terms of Service */
+
+width: 104px;
+height: 21px;
+
+/* Text/Small/Link */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+text-decoration-line: underline;
+
+color: #ECECEC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Cookies Settings */
+
+width: 107px;
+height: 21px;
+
+/* Text/Small/Link */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+text-decoration-line: underline;
+
+color: #ECECEC;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Nav */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 20px 48px;
+gap: 110px;
+
+position: absolute;
+width: 1440px;
+height: 72px;
+left: 0px;
+top: 0px;
+
+background: #FFFFFF;
+box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Logo */
+
+margin: 0 auto;
+width: 174px;
+height: 33.76px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Group */
+
+position: absolute;
+left: -0.01%;
+right: 0%;
+top: 0.05%;
+bottom: -0.03%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: -0.01%;
+right: 88.12%;
+top: 0.05%;
+bottom: -0.03%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 22.63%;
+right: 65.43%;
+top: 0.05%;
+bottom: -0.03%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 59.69%;
+right: 24.99%;
+top: 0.05%;
+bottom: -0.03%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 85.6%;
+right: 0%;
+top: 0.05%;
+bottom: -0.03%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 44%;
+right: 50.02%;
+top: 0.05%;
+bottom: -0.03%;
+
+background: #000000;
+
+
+/* Frame 146 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+margin: 0 auto;
+width: 1044px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Nav */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 48px;
+
+margin: 0 auto;
+width: 658px;
+height: 27px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 54px;
+height: 27px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 54px;
+height: 27px;
+
+/* Text/Medium/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 114px;
+height: 27px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 114px;
+height: 27px;
+
+/* Text/Medium/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 106px;
+height: 27px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 106px;
+height: 27px;
+
+/* Text/Medium/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 74px;
+height: 27px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 74px;
+height: 27px;
+
+/* Text/Medium/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 118px;
+height: 27px;
+
+border-bottom: 1px solid #000000;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+
+
+/* Button */
+
+width: 118px;
+height: 27px;
+
+/* Text/Medium/Medium */
+font-family: 'TWK Lausanne';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 150%;
+/* identical to box height, or 27px */
+
+color: #1A1A1A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 20px;
+gap: 8px;
+
+margin: 0 auto;
+display: none;
+width: 123px;
+height: 43px;
+
+background: #1A1A1A;
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Group 136 */
+
+margin: 0 auto;
+width: 43px;
+height: 43px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Rectangle 91 */
+
+position: absolute;
+width: 43px;
+height: 43px;
+left: 1001px;
+top: 0px;
+
+background: #000000;
+border-radius: 21.5px;
+
+
+/*  */
+
+position: absolute;
+width: 16px;
+height: 27px;
+left: 1014.54px;
+top: 7.96px;
+
+font-family: 'Font Awesome 6 Pro';
+font-style: normal;
+font-weight: 300;
+font-size: 17.9167px;
+line-height: 150%;
+/* identical to box height, or 27px */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+

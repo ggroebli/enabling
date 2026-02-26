@@ -150,6 +150,240 @@
             opacity: 0.7;
         }
 
+        /* ===== ENABLEMENT: Alert result badges ===== */
+        .alert-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+            margin-right: 32px;
+        }
+
+        .alert-badges {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .alert-badge i {
+            font-size: 11px;
+        }
+
+        .alert-badge.results {
+            background: #F0FDF4;
+            color: #059669;
+        }
+
+        .alert-badge.locked {
+            background: #FEF3C7;
+            color: #92400E;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+        }
+
+        .alert-badge.locked:hover {
+            background: #FDE68A;
+        }
+
+        /* Tooltip */
+        .alert-badge.locked::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--black);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 150%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            width: 260px;
+            white-space: normal;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            pointer-events: none;
+            z-index: 50;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .alert-badge.locked::before {
+            content: '';
+            position: absolute;
+            bottom: calc(100% + 4px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--black);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .alert-badge.locked:hover::after,
+        .alert-badge.locked:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ===== ENABLEMENT: Locked summary CTA ===== */
+        .locked-summary {
+            display: flex;
+            align-items: center;
+            padding: 14px 24px;
+            gap: 12px;
+            background: #FFFBEB;
+            border: 1px solid #FCD34D;
+            border-radius: 8px;
+        }
+
+        .locked-summary-icon {
+            font-size: 16px;
+            color: #D97706;
+            flex-shrink: 0;
+        }
+
+        .locked-summary-text {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--black);
+            line-height: 150%;
+        }
+
+        .locked-summary-text strong {
+            font-weight: 600;
+        }
+
+        .locked-summary-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 20px;
+            background: var(--gradient-cta);
+            border: none;
+            border-radius: 40px;
+            font-family: var(--font-main);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            cursor: pointer;
+            white-space: nowrap;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .locked-summary-btn:hover {
+            opacity: 0.85;
+        }
+
+        /* ===== ENABLEMENT: Per-alert competition line ===== */
+        .alert-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .alert-competition {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            line-height: 150%;
+        }
+
+        .alert-competition i {
+            font-size: 11px;
+            color: #2563EB;
+        }
+
+        .alert-competition .highlight {
+            color: #DC2626;
+            font-weight: 600;
+        }
+
+        /* ===== ENABLEMENT: Academy tip ===== */
+        .academy-tip {
+            display: flex;
+            align-items: center;
+            padding: 20px 24px;
+            gap: 16px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF;
+            border-radius: 8px;
+        }
+
+        .academy-tip-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #EDE9FE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .academy-tip-icon i {
+            font-size: 16px;
+            color: #7C3AED;
+        }
+
+        .academy-tip-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .academy-tip-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .academy-tip-desc {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 150%;
+        }
+
+        .academy-tip-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #7C3AED;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .academy-tip-link:hover {
+            text-decoration: underline;
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
@@ -180,9 +414,10 @@
             <a href="mitteilungen.html">Mitteilungen</a>
             <a href="postfach.html">Postfach</a>
             <a href="transaktionen.html">Meine Transaktionen</a>
+            <a href="academy.html">Academy</a>
         </div>
         <div class="nav-right">
-            <div class="nav-lang"><span style="font-size:18px;">🇩🇪</span><span>German</span></div>
+            <div class="nav-lang"><span style="font-weight:600; font-size:12px; background:#F3F4F6; padding:2px 6px; border-radius:3px;">DE</span><span>Deutsch</span></div>
             <div class="nav-avatar-wrapper">
                 <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
                 <div class="focus-group" id="focus-group">
@@ -212,47 +447,115 @@
             <!-- Alert List -->
             <div class="alert-list">
                 <div class="alert-item">
-                    <span class="alert-name">Caterer</span>
+                    <div class="alert-info">
+                        <div class="alert-details">
+                            <span class="alert-name">Caterer</span>
+                            <span class="alert-competition"><i class="fa-solid fa-users"></i> 5 Käufer mit ähnlichen Kriterien · <span class="highlight">80%</span> mit höherem Score</span>
+                        </div>
+                        <div class="alert-badges">
+                            <span class="alert-badge results"><i class="fa-solid fa-circle"></i> 7 Ergebnisse</span>
+                            <a href="academy.html" class="alert-badge locked" data-tooltip="Verkäufer verlangen einen höheren Readiness Score. Vervollständige dein Käuferprofil und schließe Academy-Module ab, um diese Inserate freizuschalten."><i class="fa-solid fa-lock"></i> 2 gesperrt</a>
+                        </div>
+                    </div>
                     <div class="alert-actions">
                         <button class="alert-action">Bearbeiten</button>
                         <button class="alert-action">Löschen</button>
                     </div>
                 </div>
                 <div class="alert-item">
-                    <span class="alert-name">Event</span>
+                    <div class="alert-info">
+                        <div class="alert-details">
+                            <span class="alert-name">Event</span>
+                            <span class="alert-competition"><i class="fa-solid fa-users"></i> 2 Käufer mit ähnlichen Kriterien · <span class="highlight">50%</span> mit höherem Score</span>
+                        </div>
+                        <div class="alert-badges">
+                            <span class="alert-badge results"><i class="fa-solid fa-circle"></i> 3 Ergebnisse</span>
+                        </div>
+                    </div>
                     <div class="alert-actions">
                         <button class="alert-action">Bearbeiten</button>
                         <button class="alert-action">Löschen</button>
                     </div>
                 </div>
                 <div class="alert-item">
-                    <span class="alert-name">IT</span>
+                    <div class="alert-info">
+                        <div class="alert-details">
+                            <span class="alert-name">IT</span>
+                            <span class="alert-competition"><i class="fa-solid fa-users"></i> 18 Käufer mit ähnlichen Kriterien · <span class="highlight">89%</span> mit höherem Score</span>
+                        </div>
+                        <div class="alert-badges">
+                            <span class="alert-badge results"><i class="fa-solid fa-circle"></i> 12 Ergebnisse</span>
+                            <a href="academy.html" class="alert-badge locked" data-tooltip="Verkäufer verlangen einen höheren Readiness Score. Vervollständige dein Käuferprofil und schließe Academy-Module ab, um diese Inserate freizuschalten."><i class="fa-solid fa-lock"></i> 4 gesperrt</a>
+                        </div>
+                    </div>
                     <div class="alert-actions">
                         <button class="alert-action">Bearbeiten</button>
                         <button class="alert-action">Löschen</button>
                     </div>
                 </div>
                 <div class="alert-item">
-                    <span class="alert-name">E-Commerce</span>
+                    <div class="alert-info">
+                        <div class="alert-details">
+                            <span class="alert-name">E-Commerce</span>
+                            <span class="alert-competition"><i class="fa-solid fa-users"></i> 9 Käufer mit ähnlichen Kriterien · <span class="highlight">67%</span> mit höherem Score</span>
+                        </div>
+                        <div class="alert-badges">
+                            <span class="alert-badge results"><i class="fa-solid fa-circle"></i> 5 Ergebnisse</span>
+                            <a href="academy.html" class="alert-badge locked" data-tooltip="Verkäufer verlangen einen höheren Readiness Score. Vervollständige dein Käuferprofil und schließe Academy-Module ab, um diese Inserate freizuschalten."><i class="fa-solid fa-lock"></i> 1 gesperrt</a>
+                        </div>
+                    </div>
                     <div class="alert-actions">
                         <button class="alert-action">Bearbeiten</button>
                         <button class="alert-action">Löschen</button>
                     </div>
                 </div>
                 <div class="alert-item">
-                    <span class="alert-name">Suchalarm Nr. 5</span>
+                    <div class="alert-info">
+                        <div class="alert-details">
+                            <span class="alert-name">Suchalarm Nr. 5</span>
+                            <span class="alert-competition"><i class="fa-solid fa-users"></i> 3 Käufer mit ähnlichen Kriterien · <span class="highlight">100%</span> mit höherem Score</span>
+                        </div>
+                        <div class="alert-badges">
+                            <span class="alert-badge results"><i class="fa-solid fa-circle"></i> 1 Ergebnis</span>
+                        </div>
+                    </div>
                     <div class="alert-actions">
                         <button class="alert-action">Bearbeiten</button>
                         <button class="alert-action">Löschen</button>
                     </div>
                 </div>
                 <div class="alert-item">
-                    <span class="alert-name">Suchalarm Nr. 6</span>
+                    <div class="alert-info">
+                        <div class="alert-details">
+                            <span class="alert-name">Suchalarm Nr. 6</span>
+                            <span class="alert-competition"><i class="fa-solid fa-users"></i> 0 Käufer mit ähnlichen Kriterien</span>
+                        </div>
+                        <div class="alert-badges">
+                            <span class="alert-badge results"><i class="fa-solid fa-circle"></i> 0 Ergebnisse</span>
+                        </div>
+                    </div>
                     <div class="alert-actions">
                         <button class="alert-action">Bearbeiten</button>
                         <button class="alert-action">Löschen</button>
                     </div>
                 </div>
+            </div>
+
+            <!-- ENABLEMENT: Locked summary CTA -->
+            <div class="locked-summary">
+                <i class="fa-solid fa-lock locked-summary-icon"></i>
+                <span class="locked-summary-text">Insgesamt <strong>7 Inserate</strong> in deinen Suchaufträgen sind gesperrt. Verbessere deinen Readiness Score, um alle freizuschalten.</span>
+                <a href="academy.html" class="locked-summary-btn"><i class="fa-solid fa-graduation-cap"></i> Score verbessern</a>
+            </div>
+
+            <!-- ENABLEMENT: Academy Tip -->
+            <div class="academy-tip">
+                <div class="academy-tip-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                <div class="academy-tip-content">
+                    <span class="academy-tip-title">Optimiere deine Suchstrategie</span>
+                    <span class="academy-tip-desc">Lerne, wie du deine Suchaufträge so konfigurierst, dass du die besten Unternehmen findest – und keine Gelegenheit verpasst.</span>
+                </div>
+                <a href="academy.html" class="academy-tip-link">Modul starten <i class="fa-solid fa-chevron-right"></i></a>
             </div>
 
         </div>
