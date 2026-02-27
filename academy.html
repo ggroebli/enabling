@@ -391,8 +391,20 @@
 
         .module-format {
             font-size: 12px;
-            font-weight: 400;
-            color: #999;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .module-format.points-star {
+            background: #FEF3C7;
+            color: #D97706;
+        }
+        .module-format.points-regular {
+            background: #D1FAE5;
+            color: #059669;
         }
 
         /* ===== READINESS CHECK BANNER ===== */
@@ -603,7 +615,12 @@
                         Käufer Academy
                     </div>
                     <h1 class="hero-title">Werde ein besserer Käufer.<br>Schritt für Schritt.</h1>
-                    <p class="hero-desc">Die AMBER Academy bereitet dich auf jeden Schritt deiner Akquisitionsreise vor – von der Suchstrategie über die Finanzierung bis zum 100-Tage-Plan. Verbessere deinen Readiness Score und erhalte Zugang zu exklusiven Inseraten.</p>
+                    <p class="hero-desc">Die AMBER Academy bereitet dich auf jeden Schritt deiner Akquisitionsreise vor – von der Suchstrategie über die Finanzierung bis zum 100-Tage-Plan. Schließe alle 9 Module ab und erreiche 100% Readiness Score – damit erhältst du vollen Zugang zu allen Inseraten und bist optimal auf deinen Unternehmenskauf vorbereitet.</p>
+                    <p class="hero-desc" style="margin-top: 8px; font-size: 14px; color: #666; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                        <span style="display: inline-flex; align-items: center; gap: 4px;"><span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; background: #FEF3C7; color: #D97706; border-radius: 12px; font-size: 12px; font-weight: 600;"><i class="fa-solid fa-star" style="font-size: 10px;"></i> +15</span> Kernmodule</span>
+                        <span style="display: inline-flex; align-items: center; gap: 4px;"><span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; background: #D1FAE5; color: #059669; border-radius: 12px; font-size: 12px; font-weight: 600;">+5–10</span> Weitere Module</span>
+                        <span style="display: inline-flex; align-items: center; gap: 4px;"><span style="font-weight: 700; color: #1A1A1A;">= 100 Punkte</span> für 100% Readiness</span>
+                    </p>
                     <div class="hero-stats">
                         <div class="hero-stat">
                             <span class="hero-stat-value">9</span>
@@ -661,7 +678,7 @@
                             <div class="module-meta">
                                 <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 15 Min.</span>
                             </div>
-                            <span class="module-format">Guide + Selbsttest</span>
+                            <span class="module-format points-star"><i class="fa-solid fa-star" style="font-size: 10px;"></i> +15 Punkte</span>
                         </div>
                     </a>
 
@@ -675,7 +692,7 @@
                             <div class="module-meta">
                                 <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 15 Min.</span>
                             </div>
-                            <span class="module-format">Video + Text</span>
+                            <span class="module-format points-star"><i class="fa-solid fa-star" style="font-size: 10px;"></i> +15 Punkte</span>
                         </div>
                     </a>
 
@@ -690,7 +707,7 @@
                                 <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 12 Min.</span>
                                 <span class="module-meta-item"><i class="fa-solid fa-download"></i> Template</span>
                             </div>
-                            <span class="module-format">Video + Template</span>
+                            <span class="module-format points-regular">+10 Punkte</span>
                         </div>
                     </a>
 
@@ -725,7 +742,7 @@
                                 <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 12 Min.</span>
                                 <span class="module-meta-item"><i class="fa-solid fa-download"></i> 3 Checklisten</span>
                             </div>
-                            <span class="module-format">Guide + Checklisten</span>
+                            <span class="module-format points-regular">+5 Punkte</span>
                         </div>
                     </a>
 
@@ -740,7 +757,7 @@
                                 <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 12 Min.</span>
                                 <span class="module-meta-item"><i class="fa-solid fa-download"></i> LOI-Vorlage</span>
                             </div>
-                            <span class="module-format">Guide + Template</span>
+                            <span class="module-format points-regular">+10 Punkte</span>
                         </div>
                     </a>
 
@@ -775,7 +792,7 @@
                                 <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 15 Min.</span>
                                 <span class="module-meta-item"><i class="fa-solid fa-download"></i> DD-Checkliste</span>
                             </div>
-                            <span class="module-format">Guide + Checkliste</span>
+                            <span class="module-format points-regular">+10 Punkte</span>
                         </div>
                     </a>
 
@@ -789,7 +806,7 @@
                             <div class="module-meta">
                                 <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 15 Min.</span>
                             </div>
-                            <span class="module-format">Video + Guide</span>
+                            <span class="module-format points-star"><i class="fa-solid fa-star" style="font-size: 10px;"></i> +15 Punkte</span>
                         </div>
                     </a>
 
@@ -824,7 +841,7 @@
                                 <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 12 Min.</span>
                                 <span class="module-meta-item"><i class="fa-solid fa-download"></i> Checkliste</span>
                             </div>
-                            <span class="module-format">Guide + Checkliste</span>
+                            <span class="module-format points-regular">+10 Punkte</span>
                         </div>
                     </a>
 
@@ -858,7 +875,7 @@
                             <div class="module-meta">
                                 <span class="module-meta-item"><i class="fa-regular fa-clock"></i> 15 Min.</span>
                             </div>
-                            <span class="module-format">Video + Text</span>
+                            <span class="module-format points-regular">+10 Punkte</span>
                         </div>
                     </a>
 
