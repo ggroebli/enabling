@@ -424,12 +424,18 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            display: grid;
+            grid-template-columns: 16px auto 1fr;
+            column-gap: 10px;
         }
 
         .takeaways-box ul li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
+            display: contents;
+        }
+
+        .takeaways-box ul li i,
+        .takeaways-box ul li strong,
+        .takeaways-box ul li span {
             font-size: 15px;
             font-weight: 400;
             line-height: 170%;
@@ -439,8 +445,16 @@
 
         .takeaways-box ul li i {
             color: #10B981;
-            margin-top: 4px;
-            flex-shrink: 0;
+            padding-top: 8px;
+        }
+
+        .takeaways-box ul li strong {
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .takeaways-box ul li span {
+            font-weight: 300;
         }
 
         /* ===== COMPLETION & NAV ===== */
@@ -1321,10 +1335,9 @@
                 <div class="module-meta-row">
                     <span><i class="fa-regular fa-clock"></i> 12 Min.</span>
                     <div class="meta-divider"></div>
-                    <span class="format-badge" style="background:#EDE9FE; color:#7C3AED;"><i class="fa-solid fa-play" style="font-size: 10px;"></i> Video</span>
-                    <span class="format-badge guide"><i class="fa-solid fa-book-open" style="font-size: 10px;"></i> Guide</span>
-                    <span class="format-badge checklist"><i class="fa-solid fa-list-check" style="font-size: 10px;"></i> Checklisten</span>
-                    <span class="format-badge" style="background:#FEF3C7; color:#D97706;"><i class="fa-solid fa-clipboard-question" style="font-size: 10px;"></i> Quiz</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-play-circle" style="color: var(--phase-blue);"></i> 10 Min. Video</span>
+                    <div class="meta-divider"></div>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; background: #D1FAE5; color: #059669; border-radius: 12px; font-size: 12px; font-weight: 600;">+5 Punkte</span>
                     <div class="meta-divider"></div>
                     <span>Modul 4 von 9</span>
                 </div>
@@ -1611,11 +1624,11 @@
             <div class="takeaways-box">
                 <div class="takeaways-title"><i class="fa-solid fa-star"></i> Key Takeaways</div>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> <strong>Teaser und IM</strong> gibt es in der Regel nur bei beratergestützten Verkaufsprozessen</li>
-                    <li><i class="fa-solid fa-check"></i> Bei <strong>kleinen Deals ohne Berater</strong> erhältst du nach NDA und Gespräch Jahresabschlüsse und BWA</li>
-                    <li><i class="fa-solid fa-check"></i> Die <strong>NDA</strong> ist in beiden Fällen Standard – lies sie sorgfältig, achte auf Laufzeit und Vertragsstrafen</li>
-                    <li><i class="fa-solid fa-check"></i> Fehlende oder unvollständige Angaben sind immer ein <strong>Warnsignal</strong></li>
-                    <li><i class="fa-solid fa-check"></i> Nutze die <strong>Checklisten</strong> bei jedem neuen Unternehmen, das du prüfst</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Teaser & IM:</strong> <span>Gibt es in der Regel nur bei beratergestützten Verkaufsprozessen</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Direktverkauf:</strong> <span>Nach NDA und persönlichem Gespräch erhältst du Jahresabschlüsse und BWA</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>NDA:</strong> <span>Standard in beiden Fällen – lies sie sorgfältig, achte auf Laufzeit und Vertragsstrafen</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Warnsignal:</strong> <span>Fehlende oder unvollständige Angaben immer als Red Flag werten</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Checklisten:</strong> <span>Nutze sie bei jedem neuen Unternehmen, das du prüfst</span></li>
                 </ul>
             </div>
 
@@ -1790,24 +1803,24 @@
                 <div class="quiz-question" data-correct="1">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">7</div>
-                        <div class="quiz-q-text">Worauf solltest du bei einer NDA besonders achten?</div>
+                        <div class="quiz-q-text">Wozu verpflichtet eine NDA dich als K&auml;ufer ausdr&uuml;cklich NICHT?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Dass sie möglichst lang ist</span>
+                            <span class="quiz-option-text">Vertraulichkeit &uuml;ber alle erhaltenen Informationen zum Zielunternehmen zu wahren</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Dass sie keine pauschale Vertragsstrafe enthält</span>
+                            <span class="quiz-option-text">Das Unternehmen zu kaufen</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Dass sie digital unterschrieben wird</span>
+                            <span class="quiz-option-text">Erhaltene Unterlagen zur&uuml;ckzugeben oder zu l&ouml;schen, wenn der Deal nicht zustande kommt</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Dass sie vom Verkäufer aufgesetzt wurde</span>
+                            <span class="quiz-option-text">Keine Mitarbeiter des Zielunternehmens abzuwerben</span>
                         </div>
                     </div>
                 </div>

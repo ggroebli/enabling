@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMBER – Academy: Suchstrategie & Käuferprofil</title>
+    <title>AMBER – Academy: Angebotsstrategie und LOI-Verhandlung</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -17,8 +17,8 @@
             --grey-light: #CCCCCC;
             --white: #FFFFFF;
             --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
-            --phase-blue: #7C3AED;
-            --phase-blue-bg: #EDE9FE;
+            --phase-blue: #2563EB;
+            --phase-blue-bg: #DBEAFE;
         }
 
         body {
@@ -171,6 +171,16 @@
             font-weight: 600;
         }
 
+        .format-badge.guide {
+            background: #DBEAFE;
+            color: #2563EB;
+        }
+
+        .format-badge.template {
+            background: #D1FAE5;
+            color: #059669;
+        }
+
         .module-intro {
             font-size: 16px;
             font-weight: 300;
@@ -260,21 +270,6 @@
             font-weight: 600;
         }
 
-        .section ol {
-            margin: 8px 0 16px 20px;
-        }
-
-        .section ol li {
-            font-size: 15px;
-            font-weight: 300;
-            line-height: 180%;
-            color: var(--black);
-        }
-
-        .section ol li strong {
-            font-weight: 600;
-        }
-
         /* ===== HIGHLIGHT BOX (Begriffe) ===== */
         .highlight-box {
             background: linear-gradient(135deg, #EDE9FE 0%, #DBEAFE 50%, #D1FAE5 100%);
@@ -330,10 +325,6 @@
             text-decoration: underline;
         }
 
-        .tipp-box a:hover {
-            opacity: 0.7;
-        }
-
         /* ===== WARNING BOX ===== */
         .warn-box {
             background: #FFFBEB;
@@ -358,74 +349,6 @@
             font-weight: 300;
             line-height: 170%;
             color: var(--black);
-        }
-
-        /* ===== CHECKLIST BOX ===== */
-        .checklist-box {
-            background: var(--white);
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            padding: 24px;
-            margin: 16px 0;
-        }
-
-        .checklist-box .checklist-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
-        .checklist-box .checklist-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .checklist-box .checklist-icon.blue {
-            background: #EDE9FE;
-            color: #7C3AED;
-        }
-
-        .checklist-box .checklist-label {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--black);
-        }
-
-        .checklist-box ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .checklist-box ul li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 8px 0;
-            font-size: 14px;
-            font-weight: 300;
-            line-height: 160%;
-            color: var(--black);
-            border-bottom: 1px solid #F5F5F5;
-        }
-
-        .checklist-box ul li:last-child {
-            border-bottom: none;
-        }
-
-        .checklist-box ul li .check-icon {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--grey-light);
-            border-radius: 4px;
-            flex-shrink: 0;
-            margin-top: 2px;
         }
 
         /* ===== KEY TAKEAWAYS ===== */
@@ -738,7 +661,7 @@
 
         /* ===== REFERENCE TOGGLE ===== */
         .reference-section {
-            margin-top: 40px;
+            margin-top: 8px;
             border-top: 1px solid #F0F0F0;
             padding-top: 32px;
         }
@@ -1206,7 +1129,7 @@
         <a href="suche.html" class="nav-logo">/AMBER</a>
         <div class="nav-links">
             <a href="suche.html">Suche</a>
-            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="suchauftraege.html">Suchauftr&auml;ge</a>
             <a href="mitteilungen.html">Mitteilungen</a>
             <a href="postfach.html">Postfach</a>
             <a href="transaktionen.html">Meine Transaktionen</a>
@@ -1217,8 +1140,8 @@
             <div class="nav-avatar-wrapper">
                 <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
                 <div class="focus-group" id="focus-group">
-                    <a href="#">Zur Verkäuferansicht</a>
-                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Zur Verk&auml;uferansicht</a>
+                    <a href="kauferprofil.html">K&auml;uferprofil</a>
                     <a href="#">Kontoeinstellungen</a>
                     <a href="#">AMBER-Professional</a>
                     <a href="#">Abmelden</a>
@@ -1237,28 +1160,28 @@
             <div class="breadcrumb">
                 <a href="academy.html">Academy</a>
                 <span class="separator">/</span>
-                <span>Phase 1: Vorbereitung</span>
+                <span>Phase 2: Suche &amp; Analyse</span>
                 <span class="separator">/</span>
-                <span class="current">Suchstrategie &amp; Käuferprofil</span>
+                <span class="current">Angebotsstrategie und LOI-Verhandlung</span>
             </div>
 
             <!-- Module Header -->
             <div class="module-header">
-                <a href="academy.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Zurück zur Academy</a>
+                <a href="academy.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Zur&uuml;ck zur Academy</a>
                 <div>
-                    <span class="phase-badge"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Phase 1: Vorbereitung</span>
+                    <span class="phase-badge"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Phase 2: Suche &amp; Analyse</span>
                 </div>
-                <h1 class="module-title-main">Suchstrategie &amp; Käuferprofil</h1>
+                <h1 class="module-title-main">Angebotsstrategie und LOI-Verhandlung</h1>
                 <div class="module-meta-row">
-                    <span><i class="fa-regular fa-clock"></i> 15 Min.</span>
+                    <span><i class="fa-regular fa-clock"></i> 12 Min.</span>
                     <div class="meta-divider"></div>
                     <span style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-play-circle" style="color: var(--phase-blue);"></i> 8 Min. Video</span>
                     <div class="meta-divider"></div>
-                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; background: #FEF3C7; color: #D97706; border-radius: 12px; font-size: 12px; font-weight: 600;"><i class="fa-solid fa-star" style="font-size: 10px;"></i> +15 Punkte</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; background: #D1FAE5; color: #059669; border-radius: 12px; font-size: 12px; font-weight: 600;">+10 Punkte</span>
                     <div class="meta-divider"></div>
-                    <span>Modul 1 von 9</span>
+                    <span>Modul 5 von 9</span>
                 </div>
-                <p class="module-intro">Bevor du mit der Suche nach einem Unternehmen beginnst, brauchst du Klarheit über deine Ziele, dein Budget und deine Stärken. Dieses Modul hilft dir, dein Käuferprofil zu definieren und die richtigen Suchkanäle zu nutzen.</p>
+                <p class="module-intro">Wie formulierst du ein &uuml;berzeugendes Angebot? Verstehe den Letter of Intent (LOI), seine wichtigsten Klauseln und wie du den Rahmen f&uuml;r eine erfolgreiche Verhandlung setzt.</p>
             </div>
 
             <!-- ===== VIDEO ===== -->
@@ -1280,245 +1203,186 @@
             </div>
 
             <!-- ===== REFERENZ-MATERIAL (aufklappbar) ===== -->
-            <div class="reference-section" style="margin-top: 0; border-top: none; padding-top: 0;">
+            <div class="reference-section">
                 <div class="reference-toggle" id="reference-toggle" onclick="toggleReference()">
                     <div class="reference-toggle-left">
                         <i class="fa-solid fa-book-open"></i>
                         <span class="reference-toggle-title">Referenz-Material</span>
-                        <span class="reference-toggle-sub">– Vollständiger Text zum Nachlesen</span>
+                        <span class="reference-toggle-sub">&ndash; Vollst&auml;ndiger Text zum Nachlesen</span>
                     </div>
                     <i class="fa-solid fa-chevron-down toggle-chevron"></i>
                 </div>
                 <div class="reference-content" id="reference-content">
 
-            <!-- ===== SECTION 1: Warum ein Käuferprofil? ===== -->
+            <!-- ===== SECTION 1: Erste Bewertungsindikation / Indikatives Angebot ===== -->
             <div class="section">
-                <h2><span class="section-number">1</span> Warum ein Käuferprofil?</h2>
-                <p>Professionelle Käufer wie Finanzinvestoren wissen es: Ohne klare Suchkriterien ähnelt die Unternehmenssuche der Suche nach der Nadel im Heuhaufen. Die meisten Privatkäufer machen den Fehler, undifferenziert dutzende von Unternehmen anzufragen und verzetteln sich. Du investierst Zeit in Unternehmen, die mit hoher Wahrscheinlichkeit nicht passen, und übersiehst dabei die wirklich relevanten Angebote.</p>
+                <h2><span class="section-number">1</span> Erste Bewertungsindikation und indikatives Angebot</h2>
+                <p>Bevor es zu einem formellen LOI kommt, musst du in vielen Prozessen bereits früher eine erste Preisvorstellung kommunizieren. Je nach Transaktionsgröße und Prozessart unterscheidet sich dabei der Zeitpunkt und der Grad der Formalität erheblich.</p>
 
-                <h3>Was ein Käuferprofil leistet</h3>
+                <h3>Wann und in welcher Form?</h3>
                 <ul>
-                    <li><strong>Fokus</strong> – Du weißt, wonach du suchst, und filterst systematisch statt wahllos zu klicken</li>
-                    <li><strong>Effizienz</strong> – Verkäufer und Berater erkennen sofort, ob du ein ernsthafter Interessent bist</li>
-                    <li><strong>Selbstreflexion</strong> – Du klärst vorab, ob du die nötigen Fähigkeiten und Ressourcen für den angestrebten Unternehmenstyp mitbringst</li>
-                    <li><strong>Verhandlungsposition</strong> – Wer sein Profil kennt, tritt gegenüber Verkäufern professioneller auf</li>
+                    <li><strong>Strukturierte Prozesse (M&A-Berater mandatiert):</strong> Der Berater fordert häufig <strong>vor dem persönlichen Kennenlernen</strong> ein schriftliches indikatives Angebot an. Es dient als Vorqualifizierung – nur Interessenten mit einer realistischen Preisvorstellung werden zum Gespräch eingeladen. Dein Angebot wird mit anderen Bietern verglichen, daher ist eine professionelle und begründete Formulierung wichtig.</li>
+                    <li><strong>Kleinere Deals / Direktverkauf (unter ca. 2 Mio. EUR):</strong> Ein formelles schriftliches indikatives Angebot ist meist nicht erforderlich. Eine <strong>Bewertungsindikation</strong> – also eine grobe Einschätzung deiner Preisvorstellung – reicht aus, oft erst im oder nach dem persönlichen Gespräch. Danach geht man in der Regel direkt in die LOI-Verhandlung über.</li>
+                </ul>
+
+                <h3>Was ist dabei zu beachten?</h3>
+                <ul>
+                    <li><strong>Basis ist deine vorläufige Bewertung</strong> – Leite deine Preisindikation aus der Ertragskraft des Unternehmens und einem branchenüblichen Multiple ab (→ <a href="academy-modul-bewertung.html" style="color: var(--phase-blue);">Modul 3: Bewertung & Preisfindung</a>)</li>
+                    <li><strong>Nicht zu niedrig, nicht zu hoch</strong> – Ein zu niedriges Angebot wirkt unseriös und kann den Verkäufer oder Berater verprellen. Ein zu hohes Angebot engt dich später in der Verhandlung ein</li>
+                    <li><strong>Immer unter DD-Vorbehalt stellen</strong> – Deine Preisindikation basiert auf den bisher verfügbaren Informationen und steht ausdrücklich unter dem Vorbehalt einer erfolgreichen Due Diligence</li>
+                    <li><strong>Bei strukturierten Prozessen:</strong> Halte das indikative Angebot schriftlich, klar strukturiert und professionell – es wird direkt mit anderen Bietern verglichen</li>
+                    <li><strong>Indikatives Angebot ≠ reine Preisindikation</strong> – Ein wesentlicher Unterschied zur einfachen Bewertungsindikation ist, dass im indikativen Angebot weitere Punkte dargelegt werden: die geplante <strong>Transaktionsstruktur</strong> (Eigenkapitalanteil, Verkäuferdarlehen, Earn-Out-Komponenten), eine erste <strong>Equity Bridge</strong> (Überleitung vom Unternehmenswert zum Kaufpreis unter Berücksichtigung von Schulden und Cash), sowie die vorgesehenen <strong>DD-Schwerpunkte</strong></li>
+                </ul>
+
+                <div class="warn-box">
+                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Angebotstabilität: Einer der wichtigsten Faktoren im Prozess</div>
+                    <p>Es ist keine sinnvolle Strategie, zunächst eine höhere Bewertung zu avisieren, wenn bereits im Vorfeld Anhaltspunkte bestehen, dass diese im Laufe des Prozesses nicht haltbar sein wird. <strong>Angebotstabilität</strong> ist für Verkaufsberater und Verkäufer gleichermaßen eines der zentralsten Kriterien bei der Käuferauswahl.</p>
+                    <p style="margin-top: 10px;">Wird eine Bewertung ohne triftigen neuen Befund aus der Due Diligence nachträglich gesenkt, zerstört das erhebliches Vertrauen – und gefährdet den gesamten Deal. Gib von Anfang an eine realistische Indikation ab, die du auch vertreten kannst. Preisreduktionen sind nur dann akzeptabel, wenn sie durch konkrete Erkenntnisse aus der DD sachlich begründet werden.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Gut zu wissen</div>
+                    <p>Das indikative Angebot ist <strong>nicht bindend</strong> und kann nach der Due Diligence angepasst werden. Es ist ein Signal der ernsthaften Kaufabsicht – kein verbindliches Commitment. Der formelle LOI folgt erst nach dem persönlichen Kennenlernen und der vertieften Analyse.</p>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 2: Was ist ein LOI? ===== -->
+            <div class="section">
+                <h2><span class="section-number">2</span> Was ist ein LOI?</h2>
+                <p>Der Letter of Intent (LOI) &ndash; auch Absichtserkl&auml;rung genannt &ndash; ist das zentrale Dokument zwischen der Analyse-Phase und der Due Diligence. Er legt den Rahmen f&uuml;r die weiteren Verhandlungen fest.</p>
+
+                <h3>Zweck und Timing</h3>
+                <ul>
+                    <li>Der LOI dokumentiert deine ernsthafte Kaufabsicht und die wichtigsten Eckpunkte des geplanten Deals</li>
+                    <li>Er wird nach Pr&uuml;fung der Unternehmensunterlagen (IM oder Jahresabschl&uuml;sse) und nach dem pers&ouml;nlichen Kennenlern-Termin abgegeben</li>
+                    <li>Er kommt <strong>vor</strong> der Due Diligence &ndash; und gibt dir das Recht, das Unternehmen detailliert zu pr&uuml;fen</li>
+                    <li>Er setzt den Rahmen: Kaufpreis, Struktur, Bedingungen, Zeitplan</li>
                 </ul>
 
                 <div class="highlight-box">
-                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Käufermarkt: Viele Interessenten, wenig Angebote</div>
-                    <p>Der demografische Wandel sorgt dafür, dass in Deutschland so viele Unternehmen zum Verkauf stehen wie nie zuvor – doch die Zahl der Kaufinteressenten wächst noch schneller. Das bedeutet: Du konkurrierst mit vielen anderen Käufern um die besten Deals. Ein <strong>klares Käuferprofil</strong> und eine <strong>professionelle Selbstdarstellung</strong> helfen dir, dich von der Masse abzuheben.</p>
+                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Gut zu wissen</div>
+                    <p>Der LOI ist in der Regel <strong>nicht bindend</strong> &ndash; mit Ausnahme bestimmter Klauseln wie Vertraulichkeit, Exklusivit&auml;t und Kostenverteilung. Das hei&szlig;t: Du kannst nach der Due Diligence noch zur&uuml;cktreten oder nachverhandeln.</p>
                 </div>
 
-                <div class="warn-box">
-                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Vorsicht: Massenanfragen schaden deiner Reputation</div>
-                    <p>M&A-Berater betreuen oft viele Verkaufsprojekte gleichzeitig und inserieren diese auf verschiedenen Plattformen. Sie erkennen schnell, wenn ein Käufer wahllos dutzende Anfragen stellt – und schreiben solche Interessenten gedanklich ab. Die Folge: Deine Anfragen werden nicht mehr ernst genommen und du wirst bei laufenden und zukünftigen Prozessen nicht weiter berücksichtigt. <strong>Qualität schlägt Quantität</strong> – kontaktiere nur Unternehmen, die wirklich zu deinem Profil passen.</p>
-                </div>
+                <h3>LOI vs. verbindliches Angebot</h3>
+                <ul>
+                    <li><strong>LOI:</strong> Dein Kaufpreisangebot basiert auf den bisher verf&uuml;gbaren Informationen und steht unter dem Vorbehalt der Due Diligence. Das ist der Standard.</li>
+                    <li><strong>Verbindliches Angebot (Binding Offer):</strong> Kommt eher in strukturierten Bieterprozessen bei gr&ouml;&szlig;eren Deals vor und wird erst nach Abschluss der ersten Due-Diligence-Phase abgegeben. Bei kleinen Deals unter 2 Mio. EUR ist der LOI die Norm.</li>
+                </ul>
+
             </div>
 
-            <!-- ===== SECTION 2: Dein Käuferprofil definieren ===== -->
+            <!-- ===== SECTION 3: LOI-Inhalt: Die wirtschaftlichen Kernelemente ===== -->
             <div class="section">
-                <h2><span class="section-number">2</span> Dein Käuferprofil definieren</h2>
-                <p>Dein Käuferprofil beantwortet die zentrale Frage: <strong>Welches Unternehmen passt zu mir?</strong> Und genauso wichtig: Welches passt nicht? Die folgenden Dimensionen helfen dir, das systematisch zu klären.</p>
+                <h2><span class="section-number">3</span> LOI-Inhalt: Die wirtschaftlichen Kernelemente</h2>
+                <p>Ein gutes Angebot ist klar strukturiert, nachvollziehbar begr&uuml;ndet und l&auml;sst Raum f&uuml;r die Verhandlung. Dieser Abschnitt behandelt die <strong>wirtschaftliche Substanz</strong> des LOI &ndash; was du hineinschreibst und wie du es begr&uuml;ndest. Welche Klauseln davon bindend sind (z.B. Exklusivit&auml;t), erkl&auml;rt <strong>Abschnitt 4</strong>.</p>
 
-                <h3>Budget und Dealgröße</h3>
-                <p>Dein verfügbares Eigenkapital bestimmt, welche Unternehmen für dich realistisch in Frage kommen. Als Faustregel: Du brauchst mindestens 20–30% des Kaufpreises als Eigenkapital. Den Rest kannst du über Bankdarlehen, Fördermittel oder ein Verkäuferdarlehen finanzieren.</p>
+                <h3>Die 6 wirtschaftlichen Kernelemente</h3>
                 <ul>
-                    <li><strong>Beispiel:</strong> Bei 150.000 € Eigenkapital liegt deine realistische Kaufpreisobergrenze bei ca. 500.000 – 750.000 €</li>
-                    <li>Vergiss nicht die <strong>Transaktionskosten</strong> (Anwalt, Steuerberater, Due Diligence, Vermittlungsprovision, Notar etc.) – rechne mit ca. 5–8% des Kaufpreises zusätzlich bei kleinen Deals</li>
+                    <li><strong>Kaufpreis / Kaufpreisband</strong> &ndash; Dein konkretes Angebot, idealerweise mit nachvollziehbarer Herleitung (&rarr; deine Bewertung aus Modul 3)</li>
+                    <li><strong>Kaufpreismechanik</strong> &ndash; Wirtschaftlicher Stichtag (Locked Box oder Closing Accounts), Enterprise Value, Equity Bridge (Cash-Debt-Free-Berechnung: Unternehmenswert abzüglich Schulden plus Cash = Kaufpreis für die Anteile)</li>
+                    <li><strong>Dealstruktur</strong> &ndash; Share Deal oder Asset Deal (&rarr; <a href="academy-modul-transaktionsstrukturen.html" style="color: var(--phase-blue);">Modul 2</a>)</li>
+                    <li><strong>Zahlungsmodalit&auml;ten</strong> &ndash; Sofortzahlung, Ratenzahlung, Earn-Out, Verk&auml;uferdarlehen (&rarr; <a href="academy-modul-transaktionsstrukturen.html" style="color: var(--phase-blue);">Modul 2</a>)</li>
+                    <li><strong>Bedingungen (Closing Conditions)</strong> &ndash; Unter welchen Voraussetzungen kaufst du? (z.B. neuer Jahresabschluss liegt vor ohne wesentliche Abweichungen zu den bekannten BWA, gesicherte Finanzierung etc.)</li>
+                    <li><strong>Zeitplan</strong> &ndash; Wann beginnt die Due Diligence? Wann soll der Deal abgeschlossen sein?</li>
                 </ul>
 
-                <h3>Branche und Geschäftsmodell</h3>
-                <ul>
-                    <li><strong>Branchenerfahrung</strong> – Hast du Erfahrung in einer bestimmten Branche? Das erleichtert den Einstieg enorm und gibt dem Verkäufer das notwendige Vertrauen, dass sein Lebenswerk in guten Händen sein wird</li>
-                    <li><strong>Geschäftsmodelltyp</strong> – Dienstleistung, Produktion, Handel, Software? Jedes Modell hat unterschiedliche Anforderungen</li>
-
-                </ul>
-
-                <h3>Region und Standort</h3>
-                <ul>
-                    <li>Manche Geschäftsmodelle (z.B. E-Commerce) sind standortunabhängig, die meisten (z.B. Handwerk, Gastronomie, Produktion) allerdings stark standortgebunden</li>
-                    <li>Beantworte diese Frage ehrlich: Bist du wirklich bereit, umzuziehen? Wenn nicht, musst du einen klaren Suchradius (Kilometerentfernung oder besser Fahrzeit) festlegen und dich nur mit entsprechenden Unternehmen beschäftigen</li>
-                </ul>
-
-                <h3>Persönliche Stärken und Schwächen</h3>
-                <p>Nicht jedes Unternehmen passt zu jedem Käufer. Frage dich ehrlich:</p>
-                <ul>
-                    <li>Welche Führungserfahrung bringe ich mit?</li>
-                    <li>Kann ich ein Team von 5, 20 oder 50 Mitarbeitern führen?</li>
-                    <li>Bin ich eher operativ stark oder strategisch?</li>
-                    <li>Wie viel Zeit kann ich in den ersten 12–18 Monaten nach der Übernahme investieren?</li>
-                </ul>
-
-                <div class="tipp-box">
-                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp: Eigenkapital und Dealgröße zusammen denken</div>
-                    <p>Definiere zuerst dein verfügbares Eigenkapital. Daraus ergibt sich deine maximale Dealgröße. Und daraus wiederum die Umsatz- und Ertragsspanne der Unternehmen, die realistisch in Frage kommen. <strong>Suche nicht nach Traumunternehmen, sondern nach finanzierbaren Unternehmen.</strong></p>
-
-                    <!-- Bierdeckelrechnung -->
-                    <div style="margin-top: 20px; padding: 20px; background: #FFFFFF; border: 2px solid #10B981; border-radius: 12px;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px; font-size: 15px; font-weight: 700; color: #1A1A1A;">
-                            <i class="fa-solid fa-calculator" style="color: #10B981;"></i> Bierdeckelrechnung: Was kannst du dir leisten?
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                            <label style="font-size: 14px; font-weight: 600; color: #1A1A1A; white-space: nowrap;">Dein Eigenkapital:</label>
-                            <div style="position: relative; flex: 1; max-width: 240px;">
-                                <input type="text" id="ek-input" placeholder="z.B. 150000" oninput="calcBierdeckel()" style="width: 100%; padding: 10px 36px 10px 14px; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 16px; font-weight: 600; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#10B981'" onblur="this.style.borderColor='#E5E7EB'">
-                                <span style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 16px; font-weight: 600; color: #666;">€</span>
-                            </div>
-                        </div>
-                        <div id="bierdeckel-result" style="display: none;">
-                            <!-- Szenario 1: Ohne Verkäuferdarlehen -->
-                            <div style="font-size: 13px; font-weight: 600; color: #1A1A1A; margin-bottom: 8px;">Ohne Verkäuferdarlehen <span style="font-weight: 400; color: #666;">(20% EK-Quote)</span></div>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                                <div style="background: #F0FDF4; border-radius: 8px; padding: 14px; text-align: center;">
-                                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Max. Kaufpreis</div>
-                                    <div id="bd-kaufpreis" style="font-size: 20px; font-weight: 700; color: #1A1A1A;">–</div>
-                                </div>
-                                <div style="background: #F0FDF4; border-radius: 8px; padding: 14px; text-align: center;">
-                                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">EBIT-Spanne des Targets</div>
-                                    <div id="bd-ebit" style="font-size: 20px; font-weight: 700; color: #10B981;">–</div>
-                                </div>
-                            </div>
-                            <!-- Szenario 2: Mit 10% Verkäuferdarlehen -->
-                            <div style="font-size: 13px; font-weight: 600; color: #1A1A1A; margin-top: 16px; margin-bottom: 8px;">Mit 10% Verkäuferdarlehen <span style="font-weight: 400; color: #666;">(10% EK + 10% VD)</span></div>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                                <div style="background: #EDE9FE; border-radius: 8px; padding: 14px; text-align: center;">
-                                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Max. Kaufpreis</div>
-                                    <div id="bd-kaufpreis-vd" style="font-size: 20px; font-weight: 700; color: #1A1A1A;">–</div>
-                                </div>
-                                <div style="background: #EDE9FE; border-radius: 8px; padding: 14px; text-align: center;">
-                                    <div style="font-size: 12px; color: #666; margin-bottom: 4px;">EBIT-Spanne des Targets</div>
-                                    <div id="bd-ebit-vd" style="font-size: 20px; font-weight: 700; color: #7C3AED;">–</div>
-                                </div>
-                            </div>
-                            <div style="margin-top: 12px; padding: 10px 14px; background: #FFFBEB; border-radius: 8px; font-size: 13px; color: #92400E; line-height: 1.5;">
-                                <i class="fa-solid fa-info-circle" style="margin-right: 4px;"></i>
-                                <span id="bd-text">–</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="highlight-box">
+                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Kaufpreis begr&uuml;nden</div>
+                    <p>Verweise in deinem LOI auf deine Bewertung: &bdquo;Auf Basis eines bereinigten EBITDA von X &euro; und eines branchen&uuml;blichen Multiples von Y ergibt sich ein Unternehmenswert von Z &euro;. Unter Ber&uuml;cksichtigung der Finanzverbindlichkeiten und des Working Capital biete ich einen Kaufpreis von [...] &euro;.&ldquo; &rarr; <a href="academy-modul-bewertung.html" style="color: var(--phase-blue);">Modul 3: Bewertung &amp; Preisfindung</a></p>
                 </div>
-            </div>
 
-            <!-- ===== SECTION 3: Wo findest du Unternehmen? ===== -->
-            <div class="section">
-                <h2><span class="section-number">3</span> Wo findest du Unternehmen?</h2>
-                <p>Es gibt verschiedene Kanäle, über die Unternehmen zum Verkauf angeboten werden. Nutze mehrere gleichzeitig, um deine Chancen zu maximieren.</p>
-
-                <h3>M&A-Plattformen</h3>
-                <ul>
-                    <li>Plattformen sind besonders gut für <strong>kleinere Deals</strong>, bei denen kein Berater mandatiert ist – und genau darauf ist AMBER spezialisiert</li>
-                    <li><strong>AMBER</strong> – Mit AMBER hast du bereits Zugang zu einem Großteil der relevanten Deals im deutschen Mittelstand. Erstelle ein Käuferprofil, setze Suchkriterien und erhalte passende Listings per Alert</li>
-                    <li><strong><a href="https://dealcircle.com/fuer-investoren/" target="_blank" style="color: #7C3AED; text-decoration: none;">DealCircle</a></strong> – Zugang zu Verkaufsprojekten, die nicht öffentlich auf Plattformen inseriert sind. Du hinterlegst deine Suchkriterien und wirst proaktiv kontaktiert, sobald ein passendes Projekt verfügbar ist</li>
-                </ul>
-
-                <h3>M&A-Berater und Nachfolgeberater</h3>
-                <ul>
-                    <li>Ab ca. 1–2 Mio. € Kaufpreis sind häufig <strong>M&A-Berater</strong> auf Verkäuferseite mandatiert</li>
-                    <li>Neben ihren Plattformprojekten haben Berater oft weitere laufende Mandate, die sie nicht öffentlich inserieren</li>
-                    <li>Melde dich <strong>regelmäßig</strong> bei relevanten Beratungshäusern, um laufende Projekte abzufragen – wer präsent bleibt, wird bei passenden Mandaten zuerst kontaktiert</li>
-                </ul>
-
-                <h3>Netzwerk und Direktansprache</h3>
-                <ul>
-                    <li><strong>IHK und Handwerkskammern</strong> – Bieten Nachfolgebörsen und Veranstaltungen an</li>
-                    <li>Bei größeren Deals ab <strong>5–10 Mio. € Kaufpreis</strong> gehen professionelle Käufer zusätzlich über <strong>Direktansprache</strong> von Zielunternehmen sowie über <strong>Multiplikatoren</strong> wie Steuerberater und Rechtsanwälte, die Unternehmer beraten, die über einen Verkauf nachdenken, aber noch nicht aktiv suchen</li>
-                </ul>
-
-                <div class="warn-box">
-                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Keine Eile: Der richtige Deal braucht Zeit</div>
-                    <p>Die meisten Käufer unterschätzen, wie lange die Suche dauert. Rechne mit <strong>6–18 Monaten</strong>, bis du einen Deal abschließt. Wer unter Zeitdruck kauft, macht Kompromisse bei der Qualität. Starte die Suche früh und bleib geduldig.</p>
+                <div class="highlight-box">
+                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Locked Box vs. Closing Accounts</div>
+                    <p>Die Wahl des wirtschaftlichen Stichtags bestimmt die Kaufpreismechanik:</p>
+                    <ul style="margin-top: 8px;">
+                        <li><strong>Locked Box:</strong> Der Stichtag liegt in der Vergangenheit (z.B. letzter Jahresabschluss). Der Kaufpreis ist fix &ndash; der Käufer übernimmt das Unternehmen wirtschaftlich rückwirkend zu diesem Datum. Einfacher, aber der Käufer trägt das Risiko, dass seit dem Stichtag kein Wert aus dem Unternehmen abgezogen wurde (No-Leakage-Klausel).</li>
+                        <li><strong>Closing Accounts:</strong> Der Stichtag liegt in der Zukunft (Tag des Vollzugs). Der Kaufpreis wird auf Basis einer Stichtagsbilanz endgültig bestimmt. Mehr Aufwand, aber der Kaufpreis reflektiert den tatsächlichen Zustand des Unternehmens bei Übergabe.</li>
+                    </ul>
+                    <p style="margin-top: 8px;">Bei kleinen Deals wird häufig die Locked-Box-Methode bevorzugt, da sie einfacher ist und schneller zum Abschluss führt.</p>
                 </div>
-            </div>
 
-            <!-- ===== SECTION 4: Suchkriterien richtig setzen ===== -->
-            <div class="section">
-                <h2><span class="section-number">4</span> Suchkriterien richtig setzen</h2>
-                <p>Sobald dein Käuferprofil steht, übersetzt du es in konkrete Suchkriterien – auf AMBER und anderen Plattformen.</p>
-
-                <h3>Die wichtigsten Filterkriterien</h3>
+                <h3>Berater vs. Direktverkauf</h3>
                 <ul>
-                    <li><strong>Branche/Keywords</strong> – Es lohnt sich, Zeit zu investieren und alle relevanten Begriffe für deine Zielbranchen zu sammeln – je präziser deine Keywords, desto besser die Treffer</li>
-                    <li><strong>Region</strong> – Umkreis oder bestimmte Bundesländer</li>
-                    <li><strong>Umsatzgröße</strong> – Minimum und Maximum, passend zu deinem Budget</li>
-                    <li><strong>Ergebnis (EBIT)</strong> – Filtere nach der Ertragskraft des Unternehmens, passend zu deiner Bierdeckelrechnung</li>
-                    <li><strong>Mitarbeiterzahl</strong> – Gibt dir einen Hinweis auf die Komplexität der Übernahme</li>
-                </ul>
-
-                <h3>Suchaufträge und Alerts</h3>
-                <p>Die effizienteste Methode, um den Markt zu beobachten, sind <strong>automatisierte Suchaufträge</strong>. Auf AMBER kannst du Suchkriterien speichern und wirst per E-Mail benachrichtigt, wenn neue Listings deinen Kriterien entsprechen. <a href="suchauftraege.html" style="color: #7C3AED; font-weight: 600; text-decoration: none;">→ Jetzt Suchauftrag anlegen</a></p>
-                <ul>
-                    <li>Überprüfe regelmäßig, ob deine Kriterien zu viele oder zu wenige Ergebnisse liefern – und passe sie an</li>
-                    <li>Reagiere zeitnah auf interessante Listings – gute Unternehmen sind schnell vergeben</li>
+                    <li><strong>Mit M&amp;A-Berater:</strong> Der LOI wird oft formeller erwartet. Der Berater hat m&ouml;glicherweise eine LOI-Vorlage. Dein Angebot wird mit anderen verglichen &ndash; formuliere es professionell und vollst&auml;ndig.</li>
+                    <li><strong>Direktverkauf:</strong> Die Absichtserkl&auml;rung kann einfacher und pers&ouml;nlicher ausfallen. Trotzdem sollten alle wichtigen Punkte schriftlich festgehalten werden.</li>
                 </ul>
 
                 <div class="tipp-box">
                     <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp</div>
-                    <p>Setze deine Suchkriterien nicht zu eng. Viele der besten Deals liegen leicht außerhalb der ursprünglichen Vorstellung – z.B. eine Branche, an die du nicht gedacht hast, oder ein Standort etwas weiter weg. Bleibe offen, aber mit klarem Rahmen.</p>
+                    <p>Formuliere dein Angebot so, dass es &bdquo;Raum l&auml;sst&ldquo; &ndash; ein zu niedriges Angebot wirkt unseri&ouml;s und kann den Verk&auml;ufer verprellen. Ein zu hohes Angebot engt dich ein. Starte realistisch und zeige, dass du deine Hausaufgaben gemacht hast.</p>
                 </div>
             </div>
 
-            <!-- ===== SECTION 5: Welche Dokumente brauchst du als Käufer? ===== -->
-            <div class="section" style="border-bottom: none;">
-                <h2><span class="section-number">5</span> Welche Dokumente brauchst du als Käufer?</h2>
-                <p>Wenn du ein Unternehmen gefunden hast, das dich interessiert, musst du dich dem Verkäufer oder seinem Berater vorstellen. Dabei wirst du um bestimmte Unterlagen gebeten – manchmal schon bei der ersten Kontaktaufnahme, spätestens aber vor der Unterschrift einer NDA oder eines LOI.</p>
+            <!-- ===== SECTION 4: Verbindlichkeit und Schutzklauseln ===== -->
+            <div class="section">
+                <h2><span class="section-number">4</span> Verbindlichkeit und Schutzklauseln</h2>
+                <p>Der LOI ist rechtlich in weiten Teilen unverbindlich &ndash; aber das bedeutet nicht, dass er folgenlos ist. Von den wirtschaftlichen Bedingungen, die du darin formulierst, wird im Transaktionsverlauf <strong>&uuml;blicherweise nicht oder nur unwesentlich abgewichen</strong>. Er setzt den Rahmen f&uuml;r alle weiteren Verhandlungen bis hin zum Kaufvertrag &ndash; formuliere ihn daher sorgf&auml;ltig: Was hier steht, ist faktisch gesetzt. Einige Klauseln sind dar&uuml;ber hinaus auch rechtlich verbindlich.</p>
 
-                <h3>Deine Käufer-Unterlagen im Überblick</h3>
-
-                <div class="checklist-box">
-                    <div class="checklist-header">
-                        <div class="checklist-icon blue"><i class="fa-solid fa-folder-open"></i></div>
-                        <span class="checklist-label">Käufer-Dokumenten-Checkliste</span>
-                    </div>
-                    <ul>
-                        <li>
-                            <div class="check-icon"></div>
-                            <div><strong>Lebenslauf (CV)</strong> – Beruflicher Werdegang, relevante Erfahrungen, Führungspositionen. Verkäufer wollen wissen, ob du das Unternehmen führen kannst.</div>
-                        </li>
-                        <li>
-                            <div class="check-icon"></div>
-                            <div><strong>LinkedIn-Profil</strong> – Ein professionelles, vollständig ausgefülltes LinkedIn-Profil wird von Verkäufern und Beratern erwartet. Es ist oft der erste Blick, den ein Verkäufer auf dich wirft – stelle sicher, dass es deinen beruflichen Hintergrund und deine Seriosität klar vermittelt.</div>
-                        </li>
-                        <li>
-                            <div class="check-icon"></div>
-                            <div><strong>Selbstdarstellung / Käuferprofil</strong> – Kurzes Dokument (1–2 Seiten): Wer bist du, was suchst du, warum bist du der richtige Käufer? Enthält Motivation, Branchenerfahrung, Übernahmekonzept.</div>
-                        </li>
-                        <li>
-                            <div class="check-icon"></div>
-                            <div><strong>Eigenkapitalnachweis (Proof of Funds)</strong> – Bankbestätigung oder Vermögensübersicht, die zeigt, dass du die Transaktion finanziell stemmen kannst. Muss nicht den vollen Kaufpreis abdecken, aber dein Eigenkapitalanteil sollte glaubhaft belegt sein.</div>
-                        </li>
-                        <li>
-                            <div class="check-icon"></div>
-                            <div><strong>Finanzierungs-Termsheet</strong> – Projektbezogenes Dokument, das für ein konkretes Unternehmen eingeholt wird, das sich bereits in der Prüfung befindet. Die Bank bewertet das spezifische Zielunternehmen und stellt eine vorläufige Finanzierungszusage aus. Gibt dem Verkäufer Sicherheit, dass der Deal nicht an der Finanzierung scheitert.</div>
-                        </li>
-                        <li>
-                            <div class="check-icon"></div>
-                            <div><strong>Referenzen</strong> – Optional, aber hilfreich: Kontakte, die deine Erfahrung und Seriosität bestätigen können (z.B. frühere Geschäftspartner, Steuerberater).</div>
-                        </li>
-                    </ul>
-                </div>
-
-                <h3>Wann brauchst du welches Dokument?</h3>
+                <h3>In der Regel NICHT bindend</h3>
                 <ul>
-                    <li><strong>Erstkontakt / Interessensbekundung:</strong> Lebenslauf + Selbstdarstellung reichen zunächst</li>
-                    <li><strong>Nach der NDA / vor dem LOI:</strong> Eigenkapitalnachweis wird oft erwartet</li>
-                    <li><strong>LOI-Phase:</strong> Finanzierungs-Termsheet stärkt deine Verhandlungsposition erheblich</li>
+                    <li><strong>Kaufpreis und Zahlungsmodalit&auml;ten</strong> &ndash; Stehen unter dem Vorbehalt der Due Diligence</li>
+                    <li><strong>Dealstruktur</strong> &ndash; Kann sich nach der Due Diligence noch &auml;ndern</li>
+                    <li><strong>Zeitplan und Meilensteine</strong> &ndash; Richtwerte, keine festen Fristen</li>
+                    <li><strong>&Uuml;bergangszeitraum</strong> &ndash; Einarbeitungszeit des Verk&auml;ufers nach Closing</li>
+                </ul>
+
+                <h3>In der Regel BINDEND</h3>
+                <ul>
+                    <li><strong>Vertraulichkeitsklausel</strong> &ndash; Beide Seiten verpflichten sich zur Geheimhaltung</li>
+                    <li><strong>Exklusivit&auml;tsklausel</strong> &ndash; Zwei Varianten: <em>Abschlussexklusivität</em> (milder: Verkäufer darf die Transaktion nicht mit einem Dritten abschließen) oder <em>Verhandlungsexklusivität</em> (strenger: Verkäufer darf gar nicht mit Dritten verhandeln). Letztere ist für den Käufer vorteilhafter.</li>
+                    <li><strong>Wettbewerbs- und Abwerbeverbot</strong> &ndash; Der Verkäufer verpflichtet sich, nach dem Deal für einen definierten Zeitraum kein Konkurrenzunternehmen zu betreiben und keine Mitarbeiter des Zielunternehmens abzuwerben</li>
+                    <li><strong>Kostenverteilung</strong> &ndash; Jede Seite tr&auml;gt ihre eigenen Kosten (Anwalt, Steuerberater, Berater)</li>
+                    <li><strong>Break-Up Fee / Cost Coverage Agreement</strong> &ndash; Manchmal vereinbart: Entweder eine Entschädigung bei grundlosem Rücktritt (Break-Up Fee) oder der Verkäufer übernimmt die DD-Kosten des Käufers, falls er die Verhandlungen ohne triftigen Grund abbricht (Cost Coverage Agreement) &ndash; eine sinnvolle Alternative zur Exklusivität</li>
+                </ul>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp: Exklusivit&auml;t</div>
+                    <p>Die Exklusivit&auml;tsklausel geh&ouml;rt in den <strong>LOI, nicht in die NDA</strong>. Ohne sie riskierst du, Zeit und Geld in die Due Diligence zu investieren, w&auml;hrend der Verk&auml;ufer parallel mit anderen verhandelt. Verhandele mindestens 6 Wochen &ndash; typisch sind 4&ndash;8 Wochen. Die Verhandlungsexklusivit&auml;t (Verk&auml;ufer darf gar nicht mit Dritten verhandeln) ist f&uuml;r dich als K&auml;ufer vorteilhafter als die schw&auml;chere Abschlussexklusivit&auml;t.</p>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 5: LOI-Vorlage ===== -->
+            <div class="section" style="border-bottom: none;">
+                <h2><span class="section-number">5</span> LOI-Vorlage</h2>
+                <p>Eine gute LOI-Vorlage hilft dir, alle wichtigen Punkte abzudecken, ohne etwas zu vergessen. Hier ist die typische Struktur:</p>
+
+                <h3>Aufbau einer LOI-Vorlage</h3>
+                <ul>
+                    <li><strong>Pr&auml;ambel</strong> &ndash; Wer kauft? Was wird gekauft? Bezugnahme auf bisherige Gespr&auml;che</li>
+                    <li><strong>Kaufgegenstand</strong> &ndash; Genaue Beschreibung (Gesellschaftsanteile oder Verm&ouml;genswerte)</li>
+                    <li><strong>Kaufpreis</strong> &ndash; Betrag oder Bandbreite, Herleitung, Zahlungsmodalit&auml;ten</li>
+                    <li><strong>Bedingungen</strong> &ndash; Due Diligence, Finanzierungsvorbehalt, beh&ouml;rdliche Genehmigungen</li>
+                    <li><strong>Exklusivit&auml;t</strong> &ndash; Zeitraum und Art (Abschluss- oder Verhandlungsexklusivität); alternativ Cost Coverage Agreement</li>
+                    <li><strong>Haftungsregime</strong> &ndash; Rahmen für den späteren Garantiekatalog im Kaufvertrag (Garantiebereiche, Schwellenwerte, Haftungshöchstgrenzen, Verjährungsfristen)</li>
+                    <li><strong>Wettbewerbs- und Abwerbeverbot</strong> &ndash; Zeitraum und Umfang der Beschränkungen für den Verkäufer nach dem Closing</li>
+                    <li><strong>Vertraulichkeit</strong> &ndash; Verweis auf bestehende NDA oder eigene Klausel</li>
+                    <li><strong>Zeitplan</strong> &ndash; Geplanter Ablauf: Due Diligence &rarr; Kaufvertrag &rarr; Closing</li>
+                    <li><strong>Kostenverteilung</strong> &ndash; Jede Partei tr&auml;gt eigene Kosten</li>
+                    <li><strong>Bindungswirkung</strong> &ndash; Klarstellung, welche Klauseln bindend sind und welche nicht</li>
                 </ul>
 
                 <div class="warn-box">
-                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Ohne Eigenkapitalnachweis kein Zugang zu guten Deals</div>
-                    <p>Verkaufsberater filtern Interessenten danach, ob sie den Deal finanzieren können. Wer keinen Eigenkapitalnachweis vorlegen kann, wird häufig gar nicht erst zum Gespräch eingeladen. Heb dich von der Masse ab, indem du proaktiv einen Eigenkapitalnachweis der Verkäuferseite zur Verfügung stellst.</p>
+                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Achtung</div>
+                    <p>Lass den LOI <strong>immer</strong> von einem Anwalt pr&uuml;fen &ndash; auch wenn er &bdquo;nicht bindend&ldquo; ist. Der LOI setzt den Rahmen f&uuml;r alle weiteren Verhandlungen und den sp&auml;teren Kaufvertrag. Fehler hier k&ouml;nnen dich sp&auml;ter teuer zu stehen kommen.</p>
                 </div>
 
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Cross-Referenz</div>
+                    <p>Vom LOI zum Kaufvertrag &ndash; was nach der Due Diligence passiert &rarr; <a href="academy-modul-kaufvertrag.html">Modul 8: Kaufvertrag &amp; Closing</a></p>
+                </div>
             </div>
 
             <!-- ===== KEY TAKEAWAYS ===== -->
             <div class="takeaways-box">
                 <div class="takeaways-title"><i class="fa-solid fa-star"></i> Key Takeaways</div>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> <strong>Klare Kriterien = bessere Chancen:</strong> <span>Wer seine Suchkriterien präzise definiert, verschwendet keine Zeit mit unpassenden Deals – und erhöht damit seine Erfolgschancen erheblich</span></li>
-                    <li><i class="fa-solid fa-check"></i> <strong>Eigenkapital = Dealgröße:</strong> <span>Dein verfügbares Eigenkapital bestimmt die maximale Kaufpreisobergrenze</span></li>
-                    <li><i class="fa-solid fa-check"></i> <strong>Mehrere Kanäle nutzen:</strong> <span>Plattformen, Berater, Netzwerk und Direktansprache parallel einsetzen</span></li>
-                    <li><i class="fa-solid fa-check"></i> <strong>Unterlagen bereithalten:</strong> <span>Lebenslauf, Selbstdarstellung und Eigenkapitalnachweis von Anfang an vorbereiten</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>LOI = Absichtserkl&auml;rung:</strong> <span>Rechtlich in weiten Teilen nicht bindend (au&szlig;er Vertraulichkeit und Exklusivit&auml;t) &ndash; vereinbarte Konditionen k&ouml;nnen faktisch aber nicht ohne triftigen Grund ge&auml;ndert werden</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Exklusivit&auml;t verhandeln:</strong> <span>Sie gibt dir Sicherheit, dass der Verk&auml;ufer nicht parallel mit anderen Interessenten verhandelt</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Kaufpreis begr&uuml;nden:</strong> <span>Leite dein Angebot aus Ertragskraft und Multiple ab, statt eine Zahl &bdquo;in den Raum zu stellen&ldquo;</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Bedingungen klar formulieren:</strong> <span>Insbesondere Due-Diligence-Vorbehalt und Finanzierungsvorbehalt</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>LOI anwaltlich pr&uuml;fen lassen:</strong> <span>Er setzt den Rahmen f&uuml;r alle weiteren Verhandlungen und den sp&auml;teren Kaufvertrag</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Angebotstabilit&auml;t:</strong> <span>Gib von Anfang an eine realistische Preisindikation ab; eine sp&auml;tere Korrektur ohne konkreten DD-Befund zerst&ouml;rt Vertrauen und gef&auml;hrdet den Deal</span></li>
                 </ul>
             </div>
 
@@ -1531,30 +1395,30 @@
                     <div class="quiz-icon"><i class="fa-solid fa-clipboard-question"></i></div>
                     <div class="quiz-title">Wissens-Check</div>
                 </div>
-                <p class="quiz-subtitle">Beantworte 5 Fragen zu Suchstrategie und Käuferprofil. Alle Antworten müssen korrekt sein, um das Modul abzuschließen.</p>
+                <p class="quiz-subtitle">Beantworte 5 Fragen zur Angebotsstrategie und LOI-Verhandlung. Alle Antworten m&uuml;ssen korrekt sein, um das Modul abzuschlie&szlig;en.</p>
 
                 <!-- Frage 1 -->
                 <div class="quiz-question" data-correct="1">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">1</div>
-                        <div class="quiz-q-text">Warum ist ein Käuferprofil wichtig, bevor du mit der Suche beginnst?</div>
+                        <div class="quiz-q-text">Was ist ein Letter of Intent (LOI)?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Weil es gesetzlich vorgeschrieben ist</span>
+                            <span class="quiz-option-text">Ein bindender Kaufvertrag</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Weil du ohne klare Kriterien Zeit mit unpassenden Unternehmen verlierst und gegenüber Verkäufern unprofessionell wirkst</span>
+                            <span class="quiz-option-text">Eine Absichtserkl&auml;rung zum Unternehmenskauf</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Weil Plattformen wie AMBER nur mit Käuferprofil funktionieren</span>
+                            <span class="quiz-option-text">Eine Versicherungspolice f&uuml;r den K&auml;ufer</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Weil Banken es für die Finanzierung verlangen</span>
+                            <span class="quiz-option-text">Eine erweiterte Vertraulichkeitsvereinbarung</span>
                         </div>
                     </div>
                 </div>
@@ -1563,102 +1427,102 @@
                 <div class="quiz-question" data-correct="2">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">2</div>
-                        <div class="quiz-q-text">Du hast 200.000 € Eigenkapital. Wie hoch ist dein maximaler Kaufpreis – ohne und mit 10% Verkäuferdarlehen?</div>
+                        <div class="quiz-q-text">Welche LOI-Klausel ist typischerweise bindend?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">200.000 € / 400.000 € – Eigenkapital bestimmt direkt den Kaufpreis</span>
+                            <span class="quiz-option-text">Der Kaufpreis</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">500.000 € / 750.000 € – die Bank finanziert maximal das Dreifache</span>
+                            <span class="quiz-option-text">Die Dealstruktur</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">1.000.000 € / 2.000.000 € – ohne VD bei 20% EK-Quote, mit 10% VD verdoppelt sich der Spielraum</span>
+                            <span class="quiz-option-text">Vertraulichkeit und Exklusivit&auml;t</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Es gibt keine Obergrenze – die Bank finanziert den Rest</span>
+                            <span class="quiz-option-text">Der Zeitplan</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Frage 3 -->
-                <div class="quiz-question" data-correct="0">
+                <div class="quiz-question" data-correct="1">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">3</div>
-                        <div class="quiz-q-text">Welche Kanäle solltest du für die Unternehmenssuche nutzen?</div>
+                        <div class="quiz-q-text">Was bedeutet der Due-Diligence-Vorbehalt in einem LOI?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Mehrere Kanäle parallel: Plattformen, Berater, Netzwerk und Direktansprache</span>
+                            <span class="quiz-option-text">Eine Klausel, die den Kaufpreis automatisch um die DD-Kosten reduziert</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Ausschließlich Online-Plattformen – dort findet man alles</span>
+                            <span class="quiz-option-text">Eine Klausel, die erm&ouml;glicht, Bestimmungen des LOI je nach Due-Diligence-Ergebnissen neu zu verhandeln</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Nur über einen M&A-Berater – alles andere ist unseriös</span>
+                            <span class="quiz-option-text">Die Pflicht des Verk&auml;ufers, alle Unterlagen vor der DD vollst&auml;ndig bereitzustellen</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Nur Direktansprache – Plattformen und Berater sind zu teuer</span>
+                            <span class="quiz-option-text">Eine Vereinbarung, den Kaufpreis nach der DD automatisch neu zu verhandeln</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Frage 4 -->
-                <div class="quiz-question" data-correct="3">
+                <div class="quiz-question" data-correct="1">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">4</div>
-                        <div class="quiz-q-text">Mit welchem Dokument kannst du dich proaktiv von anderen Kaufinteressenten abheben und Verkaufsberatern zeigen, dass du den Deal finanzieren kannst?</div>
+                        <div class="quiz-q-text">Was ist ein Wettbewerbs- und Abwerbeverbot im LOI?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Ein notariell beglaubigter Businessplan</span>
+                            <span class="quiz-option-text">Eine Klausel, die dem K&auml;ufer verbietet, gleichzeitig andere Zielunternehmen zu pr&uuml;fen</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Ein fertiger Kaufvertragsentwurf</span>
+                            <span class="quiz-option-text">Eine bindende Klausel, die dem Verk&auml;ufer untersagt, nach dem Deal ein Konkurrenzunternehmen aufzubauen oder Mitarbeiter abzuwerben</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Eine Schufa-Auskunft</span>
+                            <span class="quiz-option-text">Ein Hinweis auf die bestehende Wettbewerbssituation im Zielmarkt</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Eigenkapitalnachweis (Proof of Funds)</span>
+                            <span class="quiz-option-text">Eine Verl&auml;ngerungsoption der Exklusivit&auml;tsperiode</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Frage 5 -->
-                <div class="quiz-question" data-correct="2">
+                <div class="quiz-question" data-correct="1">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">5</div>
-                        <div class="quiz-q-text">Was ist ein Suchauftrag auf einer M&A-Plattform?</div>
+                        <div class="quiz-q-text">In welchem Dokument wird die Exklusivit&auml;tsklausel typischerweise vereinbart?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Ein kostenpflichtiger Auftrag an einen Berater, ein Unternehmen für dich zu finden</span>
+                            <span class="quiz-option-text">In der NDA</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Eine einmalige Suchanfrage, die nach 24 Stunden verfällt</span>
+                            <span class="quiz-option-text">Im LOI (Letter of Intent)</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Gespeicherte Suchkriterien, die dich automatisch per E-Mail benachrichtigen, wenn neue passende Listings erscheinen</span>
+                            <span class="quiz-option-text">Im Kaufvertrag</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Ein verbindliches Kaufangebot für ein bestimmtes Unternehmen</span>
+                            <span class="quiz-option-text">Im Teaser</span>
                         </div>
                     </div>
                 </div>
@@ -1667,7 +1531,7 @@
                 <div class="quiz-submit-area">
                     <span class="quiz-progress-text" id="quiz-progress">0 von 5 beantwortet</span>
                     <button class="quiz-submit-btn" id="quiz-submit" onclick="submitQuiz()">
-                        <i class="fa-solid fa-check"></i> Antworten prüfen
+                        <i class="fa-solid fa-check"></i> Antworten pr&uuml;fen
                     </button>
                 </div>
 
@@ -1692,8 +1556,8 @@
                     Zuerst Video ansehen und Quiz bestehen
                 </button>
                 <div class="module-nav">
-                    <span></span>
-                    <a href="academy-modul-transaktionsstrukturen.html">Transaktionsablauf und Deal-Strukturen verstehen <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="academy-modul-dokumente.html"><i class="fa-solid fa-arrow-left"></i> Dokumente im M&amp;A-Prozess</a>
+                    <a href="academy-modul-due-diligence.html">Due Diligence meistern <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -1707,11 +1571,11 @@
                 <svg width="80" height="80" viewBox="0 0 80 80">
                     <circle cx="40" cy="40" r="34" fill="none" stroke="#E5E7EB" stroke-width="6"/>
                     <circle cx="40" cy="40" r="34" fill="none" stroke="#10B981" stroke-width="6"
-                        stroke-dasharray="213.6" stroke-dashoffset="189.8"
+                        stroke-dasharray="213.6" stroke-dashoffset="166.6"
                         stroke-linecap="round" transform="rotate(-90 40 40)"/>
-                    <text x="40" y="44" text-anchor="middle" font-family="Inter" font-size="18" font-weight="700" fill="#1A1A1A">11%</text>
+                    <text x="40" y="44" text-anchor="middle" font-family="Inter" font-size="18" font-weight="700" fill="#1A1A1A">22%</text>
                 </svg>
-                <div class="progress-value">1 von 9 Modulen</div>
+                <div class="progress-value">2 von 9 Modulen</div>
                 <div class="progress-label">abgeschlossen</div>
             </div>
 
@@ -1732,39 +1596,34 @@
 
             <!-- Phase Module List -->
             <div class="sidebar-card phase-modules-card">
-                <div class="sidebar-card-title"><i class="fa-solid fa-layer-group"></i> Phase 1: Vorbereitung</div>
-                <a href="academy-modul-suchstrategie.html" class="phase-module-item active">
-                    <div class="module-dot"></div>
-                    Suchstrategie &amp; Käuferprofil
+                <div class="sidebar-card-title"><i class="fa-solid fa-layer-group"></i> Phase 2: Suche &amp; Analyse</div>
+                <a href="academy-modul-dokumente.html" class="phase-module-item">
+                    <i class="fa-solid fa-check module-check"></i>
+                    Dokumente im M&amp;A-Prozess
                 </a>
-                <a href="academy-modul-transaktionsstrukturen.html" class="phase-module-item">
+                <a href="academy-modul-angebotsstrategie.html" class="phase-module-item active">
                     <div class="module-dot"></div>
-                    Transaktionsablauf und Deal-Strukturen verstehen
-                </a>
-                <a href="academy-modul-bewertung.html" class="phase-module-item">
-                    <div class="module-dot"></div>
-                    Bewertung &amp; Preisfindung
+                    Angebotsstrategie und LOI-Verhandlung
                 </a>
             </div>
 
             <!-- Downloads -->
             <div class="sidebar-card download-card">
                 <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
-                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Käuferprofil-Vorlage (PDF)</div>
-                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Dokumenten-Checkliste (PDF)</div>
+                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> LOI-Mustervorlage</div>
             </div>
 
             <!-- Next Module -->
             <div class="sidebar-card next-module-card">
-                <div class="next-label">Nächstes Modul</div>
-                <div class="next-title">Transaktionsablauf und Deal-Strukturen verstehen</div>
-                <a href="academy-modul-transaktionsstrukturen.html"><i class="fa-solid fa-arrow-right"></i> Modul starten</a>
+                <div class="next-label">N&auml;chstes Modul</div>
+                <div class="next-title">Due Diligence meistern</div>
+                <a href="academy-modul-due-diligence.html"><i class="fa-solid fa-arrow-right"></i> Modul starten</a>
             </div>
 
             <!-- Berater CTA -->
             <div class="sidebar-card berater-cta-card">
-                <div class="sidebar-card-title"><i class="fa-solid fa-user-tie"></i> Persönliche Beratung</div>
-                <p>Du brauchst Hilfe bei der Suche nach dem richtigen Unternehmen? Unsere Beraterbörse verbindet dich mit erfahrenen M&A-Beratern.</p>
+                <div class="sidebar-card-title"><i class="fa-solid fa-user-tie"></i> Pers&ouml;nliche Beratung</div>
+                <p>Du brauchst Unterst&uuml;tzung bei der LOI-Verhandlung? Unsere Beraterb&ouml;rse verbindet dich mit erfahrenen M&amp;A-Beratern.</p>
                 <a href="#"><i class="fa-solid fa-arrow-right"></i> Berater finden</a>
             </div>
 
@@ -1805,37 +1664,6 @@
             var fg = document.getElementById('focus-group');
             if (fg) fg.classList.remove('open');
         });
-
-        // --- Bierdeckelrechnung ---
-        function calcBierdeckel() {
-            var raw = document.getElementById('ek-input').value.replace(/[^0-9]/g, '');
-            var ek = parseInt(raw, 10);
-            var resultDiv = document.getElementById('bierdeckel-result');
-            if (!ek || ek < 1000) {
-                resultDiv.style.display = 'none';
-                return;
-            }
-            resultDiv.style.display = 'block';
-            // Szenario 1: Ohne Verkäuferdarlehen (20% EK)
-            var kaufpreis = ek / 0.20;
-            var ebitMin = Math.round(kaufpreis / 6);
-            var ebitMax = Math.round(kaufpreis / 3);
-            document.getElementById('bd-kaufpreis').textContent = formatEuro(kaufpreis);
-            document.getElementById('bd-ebit').textContent = formatEuro(ebitMin) + ' – ' + formatEuro(ebitMax);
-            // Szenario 2: Mit 10% Verkäuferdarlehen (EK deckt nur 10%, VD weitere 10%)
-            var kaufpreisVd = ek / 0.10;
-            var ebitMinVd = Math.round(kaufpreisVd / 6);
-            var ebitMaxVd = Math.round(kaufpreisVd / 3);
-            document.getElementById('bd-kaufpreis-vd').textContent = formatEuro(kaufpreisVd);
-            document.getElementById('bd-ebit-vd').textContent = formatEuro(ebitMinVd) + ' – ' + formatEuro(ebitMaxVd);
-            document.getElementById('bd-text').textContent =
-                'Ohne Verkäuferdarlehen: Mit ' + formatEuro(ek) + ' Eigenkapital (20% Quote) sind Kaufpreise bis ' + formatEuro(kaufpreis) +
-                ' realistisch (EBIT ' + formatEuro(ebitMin) + ' – ' + formatEuro(ebitMax) + '). Mit 10% Verkäuferdarlehen verdoppelt sich dein Spielraum auf bis zu ' + formatEuro(kaufpreisVd) +
-                ' (EBIT ' + formatEuro(ebitMinVd) + ' – ' + formatEuro(ebitMaxVd) + ').';
-        }
-        function formatEuro(n) {
-            return n.toLocaleString('de-DE', { maximumFractionDigits: 0 }) + ' €';
-        }
 
         // --- State ---
         var quizPassed = false;
@@ -1930,7 +1758,7 @@
                 resultEl.className = 'quiz-result failed';
                 resultEl.innerHTML =
                     '<div class="quiz-result-icon"><i class="fa-solid fa-xmark"></i></div>' +
-                    '<div class="quiz-result-text"><strong>Nicht bestanden.</strong> Du hast ' + correctCount + ' von 5 Fragen richtig. Alle 5 müssen korrekt sein.</div>' +
+                    '<div class="quiz-result-text"><strong>Nicht bestanden.</strong> Du hast ' + correctCount + ' von 5 Fragen richtig. Alle 5 m\u00FCssen korrekt sein.</div>' +
                     '<button class="quiz-retry-btn" onclick="retryQuiz()"><i class="fa-solid fa-rotate-right"></i> Erneut versuchen</button>';
             }
             document.getElementById('quiz-submit').style.display = 'none';

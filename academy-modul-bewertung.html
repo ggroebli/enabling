@@ -450,10 +450,19 @@
             padding: 0;
         }
 
-        .takeaways-box ul li {
+        .takeaways-box ul {
             display: grid;
             grid-template-columns: 16px auto 1fr;
-            gap: 0 10px;
+            column-gap: 10px;
+        }
+
+        .takeaways-box ul li {
+            display: contents;
+        }
+
+        .takeaways-box ul li i,
+        .takeaways-box ul li strong,
+        .takeaways-box ul li span {
             font-size: 15px;
             font-weight: 400;
             line-height: 170%;
@@ -463,11 +472,16 @@
 
         .takeaways-box ul li i {
             color: #10B981;
-            margin-top: 4px;
+            padding-top: 8px;
         }
 
         .takeaways-box ul li strong {
             white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .takeaways-box ul li span {
+            font-weight: 300;
         }
 
         /* ===== COMPLETION & NAV ===== */
@@ -1348,9 +1362,9 @@
                 <div class="module-meta-row">
                     <span><i class="fa-regular fa-clock"></i> 12 Min.</span>
                     <div class="meta-divider"></div>
-                    <span class="format-badge" style="background:#EDE9FE; color:#7C3AED;"><i class="fa-solid fa-play" style="font-size: 10px;"></i> Video</span>
-                    <span class="format-badge" style="background:#D1FAE5; color:#059669;"><i class="fa-solid fa-file-lines" style="font-size: 10px;"></i> Template</span>
-                    <span class="format-badge" style="background:#FEF3C7; color:#D97706;"><i class="fa-solid fa-clipboard-question" style="font-size: 10px;"></i> Quiz</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-play-circle" style="color: var(--phase-blue);"></i> 8 Min. Video</span>
+                    <div class="meta-divider"></div>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; background: #D1FAE5; color: #059669; border-radius: 12px; font-size: 12px; font-weight: 600;">+10 Punkte</span>
                     <div class="meta-divider"></div>
                     <span>Modul 3 von 9</span>
                 </div>
@@ -1481,7 +1495,7 @@
 
                 <div class="tipp-box">
                     <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Cross-Referenz</div>
-                    <p>Die Dealstruktur (Share Deal vs. Asset Deal) beeinflusst die Bewertung: Bei einem Asset Deal bewertest du einzelne Vermögenswerte, bei einem Share Deal das Unternehmen als Ganzes. → <a href="academy-modul-transaktionsstrukturen.html">Modul 2: Transaktionsstrukturen verstehen</a></p>
+                    <p>Die Dealstruktur (Share Deal vs. Asset Deal) beeinflusst die Bewertung: Bei einem Asset Deal bewertest du einzelne Vermögenswerte, bei einem Share Deal das Unternehmen als Ganzes. → <a href="academy-modul-transaktionsstrukturen.html">Modul 2: Transaktionsablauf und Deal-Strukturen verstehen</a></p>
                 </div>
             </div>
 
@@ -1578,7 +1592,7 @@
                     <li><strong>Fremdkapitalfinanzierung</strong> – Wie viel Bankkredit oder Fördermittel kannst du ergänzend einsetzen?</li>
                     <li><strong>Transaktionsstruktur mit Verkäuferdarlehen</strong> – Ist der Verkäufer bereit, einen Teil des Kaufpreises als Darlehen stehen zu lassen? Das kann die Eigenkapitallücke schließen.</li>
                 </ul>
-                <p>Erst wenn Bewertung, Finanzierung und Transaktionsstruktur zusammenpassen, weißt du, ob der Deal für dich machbar ist. Mehr dazu in den Modulen <strong>Transaktionsstrukturen verstehen</strong> und <strong>Akquisitionsfinanzierung</strong>.</p>
+                <p>Erst wenn Bewertung, Finanzierung und Transaktionsstruktur zusammenpassen, weißt du, ob der Deal für dich machbar ist. Mehr dazu in den Modulen <strong>Transaktionsablauf und Deal-Strukturen verstehen</strong> und <strong>Akquisitionsfinanzierung</strong>.</p>
             </div>
 
             <!-- ===== KEY TAKEAWAYS ===== -->
@@ -1762,7 +1776,7 @@
                     Zuerst Video ansehen & Quiz bestehen
                 </button>
                 <div class="module-nav">
-                    <a href="academy-modul-transaktionsstrukturen.html"><i class="fa-solid fa-arrow-left"></i> Transaktionsstrukturen verstehen</a>
+                    <a href="academy-modul-transaktionsstrukturen.html"><i class="fa-solid fa-arrow-left"></i> Transaktionsablauf und Deal-Strukturen verstehen</a>
                     <a href="academy-modul-dokumente.html">Dokumente im M&A-Prozess <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -1809,7 +1823,7 @@
                 </a>
                 <a href="academy-modul-transaktionsstrukturen.html" class="phase-module-item">
                     <div class="module-dot"></div>
-                    Transaktionsstrukturen verstehen
+                    Transaktionsablauf und Deal-Strukturen verstehen
                 </a>
                 <a href="academy-modul-bewertung.html" class="phase-module-item active">
                     <div class="module-dot"></div>

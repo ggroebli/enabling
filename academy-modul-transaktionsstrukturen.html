@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMBER – Academy: Transaktionsstrukturen verstehen</title>
+    <title>AMBER – Academy: Transaktionsablauf und Deal-Strukturen verstehen</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -424,12 +424,18 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            display: grid;
+            grid-template-columns: 16px auto 1fr;
+            column-gap: 10px;
         }
 
         .takeaways-box ul li {
-            display: grid;
-            grid-template-columns: 16px 365px 1fr;
-            gap: 0 10px;
+            display: contents;
+        }
+
+        .takeaways-box ul li i,
+        .takeaways-box ul li strong,
+        .takeaways-box ul li span {
             font-size: 15px;
             font-weight: 400;
             line-height: 170%;
@@ -439,11 +445,16 @@
 
         .takeaways-box ul li i {
             color: #10B981;
-            margin-top: 4px;
+            padding-top: 8px;
         }
 
         .takeaways-box ul li strong {
             white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .takeaways-box ul li span {
+            font-weight: 300;
         }
 
         /* ===== COMPLETION & NAV ===== */
@@ -1311,7 +1322,7 @@
                 <span class="separator">/</span>
                 <span>Phase 1: Vorbereitung</span>
                 <span class="separator">/</span>
-                <span class="current">Transaktionsstrukturen verstehen</span>
+                <span class="current">Transaktionsablauf und Deal-Strukturen verstehen</span>
             </div>
 
             <!-- Module Header -->
@@ -1320,13 +1331,13 @@
                 <div>
                     <span class="phase-badge"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Phase 1: Vorbereitung</span>
                 </div>
-                <h1 class="module-title-main">Transaktionsstrukturen verstehen</h1>
+                <h1 class="module-title-main">Transaktionsablauf und Deal-Strukturen verstehen</h1>
                 <div class="module-meta-row">
                     <span><i class="fa-regular fa-clock"></i> 15 Min.</span>
                     <div class="meta-divider"></div>
-                    <span class="format-badge" style="background:#EDE9FE; color:#7C3AED;"><i class="fa-solid fa-play" style="font-size: 10px;"></i> Video</span>
-                    <span class="format-badge guide"><i class="fa-solid fa-book-open" style="font-size: 10px;"></i> Text</span>
-                    <span class="format-badge" style="background:#FEF3C7; color:#D97706;"><i class="fa-solid fa-clipboard-question" style="font-size: 10px;"></i> Quiz</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-play-circle" style="color: var(--phase-blue);"></i> 10 Min. Video</span>
+                    <div class="meta-divider"></div>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; background: #FEF3C7; color: #D97706; border-radius: 12px; font-size: 12px; font-weight: 600;"><i class="fa-solid fa-star" style="font-size: 10px;"></i> +15 Punkte</span>
                     <div class="meta-divider"></div>
                     <span>Modul 2 von 9</span>
                 </div>
@@ -1377,7 +1388,7 @@
                 <ul>
                     <li><strong>Vorbereitung</strong> – Käuferprofil definieren, Suchstrategie festlegen, Budget klären</li>
                     <li><strong>Suche & Erstbewertung</strong> – Inserate und Teaser sichten, erste Auswahl treffen</li>
-                    <li><strong>Analyse</strong> – Vertraulichkeitserklärung zeichnen, Prozessdokumente prüfen, vorläufige Unternehmensbewertung aufstellen</li>
+                    <li><strong>Analyse</strong> – Vertraulichkeitserklärung zeichnen, Prozessdokumente prüfen, vorläufige Unternehmensbewertung aufstellen und ggf. indikatives Angebot abgeben</li>
                     <li><strong>Persönliches Kennenlernen</strong> – Die Verkäuferseite kennenlernen und Detailfragen direkt stellen</li>
                     <li><strong>Finanzierung klären</strong> – Fremdkapitalseite sondieren, da sie die Transaktionsstruktur und den möglichen Kaufpreis maßgeblich beeinflusst</li>
                     <li><strong>Verhandlung</strong> – Bewertung und Transaktionsstruktur festzurren, LOI formulieren, Konditionen verhandeln</li>
@@ -1753,7 +1764,7 @@
                 </a>
                 <a href="academy-modul-transaktionsstrukturen.html" class="phase-module-item active">
                     <div class="module-dot"></div>
-                    Transaktionsstrukturen verstehen
+                    Transaktionsablauf und Deal-Strukturen verstehen
                 </a>
                 <a href="academy-modul-bewertung.html" class="phase-module-item">
                     <div class="module-dot"></div>
