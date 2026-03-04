@@ -186,7 +186,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            width: 300px;
+            width: 380px;
+            flex-shrink: 0;
             font-size: 18px;
             font-weight: 600;
             line-height: 150%;
@@ -250,6 +251,24 @@
             opacity: 0.7;
         }
 
+        /* ===== Generic edit toggle for all profile cards ===== */
+        .card-edit-form { display: none; }
+        .profile-card.is-editing .card-edit-form { display: flex; flex-direction: column; gap: 16px; }
+        .profile-card.is-editing .card-view { display: none; }
+        .profile-card.is-editing .btn-edit { background: white; color: #DC2626; border: 1px solid #FCA5A5; }
+        .card-edit-form .edit-row { display: flex; align-items: center; gap: 16px; }
+        .card-edit-form .edit-label { display: flex; align-items: center; gap: 8px; width: 380px; flex-shrink: 0; font-size: 14px; font-weight: 600; color: #1A1A1A; }
+        .card-edit-form .edit-label i { width: 20px; text-align: center; font-size: 14px; color: #666; }
+        .card-edit-form .edit-input { flex: 1; padding: 9px 14px; border: 1px solid #E5E7EB; border-radius: 6px; font-size: 14px; font-family: var(--font-main); color: #1A1A1A; background: #FAFAFA; box-sizing: border-box; outline: none; }
+        .card-edit-form .edit-input:focus { border-color: #2563EB; box-shadow: 0 0 0 2px rgba(37,99,235,0.1); background: white; }
+        .card-edit-form select.edit-input { cursor: pointer; }
+        .card-edit-form .edit-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+        .card-edit-form .btn-cancel { background: white; color: #666; border: 1px solid #E5E7EB; padding: 8px 20px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--font-main); }
+        .card-edit-form .btn-save { background: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%); color: #1A1A1A; border: none; padding: 8px 20px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: var(--font-main); }
+        .card-edit-form .edit-upload { display: flex; align-items: center; gap: 10px; }
+        .card-edit-form .edit-upload-btn { background: white; border: 1px dashed #D1D5DB; border-radius: 6px; padding: 8px 16px; font-size: 13px; color: #666; cursor: pointer; font-family: var(--font-main); display: flex; align-items: center; gap: 6px; }
+        .card-edit-form .edit-upload-btn:hover { border-color: #2563EB; color: #2563EB; }
+
         /* ===== ENABLEMENT: Unified AMBER-Score Section ===== */
         .unified-score-section {
             display: flex;
@@ -293,9 +312,9 @@
             stroke: #7C3AED;
             stroke-width: 10;
             stroke-linecap: round;
-            stroke-dasharray: 408;
-            stroke-dashoffset: 122;
-            transition: stroke-dashoffset 1s ease;
+            stroke-dasharray: 408.4;
+            stroke-dashoffset: 183.8;
+            transition: stroke-dashoffset 0.8s ease;
         }
 
         .score-hero-text {
@@ -398,9 +417,9 @@
             stroke: #10B981;
             stroke-width: 6;
             stroke-linecap: round;
-            stroke-dasharray: 232;
-            stroke-dashoffset: 58;
-            transition: stroke-dashoffset 1s ease;
+            stroke-dasharray: 232.5;
+            stroke-dashoffset: 116.25;
+            transition: stroke-dashoffset 0.8s ease;
         }
 
         .component-ring-text {
@@ -462,6 +481,30 @@
             color: #F59E0B;
             font-weight: 500;
         }
+
+        .component-group-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #9CA3AF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .component-group-label:first-child { margin-top: 0; }
+
+        .item-pts {
+            font-size: 11px;
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-left: auto;
+            padding-left: 6px;
+        }
+
+        .item-pts.done { color: #10B981; }
+        .item-pts.missing { color: #F59E0B; }
 
         .component-item a {
             color: inherit;
@@ -622,6 +665,389 @@
             gap: 8px;
         }
 
+        /* ===== SELBSTDARSTELLUNG ===== */
+        .selbstdarstellung-card {
+            flex-direction: column;
+            gap: 0;
+            padding: 32px 48px 40px;
+        }
+        .sd-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 0;
+        }
+        .sd-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ai-badge {
+            background: #EDE9FE;
+            color: #7C3AED;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .sd-questionnaire {
+            width: 100%;
+            border-top: 1px solid #F0F0F0;
+            margin-top: 24px;
+            padding-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .sd-linkedin-banner {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-radius: 8px;
+            padding: 14px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .sd-linkedin-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sd-linkedin-status {
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 2px;
+        }
+        .sd-linkedin-btn {
+            background: #0A66C2;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            white-space: nowrap;
+            font-family: var(--font-main);
+            transition: opacity 0.2s;
+        }
+        .sd-linkedin-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .sd-linkedin-banner.is-loading {
+            background: #EFF6FF;
+            border-color: #93C5FD;
+        }
+        .sd-linkedin-banner.is-success {
+            background: #F0FDF4;
+            border-color: #86EFAC;
+        }
+        @keyframes sd-spin {
+            to { transform: rotate(360deg); }
+        }
+        .sd-spinner {
+            animation: sd-spin 0.8s linear infinite;
+            display: inline-block;
+        }
+        .sd-questions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .sd-q-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .sd-q-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+        .sd-q-hint {
+            font-size: 12px;
+            color: #9CA3AF;
+            margin-bottom: 6px;
+        }
+        .sd-q-input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #E5E7EB;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: var(--font-main);
+            color: #1A1A1A;
+            resize: vertical;
+            background: #FAFAFA;
+            line-height: 1.6;
+            box-sizing: border-box;
+        }
+        .sd-q-prefilled {
+            background: #F0FDF4;
+            border: 1px solid #BBF7D0;
+            border-radius: 6px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #1A1A1A;
+        }
+        .sd-generate-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF;
+            border-radius: 8px;
+        }
+        .sd-generate-hint {
+            font-size: 13px;
+            color: #7C3AED;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .btn-generate {
+            background: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            color: #1A1A1A;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            font-family: var(--font-main);
+        }
+        .sd-preview {
+            border: 2px solid #DDD6FE;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+        .sd-preview-header {
+            background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #DDD6FE;
+        }
+        .sd-preview-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #7C3AED;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .sd-preview-hint {
+            font-size: 12px;
+            color: #9CA3AF;
+            font-style: italic;
+        }
+        .sd-preview-sections {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .sd-section {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .sd-section-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #9CA3AF;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+        .sd-section-text {
+            font-size: 14px;
+            font-weight: 400;
+            color: #1A1A1A;
+            line-height: 1.65;
+        }
+        .sd-editable {
+            border-radius: 4px;
+            padding: 6px 8px;
+            margin: -6px -8px;
+            transition: background 0.15s, box-shadow 0.15s;
+            outline: none;
+        }
+        .sd-editable:hover {
+            background: #F9FAFB;
+        }
+        .sd-editable:focus {
+            background: #FEFCE8;
+            box-shadow: 0 0 0 2px #FDE68A;
+        }
+        .sd-intro {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+            border: 1px solid #DDD6FE;
+            border-radius: 8px;
+            padding: 14px 18px;
+        }
+        .sd-intro-icon {
+            font-size: 18px;
+            color: #7C3AED;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .sd-intro-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #5B21B6;
+            margin-bottom: 3px;
+        }
+        .sd-intro-text {
+            font-size: 13px;
+            color: #4C1D95;
+            line-height: 1.55;
+        }
+        .sd-edit-hint {
+            font-size: 12px;
+            color: #9CA3AF;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 20px 14px;
+        }
+        .sd-preview-actions {
+            padding: 14px 20px;
+            border-top: 1px solid #F0F0F0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-regenerate {
+            background: white;
+            color: #7C3AED;
+            border: 1px solid #DDD6FE;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-main);
+        }
+        .btn-save-primary {
+            background: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            color: #1A1A1A;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-main);
+        }
+
+        /* ===== SUCHKRITERIEN BEARBEITEN ===== */
+        .suchkriterien-card { flex-direction: column; gap: 0; padding: 32px 48px 40px; }
+        .sk-header { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .sk-view { width: 100%; border-top: 1px solid #F0F0F0; margin-top: 20px; padding-top: 20px; }
+        .sk-info-badge { display: flex; align-items: center; gap: 7px; margin-bottom: 16px; padding: 9px 14px; background: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 6px; font-size: 12px; color: #7C3AED; font-weight: 500; }
+        .sk-edit-form { display: none; width: 100%; border-top: 1px solid #F0F0F0; margin-top: 20px; padding-top: 24px; flex-direction: column; gap: 20px; }
+        .suchkriterien-card.is-editing .sk-view { display: none; }
+        .suchkriterien-card.is-editing .sk-edit-form { display: flex; }
+        .suchkriterien-card.is-editing #sk-toggle-btn { color: #DC2626; border-color: #FCA5A5; }
+        .sk-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .sk-field { display: flex; flex-direction: column; gap: 6px; }
+        .sk-field.full { grid-column: 1 / -1; }
+        .sk-label { font-size: 13px; font-weight: 600; color: #1A1A1A; display: flex; align-items: center; gap: 6px; }
+        .sk-label i { color: #9CA3AF; font-size: 12px; }
+        .sk-hint { font-size: 11px; color: #9CA3AF; }
+        .sk-hint-amber { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #92400E; background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 6px; padding: 8px 12px; margin-top: 4px; }
+        .sk-input { width: 100%; padding: 9px 12px; border: 1px solid #E5E7EB; border-radius: 6px; font-size: 14px; font-family: var(--font-main); color: #1A1A1A; background: #FAFAFA; box-sizing: border-box; }
+        .sk-pair { display: flex; gap: 8px; align-items: center; }
+        .sk-pair .sk-input { flex: 1; }
+        .sk-pair-sep { font-size: 12px; color: #9CA3AF; flex-shrink: 0; }
+        .sk-save-row { display: flex; justify-content: space-between; align-items: center; padding-top: 4px; gap: 12px; }
+        .sk-save-alert-btn { background: white; color: #2563EB; border: 1px solid #BFDBFE; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 7px; font-family: var(--font-main); }
+        .sk-save-alert-btn:hover { background: #EFF6FF; }
+        /* Branchenfokus Toggle */
+        .sk-toggle-group { display: flex; border: 1px solid #E5E7EB; border-radius: 6px; overflow: hidden; }
+        .sk-toggle-btn { flex: 1; padding: 9px 14px; background: #FAFAFA; border: none; font-size: 13px; font-weight: 500; color: #666; cursor: pointer; font-family: var(--font-main); transition: background 0.15s, color 0.15s; }
+        .sk-toggle-btn:first-child { border-right: 1px solid #E5E7EB; }
+        .sk-toggle-btn.active { background: #1A1A1A; color: white; }
+        .sk-branch-step { display: flex; flex-direction: column; gap: 4px; }
+        .sk-branch-q { font-size: 13px; font-weight: 600; color: #1A1A1A; }
+        .sk-branch-radios { display: flex; gap: 20px; margin-top: 6px; }
+        .sk-radio-lbl { display: flex; align-items: center; gap: 6px; font-size: 14px; color: #1A1A1A; cursor: pointer; }
+        .sk-radio-lbl input[type="radio"] { accent-color: #2563EB; width: 15px; height: 15px; flex-shrink: 0; }
+        .sk-branch-preview { display: flex; align-items: flex-start; gap: 8px; margin-top: 10px; padding: 10px 14px; background: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 6px; font-size: 13px; color: #1A1A1A; line-height: 1.5; }
+        .sk-agnostisch-note { font-size: 13px; color: #10B981; display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 6px; }
+        /* Region Dropdown */
+        .sk-region-wrapper { position: relative; }
+        .sk-region-display { display: flex; align-items: center; justify-content: space-between; min-height: 42px; padding: 7px 12px; border: 1px solid #E5E7EB; border-radius: 6px; background: #FAFAFA; cursor: pointer; gap: 8px; }
+        .sk-region-tags { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; align-items: center; }
+        .sk-region-tag { display: flex; align-items: center; gap: 5px; background: #DBEAFE; color: #1E40AF; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 4px; white-space: nowrap; }
+        .sk-region-tag .sk-tag-x { cursor: pointer; font-size: 10px; opacity: 0.6; }
+        .sk-region-tag .sk-tag-x:hover { opacity: 1; }
+        .sk-region-placeholder { font-size: 14px; color: #9CA3AF; }
+        .sk-region-dropdown { display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: white; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 200; max-height: 400px; overflow-y: auto; }
+        .sk-region-dropdown.is-open { display: block; }
+        .sk-rgp-label { font-size: 10px; font-weight: 700; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.7px; padding: 12px 16px 5px; }
+        .sk-rgp-label:not(:first-child) { border-top: 1px solid #F3F4F6; padding-top: 10px; }
+        .sk-rgp-country { display: flex; align-items: center; padding: 0 12px 0 16px; }
+        .sk-rgp-country-lbl { display: flex; align-items: center; gap: 9px; font-size: 14px; color: #1A1A1A; cursor: pointer; padding: 8px 0; flex: 1; }
+        .sk-rgp-country-lbl input[type="checkbox"] { accent-color: #2563EB; flex-shrink: 0; }
+        .sk-rgp-expand { background: none; border: none; cursor: pointer; color: #9CA3AF; padding: 5px 7px; border-radius: 4px; font-size: 11px; }
+        .sk-rgp-expand:hover { background: #F3F4F6; color: #555; }
+        .sk-rgp-expand i { transition: transform 0.15s; display: block; }
+        .sk-rgp-expand.is-open i { transform: rotate(90deg); }
+        .sk-rgp-states { display: none; flex-direction: column; background: #F9FAFB; border-top: 1px solid #F3F4F6; padding: 4px 0 8px 0; max-height: 240px; overflow-y: auto; }
+        .sk-rgp-states.is-open { display: flex; }
+        .sk-rgp-state { display: flex; align-items: center; gap: 8px; padding: 5px 16px 5px 36px; font-size: 13px; color: #374151; cursor: pointer; }
+        .sk-rgp-state:hover { background: #F3F4F6; }
+        .sk-rgp-state input[type="checkbox"] { accent-color: #2563EB; flex-shrink: 0; }
+
+        /* Toggle: View-State (default) – nur generierter Text sichtbar */
+        .selbstdarstellung-card .sd-questionnaire { display: none; }
+        .selbstdarstellung-card .sd-preview { border: none; border-radius: 0; }
+        .selbstdarstellung-card .sd-preview-header { display: none; }
+        .selbstdarstellung-card .sd-preview-actions { display: none; }
+        .selbstdarstellung-card .sd-preview-sections { padding: 20px 0 4px; }
+        .selbstdarstellung-card .sd-edit-hint { display: none; }
+        .selbstdarstellung-card .sd-editable { pointer-events: none; }
+        /* Toggle: Edit-State – Fragebogen + volle Vorschau-Box */
+        .selbstdarstellung-card.is-editing .sd-questionnaire { display: flex; }
+        .selbstdarstellung-card.is-editing .sd-preview { border: 2px solid #DDD6FE; border-radius: 8px; }
+        .selbstdarstellung-card.is-editing .sd-preview-header { display: flex; }
+        .selbstdarstellung-card.is-editing .sd-preview-actions { display: flex; }
+        .selbstdarstellung-card.is-editing .sd-preview-sections { padding: 20px; }
+        .selbstdarstellung-card.is-editing .sd-edit-hint { display: flex; }
+        .selbstdarstellung-card.is-editing .sd-editable { pointer-events: auto; cursor: text; }
+        .selbstdarstellung-card.is-editing #sd-toggle-btn { color: #DC2626; border-color: #FCA5A5; }
+
         /* ===== FOOTER ===== */
         .footer {
             background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
@@ -686,7 +1112,7 @@
                             <circle class="hero-circle-fill" cx="70" cy="70" r="65"/>
                         </svg>
                         <div class="score-hero-text">
-                            <div class="hero-percent">70%</div>
+                            <div class="hero-percent" id="hero-percent">55%</div>
                             <div class="hero-label">AMBER-Score</div>
                         </div>
                     </div>
@@ -709,20 +1135,28 @@
                                 <circle class="readiness-circle-fill" cx="40" cy="40" r="37"/>
                             </svg>
                             <div class="component-ring-text">
-                                <div class="component-percent">75%</div>
+                                <div class="component-percent" id="readiness-percent">50%</div>
                             </div>
                         </div>
 
-                        <div class="component-calculation">
-                            75% × 60% = <strong>45 Punkte</strong>
+                        <div class="component-calculation" id="readiness-calc">
+                            50% × 60% = <strong>30 Punkte</strong>
                         </div>
 
-                        <div class="component-items">
-                            <div class="component-item done"><i class="fa-solid fa-check"></i> Profildaten vollständig</div>
-                            <div class="component-item done"><i class="fa-solid fa-check"></i> Kontaktdaten vollständig</div>
-                            <div class="component-item done"><i class="fa-solid fa-check"></i> Eigenkapital nachgewiesen</div>
-                            <div class="component-item done"><i class="fa-solid fa-check"></i> Finanzierung hinterlegt</div>
-                            <div class="component-item missing"><i class="fa-solid fa-triangle-exclamation"></i> <a href="academy.html">Academy: 6 von 8</a></div>
+                        <div class="component-items" id="readiness-items">
+                            <!-- Block 1: Profil & Suchkriterien -->
+                            <div class="component-group-label">Profil &amp; Suchkriterien</div>
+                            <div class="component-item missing" id="ri-profil"><i class="fa-solid fa-triangle-exclamation"></i> Profil- und Kontaktdaten vollständig <span class="item-pts missing">0/5 Pkt.</span></div>
+                            <div class="component-item done" id="ri-such"><i class="fa-solid fa-check"></i> Suchkriterien hinterlegt <span class="item-pts done">+5 Pkt.</span></div>
+                            <div class="component-item done" id="ri-selbst"><i class="fa-solid fa-check"></i> Öffentliches Käuferprofil ausgefüllt <span class="item-pts done">+5 Pkt.</span></div>
+                            <div class="component-item done" id="ri-suche"><i class="fa-solid fa-check"></i> Suchauftrag eingestellt <span class="item-pts done">+5 Pkt.</span></div>
+                            <!-- Block 2: Finanzielle Bereitschaft -->
+                            <div class="component-group-label">Finanzielle Bereitschaft</div>
+                            <div class="component-item missing" id="ri-ek-betrag"><i class="fa-solid fa-triangle-exclamation"></i> Eigenkapital: Verfügbarer Betrag hinterlegt <span class="item-pts missing">0/10 Pkt.</span></div>
+                            <div class="component-item missing" id="ri-ek-doc"><i class="fa-solid fa-triangle-exclamation"></i> Eigenkapital: Dokument als Nachweis hinterlegt <span class="item-pts missing">0/10 Pkt.</span></div>
+                            <!-- Block 3: Academy -->
+                            <div class="component-group-label">Academy-Wissen</div>
+                            <div class="component-item" id="ri-academy"><i class="fa-solid fa-triangle-exclamation"></i> <a href="academy.html">Academy: 5 von 9 Modulen abgeschlossen</a> <span class="item-pts" id="ri-academy-pts">35/60 Pkt.</span></div>
                         </div>
 
                         <div class="component-cta">
@@ -730,7 +1164,7 @@
                                 <i class="fa-solid fa-graduation-cap"></i>
                                 Zur Academy
                             </a>
-                            <span class="component-cta-sub">Noch 2 Module bis 100%</span>
+                            <span class="component-cta-sub" id="readiness-cta-sub">Noch 50 Punkte bis 100%</span>
                         </div>
                     </div>
 
@@ -793,7 +1227,7 @@
             </div>
 
             <!-- Profile Card -->
-            <div class="profile-card">
+            <div class="profile-card" id="stammdaten-card">
                 <div class="profile-photo">
                     <i class="fa-solid fa-user"></i>
                 </div>
@@ -803,109 +1237,536 @@
                             Florian Adomeit
                             <span class="verified-badge"><i class="fa-solid fa-check"></i></span>
                         </span>
-                        <button class="btn-edit">
+                        <button class="btn-edit" id="stamm-toggle-btn" onclick="toggleCard('stammdaten-card', 'stamm-toggle-btn')">
                             <i class="fa-solid fa-pen"></i>
                             Bearbeiten
                         </button>
                     </div>
-                    <div class="info-rows">
+
+                    <!-- View State -->
+                    <div class="info-rows card-view">
                         <div class="info-row">
                             <span class="info-label"><i class="fa-regular fa-user"></i> Position</span>
-                            <span class="info-value">Chief Platform Officer</span>
+                            <span class="info-value missing" id="stamm-v-position">Keine Angabe</span>
                         </div>
                         <div class="info-row">
-                            <span class="info-label"><i class="fa-regular fa-building"></i> Unternehmen</span>
-                            <span class="info-value">DealCircle</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-label"><i class="fa-regular fa-file"></i> Rechtsform eingeben</span>
-                            <span class="info-value missing">Keine Angabe <span class="missing-hint">– <a href="academy.html">Warum ist das wichtig?</a></span></span>
+                            <span class="info-label"><i class="fa-regular fa-building"></i> Unternehmen (inkl. Rechtsform)</span>
+                            <span class="info-value missing" id="stamm-v-unternehmen">Keine Angabe <span class="missing-hint">– <a href="academy.html">Warum ist das wichtig?</a></span></span>
                         </div>
                         <div class="info-row">
                             <span class="info-label"><i class="fa-solid fa-list"></i> Käufertyp</span>
-                            <span class="info-value">Finanzinvestor</span>
+                            <span class="info-value" id="stamm-v-kaeufertyp">Finanzinvestor</span>
                         </div>
                         <div class="info-row">
-                            <span class="info-label"><i class="fa-solid fa-briefcase"></i> Branchenfokus</span>
-                            <span class="info-value">FinTech, Agentur</span>
+                            <span class="info-label"><i class="fa-solid fa-globe"></i> Website</span>
+                            <span class="info-value missing" id="stamm-v-website">Keine Angabe</span>
                         </div>
                         <div class="info-row">
-                            <span class="info-label"><i class="fa-regular fa-circle-dot"></i> Verfügbares Eigenkapital</span>
-                            <span class="info-value missing">Keine Angabe <span class="missing-hint">– <a href="academy.html">Verkäufer filtern danach</a></span></span>
+                            <span class="info-label"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</span>
+                            <span class="info-value missing" id="stamm-linkedin">Keine Angabe</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-file-lines"></i> Lebenslauf</span>
+                            <span class="info-value missing" id="stamm-v-cv">Keine Angabe <span class="missing-hint">– <a href="academy.html">Stärkt dein Käuferprofil</a></span></span>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Über mich -->
-            <div class="profile-card">
-                <div class="section-content">
-                    <h2 class="section-title">Über mich</h2>
-                    <div class="section-rows">
-                        <span class="section-text missing">Keine Angabe <span class="missing-hint">– <a href="academy.html">Persönliche Beschreibung erhöht deine Match-Chancen</a></span></span>
+                    <!-- Edit Form -->
+                    <div class="card-edit-form">
+                        <div class="edit-row">
+                            <span class="edit-label"><i class="fa-regular fa-user"></i> Position</span>
+                            <input type="text" class="edit-input" id="stamm-e-position" value="" placeholder="z.B. Chief Platform Officer">
+                        </div>
+                        <div class="edit-row">
+                            <span class="edit-label"><i class="fa-regular fa-building"></i> Unternehmen (inkl. Rechtsform)</span>
+                            <input type="text" class="edit-input" id="stamm-e-unternehmen" value="" placeholder="z.B. Muster GmbH">
+                        </div>
+                        <div class="edit-row">
+                            <span class="edit-label"><i class="fa-solid fa-list"></i> Käufertyp</span>
+                            <select class="edit-input" id="stamm-e-kaeufertyp">
+                                <option value="Strategischer Käufer">Strategischer Käufer</option>
+                                <option value="Finanzinvestor" selected>Finanzinvestor</option>
+                                <option value="MBI-Kandidat">MBI-Kandidat</option>
+                                <option value="Nachfolger">Nachfolger</option>
+                                <option value="Sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+                        <div class="edit-row">
+                            <span class="edit-label"><i class="fa-solid fa-globe"></i> Website</span>
+                            <input type="text" class="edit-input" id="stamm-e-website" value="" placeholder="z.B. https://www.meinefirma.de">
+                        </div>
+                        <div class="edit-row">
+                            <span class="edit-label"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</span>
+                            <input type="text" class="edit-input" id="stamm-e-linkedin" value="" placeholder="z.B. https://www.linkedin.com/in/name/">
+                        </div>
+                        <div class="edit-row">
+                            <span class="edit-label"><i class="fa-regular fa-file-lines"></i> Lebenslauf</span>
+                            <div class="edit-upload">
+                                <button class="edit-upload-btn"><i class="fa-solid fa-upload"></i> PDF hochladen</button>
+                                <span style="font-size:12px; color:#9CA3AF;">Max. 5 MB, PDF-Format</span>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button class="btn-cancel" onclick="toggleCard('stammdaten-card', 'stamm-toggle-btn')">Abbrechen</button>
+                            <button class="btn-save" onclick="saveStammdaten()">Speichern</button>
+                        </div>
                     </div>
-                </div>
-                <div class="section-btn">
-                    <button class="btn-edit">
-                        <i class="fa-solid fa-pen"></i>
-                        Bearbeiten
-                    </button>
                 </div>
             </div>
 
             <!-- Kontakt -->
-            <div class="profile-card">
+            <div class="profile-card" id="kontakt-card">
                 <div class="section-content">
-                    <h2 class="section-title">Kontakt</h2>
-                    <div class="section-rows">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h2 class="section-title" style="margin:0;">Kontakt</h2>
+                        <button class="btn-edit" id="kontakt-toggle-btn" onclick="toggleCard('kontakt-card', 'kontakt-toggle-btn')">
+                            <i class="fa-solid fa-pen"></i>
+                            Bearbeiten
+                        </button>
+                    </div>
+
+                    <!-- View State -->
+                    <div class="section-rows card-view">
                         <div class="info-row">
                             <span class="info-label"><i class="fa-regular fa-envelope"></i> E-Mail</span>
-                            <span class="info-value">florian.adomeit@dealcircle.com</span>
+                            <span class="info-value" id="kontakt-v-email">florian.adomeit@dealcircle.com</span>
                         </div>
                         <div class="info-row">
                             <span class="info-label"><i class="fa-solid fa-phone"></i> Telefon</span>
-                            <span class="info-value">0176 30384726</span>
+                            <span class="info-value" id="kontakt-v-tel">0176 30384726</span>
                         </div>
                         <div class="info-row">
                             <span class="info-label"><i class="fa-regular fa-map"></i> Adresse</span>
-                            <span class="info-value">Speersort 1, 20095 Hamburg</span>
+                            <span class="info-value" id="kontakt-v-adresse">Speersort 1, 20095 Hamburg</span>
                         </div>
                     </div>
-                </div>
-                <div class="section-btn">
-                    <button class="btn-edit">
-                        <i class="fa-solid fa-pen"></i>
-                        Bearbeiten
-                    </button>
+
+                    <!-- Edit Form -->
+                    <div class="card-edit-form">
+                        <div class="edit-row">
+                            <span class="edit-label"><i class="fa-regular fa-envelope"></i> E-Mail</span>
+                            <input type="email" class="edit-input" id="kontakt-e-email" value="florian.adomeit@dealcircle.com">
+                        </div>
+                        <div class="edit-row">
+                            <span class="edit-label"><i class="fa-solid fa-phone"></i> Telefon</span>
+                            <input type="tel" class="edit-input" id="kontakt-e-tel" value="0176 30384726">
+                        </div>
+                        <div class="edit-row">
+                            <span class="edit-label"><i class="fa-regular fa-map"></i> Adresse</span>
+                            <input type="text" class="edit-input" id="kontakt-e-adresse" value="Speersort 1, 20095 Hamburg">
+                        </div>
+                        <div class="edit-actions">
+                            <button class="btn-cancel" onclick="toggleCard('kontakt-card', 'kontakt-toggle-btn')">Abbrechen</button>
+                            <button class="btn-save" onclick="saveKontakt()">Speichern</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Weiterführende Informationen -->
-            <div class="profile-card">
-                <div class="section-content">
-                    <h2 class="section-title">Weiterführende Informationen</h2>
+            <!-- ENABLEMENT: Suchkriterien -->
+            <div class="profile-card suchkriterien-card">
+
+                <!-- Header -->
+                <div class="sk-header">
+                    <h2 class="section-title" style="margin:0;">Suchkriterien</h2>
+                    <button id="sk-toggle-btn" class="btn-edit" onclick="toggleSK()">
+                        <i class="fa-solid fa-pen"></i> Bearbeiten
+                    </button>
+                </div>
+
+                <!-- View State -->
+                <div class="sk-view">
+                    <div class="sk-info-badge">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        Diese Angaben fließen automatisch in deine Öffentliches Käuferprofil ein
+                    </div>
                     <div class="section-rows">
                         <div class="info-row">
-                            <span class="info-label"><i class="fa-solid fa-globe"></i> Website</span>
-                            <span class="info-value"><a href="#">https://www.amber.deals/</a></span>
+                            <span class="info-label"><i class="fa-solid fa-briefcase"></i> Branchen</span>
+                            <span class="info-value" id="sk-view-branchen">FinTech, Agentur</span>
                         </div>
                         <div class="info-row">
-                            <span class="info-label"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</span>
-                            <span class="info-value"><a href="#">https://www.linkedin.com/in/florian-adomeit/</a></span>
+                            <span class="info-label"><i class="fa-solid fa-location-dot"></i> Zielregion</span>
+                            <span class="info-value" id="sk-view-region">Deutschland, Österreich, Schweiz</span>
                         </div>
                         <div class="info-row">
-                            <span class="info-label"><i class="fa-regular fa-file-lines"></i> Lebenslauf</span>
-                            <span class="info-value missing">Keine Angabe <span class="missing-hint">– <a href="academy.html">Stärkt dein Käuferprofil</a></span></span>
+                            <span class="info-label"><i class="fa-solid fa-euro-sign"></i> Umsatz Zielunternehmen</span>
+                            <span class="info-value missing" id="sk-view-umsatz">Keine Angabe</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-solid fa-chart-line"></i> Ergebnis / EBIT</span>
+                            <span class="info-value missing" id="sk-view-ebit">Keine Angabe</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-solid fa-users"></i> Mitarbeiteranzahl</span>
+                            <span class="info-value missing" id="sk-view-mitarbeiter">Keine Angabe</span>
                         </div>
                     </div>
                 </div>
-                <div class="section-btn">
-                    <button class="btn-edit">
+
+                <!-- Edit Form -->
+                <div class="sk-edit-form">
+                    <div class="sk-form-grid">
+
+                        <div class="sk-field full">
+                            <label class="sk-label"><i class="fa-solid fa-briefcase"></i> Branchen</label>
+                            <!-- Schritt 1 -->
+                            <div class="sk-branch-step">
+                                <div class="sk-branch-q">Können grundsätzlich alle Branchen für dich interessant sein?</div>
+                                <div class="sk-branch-radios">
+                                    <label class="sk-radio-lbl">
+                                        <input type="radio" name="sk-agnostisch" value="ja" id="sk-agn-ja"> Ja
+                                    </label>
+                                    <label class="sk-radio-lbl">
+                                        <input type="radio" name="sk-agnostisch" value="nein" id="sk-agn-nein" checked> Nein
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- Schritt 2 -->
+                            <div class="sk-branch-step" style="margin-top:14px;">
+                                <div class="sk-branch-q">Welche konkreten Branchen interessieren dich besonders?</div>
+                                <div class="sk-hint" style="margin:4px 0 8px;">Keywords kommagetrennt eingeben – optional, erscheint in deiner Öffentliches Käuferprofil</div>
+                                <input type="text" class="sk-input" id="sk-branch-input" placeholder="z.B. FinTech, Agentur, SaaS, Handwerk ..." value="FinTech, Agentur">
+                            </div>
+                            <!-- Vorschau -->
+                            <div class="sk-branch-preview" id="sk-branch-preview">
+                                <i class="fa-solid fa-eye" style="color:#7C3AED; flex-shrink:0;"></i>
+                                <span id="sk-branch-preview-text">Ich suche gezielt in den Bereichen <strong>FinTech, Agentur</strong>.</span>
+                            </div>
+                        </div>
+
+                        <div class="sk-field full">
+                            <label class="sk-label"><i class="fa-solid fa-location-dot"></i> Zielregion</label>
+                            <div class="sk-hint-amber"><i class="fa-solid fa-lightbulb"></i> Klicke auf den Pfeil <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i> neben einem Land, um einzelne Bundesländer oder Kantone auszuwählen.</div>
+                            <div class="sk-region-wrapper" id="sk-region-wrapper">
+                                <div class="sk-region-display" onclick="toggleRegionDropdown(event)">
+                                    <div class="sk-region-tags" id="sk-region-tags">
+                                        <span class="sk-region-tag" data-value="Deutschland">Deutschland <i class="fa-solid fa-xmark sk-tag-x"></i></span>
+                                        <span class="sk-region-tag" data-value="Österreich">Österreich <i class="fa-solid fa-xmark sk-tag-x"></i></span>
+                                        <span class="sk-region-tag" data-value="Schweiz">Schweiz <i class="fa-solid fa-xmark sk-tag-x"></i></span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down" style="color:#9CA3AF;font-size:12px;flex-shrink:0;"></i>
+                                </div>
+                                <div class="sk-region-dropdown" id="sk-region-dropdown">
+
+                                    <div class="sk-rgp-label">DACH</div>
+
+                                    <div class="sk-rgp-country">
+                                        <label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Deutschland" checked> Deutschland</label>
+                                        <button class="sk-rgp-expand" data-target="sk-de"><i class="fa-solid fa-chevron-right"></i></button>
+                                    </div>
+                                    <div class="sk-rgp-states" id="sk-de">
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Baden-Württemberg" data-country="Deutschland"> Baden-Württemberg</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Bayern" data-country="Deutschland"> Bayern</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Berlin" data-country="Deutschland"> Berlin</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Brandenburg" data-country="Deutschland"> Brandenburg</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Bremen" data-country="Deutschland"> Bremen</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Hamburg" data-country="Deutschland"> Hamburg</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Hessen" data-country="Deutschland"> Hessen</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Mecklenburg-Vorpommern" data-country="Deutschland"> Mecklenburg-Vorpommern</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Niedersachsen" data-country="Deutschland"> Niedersachsen</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Nordrhein-Westfalen" data-country="Deutschland"> Nordrhein-Westfalen</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Rheinland-Pfalz" data-country="Deutschland"> Rheinland-Pfalz</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Saarland" data-country="Deutschland"> Saarland</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Sachsen" data-country="Deutschland"> Sachsen</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Sachsen-Anhalt" data-country="Deutschland"> Sachsen-Anhalt</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Schleswig-Holstein" data-country="Deutschland"> Schleswig-Holstein</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Thüringen" data-country="Deutschland"> Thüringen</label>
+                                    </div>
+
+                                    <div class="sk-rgp-country">
+                                        <label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Österreich" checked> Österreich</label>
+                                        <button class="sk-rgp-expand" data-target="sk-at"><i class="fa-solid fa-chevron-right"></i></button>
+                                    </div>
+                                    <div class="sk-rgp-states" id="sk-at">
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Burgenland" data-country="Österreich"> Burgenland</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Kärnten" data-country="Österreich"> Kärnten</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Niederösterreich" data-country="Österreich"> Niederösterreich</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Oberösterreich" data-country="Österreich"> Oberösterreich</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Salzburg" data-country="Österreich"> Salzburg</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Steiermark" data-country="Österreich"> Steiermark</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Tirol" data-country="Österreich"> Tirol</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Vorarlberg" data-country="Österreich"> Vorarlberg</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Wien" data-country="Österreich"> Wien</label>
+                                    </div>
+
+                                    <div class="sk-rgp-country">
+                                        <label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Schweiz" checked> Schweiz</label>
+                                        <button class="sk-rgp-expand" data-target="sk-ch"><i class="fa-solid fa-chevron-right"></i></button>
+                                    </div>
+                                    <div class="sk-rgp-states" id="sk-ch">
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Aargau" data-country="Schweiz"> Aargau</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Basel-Landschaft" data-country="Schweiz"> Basel-Landschaft</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Basel-Stadt" data-country="Schweiz"> Basel-Stadt</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Bern" data-country="Schweiz"> Bern</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Freiburg" data-country="Schweiz"> Freiburg</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Genf" data-country="Schweiz"> Genf</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Glarus" data-country="Schweiz"> Glarus</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Graubünden" data-country="Schweiz"> Graubünden</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Jura" data-country="Schweiz"> Jura</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Luzern" data-country="Schweiz"> Luzern</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Neuenburg" data-country="Schweiz"> Neuenburg</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Nidwalden" data-country="Schweiz"> Nidwalden</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Obwalden" data-country="Schweiz"> Obwalden</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Schaffhausen" data-country="Schweiz"> Schaffhausen</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Schwyz" data-country="Schweiz"> Schwyz</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Solothurn" data-country="Schweiz"> Solothurn</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="St. Gallen" data-country="Schweiz"> St. Gallen</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Tessin" data-country="Schweiz"> Tessin</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Thurgau" data-country="Schweiz"> Thurgau</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Uri" data-country="Schweiz"> Uri</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Waadt" data-country="Schweiz"> Waadt</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Wallis" data-country="Schweiz"> Wallis</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Zug" data-country="Schweiz"> Zug</label>
+                                        <label class="sk-rgp-state"><input type="checkbox" data-name="Zürich" data-country="Schweiz"> Zürich</label>
+                                    </div>
+
+                                    <div class="sk-rgp-label">Europa</div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Belgien"> Belgien</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Dänemark"> Dänemark</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Frankreich"> Frankreich</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Italien"> Italien</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Liechtenstein"> Liechtenstein</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Luxemburg"> Luxemburg</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Niederlande"> Niederlande</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Polen"> Polen</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Portugal"> Portugal</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Schweden"> Schweden</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Spanien"> Spanien</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Tschechien"> Tschechien</label></div>
+                                    <div class="sk-rgp-country"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Ungarn"> Ungarn</label></div>
+
+                                    <div class="sk-rgp-label">Weltweit</div>
+                                    <div class="sk-rgp-country" style="padding-bottom:10px;"><label class="sk-rgp-country-lbl"><input type="checkbox" data-name="Rest of the World"> Rest of the World</label></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sk-field">
+                            <label class="sk-label"><i class="fa-solid fa-euro-sign"></i> Umsatz (Mio. €)</label>
+                            <div class="sk-pair">
+                                <input type="text" class="sk-input" id="sk-umsatz-min" placeholder="Min">
+                                <span class="sk-pair-sep">–</span>
+                                <input type="text" class="sk-input" id="sk-umsatz-max" placeholder="Max">
+                            </div>
+                        </div>
+
+                        <div class="sk-field">
+                            <label class="sk-label"><i class="fa-solid fa-chart-line"></i> Ergebnis / EBIT (Mio. €)</label>
+                            <div class="sk-pair">
+                                <input type="text" class="sk-input" id="sk-ebit-min" placeholder="Min">
+                                <span class="sk-pair-sep">–</span>
+                                <input type="text" class="sk-input" id="sk-ebit-max" placeholder="Max">
+                            </div>
+                        </div>
+
+                        <div class="sk-field">
+                            <label class="sk-label"><i class="fa-solid fa-users"></i> Mitarbeiteranzahl</label>
+                            <div class="sk-pair">
+                                <input type="text" class="sk-input" id="sk-ma-min" placeholder="Min">
+                                <span class="sk-pair-sep">–</span>
+                                <input type="text" class="sk-input" id="sk-ma-max" placeholder="Max">
+                            </div>
+                        </div>
+
+                        <div class="sk-field">
+                            <label class="sk-label"><i class="fa-solid fa-percent"></i> Gewinnmarge (%)</label>
+                            <div class="sk-pair">
+                                <input type="text" class="sk-input" id="sk-gm-min" placeholder="Min">
+                                <span class="sk-pair-sep">–</span>
+                                <input type="text" class="sk-input" id="sk-gm-max" placeholder="Max">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="sk-save-row">
+                        <button class="sk-save-alert-btn" onclick="saveSK()"><i class="fa-solid fa-bell"></i> Als Suchauftrag speichern</button>
+                        <button class="btn-save-primary" onclick="saveSK()">Speichern <i class="fa-solid fa-check"></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ENABLEMENT: Öffentliches Käuferprofil (ersetzt "Über mich") -->
+            <div class="profile-card selbstdarstellung-card">
+
+                <!-- Header -->
+                <div class="sd-header">
+                    <div class="sd-header-left">
+                        <h2 class="section-title" style="margin:0;">Öffentliches Käuferprofil</h2>
+                        <span class="ai-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> KI-unterstützt</span>
+                    </div>
+                    <button id="sd-toggle-btn" class="btn-edit" onclick="toggleSD()">
                         <i class="fa-solid fa-pen"></i>
                         Bearbeiten
                     </button>
                 </div>
+
+                <!-- Fragebogen (Edit-State) -->
+                <div class="sd-questionnaire">
+
+                    <!-- LinkedIn Import -->
+                    <div class="sd-linkedin-banner" id="sd-linkedin-banner">
+                        <div class="sd-linkedin-top">
+                            <i class="fa-brands fa-linkedin" style="font-size:22px; color:#0A66C2; flex-shrink:0;" id="sd-linkedin-icon"></i>
+                            <div style="flex:1;">
+                                <div style="font-size:13px; font-weight:600; color:#1A1A1A;" id="sd-linkedin-title">Aus LinkedIn-Profil übernehmen</div>
+                                <div style="font-size:12px; color:#666; margin-top:2px;" id="sd-linkedin-desc">Wir extrahieren Stichworte aus deinem hinterlegten LinkedIn-Profil: <strong id="sd-linkedin-url-display">Kein LinkedIn-Profil hinterlegt</strong></div>
+                            </div>
+                            <button class="sd-linkedin-btn" id="sd-linkedin-btn" onclick="importLinkedIn()"><i class="fa-brands fa-linkedin"></i> Importieren</button>
+                        </div>
+                        <div class="sd-linkedin-status" id="sd-linkedin-status" style="display:none;"></div>
+                    </div>
+
+                    <!-- Erklärung -->
+                    <div class="sd-intro">
+                        <div class="sd-intro-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                        <div>
+                            <div class="sd-intro-title">So funktioniert's</div>
+                            <div class="sd-intro-text">Gib einfach <strong>Stichworte</strong> zu jeder Frage ein – keine ganzen Sätze nötig. Unsere KI formuliert daraus einen professionellen Text, den Verkäufer auf der Plattform sehen. Du kannst den generierten Text danach noch frei anpassen.</div>
+                        </div>
+                    </div>
+
+                    <!-- Fragen -->
+                    <div class="sd-questions">
+
+                        <div class="sd-q-item">
+                            <label class="sd-q-label">1. Wer bist du?</label>
+                            <div class="sd-q-hint">Beruf, Branche, Jahre Erfahrung, letzte Position</div>
+                            <textarea class="sd-q-input" id="sd-q1" rows="2" placeholder="z.B. Ingenieur, 8 Jahre Maschinenbau, Projektleiter, Mittelstand"></textarea>
+                        </div>
+
+                        <div class="sd-q-item">
+                            <label class="sd-q-label">2. Warum möchtest du ein Unternehmen kaufen?</label>
+                            <div class="sd-q-hint">Motivation, Ziele, warum Kauf statt Gründung</div>
+                            <textarea class="sd-q-input" id="sd-q2" rows="2" placeholder="z.B. eigene Verantwortung, lieber kaufen als gründen, bestehende Basis nutzen"></textarea>
+                        </div>
+
+                        <div class="sd-q-item">
+                            <label class="sd-q-label">3. Welche Erfahrungen und Kompetenzen bringst du mit?</label>
+                            <div class="sd-q-hint">Fachliche Stärken, Abschlüsse, Branchenwissen</div>
+                            <textarea class="sd-q-input" id="sd-q3" rows="2" placeholder="z.B. Vertrieb, Teamführung, MBA Finance, Branchenwissen"></textarea>
+                        </div>
+
+                        <div class="sd-q-item">
+                            <label class="sd-q-label">4. Was suchst du?</label>
+                            <div class="sd-q-hint">Wird automatisch aus deinen Suchkriterien übernommen</div>
+                            <div class="sd-q-prefilled">
+                                <i class="fa-solid fa-circle-check" style="color:#10B981; flex-shrink:0;"></i>
+                                <span>Aus Käuferprofil übernommen: <strong id="sd-criteria-text">Branche: FinTech, Agentur · Region: Deutschland, Österreich, Schweiz</strong></span>
+                                <a href="#" onclick="updateSDSuchkriterien(); return false;" style="font-size:12px; color:#2563EB; margin-left:auto; white-space:nowrap; text-decoration:none; font-weight:500;">Aktualisieren <i class="fa-solid fa-rotate" style="font-size:11px;"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="sd-q-item">
+                            <label class="sd-q-label">5. Was planst du nach dem Kauf?</label>
+                            <div class="sd-q-hint">Erste Schritte, Vision, Zeithorizont</div>
+                            <textarea class="sd-q-input" id="sd-q5" rows="2" placeholder="z.B. stabilisieren, digitalisieren, Team halten, 6-12 Monate Einarbeitung"></textarea>
+                        </div>
+
+                        <div class="sd-q-item">
+                            <label class="sd-q-label">6. Was macht dich zu einem verlässlichen Käufer?</label>
+                            <div class="sd-q-hint">Eigenkapital, Finanzierung, Verbindlichkeit</div>
+                            <textarea class="sd-q-input" id="sd-q6" rows="2" placeholder="z.B. gesichertes Eigenkapital, Finanzierungszusage, langfristig orientiert"></textarea>
+                        </div>
+
+                    </div>
+
+                    <!-- KI generieren CTA -->
+                    <div class="sd-generate-row">
+                        <span class="sd-generate-hint"><i class="fa-solid fa-wand-magic-sparkles"></i> KI formuliert aus deinen Stichworten einen professionellen Text</span>
+                        <button class="btn-generate" onclick="generateSD()">Text generieren <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                </div>
+
+                <!-- Generierter Text – Vorschau (erscheint nach "Text generieren") -->
+                <div class="sd-preview">
+                    <div class="sd-preview-header">
+                        <span class="sd-preview-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Generierter Text – Vorschau</span>
+                        <span class="sd-preview-hint">So sehen dich Verkäufer auf der Plattform</span>
+                    </div>
+                    <div class="sd-preview-sections">
+                        <div class="sd-section">
+                            <div class="sd-section-title">Über mich</div>
+                            <div class="sd-section-text sd-editable" contenteditable="true" id="sd-out-about">Ich bringe einen Hintergrund als Co-Founder & Managing Partner mit und verfüge über umfangreiche Erfahrung bei DealCircle / AMBER. Zuvor war ich als Lead Portfolio Manager bei OMR tätig – unter anderem als Prokurist bei OMR X. Darüber hinaus bin ich Spiegel-Bestsellerautor und Podcast-Host.</div>
+                        </div>
+                        <div class="sd-section">
+                            <div class="sd-section-title">Meine Kaufmotivation</div>
+                            <div class="sd-section-text sd-editable" contenteditable="true" id="sd-out-motivation">Mein Ziel ist es, mein Plattform-Know-how aus OMR und DealCircle gezielt einzusetzen. Dabei ist mir wichtig, ein eigenes Unternehmen operativ zu führen. Ich setze auf unternehmerische Verantwortung und langfristiges Engagement.</div>
+                        </div>
+                        <div class="sd-section">
+                            <div class="sd-section-title">Was ich suche</div>
+                            <div class="sd-section-text sd-editable" contenteditable="true" id="sd-out-search">Ich suche gezielt in den Bereichen FinTech und Agentur. Vorzugsweise in Deutschland, Österreich oder der Schweiz.</div>
+                        </div>
+                        <div class="sd-section">
+                            <div class="sd-section-title">Was ich mitbringe</div>
+                            <div class="sd-section-text sd-editable" contenteditable="true" id="sd-out-strengths">Ich bringe fundierte Erfahrung in digitale Plattformen, M&A-Markt, Portfolio-Management, Medien & Content, Unternehmensaufbau mit. Als Käufer stehe ich für ein starkes Netzwerk in M&A und Digital, Eigenkapitalstärke und langfristige Orientierung.</div>
+                        </div>
+                        <div class="sd-section">
+                            <div class="sd-section-title">Mein Vorhaben nach dem Kauf</div>
+                            <div class="sd-section-text sd-editable" contenteditable="true" id="sd-out-plan">Nach der Übernahme plane ich, das bestehende Team zu halten und zu stärken. Im weiteren Verlauf möchte ich digitale Prozesse einführen und Wachstum durch Plattform-Synergien realisieren.</div>
+                        </div>
+                    </div>
+                    <div class="sd-edit-hint">
+                        <i class="fa-solid fa-pen-to-square"></i> Klicke auf einen Abschnitt, um den Text direkt anzupassen
+                    </div>
+                    <div class="sd-preview-actions">
+                        <button class="btn-regenerate" onclick="generateSD()"><i class="fa-solid fa-rotate"></i> Neu generieren</button>
+                        <button class="btn-save-primary" onclick="saveSD()">Speichern <i class="fa-solid fa-check"></i></button>
+                    </div>
+                </div>
+
             </div>
+
+            <!-- ENABLEMENT: Finanzierungsrahmen -->
+            <div class="profile-card" id="finanz-card">
+                <div class="section-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h2 class="section-title" style="margin:0;">Finanzierungsrahmen</h2>
+                        <button class="btn-edit" id="finanz-toggle-btn" onclick="toggleCard('finanz-card', 'finanz-toggle-btn')">
+                            <i class="fa-solid fa-pen"></i>
+                            Bearbeiten
+                        </button>
+                    </div>
+
+                    <!-- View State -->
+                    <div class="section-rows card-view">
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-solid fa-coins"></i> Persönliches Eigenkapital</span>
+                            <span class="info-value missing" id="finanz-v-ek">Keine Angabe <span class="missing-hint">– <a href="academy.html">Verkäufer filtern danach</a></span></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-file-lines"></i> Eigenkapitalnachweis (Dokument)</span>
+                            <span class="info-value missing" id="finanz-v-doc">Kein Dokument hinterlegt <span class="missing-hint">– <a href="academy.html">Stärkt deine Glaubwürdigkeit</a></span></span>
+                        </div>
+                    </div>
+
+                    <!-- Edit Form -->
+                    <div class="card-edit-form">
+                        <div class="edit-row">
+                            <div class="edit-label"><i class="fa-solid fa-coins"></i> Persönliches Eigenkapital<div style="font-size:12px; font-weight:400; color:#9CA3AF; margin-top:2px;">Frei einsetzbar für Transaktion</div></div>
+                            <div style="display:flex; align-items:center; gap:8px; flex:1;">
+                                <input type="text" class="edit-input" id="finanz-e-ek" value="" placeholder="z.B. 250.000" style="flex:1;">
+                                <span style="font-size:14px; color:#666; white-space:nowrap;">€</span>
+                            </div>
+                        </div>
+                        <div class="edit-row">
+                            <span class="edit-label"><i class="fa-regular fa-file-lines"></i> Eigenkapitalnachweis</span>
+                            <div class="edit-upload">
+                                <button class="edit-upload-btn"><i class="fa-solid fa-upload"></i> Dokument hochladen</button>
+                                <span style="font-size:12px; color:#9CA3AF;">Kontoauszug, Bankbestätigung o.ä. (PDF, max. 5 MB)</span>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button class="btn-cancel" onclick="toggleCard('finanz-card', 'finanz-toggle-btn')">Abbrechen</button>
+                            <button class="btn-save" onclick="saveFinanz()">Speichern</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
     </div>
@@ -938,11 +1799,665 @@
             var fg = document.getElementById('focus-group');
             fg.classList.toggle('open');
         }
-        document.addEventListener('click', function() {
+        document.addEventListener('click', function(e) {
             var fg = document.getElementById('focus-group');
             if (fg) fg.classList.remove('open');
+            var wrapper = document.getElementById('sk-region-wrapper');
+            var dd = document.getElementById('sk-region-dropdown');
+            if (dd && wrapper && !wrapper.contains(e.target)) dd.classList.remove('is-open');
         });
-    </script>
 
+    // Generischer Toggle für alle Karten
+    function toggleCard(cardId, btnId) {
+        var card = document.getElementById(cardId);
+        var btn = document.getElementById(btnId);
+        card.classList.toggle('is-editing');
+        if (card.classList.contains('is-editing')) {
+            btn.innerHTML = '<i class="fa-solid fa-xmark"></i> Abbrechen';
+        } else {
+            btn.innerHTML = '<i class="fa-solid fa-pen"></i> Bearbeiten';
+        }
+    }
+
+    // ===== Readiness-Score live berechnen =====
+    function updateReadiness() {
+        var totalMax = 100; // 5+5+5+5+10+10+60
+        var earned = 0;
+        var academyPts = 35; // statisch: 5 von 9 Modulen
+
+        // Hilfsfunktion: prüft ob ein Feld ausgefüllt ist (robust: Klasse UND Text)
+        function isFilled(id) {
+            var el = document.getElementById(id);
+            if (!el) return false;
+            if (el.classList.contains('missing')) return false;
+            var txt = el.textContent.trim();
+            if (!txt || txt === 'Keine Angabe' || txt.indexOf('Keine Angabe') === 0) return false;
+            return true;
+        }
+
+        // 1. Profil- und Kontaktdaten vollständig (5 Pkt.)
+        // Prüfe: Position + E-Mail + Telefon + (LinkedIn ODER Lebenslauf)
+        var profilOk = isFilled('stamm-v-position') && isFilled('kontakt-v-email') && isFilled('kontakt-v-tel') && (isFilled('stamm-linkedin') || isFilled('stamm-v-cv'));
+        setItem('ri-profil', profilOk, 5);
+        if (profilOk) earned += 5;
+
+        // 2. Suchkriterien hinterlegt (5 Pkt.)
+        // Prüfe: Branchen + (Umsatz ODER EBIT)
+        var suchOk = isFilled('sk-view-branchen') && (isFilled('sk-view-umsatz') || isFilled('sk-view-ebit'));
+        setItem('ri-such', suchOk, 5);
+        if (suchOk) earned += 5;
+
+        // 3. Öffentliches Käuferprofil ausgefüllt (5 Pkt.)
+        // Prüfe: Öffentliches Käuferprofilstext vorhanden
+        var sdAbout = document.getElementById('sd-out-about');
+        var selbstOk = sdAbout && sdAbout.textContent.trim().length > 20;
+        setItem('ri-selbst', selbstOk, 5);
+        if (selbstOk) earned += 5;
+
+        // 4. Suchauftrag eingestellt (5 Pkt.) – statisch true (nicht auf dieser Seite prüfbar)
+        setItem('ri-suche', true, 5);
+        earned += 5;
+
+        // 4. Eigenkapital: Verfügbarer Betrag hinterlegt (10 Pkt.)
+        var ekOk = isFilled('finanz-v-ek');
+        setItem('ri-ek-betrag', ekOk, 10);
+        if (ekOk) earned += 10;
+
+        // 5. Eigenkapital: Dokument als Nachweis hinterlegt (10 Pkt.)
+        var docOk = isFilled('finanz-v-doc');
+        setItem('ri-ek-doc', docOk, 10);
+        if (docOk) earned += 10;
+
+        // 6. Academy (statisch 35/60 Pkt.)
+        earned += academyPts;
+
+        // Readiness Prozent
+        var pct = Math.round((earned / totalMax) * 100);
+
+        // Ring aktualisieren (Umfang = 2*PI*37 ≈ 232.5)
+        var circumference = 232.5;
+        var offset = circumference - (circumference * pct / 100);
+        var ringFill = document.querySelector('.readiness-circle-fill');
+        if (ringFill) ringFill.setAttribute('style', 'stroke-dasharray:' + circumference + ';stroke-dashoffset:' + offset + ';transition:stroke-dashoffset 0.8s ease;');
+
+        // Prozent-Text
+        var pctEl = document.getElementById('readiness-percent');
+        if (pctEl) pctEl.textContent = pct + '%';
+
+        // Berechnung-Text
+        var calcEl = document.getElementById('readiness-calc');
+        var readinessPoints = Math.round(pct * 0.6);
+        if (calcEl) calcEl.innerHTML = pct + '% × 60% = <strong>' + readinessPoints + ' Punkte</strong>';
+
+        // AMBER-Score Hero aktualisieren (Readiness 60% + Endorsement 25 Punkte fix)
+        var endorsePts = 25;
+        var amberTotal = readinessPoints + endorsePts;
+        var heroPctEl = document.getElementById('hero-percent');
+        if (heroPctEl) heroPctEl.textContent = amberTotal + '%';
+
+        // Hero Ring (Umfang = 2*PI*65 ≈ 408.4)
+        var heroCircumference = 408.4;
+        var heroOffset = heroCircumference - (heroCircumference * amberTotal / 100);
+        var heroFill = document.querySelector('.hero-circle-fill');
+        if (heroFill) heroFill.setAttribute('style', 'stroke-dasharray:' + heroCircumference + ';stroke-dashoffset:' + heroOffset + ';transition:stroke-dashoffset 0.8s ease;');
+
+        // CTA-Text
+        var ctaSub = document.getElementById('readiness-cta-sub');
+        var missing = totalMax - earned;
+        if (ctaSub) {
+            if (missing > 0) ctaSub.textContent = 'Noch ' + missing + ' Punkte bis 100%';
+            else ctaSub.textContent = 'Alle Punkte erreicht!';
+        }
+    }
+
+    var riLabels = {
+        'ri-profil': 'Profil- und Kontaktdaten vollständig',
+        'ri-such': 'Suchkriterien hinterlegt',
+        'ri-selbst': 'Öffentliches Käuferprofil ausgefüllt',
+        'ri-suche': 'Suchauftrag eingestellt',
+        'ri-ek-betrag': 'Eigenkapital: Verfügbarer Betrag hinterlegt',
+        'ri-ek-doc': 'Eigenkapital: Dokument als Nachweis hinterlegt'
+    };
+    function setItem(id, ok, pts) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var label = riLabels[id] || '';
+        if (ok) {
+            el.className = 'component-item done';
+            el.innerHTML = '<i class="fa-solid fa-check"></i> ' + label + ' <span class="item-pts done">+' + pts + ' Pkt.</span>';
+        } else {
+            el.className = 'component-item missing';
+            el.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> ' + label + ' <span class="item-pts missing">0/' + pts + ' Pkt.</span>';
+        }
+    }
+
+    // Stammdaten speichern
+    function saveStammdaten() {
+        var pos = document.getElementById('stamm-e-position').value.trim();
+        var unt = document.getElementById('stamm-e-unternehmen').value.trim();
+        var typ = document.getElementById('stamm-e-kaeufertyp').value;
+        var web = document.getElementById('stamm-e-website').value.trim();
+        var li = document.getElementById('stamm-e-linkedin').value.trim();
+
+        // View-State aktualisieren
+        var vPos = document.getElementById('stamm-v-position');
+        vPos.textContent = pos || 'Keine Angabe';
+        vPos.className = pos ? 'info-value' : 'info-value missing';
+
+        var vUnt = document.getElementById('stamm-v-unternehmen');
+        if (unt) { vUnt.textContent = unt; vUnt.className = 'info-value'; }
+        else { vUnt.innerHTML = 'Keine Angabe <span class="missing-hint">– <a href="academy.html">Warum ist das wichtig?</a></span>'; vUnt.className = 'info-value missing'; }
+
+        document.getElementById('stamm-v-kaeufertyp').textContent = typ;
+
+        var vWeb = document.getElementById('stamm-v-website');
+        if (web) { vWeb.innerHTML = '<a href="#">' + web + '</a>'; vWeb.className = 'info-value'; }
+        else { vWeb.textContent = 'Keine Angabe'; vWeb.className = 'info-value missing'; }
+
+        var vLi = document.getElementById('stamm-linkedin');
+        if (li) { vLi.innerHTML = '<a href="#">' + li + '</a>'; vLi.className = 'info-value'; }
+        else { vLi.textContent = 'Keine Angabe'; vLi.className = 'info-value missing'; }
+
+        // LinkedIn-URL im Öffentliches Käuferprofil-Banner aktualisieren
+        var liDisplay = document.getElementById('sd-linkedin-url-display');
+        if (liDisplay && li) { liDisplay.textContent = li.replace('https://www.', '').replace('https://', ''); }
+
+        toggleCard('stammdaten-card', 'stamm-toggle-btn');
+        updateReadiness();
+    }
+
+    // Finanzierungsrahmen speichern
+    function formatNumber(str) {
+        var num = str.replace(/[^0-9]/g, '');
+        if (!num) return '';
+        return parseInt(num, 10).toLocaleString('de-DE');
+    }
+    function saveFinanz() {
+        var ek = document.getElementById('finanz-e-ek').value.trim();
+        var vEk = document.getElementById('finanz-v-ek');
+        if (ek) {
+            vEk.textContent = formatNumber(ek) + ' €';
+            vEk.className = 'info-value';
+        } else {
+            vEk.innerHTML = 'Keine Angabe <span class="missing-hint">– <a href="academy.html">Verkäufer filtern danach</a></span>';
+            vEk.className = 'info-value missing';
+        }
+        toggleCard('finanz-card', 'finanz-toggle-btn');
+        updateReadiness();
+    }
+
+    // Kontakt speichern
+    function saveKontakt() {
+        var email = document.getElementById('kontakt-e-email').value.trim();
+        var tel = document.getElementById('kontakt-e-tel').value.trim();
+        var adr = document.getElementById('kontakt-e-adresse').value.trim();
+
+        var vEmail = document.getElementById('kontakt-v-email');
+        vEmail.textContent = email || 'Keine Angabe';
+        vEmail.className = email ? 'info-value' : 'info-value missing';
+
+        var vTel = document.getElementById('kontakt-v-tel');
+        vTel.textContent = tel || 'Keine Angabe';
+        vTel.className = tel ? 'info-value' : 'info-value missing';
+
+        var vAdr = document.getElementById('kontakt-v-adresse');
+        vAdr.textContent = adr || 'Keine Angabe';
+        vAdr.className = adr ? 'info-value' : 'info-value missing';
+
+        toggleCard('kontakt-card', 'kontakt-toggle-btn');
+        updateReadiness();
+    }
+
+    function toggleSD() {
+        var card = document.querySelector('.selbstdarstellung-card');
+        var btn = document.getElementById('sd-toggle-btn');
+        card.classList.toggle('is-editing');
+        if (card.classList.contains('is-editing')) {
+            btn.innerHTML = '<i class="fa-solid fa-xmark"></i> Abbrechen';
+        } else {
+            btn.innerHTML = '<i class="fa-solid fa-pen"></i> Bearbeiten';
+        }
+    }
+    function saveSD() {
+        var card = document.querySelector('.selbstdarstellung-card');
+        var btn = document.getElementById('sd-toggle-btn');
+        card.classList.remove('is-editing');
+        btn.innerHTML = '<i class="fa-solid fa-pen"></i> Bearbeiten';
+        updateReadiness();
+    }
+    // Branchen – Vorschau-Text aktualisieren
+    function updateBranchPreview() {
+        var agn = document.getElementById('sk-agn-ja') && document.getElementById('sk-agn-ja').checked;
+        var keywords = (document.getElementById('sk-branch-input') || {}).value || '';
+        keywords = keywords.trim();
+        var preview = document.getElementById('sk-branch-preview-text');
+        if (!preview) return;
+        if (agn && keywords) {
+            preview.innerHTML = 'Ich bin grundsätzlich branchenoffen, habe aber eine Vorliebe für <strong>' + keywords + '</strong>.';
+        } else if (agn && !keywords) {
+            preview.innerHTML = 'Ich bin branchenoffen und für Angebote aus allen Branchen empfänglich.';
+        } else if (!agn && keywords) {
+            preview.innerHTML = 'Ich suche gezielt in den Bereichen <strong>' + keywords + '</strong>.';
+        } else {
+            preview.innerHTML = 'Bitte fülle mindestens eine der beiden Angaben aus.';
+        }
+    }
+    // Branchen – View-State aktualisieren (wird beim Speichern aufgerufen)
+    function updateSKBranchenView() {
+        var agn = document.getElementById('sk-agn-ja') && document.getElementById('sk-agn-ja').checked;
+        var keywords = (document.getElementById('sk-branch-input') || {}).value || '';
+        keywords = keywords.trim();
+        var el = document.getElementById('sk-view-branchen');
+        if (!el) return;
+        if (agn && keywords) {
+            el.textContent = 'Branchenoffen, Vorliebe: ' + keywords;
+            el.className = 'info-value';
+        } else if (agn && !keywords) {
+            el.textContent = 'Branchenoffen';
+            el.className = 'info-value';
+        } else if (!agn && keywords) {
+            el.textContent = keywords;
+            el.className = 'info-value';
+        } else {
+            el.textContent = 'Keine Angabe';
+            el.className = 'info-value missing';
+        }
+    }
+    // Region Dropdown – öffnen/schließen
+    function toggleRegionDropdown(e) {
+        e.stopPropagation();
+        document.getElementById('sk-region-dropdown').classList.toggle('is-open');
+    }
+    // Hilfsfunktionen – kein querySelector mit Sonderzeichen
+    function rgpFindTag(name) {
+        var tags = document.getElementById('sk-region-tags').querySelectorAll('.sk-region-tag');
+        for (var i = 0; i < tags.length; i++) { if (tags[i].dataset.value === name) return tags[i]; }
+        return null;
+    }
+    function rgpFindCb(name) {
+        var inputs = document.getElementById('sk-region-dropdown').querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < inputs.length; i++) { if (inputs[i].dataset.name === name) return inputs[i]; }
+        return null;
+    }
+    function rgpFindCbsByCountry(country) {
+        var result = [];
+        document.getElementById('sk-region-dropdown').querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+            if (cb.dataset.country === country) result.push(cb);
+        });
+        return result;
+    }
+    function addRegionTag(name) {
+        var c = document.getElementById('sk-region-tags');
+        if (rgpFindTag(name)) return;
+        var ph = c.querySelector('.sk-region-placeholder');
+        if (ph) ph.remove();
+        var tag = document.createElement('span');
+        tag.className = 'sk-region-tag'; tag.dataset.value = name;
+        tag.innerHTML = name + ' <i class="fa-solid fa-xmark sk-tag-x"></i>';
+        tag.querySelector('.sk-tag-x').addEventListener('click', function(e) {
+            e.stopPropagation(); tag.remove();
+            var cb = rgpFindCb(name); if (cb) cb.checked = false;
+            if (!c.querySelector('.sk-region-tag')) c.innerHTML = '<span class="sk-region-placeholder">Regionen auswählen ...</span>';
+        });
+        c.appendChild(tag);
+    }
+    function removeRegionTag(name) {
+        var c = document.getElementById('sk-region-tags');
+        var tag = rgpFindTag(name);
+        if (tag) { tag.remove(); if (!c.querySelector('.sk-region-tag')) c.innerHTML = '<span class="sk-region-placeholder">Regionen auswählen ...</span>'; }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        // LinkedIn-URL aus Stammdaten in Banner synchronisieren
+        var stammLi = document.getElementById('stamm-linkedin');
+        var liDisplay = document.getElementById('sd-linkedin-url-display');
+        if (stammLi && liDisplay) {
+            var liLink = stammLi.querySelector('a');
+            if (liLink) {
+                liDisplay.textContent = liLink.textContent.trim().replace('https://www.', '').replace('https://', '');
+            }
+        }
+
+        // Vorhandene Tag-✕-Buttons
+        document.getElementById('sk-region-tags').querySelectorAll('.sk-tag-x').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var tag = btn.closest('.sk-region-tag'); var name = tag.dataset.value; tag.remove();
+                var cb = rgpFindCb(name); if (cb) cb.checked = false;
+                var c = document.getElementById('sk-region-tags');
+                if (!c.querySelector('.sk-region-tag')) c.innerHTML = '<span class="sk-region-placeholder">Regionen auswählen ...</span>';
+            });
+        });
+
+        var dd = document.getElementById('sk-region-dropdown');
+        if (!dd) return;
+
+        // Event-Delegation: Checkboxen (change)
+        dd.addEventListener('change', function(e) {
+            var cb = e.target;
+            if (cb.tagName !== 'INPUT' || cb.type !== 'checkbox') return;
+            if (cb.dataset.country) {
+                // Bundesland / Kanton / Oblast
+                if (cb.checked) {
+                    var pcb = rgpFindCb(cb.dataset.country);
+                    if (pcb && pcb.checked) { pcb.checked = false; removeRegionTag(cb.dataset.country); }
+                    addRegionTag(cb.dataset.name);
+                } else {
+                    removeRegionTag(cb.dataset.name);
+                }
+            } else if (cb.dataset.name) {
+                // Länder-Checkbox
+                if (cb.checked) {
+                    addRegionTag(cb.dataset.name);
+                } else {
+                    removeRegionTag(cb.dataset.name);
+                    rgpFindCbsByCountry(cb.dataset.name).forEach(function(sc) {
+                        if (sc.checked) { sc.checked = false; removeRegionTag(sc.dataset.name); }
+                    });
+                }
+            }
+        });
+
+        // Event-Delegation: Expand-Buttons (click)
+        dd.addEventListener('click', function(e) {
+            var btn = e.target.closest('.sk-rgp-expand');
+            if (!btn) return;
+            e.stopPropagation();
+            btn.classList.toggle('is-open');
+            var targetId = btn.getAttribute('data-target');
+            if (targetId) document.getElementById(targetId).classList.toggle('is-open');
+        });
+
+        // Event-Delegation: Branchen-Radios und Keywords
+        var branchSection = document.querySelector('.sk-edit-form');
+        if (branchSection) {
+            branchSection.addEventListener('change', function(e) {
+                if (e.target.name === 'sk-agnostisch') updateBranchPreview();
+            });
+            branchSection.addEventListener('input', function(e) {
+                if (e.target.id === 'sk-branch-input') updateBranchPreview();
+            });
+        }
+        // Readiness-Score beim Laden berechnen
+        updateReadiness();
+    });
+    function toggleSK() {
+        var card = document.querySelector('.suchkriterien-card');
+        var btn = document.getElementById('sk-toggle-btn');
+        card.classList.toggle('is-editing');
+        if (card.classList.contains('is-editing')) {
+            btn.innerHTML = '<i class="fa-solid fa-xmark"></i> Abbrechen';
+        } else {
+            btn.innerHTML = '<i class="fa-solid fa-pen"></i> Bearbeiten';
+        }
+    }
+    function skFormatRange(min, max, unit) {
+        min = (min || '').trim(); max = (max || '').trim();
+        var u = unit ? ' ' + unit : '';
+        if (!min && !max) return '';
+        if (min && max) return min + ' – ' + max + u;
+        if (min) return 'ab ' + min + u;
+        return 'bis ' + max + u;
+    }
+    function updateSKView() {
+        updateSKBranchenView();
+        // Zielregion
+        var tags = document.getElementById('sk-region-tags').querySelectorAll('.sk-region-tag');
+        var elR = document.getElementById('sk-view-region');
+        if (elR) {
+            if (tags.length === 0) {
+                elR.textContent = 'Keine Angabe'; elR.className = 'info-value missing';
+            } else {
+                var names = []; tags.forEach(function(t) { names.push(t.dataset.value); });
+                elR.textContent = names.join(', '); elR.className = 'info-value';
+            }
+        }
+        // Umsatz
+        var uText = skFormatRange(document.getElementById('sk-umsatz-min').value, document.getElementById('sk-umsatz-max').value, 'Mio. €');
+        var elU = document.getElementById('sk-view-umsatz');
+        if (elU) { elU.textContent = uText || 'Keine Angabe'; elU.className = uText ? 'info-value' : 'info-value missing'; }
+        // EBIT
+        var eText = skFormatRange(document.getElementById('sk-ebit-min').value, document.getElementById('sk-ebit-max').value, 'Mio. €');
+        var elE = document.getElementById('sk-view-ebit');
+        if (elE) { elE.textContent = eText || 'Keine Angabe'; elE.className = eText ? 'info-value' : 'info-value missing'; }
+        // Mitarbeiter
+        var mText = skFormatRange(document.getElementById('sk-ma-min').value, document.getElementById('sk-ma-max').value);
+        var elM = document.getElementById('sk-view-mitarbeiter');
+        if (elM) { elM.textContent = mText || 'Keine Angabe'; elM.className = mText ? 'info-value' : 'info-value missing'; }
+    }
+    function saveSK() {
+        updateSKView();
+        var card = document.querySelector('.suchkriterien-card');
+        var btn = document.getElementById('sk-toggle-btn');
+        card.classList.remove('is-editing');
+        btn.innerHTML = '<i class="fa-solid fa-pen"></i> Bearbeiten';
+        updateReadiness();
+    }
+    function updateSDSuchkriterien() {
+        var parts = [];
+        // Branchen – direkt aus Formular-Inputs
+        var agn = document.getElementById('sk-agn-ja') && document.getElementById('sk-agn-ja').checked;
+        var keywords = ((document.getElementById('sk-branch-input') || {}).value || '').trim();
+        if (agn && keywords) {
+            parts.push('Branche: branchenoffen, Vorliebe ' + keywords);
+        } else if (agn) {
+            parts.push('Branche: branchenoffen');
+        } else if (keywords) {
+            parts.push('Branche: ' + keywords);
+        }
+        // Region – Tags direkt auslesen
+        var tags = document.getElementById('sk-region-tags').querySelectorAll('.sk-region-tag');
+        if (tags.length > 0) {
+            var names = []; tags.forEach(function(t) { names.push(t.dataset.value); });
+            parts.push('Region: ' + names.join(', '));
+        }
+        // Umsatz – direkt aus Inputs
+        var uText = skFormatRange((document.getElementById('sk-umsatz-min') || {}).value, (document.getElementById('sk-umsatz-max') || {}).value, 'Mio. €');
+        if (uText) parts.push('Umsatz: ' + uText);
+        // EBIT
+        var eText = skFormatRange((document.getElementById('sk-ebit-min') || {}).value, (document.getElementById('sk-ebit-max') || {}).value, 'Mio. €');
+        if (eText) parts.push('EBIT: ' + eText);
+        // Mitarbeiter
+        var mText = skFormatRange((document.getElementById('sk-ma-min') || {}).value, (document.getElementById('sk-ma-max') || {}).value);
+        if (mText) parts.push('Mitarbeiter: ' + mText);
+        var el = document.getElementById('sd-criteria-text');
+        if (el) el.textContent = parts.length ? parts.join(' · ') : 'Keine Angaben hinterlegt';
+    }
+    // Stichworte in eine kommagetrennte Liste parsen
+    function parseKeywords(text) {
+        return text.split(/[,;\n]+/).map(function(s) { return s.trim(); }).filter(function(s) { return s.length > 0; });
+    }
+
+    // KI-Textgenerierung: Stichworte → professionelle Sätze
+    function generateSD() {
+        var q1 = (document.getElementById('sd-q1') || {}).value || '';
+        var q2 = (document.getElementById('sd-q2') || {}).value || '';
+        var q3 = (document.getElementById('sd-q3') || {}).value || '';
+        var q5 = (document.getElementById('sd-q5') || {}).value || '';
+        var q6 = (document.getElementById('sd-q6') || {}).value || '';
+
+        // === "Über mich" – Q1 Stichworte in Fließtext ===
+        var kw1 = parseKeywords(q1);
+        if (kw1.length > 0) {
+            var aboutText = 'Ich bringe einen Hintergrund in ' + kw1[0] + ' mit';
+            if (kw1.length >= 2) aboutText += ' und verfüge über ' + kw1[1] + ' Erfahrung';
+            aboutText += '.';
+            if (kw1.length >= 3) {
+                aboutText += ' Zuletzt war ich als ' + kw1[2] + ' tätig';
+                if (kw1.length >= 4) aboutText += ' – unter anderem bei ' + kw1.slice(3).join(', ');
+                aboutText += '.';
+            }
+            document.getElementById('sd-out-about').textContent = aboutText;
+        }
+
+        // === "Kaufmotivation" – Q2 Stichworte in Fließtext ===
+        var kw2 = parseKeywords(q2);
+        if (kw2.length > 0) {
+            var motText = 'Mein Ziel ist es, ' + kw2[0] + '.';
+            if (kw2.length >= 2) motText += ' Dabei ist mir wichtig, ' + kw2[1] + '.';
+            if (kw2.length >= 3) motText += ' Ich setze auf ' + kw2.slice(2).join(' und ') + '.';
+            document.getElementById('sd-out-motivation').textContent = motText;
+        }
+
+        // === "Was ich suche" – aus Suchkriterien (automatisch) ===
+        var searchParts = [];
+        var agn = document.getElementById('sk-agn-ja') && document.getElementById('sk-agn-ja').checked;
+        var brKeywords = ((document.getElementById('sk-branch-input') || {}).value || '').trim();
+        if (agn && brKeywords) {
+            searchParts.push('Ich bin grundsätzlich branchenoffen, habe aber eine besondere Affinität für ' + brKeywords);
+        } else if (agn) {
+            searchParts.push('Ich bin branchenoffen und für Angebote aus verschiedenen Branchen empfänglich');
+        } else if (brKeywords) {
+            searchParts.push('Ich suche gezielt in den Bereichen ' + brKeywords);
+        }
+        var tags = document.getElementById('sk-region-tags').querySelectorAll('.sk-region-tag');
+        if (tags.length > 0) {
+            var names = []; tags.forEach(function(t) { names.push(t.dataset.value); });
+            if (names.length === 1) {
+                searchParts.push('Meine Zielregion ist ' + names[0]);
+            } else {
+                var last = names.pop();
+                searchParts.push('Vorzugsweise in ' + names.join(', ') + ' oder ' + last);
+            }
+        }
+        var uText = skFormatRange((document.getElementById('sk-umsatz-min') || {}).value, (document.getElementById('sk-umsatz-max') || {}).value, 'Mio. €');
+        if (uText) searchParts.push('Der Umsatz des Zielunternehmens sollte bei ' + uText + ' liegen');
+        var eText = skFormatRange((document.getElementById('sk-ebit-min') || {}).value, (document.getElementById('sk-ebit-max') || {}).value, 'Mio. €');
+        if (eText) searchParts.push('mit einem EBIT von ' + eText);
+        var mText = skFormatRange((document.getElementById('sk-ma-min') || {}).value, (document.getElementById('sk-ma-max') || {}).value);
+        if (mText) searchParts.push('und einer Teamgröße von ' + mText + ' Mitarbeitern');
+        if (searchParts.length > 0) {
+            document.getElementById('sd-out-search').textContent = searchParts.join('. ').replace(/\.\s*\./g, '.') + '.';
+        }
+
+        // === "Was ich mitbringe" – Q3 (Kompetenzen) + Q6 (Verlässlichkeit) ===
+        var kw3 = parseKeywords(q3);
+        var kw6 = parseKeywords(q6);
+        var strParts = [];
+        if (kw3.length > 0) {
+            strParts.push('Ich bringe fundierte Erfahrung in ' + kw3.join(', ') + ' mit.');
+        }
+        if (kw6.length > 0) {
+            strParts.push('Als Käufer stehe ich für ' + kw6.join(', ') + '.');
+        }
+        if (strParts.length > 0) {
+            document.getElementById('sd-out-strengths').textContent = strParts.join(' ');
+        }
+
+        // === "Mein Vorhaben" – Q5 Stichworte in Fließtext ===
+        var kw5 = parseKeywords(q5);
+        if (kw5.length > 0) {
+            var planText = 'Nach der Übernahme plane ich, das Unternehmen zunächst zu ' + kw5[0] + '.';
+            if (kw5.length >= 2) planText += ' Im weiteren Verlauf möchte ich ' + kw5[1] + '.';
+            if (kw5.length >= 3) planText += ' Dabei gilt: ' + kw5.slice(2).join(', ') + '.';
+            document.getElementById('sd-out-plan').textContent = planText;
+        }
+
+        // Criteria-Zeile aktualisieren
+        updateSDSuchkriterien();
+
+        // Kurzes visuelles Feedback
+        var sections = document.querySelectorAll('.sd-editable');
+        sections.forEach(function(el) {
+            el.style.background = '#F0FDF4';
+            el.style.transition = 'background 0.6s';
+            setTimeout(function() { el.style.background = ''; }, 1200);
+        });
+    }
+
+    // LinkedIn-Import: URL aus Stammdaten lesen + Profildaten laden
+    function importLinkedIn() {
+        var banner = document.getElementById('sd-linkedin-banner');
+        var btn = document.getElementById('sd-linkedin-btn');
+        var title = document.getElementById('sd-linkedin-title');
+        var desc = document.getElementById('sd-linkedin-desc');
+        var icon = document.getElementById('sd-linkedin-icon');
+        var status = document.getElementById('sd-linkedin-status');
+
+        // URL aus Stammdaten-Feld lesen
+        var stammEl = document.getElementById('stamm-linkedin');
+        var linkEl = stammEl ? stammEl.querySelector('a') : null;
+        var url = linkEl ? linkEl.textContent.trim() : '';
+
+        // URL validieren
+        if (!url || url.indexOf('linkedin.com/in/') === -1) {
+            status.style.display = 'flex';
+            status.style.color = '#DC2626';
+            status.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Kein LinkedIn-Profil in den Stammdaten hinterlegt. Bitte zuerst oben dein LinkedIn-Profil eintragen.';
+            setTimeout(function() { status.style.display = 'none'; }, 5000);
+            return;
+        }
+
+        // Profilname aus URL extrahieren
+        var slug = url.split('linkedin.com/in/')[1].replace(/\//g, '');
+        var profileName = slug.split('-').map(function(w) {
+            return w.charAt(0).toUpperCase() + w.slice(1);
+        }).join(' ');
+
+        // Phase 1: Loading
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner sd-spinner"></i> Importiere…';
+        banner.classList.add('is-loading');
+        status.style.display = 'flex';
+        status.style.color = '#2563EB';
+        status.innerHTML = '<i class="fa-solid fa-spinner sd-spinner" style="font-size:11px;"></i> Profil von <strong>' + profileName + '</strong> wird analysiert…';
+
+        setTimeout(function() {
+            // Phase 2: Profildaten "extrahiert" – Felder befüllen
+            status.innerHTML = '<i class="fa-solid fa-spinner sd-spinner" style="font-size:11px;"></i> Erfahrungen und Skills werden extrahiert…';
+
+            var fields = {
+                'sd-q1': 'Co-Founder & Managing Partner, DealCircle / AMBER, vorher Lead Portfolio Manager bei OMR, OMR X Prokurist, Spiegel-Bestsellerautor, Podcast-Host',
+                'sd-q2': 'Plattform-Know-how aus OMR und DealCircle nutzen, eigenes Unternehmen operativ führen, unternehmerische Verantwortung',
+                'sd-q3': 'Digitale Plattformen, M&A-Markt, Portfolio-Management, Medien & Content, Unternehmensaufbau, Autor',
+                'sd-q5': 'Bestehendes Team halten, digitale Prozesse einführen, Wachstum durch Plattform-Synergien',
+                'sd-q6': 'Unternehmer mit Track Record, Netzwerk in M&A und Digital, eigenkapitalstark, langfristig orientiert'
+            };
+
+            // Felder nacheinander mit Animation füllen
+            var fieldIds = Object.keys(fields);
+            var delay = 0;
+            fieldIds.forEach(function(id) {
+                delay += 200;
+                setTimeout(function() {
+                    var el = document.getElementById(id);
+                    if (el) {
+                        el.value = fields[id];
+                        el.style.background = '#DBEAFE';
+                        el.style.transition = 'background 0.5s';
+                        setTimeout(function() { el.style.background = ''; }, 900);
+                    }
+                }, delay);
+            });
+
+            // Phase 3: Erfolg
+            setTimeout(function() {
+                banner.classList.remove('is-loading');
+                banner.classList.add('is-success');
+                icon.className = 'fa-solid fa-circle-check';
+                icon.style.color = '#10B981';
+                title.textContent = 'Profil von ' + profileName + ' importiert';
+                desc.textContent = '5 Felder wurden aus dem LinkedIn-Profil extrahiert.';
+                status.style.display = 'flex';
+                status.style.color = '#059669';
+                status.innerHTML = '<i class="fa-solid fa-check"></i> Prüfe die Stichworte und klicke dann auf <strong>„Text generieren"</strong>';
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Importiert';
+                btn.style.background = '#10B981';
+
+                // Nach 6s Banner zurücksetzen
+                setTimeout(function() {
+                    banner.classList.remove('is-success');
+                    icon.className = 'fa-brands fa-linkedin';
+                    icon.style.color = '#0A66C2';
+                    title.textContent = 'Aus LinkedIn-Profil übernehmen';
+                    desc.innerHTML = 'Erneut importieren, um Felder mit aktuellen LinkedIn-Daten zu überschreiben: <strong>' + url.replace('https://www.', '').replace('https://', '') + '</strong>';
+                    btn.innerHTML = '<i class="fa-brands fa-linkedin"></i> Erneut importieren';
+                    btn.style.background = '#0A66C2';
+                    btn.disabled = false;
+                    status.style.display = 'none';
+                }, 6000);
+            }, delay + 500);
+        }, 1800);
+    }
+</script>
 </body>
 </html>
