@@ -714,10 +714,26 @@
             element.classList.add('selected');
             selectedRatingValue = value;
 
+            // Neutral oder Positiv → Red Flag deaktivieren (entweder/oder)
+            if (value >= 1) {
+                const rfWrapper = document.querySelector('.red-flag-checkbox-wrapper');
+                if (rfWrapper.classList.contains('checked')) {
+                    rfWrapper.classList.remove('checked');
+                    rfWrapper.querySelector('.red-flag-checkbox-box').innerHTML = '';
+                    const categories = document.getElementById('redFlagCategories');
+                    categories.classList.remove('visible');
+                    document.querySelectorAll('.red-flag-category-item').forEach(item => {
+                        item.classList.remove('selected');
+                        item.querySelector('.red-flag-category-checkbox').innerHTML = '';
+                    });
+                    const textarea = document.getElementById('redFlagTextarea');
+                    textarea.classList.remove('visible');
+                    textarea.value = '';
+                }
+            }
+
             // Update submit button state
-            const submitBtn = document.getElementById('submitBtn');
-            const redFlagChecked = document.querySelector('.red-flag-checkbox-wrapper').classList.contains('checked');
-            submitBtn.disabled = selectedRatingValue === null && !redFlagChecked;
+            document.getElementById('submitBtn').disabled = false;
         }
 
         // Badge Selection Logic
@@ -743,6 +759,12 @@
             if (element.classList.contains('checked')) {
                 checkbox.innerHTML = '<i class="fa-solid fa-check"></i>';
                 categories.classList.add('visible');
+
+                // Red Flag → automatisch "Überwiegend negativ" setzen (entweder/oder)
+                const ratingOptions = document.querySelectorAll('.rating-option');
+                ratingOptions.forEach(opt => opt.classList.remove('selected'));
+                ratingOptions[0].classList.add('selected'); // "Überwiegend negativ"
+                selectedRatingValue = 0;
             } else {
                 checkbox.innerHTML = '';
                 categories.classList.remove('visible');
@@ -757,8 +779,7 @@
             }
 
             // Update submit button state
-            const redFlagChecked = element.classList.contains('checked');
-            submitBtn.disabled = selectedRatingValue === null && !redFlagChecked;
+            submitBtn.disabled = selectedRatingValue === null;
         }
 
         // Red Flag Category Selection Logic
