@@ -127,11 +127,34 @@
         .warn-box p, .warn-box ul li { font-size: 14px; font-weight: 300; line-height: 170%; color: var(--black); }
 
         /* ===== CHECKLIST BOX ===== */
-        .checklist-box { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
-        .checklist-box .checklist-title { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .checklist-box {
+            background: var(--white); border: 1px solid #E5E7EB;
+            border-radius: 8px; padding: 24px; margin: 16px 0;
+        }
+        .checklist-box .checklist-header {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+        }
+        .checklist-box .checklist-icon {
+            width: 36px; height: 36px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; font-size: 16px;
+        }
+        .checklist-box .checklist-icon.green {
+            background: #D1FAE5; color: #059669;
+        }
+        .checklist-box .checklist-label {
+            font-size: 16px; font-weight: 700; color: var(--black);
+        }
         .checklist-box ul { list-style: none; margin: 0; padding: 0; }
-        .checklist-box ul li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; font-weight: 400; line-height: 170%; color: var(--black); padding: 6px 0; }
-        .checklist-box ul li i { color: #10B981; margin-top: 4px; flex-shrink: 0; }
+        .checklist-box ul li {
+            display: flex; align-items: flex-start; gap: 10px; padding: 8px 0;
+            font-size: 14px; font-weight: 300; line-height: 160%; color: var(--black);
+            border-bottom: 1px solid #F5F5F5;
+        }
+        .checklist-box ul li:last-child { border-bottom: none; }
+        .checklist-box ul li .check-icon {
+            width: 20px; height: 20px; border: 2px solid var(--grey-light);
+            border-radius: 4px; flex-shrink: 0; margin-top: 2px;
+        }
 
         /* ===== KEY TAKEAWAYS ===== */
         .takeaways-box { background: linear-gradient(135deg, #FEF3C7 0%, #FFF7ED 50%, #F5F3FF 100%); border: 1px solid #FDE68A; border-radius: 8px; padding: 28px 32px; margin: 40px 0 32px; }
@@ -428,15 +451,39 @@
                 </ul>
 
                 <div class="checklist-box">
-                    <div class="checklist-title"><i class="fa-solid fa-clipboard-check"></i> 30-Tage-Checkliste</div>
+                    <div class="checklist-header">
+                        <div class="checklist-icon green"><i class="fa-solid fa-list-check"></i></div>
+                        <div class="checklist-label">30-Tage-Checkliste</div>
+                    </div>
                     <ul>
-                        <li><i class="fa-solid fa-check-circle"></i> Einzelgespräche mit allen Schlüsselmitarbeitern geführt</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Top-10-Kunden persönlich kontaktiert</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Alle Bankzugänge und Vollmachten übertragen</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Buchhaltung/Steuerberater kennengelernt</li>
-                        <li><i class="fa-solid fa-check-circle"></i> IT-Systeme und Passwörter übernommen</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Versicherungen geprüft und umgeschrieben</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Lieferantenverträge gesichtet</li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Einzelgespräche mit allen Schlüsselmitarbeitern geführt</strong></span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Top-10-Kunden persönlich kontaktiert</strong></span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Alle Bankzugänge und Vollmachten übertragen</strong></span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Buchhaltung/Steuerberater kennengelernt</strong></span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>IT-Systeme und Passwörter übernommen</strong></span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Versicherungen geprüft und umgeschrieben</strong></span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Lieferantenverträge gesichtet</strong></span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -453,7 +500,10 @@
                     <li><strong>Überfällige Investitionen nachholen:</strong> Neue Software, bessere Werkzeuge, Arbeitsplatz-Upgrades</li>
                     <li><strong>Arbeitsumfeld verbessern:</strong> Manchmal reichen Kleinigkeiten – neue Kaffeemaschine, bessere Beleuchtung, aufgeräumtes Lager</li>
                 </ul>
-                <p><strong>Wichtig:</strong> Quick Wins gemeinsam mit Mitarbeitern erarbeiten – nicht top-down diktieren. Frag das Team: "Was würdet ihr als Erstes ändern?"</p>
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp: Quick Wins gemeinsam erarbeiten</div>
+                    <p>Quick Wins nicht top-down diktieren, sondern gemeinsam mit Mitarbeitern erarbeiten. Frag das Team: "Was würdet ihr als Erstes ändern?"</p>
+                </div>
 
                 <h3>Strategische Themen angehen</h3>
                 <ul>
@@ -483,7 +533,7 @@
                 <ul>
                     <li><strong>Angestellter → Unternehmer:</strong> Alles hängt an dir. Es gibt keinen Chef mehr über dir, aber dafür die volle Verantwortung – für Mitarbeiter, Kunden, Finanzen, Strategie</li>
                     <li><strong>Kein Sicherheitsnetz:</strong> Kein festes Gehalt am Monatsende, keine HR-Abteilung, die Probleme löst. Du bist CEO, CFO und HR in einer Person</li>
-                    <li><strong>Work-Life-Balance aktiv steuern:</strong> Gerade am Anfang wirst du viel arbeiten. Plane bewusst Auszeiten ein – Burnout ist der größte Feind junger Unternehmer</li>
+                    <li><strong>Belastung realistisch einschätzen:</strong> In den ersten 1–2 Jahren wirst du deutlich mehr arbeiten als je zuvor. Urlaub wird kaum möglich sein, Wochenenden oft durchgearbeitet – und das ändert sich nur langsam. Du musst das wollen. Sei diszipliniert bei Schlaf, Sport und Ernährung – das ist kein Nice-to-have, sondern dein Schutz vor Burnout</li>
                 </ul>
 
                 <h3>Langfristige Vision entwickeln</h3>
