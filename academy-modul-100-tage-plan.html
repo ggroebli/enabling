@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMBER – Academy: Akquisitionsfinanzierung</title>
+    <title>AMBER – Academy: 100-Tage-Plan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -17,8 +17,8 @@
             --grey-light: #CCCCCC;
             --white: #FFFFFF;
             --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
-            --phase-blue: #0D9488;
-            --phase-blue-bg: #CCFBF1;
+            --phase-blue: #D97706;
+            --phase-blue-bg: #FEF3C7;
         }
 
         body {
@@ -110,7 +110,7 @@
         .section ol li strong { font-weight: 600; }
 
         /* ===== HIGHLIGHT BOX ===== */
-        .highlight-box { background: linear-gradient(135deg, #CCFBF1 0%, #DBEAFE 50%, #D1FAE5 100%); border: 1px solid #99F6E4; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+        .highlight-box { background: linear-gradient(135deg, #FEF3C7 0%, #FFF7ED 50%, #FEF3C7 100%); border: 1px solid #FDE68A; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
         .highlight-box .highlight-title { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
         .highlight-box p, .highlight-box ul li { font-size: 14px; line-height: 170%; }
 
@@ -126,8 +126,15 @@
         .warn-box .warn-title { font-size: 14px; font-weight: 700; color: #D97706; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
         .warn-box p, .warn-box ul li { font-size: 14px; font-weight: 300; line-height: 170%; color: var(--black); }
 
+        /* ===== CHECKLIST BOX ===== */
+        .checklist-box { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+        .checklist-box .checklist-title { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .checklist-box ul { list-style: none; margin: 0; padding: 0; }
+        .checklist-box ul li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; font-weight: 400; line-height: 170%; color: var(--black); padding: 6px 0; }
+        .checklist-box ul li i { color: #10B981; margin-top: 4px; flex-shrink: 0; }
+
         /* ===== KEY TAKEAWAYS ===== */
-        .takeaways-box { background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%); border: 1px solid #99F6E4; border-radius: 8px; padding: 28px 32px; margin: 40px 0 32px; }
+        .takeaways-box { background: linear-gradient(135deg, #FEF3C7 0%, #FFF7ED 50%, #F5F3FF 100%); border: 1px solid #FDE68A; border-radius: 8px; padding: 28px 32px; margin: 40px 0 32px; }
         .takeaways-title { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 16px; }
         .takeaways-title i { color: #F59E0B; }
         .takeaways-box ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 16px auto 1fr; column-gap: 10px; }
@@ -151,9 +158,9 @@
         .reference-content.open { display: block; }
 
         /* ===== QUIZ SECTION ===== */
-        .quiz-section { margin: 40px 0 32px; padding: 32px; background: var(--white); border: 2px solid #99F6E4; border-radius: 12px; }
+        .quiz-section { margin: 40px 0 32px; padding: 32px; background: var(--white); border: 2px solid #FDE68A; border-radius: 12px; }
         .quiz-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-        .quiz-icon { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #CCFBF1 0%, #DBEAFE 100%); display: flex; align-items: center; justify-content: center; }
+        .quiz-icon { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #FEF3C7 0%, #FFF7ED 100%); display: flex; align-items: center; justify-content: center; }
         .quiz-icon i { font-size: 20px; color: var(--phase-blue); }
         .quiz-title { font-size: 20px; font-weight: 700; color: var(--black); }
         .quiz-subtitle { font-size: 14px; font-weight: 300; color: var(--grey-dark); line-height: 160%; margin-bottom: 28px; }
@@ -206,10 +213,17 @@
         .requirement-item .req-icon.pending { background: #F3F4F6; border: 2px solid #D1D5DB; }
         .btn-complete.locked { background: #F3F4F6; color: #9CA3AF; cursor: not-allowed; }
 
+        /* ===== CONGRATS BANNER ===== */
+        .congrats-banner { display: none; margin-top: 20px; padding: 24px 28px; background: linear-gradient(135deg, #D1FAE5 0%, #FEF3C7 50%, #DBEAFE 100%); border: 2px solid #10B981; border-radius: 12px; text-align: center; }
+        .congrats-banner.show { display: block; }
+        .congrats-banner .congrats-emoji { font-size: 32px; margin-bottom: 8px; }
+        .congrats-banner .congrats-title { font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+        .congrats-banner .congrats-text { font-size: 15px; font-weight: 400; line-height: 170%; color: var(--black); }
+
         /* ===== SIDEBAR ===== */
         .sidebar-card { background: var(--white); border: 1px solid #E5E7EB; border-radius: 8px; padding: 20px; }
         .sidebar-card-title { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .progress-card { background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%); border: 1px solid #99F6E4; text-align: center; padding: 24px 20px; }
+        .progress-card { background: linear-gradient(135deg, #FEF3C7 0%, #FFF7ED 50%, #F5F3FF 100%); border: 1px solid #FDE68A; text-align: center; padding: 24px 20px; }
         .progress-card .progress-label { font-size: 13px; font-weight: 400; color: var(--grey-dark); margin-top: 8px; }
         .progress-card .progress-value { font-size: 20px; font-weight: 700; color: var(--black); }
         .phase-module-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 6px; font-size: 14px; font-weight: 400; color: var(--black); text-decoration: none; transition: background 0.15s; }
@@ -232,6 +246,13 @@
         .sidebar-status-item .status-dot { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 10px; }
         .sidebar-status-item .status-dot.done { background: #D1FAE5; color: #10B981; }
         .sidebar-status-item .status-dot.pending { background: #F3F4F6; border: 2px solid #D1D5DB; }
+
+        /* ===== DOWNLOAD CARD ===== */
+        .download-card { background: #F9FAFB; border: 1px solid #E5E7EB; }
+        .download-card .download-title { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+        .download-card .download-desc { font-size: 13px; font-weight: 300; color: var(--grey-dark); margin-bottom: 12px; line-height: 150%; }
+        .download-card a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--phase-blue); color: var(--white); border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; }
+        .download-card a:hover { opacity: 0.85; }
 
         /* ===== FOOTER ===== */
         .footer { background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px; margin-top: 0; }
@@ -287,28 +308,28 @@
             <div class="breadcrumb">
                 <a href="academy.html">Academy</a>
                 <span class="separator">/</span>
-                <span>Phase 3: Prüfung &amp; Finanzierung</span>
+                <span>Phase 5: Nach dem Deal</span>
                 <span class="separator">/</span>
-                <span class="current">Akquisitionsfinanzierung</span>
+                <span class="current">100-Tage-Plan</span>
             </div>
 
             <!-- Module Header -->
             <div class="module-header">
                 <a href="academy.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Zurück zur Academy</a>
                 <div>
-                    <span class="phase-badge"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Phase 3: Prüfung &amp; Finanzierung</span>
+                    <span class="phase-badge"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Phase 5: Nach dem Deal</span>
                 </div>
-                <h1 class="module-title-main">Akquisitionsfinanzierung (Fremdkapital)</h1>
+                <h1 class="module-title-main">100-Tage-Plan</h1>
                 <div class="module-meta-row">
                     <span><i class="fa-regular fa-clock"></i> 15 Min.</span>
                     <div class="meta-divider"></div>
                     <span style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-play-circle" style="color: var(--phase-blue);"></i> 10 Min. Video</span>
                     <div class="meta-divider"></div>
-                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; background: #FEF3C7; color: #D97706; border-radius: 12px; font-size: 12px; font-weight: 600;"><i class="fa-solid fa-star" style="font-size: 10px;"></i> +15 Punkte</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; background: #D1FAE5; color: #059669; border-radius: 12px; font-size: 12px; font-weight: 600;">+10 Punkte</span>
                     <div class="meta-divider"></div>
-                    <span>Modul 7 von 9</span>
+                    <span>Modul 9 von 9</span>
                 </div>
-                <p class="module-intro">Du hast ein Unternehmen bewertet und die Due Diligence läuft – jetzt stellt sich die Frage: Wie finanzierst du den Kauf? Lerne, wie Eigenkapital, Bankkredit, Fördermittel und Verkäuferdarlehen zusammenspielen.</p>
+                <p class="module-intro">Der Kaufvertrag ist unterschrieben – und jetzt? Die ersten 100 Tage als neuer Eigentümer entscheiden über den Erfolg deiner Übernahme. Lerne, wie du Mitarbeiter, Kunden und Prozesse sicherst und den Grundstein für deine Zukunft als Unternehmer legst.</p>
             </div>
 
             <!-- ===== VIDEO SECTION ===== -->
@@ -347,220 +368,141 @@
                 </div>
                 <div class="reference-content" id="reference-content">
 
-            <!-- ===== SECTION 1: Wie viel Eigenkapital brauchst du? ===== -->
+            <!-- ===== SECTION 1: Tag 1 – Dein erster Tag als neuer Eigentümer ===== -->
             <div class="section">
-                <h2><span class="section-number">1</span> Wie viel Eigenkapital brauchst du?</h2>
-                <p>Die wichtigste Frage bei der Akquisitionsfinanzierung: <strong>Wie viel Eigenkapital muss ich selbst mitbringen?</strong> Das Eigenkapital ist der Anteil des Kaufpreises, den du nicht über Kredite finanzierst – dein „Skin in the Game".</p>
+                <h2><span class="section-number">1</span> Tag 1 – Dein erster Tag als neuer Eigentümer</h2>
+                <p>Der erste Tag gehört den Menschen. Bevor du auch nur einen Blick in die Zahlen wirfst oder Prozesse hinterfragst: <strong>Kommunikation ist alles.</strong> Dein erster Eindruck bei den Mitarbeitern prägt die gesamte Übergangsphase.</p>
 
-                <h3>Die typische Eigenkapitalquote</h3>
-                <p>Bei einer Bankenfinanzierung für Unternehmenskäufe liegt die <strong>typische Eigenkapitalquote bei 15–40%</strong> des Kaufpreises. Das heißt: Die Bank finanziert 60–85% über einen Kredit, den Rest bringst du als Eigenkapital ein.</p>
-
-                <div class="highlight-box">
-                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Rechenbeispiel</div>
-                    <p><strong>Kaufpreis: 1.000.000 €</strong><br><br>Eigenkapitalquote 15%: <strong>150.000 € Eigenkapital</strong> + 850.000 € Bankkredit<br>Eigenkapitalquote 25%: <strong>250.000 € Eigenkapital</strong> + 750.000 € Bankkredit<br><br>Dein verfügbares Eigenkapital bestimmt also direkt die maximale Kaufpreisobergrenze.</p>
-                </div>
-
-                <h3>Was zählt als Eigenkapital?</h3>
-                <p>Nicht alles, was du einbringst, muss aus deinem Bankkonto kommen. Banken akzeptieren verschiedene Quellen als Eigenkapitalersatz – mit einer wichtigen Einschränkung:</p>
+                <h3>Was du am ersten Tag tun solltest</h3>
                 <ul>
-                    <li><strong>„Echtes" Eigenkapital (Bargeld)</strong> – Deine Ersparnisse, liquide Vermögenswerte. Davon solltest du mindestens ca. 10% des Kaufpreises selbst aufbringen.</li>
-                    <li><strong>Verkäuferdarlehen</strong> – Der Verkäufer lässt einen Teil des Kaufpreises als Darlehen stehen. Banken werten dies in der Regel als Quasi-Eigenkapital.</li>
-                    <li><strong>Earn-Out</strong> – Ein Teil des Kaufpreises wird erfolgsabhängig nachgezahlt. Auch dies wird von Banken als Teil des Eigenkapitals gewertet.</li>
+                    <li><strong>Mitarbeiterversammlung einberufen:</strong> Stell dich persönlich vor, teile deine Vision, nimm Ängste. Sei transparent darüber, was sich ändern wird – und was nicht</li>
+                    <li><strong>Schlüsselpersonen identifizieren:</strong> Wer hält den Laden zusammen? Wer hat die Kundenbeziehungen? Wer kennt die Prozesse in- und auswendig?</li>
+                    <li><strong>Präsenz zeigen:</strong> Sei da, geh durch den Betrieb, hör zu, stell Fragen. Zeig echtes Interesse an den Menschen und ihrer Arbeit</li>
+                    <li><strong>Kein operativer Eingriff am ersten Tag!</strong> Du bist zum Zuhören da, nicht zum Umkrempeln</li>
                 </ul>
 
-                <div class="highlight-box">
-                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> Wichtig: Verkäuferdarlehen und Earn-Out</div>
-                    <p>Verkäuferdarlehen werden von Banken in der Regel als Teil des erbrachten Eigenkapitals gewertet, <strong>sofern der Käufer selbst ca. 10% als echtes Eigenkapital mitbringt</strong> oder bereit ist, entsprechende Sicherheiten abzugeben. Ein Earn-Out verschiebt einen Teil des Kaufpreises in die Zukunft und knüpft ihn an die zukünftige Entwicklung des Unternehmens.</p>
-                    <p>Er wird in der Regel <strong>nicht als Eigenkapital gewertet</strong>, reduziert aber den Kaufpreis zum Closing und entlastet den Cashflow in den ersten Jahren.</p>
-                    <p>Banken bewerten Earn-Outs besonders positiv, wenn sie nachrangig, erfolgsabhängig und ohne feste Mindestzahlungen strukturiert sind.</p>
-                </div>
-
-                <div class="tipp-box">
-                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Cross-Referenz</div>
-                    <p>Mehr zu Transaktionsstrukturen mit Verkäuferdarlehen und Earn-Out → <a href="academy-modul-transaktionsstrukturen.html">Modul 2: Transaktionsablauf und Deal-Strukturen verstehen</a></p>
-                </div>
-            </div>
-
-            <!-- ===== SECTION 2: Die Finanzierungsbausteine ===== -->
-            <div class="section">
-                <h2><span class="section-number">2</span> Die Finanzierungsbausteine</h2>
-                <p>Eine Akquisitionsfinanzierung besteht in der Regel aus mehreren Bausteinen, die zusammen den Kaufpreis plus Transaktionskosten abdecken.</p>
-
-                <h3>Bankkredit (Senior Debt)</h3>
-                <p>Der Bankkredit ist der größte Finanzierungsbaustein – typischerweise 60–85% des Kaufpreises.</p>
+                <h3>Was du NICHT tun solltest</h3>
                 <ul>
-                    <li><strong>Laufzeit:</strong> 5–7 Jahre, mit regelmäßiger Tilgung</li>
-                    <li><strong>Sicherheiten:</strong> Die Bank besichert den Kredit in der Regel über die Vermögenswerte des gekauften Unternehmens (Maschinen, Forderungen, ggf. Immobilien) sowie persönliche Bürgschaften des Käufers</li>
-                    <li><strong>Tilgungsfähigkeit:</strong> Die Bank prüft, ob das Unternehmen den Kredit aus dem laufenden Cashflow bedienen kann – der sogenannte Debt Service Coverage Ratio (DSCR) muss über 1,0 liegen, idealerweise bei mind. 1,2–1,5</li>
-                    <li><strong>Welche Banken?</strong> Nicht jede Bank macht Akquisitionsfinanzierungen. Sparkassen und Volksbanken finanzieren häufig kleinere Deals, größere Häuser und spezialisierte Banken ab ca. 2 Mio. € Kaufpreis</li>
-                </ul>
-
-                <h3>Mezzanine-Kapital</h3>
-                <p>Mezzanine-Kapital ist eine Mischform zwischen Eigen- und Fremdkapital. Es wird häufig über eine Mittelständische Beteiligungsgesellschaft (MBG) des Bundeslandes bereitgestellt – meist in dem Bundesland, in dem das Zielunternehmen sitzt.</p>
-                <ul>
-                    <li><strong>Typischer Anteil:</strong> Häufig 10–30% des Kaufpreises</li>
-                    <li><strong>Struktur:</strong> Oft als (typisch) stille Beteiligung oder eigenkapitalähnliches Instrument</li>
-                    <li><strong>Laufzeit:</strong> Häufig 5–10 Jahre, teils endfällig</li>
-                    <li><strong>Sicherheiten:</strong> Meist keine klassischen dinglichen Sicherheiten; dafür sind die Konditionen in der Regel teurer als Senior Debt</li>
-                    <li><strong>Bankensicht:</strong> Kann – je nach Ausgestaltung – als eigenkapitalähnlicher Baustein wirken (v. a. wegen Nachrangigkeit und langer Kapitalbindung) und damit die Finanzierung insgesamt „bankfähiger" machen</li>
-                </ul>
-                <p><strong>Wichtig:</strong> Mezzanine ist nicht immer der richtige Baustein – insbesondere, weil es zusätzliche Kosten und Strukturkomplexität mitbringen kann. Sinnvoll kann es z. B. sein, wenn Eigenkapital für eine solide Struktur nicht ausreicht, oder wenn die Bank aufgrund der Eigenkapitalquote / Risikostruktur zurückhaltend ist und eine Finanzierungslücke geschlossen werden muss.</p>
-
-                <h3>Verkäuferdarlehen (Vendor Loan)</h3>
-                <p>Der Verkäufer belässt einen Teil des Kaufpreises als Darlehen im Unternehmen – typischerweise 10–30% des Kaufpreises.</p>
-                <ul>
-                    <li><strong>Vorteil für den Käufer:</strong> Reduziert den benötigten Bankkredit und das Eigenkapital</li>
-                    <li><strong>Vorteil für den Verkäufer:</strong> Kann den Gesamtkaufpreis erhöhen und zeigt Vertrauen in das Unternehmen</li>
-                    <li><strong>Vorteil für den Finanzierungspartner (Bank):</strong> Signalisiert Banken, dass der Verkäufer weiterhin unternehmerisches Risiko trägt und selbst von der zukünftigen Stabilität und Ertragskraft des Unternehmens überzeugt ist.</li>
-                    <li><strong>Typische Konditionen:</strong> Nachrangig zum Bankkredit, Laufzeit 2–5 Jahre, strukturiert als endfälliges Darlehen</li>
-                    <li><strong>Bankensicht:</strong> Wird als wirtschaftliches Eigenkapital gewertet, da nachrangig zum Bankkredit</li>
-                </ul>
-
-                <h3>Earn-Out</h3>
-                <p>Ein Teil des Kaufpreises wird an die zukünftige Performance des Unternehmens geknüpft – z.B. an Umsatz- oder EBITDA-Ziele.</p>
-                <ul>
-                    <li><strong>Typischer Anteil:</strong> 10–20% des Kaufpreises</li>
-                    <li><strong>Laufzeit:</strong> Meist 1–3 Jahre nach dem Closing</li>
-                    <li><strong>Risikoteilung:</strong> Schützt den Käufer, wenn die Performance nach der Übernahme schlechter ist als erwartet</li>
-                </ul>
-
-                <h3>Fördermittel (KfW, Bürgschaftsbank)</h3>
-                <p>In Deutschland gibt es spezielle Förderprogramme für Unternehmensübernahmen und -nachfolgen – ein häufig unterschätzter Finanzierungsbaustein.</p>
-                <ul>
-                    <li><strong>KfW-Förderkredite:</strong> Die KfW (Kreditanstalt für Wiederaufbau) bietet vergünstigte Kredite für Nachfolgen und Übernahmen – mit niedrigeren Zinsen und längeren Laufzeiten als Bankkredite</li>
-                    <li><strong>Bürgschaftsbank:</strong> Übernimmt einen Teil des Ausfallrisikos gegenüber der finanzierenden Bank – besonders hilfreich, wenn du wenig Sicherheiten hast</li>
-                    <li><strong>ERP-Gründerkredit:</strong> Bis zu 125.000 € haftungsfreigestellt (die Bank trägt kaum Risiko) – ideal für kleinere Übernahmen</li>
+                    <li><strong>Sofort Veränderungen ankündigen</strong> – das verunsichert und schafft Widerstand</li>
+                    <li><strong>Organigramm umbauen</strong> – du kennst die Dynamik im Team noch nicht</li>
+                    <li><strong>Eigene Leute mitbringen (ohne Kontext)</strong> – das signalisiert Misstrauen gegenüber dem bestehenden Team</li>
                 </ul>
 
                 <div class="tipp-box">
-                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp: KfW immer prüfen</div>
-                    <p>KfW-Förderkredite werden über die finanzierende Bank beantragt – <strong>nicht direkt bei der KfW</strong>. Sprich deinen Bankberater oder uns darauf an. Es gibt Banken, die kennen sich besser mit den Förderprogrammen für Übernahmen aus als andere. Wenn dein Bankberater nicht weiterweiß, wechsle die Bank oder binde einen spezialisierten Finanzierungsberater ein.</p>
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp</div>
+                    <p>Der Verkäufer sollte bei der Mitarbeiterversammlung dabei sein und den Übergang positiv begleiten. Das schafft Vertrauen bei den Mitarbeitern und signalisiert: "Ich übergebe an jemanden, dem ich vertraue."</p>
+                </div>
+
+                <h3>Berater vs. Direktverkauf</h3>
+                <ul>
+                    <li><strong>Bei beratergestützten Deals:</strong> Der Übergabezeitraum ist im Kaufvertrag geregelt. Der M&A-Berater unterstützt bei der Kommunikation und sorgt für einen strukturierten Übergang</li>
+                    <li><strong>Bei Direktverkäufen:</strong> Die Übergabe ist oft persönlicher. Der Verkäufer ist häufig länger eingebunden und steht als Ansprechpartner zur Verfügung – manchmal Wochen oder Monate</li>
+                </ul>
+            </div>
+
+            <!-- ===== SECTION 2: Die ersten 30 Tage – Verstehen und Stabilisieren ===== -->
+            <div class="section">
+                <h2><span class="section-number">2</span> Die ersten 30 Tage – Verstehen und Stabilisieren</h2>
+                <p>In den ersten 30 Tagen geht es um eines: <strong>Stabilität.</strong> Keine großen Veränderungen – erst verstehen, dann gestalten. Dein Ziel: Mitarbeiter halten, Kunden sichern, Prozesse kennenlernen.</p>
+
+                <h3>Priorität 1: Menschen sichern</h3>
+                <ul>
+                    <li><strong>Einzelgespräche mit allen Schlüsselmitarbeitern (1:1):</strong> Frag nach ihren Sorgen, Wünschen und Ideen. Zeig, dass du sie wertschätzt</li>
+                    <li><strong>Bleibeanreize für kritische Mitarbeiter:</strong> Retention-Bonus, Entwicklungsperspektive, neue Verantwortung – finde heraus, was sie motiviert</li>
+                    <li><strong>Bestehende Kundenbeziehungen verstehen:</strong> Wer betreut welchen Kunden? Welcher Mitarbeiter ist für welche Kunden der zentrale Ansprechpartner?</li>
+                </ul>
+
+                <h3>Priorität 2: Kunden kontaktieren</h3>
+                <ul>
+                    <li><strong>Top-10-Kunden persönlich anrufen oder besuchen:</strong> Stell dich vor, zeig Kontinuität</li>
+                    <li><strong>Signal senden:</strong> "Es gibt Kontinuität, keine Revolution." Kunden brauchen die Sicherheit, dass Qualität und Ansprechpartner bleiben</li>
+                    <li><strong>Verträge und Kündigungsfristen prüfen:</strong> Welche Kunden könnten kurzfristig abspringen?</li>
+                </ul>
+
+                <h3>Priorität 3: Prozesse verstehen</h3>
+                <ul>
+                    <li><strong>Tagesgeschäft begleiten (nicht verändern!):</strong> Lauf mit, beobachte, lerne</li>
+                    <li><strong>Finanzprozesse verstehen:</strong> Wer macht Buchhaltung, Lohn, Steuern? Welche externen Dienstleister sind eingebunden?</li>
+                    <li><strong>IT-Systeme und Zugänge übernehmen:</strong> E-Mail, Banking, ERP, Website, Social Media</li>
+                    <li><strong>Lieferantenbeziehungen kennenlernen:</strong> Wer sind die wichtigsten Zulieferer? Gibt es Abhängigkeiten?</li>
+                </ul>
+
+                <div class="checklist-box">
+                    <div class="checklist-title"><i class="fa-solid fa-clipboard-check"></i> 30-Tage-Checkliste</div>
+                    <ul>
+                        <li><i class="fa-solid fa-check-circle"></i> Einzelgespräche mit allen Schlüsselmitarbeitern geführt</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Top-10-Kunden persönlich kontaktiert</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Alle Bankzugänge und Vollmachten übertragen</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Buchhaltung/Steuerberater kennengelernt</li>
+                        <li><i class="fa-solid fa-check-circle"></i> IT-Systeme und Passwörter übernommen</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Versicherungen geprüft und umgeschrieben</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Lieferantenverträge gesichtet</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- ===== SECTION 3: Dein Finanzierungsplan ===== -->
+            <!-- ===== SECTION 3: Tag 30-100 – Optimieren und Gestalten ===== -->
             <div class="section">
-                <h2><span class="section-number">3</span> Dein Finanzierungsplan</h2>
-                <p>Jetzt fügen wir die Bausteine zusammen. Ein Finanzierungsplan zeigt, wie du den Kaufpreis plus Transaktionskosten aufbringst – und ob die Finanzierung tragfähig ist.</p>
+                <h2><span class="section-number">3</span> Tag 30–100 – Optimieren und Gestalten</h2>
+                <p>Jetzt kennst du das Unternehmen, die Menschen und die Prozesse. Ab Tag 30 darfst du anfangen zu gestalten – <strong>aber mit Augenmaß.</strong></p>
 
-                <h3>Beispiel: Finanzierungsplan für einen 800.000 €-Deal</h3>
+                <h3>Quick Wins identifizieren</h3>
+                <p>Kleine Verbesserungen, die sofort Wirkung zeigen und das Team motivieren:</p>
+                <ul>
+                    <li><strong>Ineffiziente Prozesse vereinfachen:</strong> Gibt es Abläufe, die alle nervt? Pack sie an</li>
+                    <li><strong>Überfällige Investitionen nachholen:</strong> Neue Software, bessere Werkzeuge, Arbeitsplatz-Upgrades</li>
+                    <li><strong>Arbeitsumfeld verbessern:</strong> Manchmal reichen Kleinigkeiten – neue Kaffeemaschine, bessere Beleuchtung, aufgeräumtes Lager</li>
+                </ul>
+                <p><strong>Wichtig:</strong> Quick Wins gemeinsam mit Mitarbeitern erarbeiten – nicht top-down diktieren. Frag das Team: "Was würdet ihr als Erstes ändern?"</p>
 
-                <div style="margin: 16px 0; border: 1px solid #E5E7EB; border-radius: 8px; overflow: hidden;">
-                    <div style="display: grid; grid-template-columns: 1fr 120px 80px; background: #F9FAFB; padding: 12px 20px; font-size: 13px; font-weight: 600; color: var(--black); border-bottom: 1px solid #E5E7EB;">
-                        <span>Baustein</span>
-                        <span style="text-align: right;">Betrag</span>
-                        <span style="text-align: right;">Anteil</span>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 120px 80px; padding: 10px 20px; font-size: 14px; border-bottom: 1px solid #F0F0F0;">
-                        <span>Eigenkapital (Bargeld)</span>
-                        <span style="text-align: right; font-weight: 600;">100.000 €</span>
-                        <span style="text-align: right;">~12%</span>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 120px 80px; padding: 10px 20px; font-size: 14px; border-bottom: 1px solid #F0F0F0;">
-                        <span>Verkäuferdarlehen</span>
-                        <span style="text-align: right; font-weight: 600;">120.000 €</span>
-                        <span style="text-align: right;">15%</span>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 120px 80px; padding: 10px 20px; font-size: 14px; border-bottom: 1px solid #F0F0F0;">
-                        <span>Bankkredit (inkl. KfW-Anteil)</span>
-                        <span style="text-align: right; font-weight: 600;">530.000 €</span>
-                        <span style="text-align: right;">~66%</span>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 120px 80px; padding: 10px 20px; font-size: 14px; border-bottom: 1px solid #F0F0F0;">
-                        <span>Transaktionskosten (Anwalt, StB, DD)</span>
-                        <span style="text-align: right; font-weight: 600;">50.000 €</span>
-                        <span style="text-align: right;">~6%</span>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 120px 80px; padding: 10px 20px; font-size: 14px; font-weight: 700; background: #F0FDFA;">
-                        <span>Gesamtfinanzierungsbedarf</span>
-                        <span style="text-align: right;">850.000 €</span>
-                        <span style="text-align: right;">100%</span>
-                    </div>
-                </div>
-
-                <p>In diesem Beispiel bringt der Käufer ~12% echtes Eigenkapital mit. Zusammen mit dem Verkäuferdarlehen (15%) liegt die Eigenkapitalquote bei ~27% – komfortabel innerhalb der typischen Anforderung der Bank.</p>
-
-                <h3>Tilgungsfähigkeit prüfen (DSCR)</h3>
-                <p>Die Bank prüft, ob das Unternehmen den Kredit aus dem laufenden Cashflow zurückzahlen kann. Die Kennzahl dafür ist der <strong>Debt Service Coverage Ratio (DSCR)</strong>:</p>
-
-                <div class="highlight-box">
-                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> DSCR – Die Schlüsselkennzahl für die Bank</div>
-                    <p><strong>DSCR = Freier Cashflow ÷ Schuldendienst (Tilgung + Zinsen)</strong><br><br>Beispiel: 120.000 € freier Cashflow ÷ 90.000 € Schuldendienst = <strong>DSCR 1,33</strong><br><br>Die Bank erwartet einen DSCR von mindestens <strong>1,2</strong> – das bedeutet, das Unternehmen erwirtschaftet 20% mehr, als es für die Kreditbedienung braucht. Je höher der DSCR, desto besser deine Verhandlungsposition bei Zinsen und Konditionen.</p>
-                </div>
+                <h3>Strategische Themen angehen</h3>
+                <ul>
+                    <li><strong>Businessplan überprüfen:</strong> Stimmen die Annahmen aus der Due Diligence mit der Realität überein? Wo gibt es Abweichungen?</li>
+                    <li><strong>Erste strategische Entscheidungen treffen:</strong> Wo willst du mit dem Unternehmen in 3–5 Jahren stehen?</li>
+                    <li><strong>Investitionsplan erstellen:</strong> Welche Investitionen sind nötig, um die Wettbewerbsfähigkeit zu sichern oder auszubauen?</li>
+                </ul>
 
                 <div class="warn-box">
-                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Vergiss die Transaktionskosten nicht</div>
-                    <p>Viele Käufer rechnen nur den Kaufpreis – und vergessen die <strong>Transaktionskosten</strong>: Anwalt, Steuerberater, Due Diligence, Notar, ggf. Maklergebühren. Plane mindestens 5–10% des Kaufpreises zusätzlich ein. Bei einem 800.000 €-Deal sind das 40.000–80.000 € extra.</p>
-                    <p>Zusätzlich beachten: Es kann sein, dass zusätzlich eine Betriebsmittellinie oder eine sonstige Liquiditätsfinanzierung erforderlich ist, insbesondere wenn im Rahmen der Transaktion nur wenig Cash übernommen wird oder nach dem Closing ein erhöhter Working-Capital-Bedarf entsteht.</p>
+                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Was oft schiefgeht in den ersten 100 Tagen</div>
+                    <ul>
+                        <li><strong>Zu viele Veränderungen auf einmal</strong> – Mitarbeiter werden unsicher und verlieren Vertrauen</li>
+                        <li><strong>Schlüsselmitarbeiter verlieren,</strong> weil man zu spät auf ihre Bedürfnisse reagiert</li>
+                        <li><strong>Kunden verlieren,</strong> weil man sich nicht rechtzeitig bei ihnen meldet</li>
+                        <li><strong>Eigene Standards auf ein KMU übertragen,</strong> das anders funktioniert als ein Konzern</li>
+                        <li><strong>Unterschätzen, wie viel Zeit das Tagesgeschäft frisst</strong> – strategische Arbeit kommt zu kurz</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- ===== SECTION 4: Fördermittel im Detail ===== -->
-            <div class="section">
-                <h2><span class="section-number">4</span> Fördermittel im Detail</h2>
-                <p>Deutschland hat eines der besten Fördersysteme für Unternehmensnachfolgen in Europa. Nutze es.</p>
-
-                <h3>KfW-Förderprogramme</h3>
-                <ul>
-                    <li><strong>ERP-Gründerkredit – StartGeld:</strong> Bis 125.000 €, 80% Haftungsfreistellung für die Bank, ideal für kleine Übernahmen</li>
-                    <li><strong>ERP-Gründerkredit – Universell:</strong> Bis 25 Mio. €, für größere Übernahmen, vergünstigte Zinsen</li>
-                    <li><strong>ERP-Kapital für Gründung:</strong> Nachrangdarlehen bis 500.000 €, wird von Banken als Eigenkapital gewertet</li>
-                </ul>
-
-                <h3>Bürgschaftsbank</h3>
-                <p>Wenn du wenig Sicherheiten hast (z.B. keine Immobilie), kann die Bürgschaftsbank deines Bundeslandes einspringen:</p>
-                <ul>
-                    <li>Übernimmt bis zu 80% des Ausfallrisikos gegenüber der Bank</li>
-                    <li>Die Bank hat dadurch weniger Risiko und ist eher bereit, den Kredit zu vergeben</li>
-                    <li>Kosten: 1–2% jährliche Provision auf den Bürgschaftsbetrag</li>
-                    <li>Beantragung über deine finanzierende Bank (nicht direkt bei der Bürgschaftsbank)</li>
-                </ul>
-
-                <h3>Weitere Fördermöglichkeiten</h3>
-                <ul>
-                    <li><strong>BAFA-Beratungsförderung:</strong> Zuschüsse für professionelle Beratung bei der Übernahme (bis zu 80% der Beratungskosten)</li>
-                    <li><strong>Landesförderbanken:</strong> Jedes Bundesland hat eigene Programme – prüfe die Förderbank deines Standorts</li>
-                    <li><strong>Mikrokredite:</strong> Für sehr kleine Übernahmen (unter 100.000 €) gibt es spezialisierte Mikrokreditgeber</li>
-                </ul>
-
-                <div class="tipp-box">
-                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp: Förderung vor dem Bankgespräch recherchieren</div>
-                    <p>Informiere dich <strong>vor</strong> dem Bankgespräch über passende Förderprogramme. So kannst du dem Bankberater einen durchdachten Finanzierungsplan vorlegen, der Fördermittel bereits integriert. Das zeigt Professionalität und erhöht deine Chancen auf eine Kreditzusage.</p>
-                </div>
-            </div>
-
-            <!-- ===== SECTION 5: Das Bankgespräch vorbereiten ===== -->
+            <!-- ===== SECTION 4: Vom Eigentümer zum Unternehmer ===== -->
             <div class="section" style="border-bottom: none;">
-                <h2><span class="section-number">5</span> Das Bankgespräch vorbereiten</h2>
-                <p>Das Bankgespräch ist ein Verkaufsgespräch – du verkaufst der Bank dein Übernahmekonzept. Vorbereitung ist alles.</p>
+                <h2><span class="section-number">4</span> Vom Eigentümer zum Unternehmer</h2>
+                <p>Mit dem Kauf bist du Eigentümer geworden. Aber <strong>Eigentümer sein und Unternehmer sein</strong> sind zwei verschiedene Dinge. Der wichtigste Wandel passiert in deinem Kopf.</p>
 
-                <h3>Was die Bank von dir erwartet</h3>
-                <ol>
-                    <li><strong>Businessplan</strong> – Beschreibung des Zielunternehmens, deine Qualifikation, dein Übernahmekonzept, Markt- und Wettbewerbsanalyse</li>
-                    <li><strong>Finanzplan</strong> – GuV, Cashflow und Bilanz für 3–5 Jahre, mit realistischen Annahmen und einem konservativen Szenario</li>
-                    <li><strong>Kapitaldienstfähigkeit</strong> – Nachweis, dass das Unternehmen den Kredit aus dem Cashflow bedienen kann (DSCR > 1,2)</li>
-                    <li><strong>Eigenkapitalnachweis</strong> – Beleg, dass du das nötige Eigenkapital hast (Kontoauszüge, Vermögensaufstellung)</li>
-                    <li><strong>Informationen zum Zielunternehmen</strong> – Jahresabschlüsse der letzten 3 Jahre, ggf. IM oder Teaser</li>
-                </ol>
-
-                <h3>Typische Fragen der Bank</h3>
+                <h3>Rollenwechsel verstehen</h3>
                 <ul>
-                    <li>Warum dieses Unternehmen? Was ist dein Hintergrund?</li>
-                    <li>Wie realistisch sind die Planzahlen? Was passiert im Worst Case?</li>
-                    <li>Welche Sicherheiten können Sie bieten?</li>
-                    <li>Wie sieht Ihr Eigenkapitalanteil aus?</li>
-                    <li>Gibt es ein Verkäuferdarlehen? Bleibt der Alteigentümer in der Übergangsphase?</li>
-                    <li>Wie ist die Kundenstruktur? Gibt es Abhängigkeiten von Einzelkunden?</li>
+                    <li><strong>Angestellter → Unternehmer:</strong> Alles hängt an dir. Es gibt keinen Chef mehr über dir, aber dafür die volle Verantwortung – für Mitarbeiter, Kunden, Finanzen, Strategie</li>
+                    <li><strong>Kein Sicherheitsnetz:</strong> Kein festes Gehalt am Monatsende, keine HR-Abteilung, die Probleme löst. Du bist CEO, CFO und HR in einer Person</li>
+                    <li><strong>Work-Life-Balance aktiv steuern:</strong> Gerade am Anfang wirst du viel arbeiten. Plane bewusst Auszeiten ein – Burnout ist der größte Feind junger Unternehmer</li>
                 </ul>
 
-                <div class="warn-box">
-                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Nicht nur eine Bank ansprechen</div>
-                    <p>Sprich mindestens <strong>2–3 Banken</strong> an. Nicht jede Bank macht Akquisitionsfinanzierungen, und die Konditionen können stark variieren. Wenn eine Bank absagt, heißt das nicht, dass dein Vorhaben nicht finanzierbar ist – oft liegt es an der internen Risikopolitik der Bank.</p>
-                </div>
+                <h3>Langfristige Vision entwickeln</h3>
+                <ul>
+                    <li><strong>Wohin soll das Unternehmen in 5 Jahren stehen?</strong> Schreib deine Vision auf – sie wird dein Kompass</li>
+                    <li><strong>Welche Märkte, Produkte, Kunden?</strong> Willst du das bestehende Geschäft optimieren oder neue Felder erschließen?</li>
+                    <li><strong>Wachstum: organisch oder durch weitere Zukäufe (Buy-and-Build)?</strong> Manche Käufer planen von Anfang an, mehrere Unternehmen zu erwerben und zusammenzuführen</li>
+                </ul>
+
+                <h3>Netzwerk aufbauen</h3>
+                <ul>
+                    <li><strong>Unternehmerverbände, IHK, Branchenverbände:</strong> Dort findest du Gleichgesinnte und Kontakte</li>
+                    <li><strong>Austausch mit anderen Nachfolgern (Peer-Group):</strong> Niemand versteht deine Situation besser als andere, die den gleichen Schritt gewagt haben</li>
+                    <li><strong>Mentoren finden:</strong> Ex-Unternehmer, erfahrene Geschäftsführer oder Branchenkenner, die dich begleiten</li>
+                </ul>
 
                 <div class="tipp-box">
-                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> AMBER Finanzierungs-Check</div>
-                    <p>Auf AMBER findest du bei jedem Inserat einen <strong>Finanzierungs-Check</strong>, der dir anhand des geschätzten Kaufpreises zeigt, wie viel Eigenkapital du voraussichtlich brauchst. Nutze diese Schätzung als Ausgangspunkt für deine Finanzierungsplanung.</p>
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp</div>
+                    <p>Plane feste Zeiten für strategische Arbeit ein – sonst wirst du vom Tagesgeschäft aufgefressen. Ein Tag pro Woche "am Unternehmen arbeiten" statt "im Unternehmen arbeiten" ist ein guter Anfang. Block dir diesen Tag im Kalender und verteidige ihn.</p>
                 </div>
             </div>
 
@@ -568,10 +510,11 @@
             <div class="takeaways-box">
                 <div class="takeaways-title"><i class="fa-solid fa-star"></i> Key Takeaways</div>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> <strong>EK-Quote 15–40%:</strong> <span>Die Bank erwartet 15–40% Eigenkapital, davon mindestens ~10% als echtes Bargeld</span></li>
-                    <li><i class="fa-solid fa-check"></i> <strong>Verkäuferdarlehen = Quasi-EK:</strong> <span>Verkäuferdarlehen werden von Banken als Eigenkapitalersatz gewertet und reduzieren deine nötige Bareinlage</span></li>
-                    <li><i class="fa-solid fa-check"></i> <strong>Fördermittel nutzen:</strong> <span>KfW und Bürgschaftsbanken bieten vergünstigte Kredite und Risikoübernahme – immer vor dem Bankgespräch prüfen</span></li>
-                    <li><i class="fa-solid fa-check"></i> <strong>DSCR > 1,2:</strong> <span>Das Unternehmen muss den Kredit aus dem laufenden Cashflow bedienen können – das ist die Schlüsselkennzahl für die Bank</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Mitarbeiter zuerst:</strong> <span>Mitarbeiter sind die höchste Priorität – vom ersten Tag an. Persönliche Kommunikation schafft Vertrauen</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Erst verstehen:</strong> <span>Erst verstehen, dann verändern – keine übereilten Entscheidungen in den ersten 30 Tagen</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Kunden sichern:</strong> <span>Top-Kunden persönlich kontaktieren und Kontinuität signalisieren – bevor sie von allein gehen</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Quick Wins:</strong> <span>Quick Wins gemeinsam mit dem Team erarbeiten – kleine Verbesserungen schaffen Vertrauen und Momentum</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Unternehmer werden:</strong> <span>Langfristige Vision entwickeln – vom Eigentümer zum Unternehmer werden ist ein Prozess</span></li>
                 </ul>
             </div>
 
@@ -584,56 +527,56 @@
                     <div class="quiz-icon"><i class="fa-solid fa-clipboard-question"></i></div>
                     <div class="quiz-title">Wissens-Check</div>
                 </div>
-                <p class="quiz-subtitle">Beantworte 5 Fragen zur Akquisitionsfinanzierung. Alle Antworten müssen korrekt sein, um das Modul abzuschließen.</p>
+                <p class="quiz-subtitle">Beantworte 5 Fragen zum 100-Tage-Plan. Alle Antworten müssen korrekt sein, um das Modul abzuschließen.</p>
 
                 <!-- Frage 1 -->
-                <div class="quiz-question" data-correct="1">
+                <div class="quiz-question" data-correct="0">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">1</div>
-                        <div class="quiz-q-text">Wie hoch ist die typische Eigenkapitalquote bei einer Bankenfinanzierung für Unternehmenskäufe?</div>
+                        <div class="quiz-q-text">Was sollte am ersten Tag nach der Übernahme höchste Priorität haben?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">50–60% – die Hälfte muss man selbst aufbringen</span>
+                            <span class="quiz-option-text">Mitarbeiter persönlich informieren und vorstellen</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">15–40% – den Rest finanziert die Bank</span>
+                            <span class="quiz-option-text">Sofort Prozesse optimieren</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">0% – Banken finanzieren Unternehmenskäufe komplett</span>
+                            <span class="quiz-option-text">Neue Lieferanten suchen</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">5–10% – der Rest kommt von der KfW</span>
+                            <span class="quiz-option-text">Organigramm umstrukturieren</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Frage 2 -->
-                <div class="quiz-question" data-correct="2">
+                <div class="quiz-question" data-correct="0">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">2</div>
-                        <div class="quiz-q-text">Warum werden Verkäuferdarlehen von Banken als Quasi-Eigenkapital gewertet?</div>
+                        <div class="quiz-q-text">Was ist ein Retention-Bonus?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Weil der Verkäufer das Geld geschenkt bekommt</span>
+                            <span class="quiz-option-text">Ein finanzieller Anreiz, damit Schlüsselmitarbeiter im Unternehmen bleiben</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Weil es gesetzlich so vorgeschrieben ist</span>
+                            <span class="quiz-option-text">Eine Prämie für Neukunden</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Weil das Verkäuferdarlehen nachrangig zum Bankkredit ist – die Bank wird im Ernstfall zuerst bedient</span>
+                            <span class="quiz-option-text">Ein Bonus für den Verkäufer bei erfolgreicher Übergabe</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Weil Verkäuferdarlehen keine Zinsen kosten</span>
+                            <span class="quiz-option-text">Eine Steuervergünstigung bei Unternehmenskäufen</span>
                         </div>
                     </div>
                 </div>
@@ -642,76 +585,76 @@
                 <div class="quiz-question" data-correct="0">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">3</div>
-                        <div class="quiz-q-text">Was misst der DSCR (Debt Service Coverage Ratio)?</div>
+                        <div class="quiz-q-text">Warum sollte man in den ersten 30 Tagen keine großen Veränderungen vornehmen?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Ob das Unternehmen genügend Cashflow erwirtschaftet, um Tilgung und Zinsen des Kredits zu bedienen</span>
+                            <span class="quiz-option-text">Um erst die bestehenden Prozesse und Mitarbeiter zu verstehen</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Wie hoch die Eigenkapitalrendite des Käufers ist</span>
+                            <span class="quiz-option-text">Weil es gesetzlich verboten ist</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Den Anteil der Fördermittel an der Gesamtfinanzierung</span>
+                            <span class="quiz-option-text">Weil der Verkäufer noch Mitspracherecht hat</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Den Unternehmenswert im Verhältnis zum Kaufpreis</span>
+                            <span class="quiz-option-text">Weil die Bank es nicht erlaubt</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Frage 4 -->
-                <div class="quiz-question" data-correct="3">
+                <div class="quiz-question" data-correct="0">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">4</div>
-                        <div class="quiz-q-text">Wie werden KfW-Förderkredite beantragt?</div>
+                        <div class="quiz-q-text">Was bedeutet "Buy-and-Build" als Wachstumsstrategie?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Direkt auf der KfW-Website als Online-Antrag</span>
+                            <span class="quiz-option-text">Wachstum durch den Zukauf weiterer Unternehmen</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Über den Notar beim Kaufvertrag</span>
+                            <span class="quiz-option-text">Aufbau einer neuen Fabrik</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Über die IHK deines Standorts</span>
+                            <span class="quiz-option-text">Einstellung von neuen Mitarbeitern</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Über die finanzierende Bank – die KfW vergibt Förderkredite nicht direkt an Endkunden</span>
+                            <span class="quiz-option-text">Investition in Marketing und Werbung</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Frage 5 -->
-                <div class="quiz-question" data-correct="1">
+                <div class="quiz-question" data-correct="0">
                     <div class="quiz-question-header">
                         <div class="quiz-q-number">5</div>
-                        <div class="quiz-q-text">Was macht eine Bürgschaftsbank?</div>
+                        <div class="quiz-q-text">Was ist ein typischer Fehler in den ersten 100 Tagen?</div>
                     </div>
                     <div class="quiz-options">
                         <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Sie vergibt Kredite direkt an den Käufer</span>
+                            <span class="quiz-option-text">Zu viele Veränderungen auf einmal durchführen</span>
                         </div>
                         <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Sie übernimmt einen Teil des Ausfallrisikos gegenüber der finanzierenden Bank, damit diese eher bereit ist, den Kredit zu vergeben</span>
+                            <span class="quiz-option-text">Zu viele Einzelgespräche mit Mitarbeitern führen</span>
                         </div>
                         <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Sie prüft die Bonität des Verkäufers</span>
+                            <span class="quiz-option-text">Sich zu intensiv mit Kunden beschäftigen</span>
                         </div>
                         <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
                             <div class="quiz-radio"></div>
-                            <span class="quiz-option-text">Sie ersetzt den Eigenkapitalanteil des Käufers vollständig</span>
+                            <span class="quiz-option-text">Den Businessplan zu früh überprüfen</span>
                         </div>
                     </div>
                 </div>
@@ -740,13 +683,18 @@
                         Wissens-Check bestanden (5/5)
                     </div>
                 </div>
-                <button class="btn-complete locked" id="btn-complete" disabled>
+                <button class="btn-complete locked" id="btn-complete" disabled onclick="completeModule()">
                     <i class="fa-solid fa-lock"></i>
                     Zuerst Video ansehen &amp; Quiz bestehen
                 </button>
+                <div class="congrats-banner" id="congrats-banner">
+                    <div class="congrats-emoji">&#127881;</div>
+                    <div class="congrats-title">Herzlichen Glückwunsch!</div>
+                    <div class="congrats-text">Du hast alle 9 Module der Buyer Academy abgeschlossen. Du bist jetzt bestens vorbereitet für deinen Unternehmenskauf. Viel Erfolg auf deinem Weg zum Unternehmer!</div>
+                </div>
                 <div class="module-nav">
-                    <a href="academy-modul-due-diligence.html"><i class="fa-solid fa-arrow-left"></i> Due Diligence meistern</a>
-                    <a href="academy-modul-kaufvertrag.html">Vertragsverhandlung, Signing &amp; Closing <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="academy-modul-kaufvertrag.html"><i class="fa-solid fa-arrow-left"></i> Vertragsverhandlung, Signing &amp; Closing</a>
+                    <a href="academy.html">Zurück zur Academy <i class="fa-solid fa-graduation-cap"></i></a>
                 </div>
             </div>
 
@@ -760,11 +708,11 @@
                 <svg width="80" height="80" viewBox="0 0 80 80">
                     <circle cx="40" cy="40" r="34" fill="none" stroke="#E5E7EB" stroke-width="6"/>
                     <circle cx="40" cy="40" r="34" fill="none" stroke="#10B981" stroke-width="6"
-                        stroke-dasharray="213.6" stroke-dashoffset="71.2"
+                        stroke-dasharray="213.6" stroke-dashoffset="23.7"
                         stroke-linecap="round" transform="rotate(-90 40 40)"/>
-                    <text x="40" y="44" text-anchor="middle" font-family="Inter" font-size="18" font-weight="700" fill="#1A1A1A">67%</text>
+                    <text x="40" y="44" text-anchor="middle" font-family="Inter" font-size="18" font-weight="700" fill="#1A1A1A">89%</text>
                 </svg>
-                <div class="progress-value">6 von 9 Modulen</div>
+                <div class="progress-value">8 von 9 Modulen</div>
                 <div class="progress-label">abgeschlossen</div>
             </div>
 
@@ -785,29 +733,26 @@
 
             <!-- Phase Module List -->
             <div class="sidebar-card">
-                <div class="sidebar-card-title"><i class="fa-solid fa-layer-group"></i> Phase 3: Prüfung &amp; Finanzierung</div>
-                <a href="academy-modul-due-diligence.html" class="phase-module-item">
+                <div class="sidebar-card-title"><i class="fa-solid fa-layer-group"></i> Phase 5: Nach dem Deal</div>
+                <a href="academy-modul-100-tage-plan.html" class="phase-module-item active">
                     <div class="module-dot"></div>
-                    Due Diligence meistern
-                </a>
-                <a href="academy-modul-finanzierung.html" class="phase-module-item active">
-                    <div class="module-dot"></div>
-                    Akquisitionsfinanzierung
+                    100-Tage-Plan
                 </a>
             </div>
 
-            <!-- Next Module -->
-            <div class="sidebar-card next-module-card">
-                <div class="next-label">Nächstes Modul</div>
-                <div class="next-title">Vertragsverhandlung, Signing &amp; Closing</div>
-                <a href="academy-modul-kaufvertrag.html"><i class="fa-solid fa-arrow-right"></i> Modul starten</a>
+            <!-- Download Card -->
+            <div class="sidebar-card download-card">
+                <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Download</div>
+                <div class="download-title">100-Tage-Plan Template</div>
+                <div class="download-desc">Strukturierter Fahrplan für deine ersten 100 Tage als neuer Eigentümer – mit Checklisten und Meilensteinen.</div>
+                <a href="#"><i class="fa-solid fa-file-arrow-down"></i> Template herunterladen</a>
             </div>
 
             <!-- Berater CTA -->
             <div class="sidebar-card berater-cta-card">
-                <div class="sidebar-card-title"><i class="fa-solid fa-landmark"></i> Finanzierung prüfen</div>
-                <p>Lass deine Akquisitionsfinanzierung von spezialisierten Finanzierungsberatern prüfen. Kostenlose Ersteinschätzung über DealCircle.</p>
-                <a href="#"><i class="fa-solid fa-arrow-right"></i> Finanzierung anfragen</a>
+                <div class="sidebar-card-title"><i class="fa-solid fa-handshake"></i> Sparring-Partner finden</div>
+                <p>Die Übernahme ist geschafft – jetzt geht es um die Umsetzung. Finde erfahrene Sparring-Partner für deine ersten 100 Tage über DealCircle.</p>
+                <a href="#"><i class="fa-solid fa-arrow-right"></i> Berater anfragen</a>
             </div>
 
         </aside>
@@ -970,8 +915,19 @@
             if (videoWatched && quizPassed) {
                 btn.className = 'btn-complete';
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> Als abgeschlossen markieren';
+                btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> Modul abschließen';
             }
+        }
+
+        // --- Complete Module (with congrats) ---
+        function completeModule() {
+            var btn = document.getElementById('btn-complete');
+            btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> Abgeschlossen!';
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+            document.getElementById('congrats-banner').classList.add('show');
+            // Scroll to congrats
+            document.getElementById('congrats-banner').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     </script>
 

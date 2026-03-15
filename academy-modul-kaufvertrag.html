@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER – Academy: Vertragsverhandlung, Signing &amp; Closing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            --phase-blue: #059669;
+            --phase-blue-bg: #D1FAE5;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            display: flex; align-items: center; padding: 0 48px; height: 72px;
+            border-bottom: 1px solid #EEE; position: fixed; top: 0; width: 1440px;
+            background: var(--white); z-index: 100;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: var(--black); text-decoration: none; margin-right: 48px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+        .nav-links a { font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-lang { display: flex; align-items: center; gap: 8px; font-size: 14px; border: 1px solid var(--grey-light); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .nav-avatar-wrapper { position: relative; }
+        .nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grey-light); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .nav-avatar i { font-size: 18px; color: var(--grey-dark); }
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== PAGE LAYOUT ===== */
+        .page-wrapper {
+            display: flex;
+            width: 1440px;
+            margin-top: 72px;
+            min-height: calc(100vh - 72px);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .content-main {
+            flex: 1;
+            max-width: 1000px;
+            padding: 40px 48px 80px;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .content-sidebar {
+            width: 400px;
+            padding: 40px 48px 40px 16px;
+            position: sticky;
+            top: 72px;
+            align-self: flex-start;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-height: calc(100vh - 72px);
+            overflow-y: auto;
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            margin-bottom: 24px;
+        }
+        .breadcrumb a { color: var(--grey-dark); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--black); }
+        .breadcrumb .separator { color: var(--grey-light); }
+        .breadcrumb .current { color: var(--black); font-weight: 500; }
+
+        /* ===== MODULE HEADER ===== */
+        .module-header { margin-bottom: 32px; }
+
+        .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 14px; font-weight: 400; color: var(--phase-blue);
+            text-decoration: none; margin-bottom: 20px;
+        }
+        .back-link:hover { opacity: 0.7; }
+
+        .phase-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 4px 12px; background: var(--phase-blue-bg); color: var(--phase-blue);
+            font-size: 12px; font-weight: 600; border-radius: 20px; margin-bottom: 12px;
+        }
+
+        .module-title-main {
+            font-size: 32px; font-weight: 700; line-height: 120%;
+            color: var(--black); margin-bottom: 12px;
+        }
+
+        .module-meta-row {
+            display: flex; align-items: center; gap: 16px;
+            font-size: 14px; color: var(--grey-dark); margin-bottom: 16px;
+        }
+        .module-meta-row i { margin-right: 4px; }
+
+        .meta-divider { width: 1px; height: 16px; background: var(--grey-light); }
+
+        .format-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600;
+        }
+
+        .module-intro {
+            font-size: 16px; font-weight: 300; line-height: 170%; color: var(--grey-dark);
+        }
+
+        /* ===== VIDEO PLAYER ===== */
+        .video-section { margin-bottom: 32px; }
+        .video-section-label { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--phase-blue); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .video-player { position: relative; width: 100%; padding-top: 56.25%; background: #111827; border-radius: 12px; overflow: hidden; cursor: pointer; }
+        .video-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+        .video-play-btn { width: 72px; height: 72px; border-radius: 50%; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); border: 2px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background 0.2s; }
+        .video-player:hover .video-play-btn { transform: scale(1.08); background: rgba(255, 255, 255, 0.25); }
+        .video-play-btn i { color: var(--white); font-size: 28px; margin-left: 4px; }
+        .video-label { color: rgba(255, 255, 255, 0.7); font-size: 14px; font-weight: 400; }
+        .video-progress-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: rgba(255, 255, 255, 0.15); }
+        .video-progress-fill { height: 100%; width: 0%; background: var(--phase-blue); border-radius: 0 2px 2px 0; transition: width 0.3s; }
+        .video-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; font-size: 13px; color: var(--grey-dark); }
+        .video-meta .video-duration { display: flex; align-items: center; gap: 6px; }
+        .video-meta .video-status { display: flex; align-items: center; gap: 6px; font-weight: 500; }
+        .video-meta .video-status.pending { color: var(--grey-dark); }
+        .video-meta .video-status.watched { color: #10B981; }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .section {
+            margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #F0F0F0;
+        }
+        .section:last-of-type { border-bottom: none; }
+
+        .section-number {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px; background: var(--phase-blue); color: var(--white);
+            font-size: 14px; font-weight: 700; border-radius: 50%; margin-right: 10px;
+        }
+
+        .section h2 {
+            display: flex; align-items: center; font-size: 22px;
+            font-weight: 700; color: var(--black); margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 16px; font-weight: 600; color: var(--black);
+            margin-bottom: 8px; margin-top: 20px;
+        }
+
+        .section p {
+            font-size: 15px; font-weight: 300; line-height: 170%;
+            color: var(--black); margin-bottom: 12px;
+        }
+
+        .section ul { margin: 8px 0 16px 20px; }
+        .section ul li {
+            font-size: 15px; font-weight: 300; line-height: 180%; color: var(--black);
+        }
+        .section ul li strong { font-weight: 600; }
+
+        .section ol { margin: 8px 0 16px 20px; }
+        .section ol li {
+            font-size: 15px; font-weight: 300; line-height: 180%; color: var(--black);
+        }
+        .section ol li strong { font-weight: 600; }
+
+        /* ===== HIGHLIGHT BOX ===== */
+        .highlight-box {
+            background: linear-gradient(135deg, #D1FAE5 0%, #DBEAFE 50%, #D1FAE5 100%);
+            border: 1px solid #6EE7B7;
+            border-radius: 8px; padding: 20px 24px; margin: 16px 0;
+        }
+        .highlight-box .highlight-title {
+            font-size: 14px; font-weight: 700; color: var(--black);
+            margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+        }
+        .highlight-box p, .highlight-box ul li { font-size: 14px; line-height: 170%; }
+
+        /* ===== TIPP BOX ===== */
+        .tipp-box {
+            background: #F0FDF4; border-left: 4px solid #10B981;
+            border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0;
+        }
+        .tipp-box .tipp-title {
+            font-size: 14px; font-weight: 700; color: #059669;
+            margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+        }
+        .tipp-box p, .tipp-box ul li {
+            font-size: 14px; font-weight: 300; line-height: 170%; color: var(--black);
+        }
+        .tipp-box a { color: var(--phase-blue); text-decoration: underline; }
+        .tipp-box a:hover { opacity: 0.7; }
+
+        /* ===== WARNING BOX ===== */
+        .warn-box {
+            background: #FFFBEB; border-left: 4px solid #F59E0B;
+            border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0;
+        }
+        .warn-box .warn-title {
+            font-size: 14px; font-weight: 700; color: #D97706;
+            margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+        }
+        .warn-box p, .warn-box ul li {
+            font-size: 14px; font-weight: 300; line-height: 170%; color: var(--black);
+        }
+
+        /* ===== CHECKLIST BOX ===== */
+        .checklist-box {
+            background: var(--white); border: 1px solid #E5E7EB;
+            border-radius: 8px; padding: 24px; margin: 16px 0;
+        }
+        .checklist-box .checklist-header {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+        }
+        .checklist-box .checklist-icon {
+            width: 36px; height: 36px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; font-size: 16px;
+        }
+        .checklist-box .checklist-icon.green {
+            background: #D1FAE5; color: #059669;
+        }
+        .checklist-box .checklist-label {
+            font-size: 16px; font-weight: 700; color: var(--black);
+        }
+        .checklist-box ul { list-style: none; margin: 0; padding: 0; }
+        .checklist-box ul li {
+            display: flex; align-items: flex-start; gap: 10px; padding: 8px 0;
+            font-size: 14px; font-weight: 300; line-height: 160%; color: var(--black);
+            border-bottom: 1px solid #F5F5F5;
+        }
+        .checklist-box ul li:last-child { border-bottom: none; }
+        .checklist-box ul li .check-icon {
+            width: 20px; height: 20px; border: 2px solid var(--grey-light);
+            border-radius: 4px; flex-shrink: 0; margin-top: 2px;
+        }
+
+        /* ===== KLAUSELN-TABELLE ===== */
+        .klauseln-table {
+            width: 100%;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+        .klauseln-table-header {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            background: #F9FAFB;
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--black);
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .klauseln-table-row {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 300;
+            border-bottom: 1px solid #F0F0F0;
+            align-items: start;
+        }
+        .klauseln-table-row:last-child { border-bottom: none; }
+        .klauseln-table-row strong { font-weight: 600; }
+
+        /* ===== KEY TAKEAWAYS ===== */
+        .takeaways-box {
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #6EE7B7;
+            border-radius: 8px; padding: 28px 32px; margin: 40px 0 32px;
+        }
+        .takeaways-title {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 16px;
+        }
+        .takeaways-title i { color: #F59E0B; }
+        .takeaways-box ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 16px auto 1fr; column-gap: 10px; }
+        .takeaways-box ul li { display: contents; }
+        .takeaways-box ul li i, .takeaways-box ul li strong, .takeaways-box ul li span { font-size: 15px; font-weight: 400; line-height: 170%; color: var(--black); padding: 6px 0; }
+        .takeaways-box ul li i { color: #10B981; padding-top: 8px; }
+        .takeaways-box ul li strong { white-space: nowrap; font-weight: 600; }
+        .takeaways-box ul li span { font-weight: 300; }
+
+        /* ===== COMPLETION & NAV ===== */
+        .module-actions {
+            display: flex; flex-direction: column; gap: 24px;
+            padding-top: 32px; border-top: 1px solid #F0F0F0;
+        }
+
+        .btn-complete {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; padding: 14px 32px; background: var(--gradient-cta);
+            border: none; border-radius: 8px; font-family: var(--font-main);
+            font-size: 16px; font-weight: 600; color: var(--black); cursor: pointer;
+        }
+        .btn-complete:hover { opacity: 0.85; }
+
+        .module-nav {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .module-nav a {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 15px; font-weight: 500; color: var(--phase-blue);
+            text-decoration: none; padding: 10px 20px;
+            border: 1px solid var(--phase-blue); border-radius: 8px;
+        }
+        .module-nav a:hover { background: var(--phase-blue-bg); }
+
+        /* ===== SIDEBAR CARDS ===== */
+        .sidebar-card {
+            background: var(--white); border: 1px solid #E5E7EB;
+            border-radius: 8px; padding: 20px;
+        }
+        .sidebar-card-title {
+            font-size: 14px; font-weight: 700; color: var(--black);
+            margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+        }
+
+        .progress-card {
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #6EE7B7; text-align: center; padding: 24px 20px;
+        }
+        .progress-card .progress-label {
+            font-size: 13px; font-weight: 400; color: var(--grey-dark); margin-top: 8px;
+        }
+        .progress-card .progress-value {
+            font-size: 20px; font-weight: 700; color: var(--black);
+        }
+
+        .phase-modules-card .phase-label {
+            font-size: 12px; font-weight: 600; color: var(--phase-blue);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+        }
+        .phase-module-item {
+            display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+            border-radius: 6px; font-size: 14px; font-weight: 400; color: var(--black);
+            text-decoration: none; transition: background 0.15s;
+        }
+        .phase-module-item:hover { background: #F5F5F5; }
+        .phase-module-item.active {
+            background: var(--phase-blue-bg); font-weight: 600; color: var(--phase-blue);
+        }
+        .phase-module-item .module-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--grey-light); flex-shrink: 0;
+        }
+        .phase-module-item.active .module-dot { background: var(--phase-blue); }
+
+        .download-card { background: #FAFAFA; }
+        .download-item {
+            display: flex; align-items: center; gap: 10px; padding: 10px 0;
+            border-bottom: 1px solid #F0F0F0; font-size: 14px; font-weight: 400;
+            color: var(--black); cursor: pointer;
+        }
+        .download-item:last-child { border-bottom: none; }
+        .download-item i { color: var(--phase-blue); font-size: 16px; width: 20px; text-align: center; }
+        .download-item:hover { color: var(--phase-blue); }
+
+        .next-module-card { border: 2px solid var(--phase-blue); }
+        .next-module-card .next-label { font-size: 12px; font-weight: 400; color: var(--grey-dark); margin-bottom: 4px; }
+        .next-module-card .next-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 12px; }
+        .next-module-card a {
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            padding: 8px 16px; background: var(--phase-blue); color: var(--white);
+            border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
+        }
+        .next-module-card a:hover { opacity: 0.85; }
+
+        .berater-cta-card { background: var(--black); border: none; color: var(--white); }
+        .berater-cta-card .sidebar-card-title { color: var(--white); }
+        .berater-cta-card p { font-size: 13px; font-weight: 300; line-height: 160%; color: #999; margin-bottom: 12px; }
+        .berater-cta-card a {
+            display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+            background: var(--gradient-cta); border-radius: 20px; font-size: 13px;
+            font-weight: 600; color: var(--black); text-decoration: none;
+        }
+        .berater-cta-card a:hover { opacity: 0.85; }
+
+        /* ===== REFERENCE TOGGLE ===== */
+        .reference-section { margin-top: 40px; border-top: 1px solid #F0F0F0; padding-top: 32px; }
+        .reference-toggle {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 20px; background: #F9FAFB; border: 1px solid #E5E7EB;
+            border-radius: 8px; cursor: pointer; transition: background 0.15s; margin-bottom: 0;
+        }
+        .reference-toggle:hover { background: #F3F4F6; }
+        .reference-toggle-left { display: flex; align-items: center; gap: 10px; }
+        .reference-toggle-left i { color: var(--phase-blue); font-size: 16px; }
+        .reference-toggle-title { font-size: 16px; font-weight: 600; color: var(--black); }
+        .reference-toggle-sub { font-size: 13px; font-weight: 300; color: var(--grey-dark); margin-left: 8px; }
+        .reference-toggle .toggle-chevron { font-size: 14px; color: var(--grey-dark); transition: transform 0.2s; }
+        .reference-toggle.open .toggle-chevron { transform: rotate(180deg); }
+        .reference-content { display: none; padding-top: 24px; }
+        .reference-content.open { display: block; }
+
+        /* ===== QUIZ SECTION ===== */
+        .quiz-section {
+            margin: 40px 0 32px; padding: 32px; background: var(--white);
+            border: 2px solid #6EE7B7; border-radius: 12px;
+        }
+        .quiz-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .quiz-icon {
+            width: 44px; height: 44px; border-radius: 10px;
+            background: linear-gradient(135deg, #D1FAE5 0%, #DBEAFE 100%);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .quiz-icon i { font-size: 20px; color: var(--phase-blue); }
+        .quiz-title { font-size: 20px; font-weight: 700; color: var(--black); }
+        .quiz-subtitle { font-size: 14px; font-weight: 300; color: var(--grey-dark); line-height: 160%; margin-bottom: 28px; }
+        .quiz-question { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #F0F0F0; }
+        .quiz-question:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .quiz-question-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .quiz-q-number {
+            width: 24px; height: 24px; border-radius: 50%;
+            background: var(--phase-blue-bg); color: var(--phase-blue);
+            font-size: 12px; font-weight: 700;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .quiz-q-text { font-size: 15px; font-weight: 600; color: var(--black); line-height: 150%; }
+        .quiz-options { display: flex; flex-direction: column; gap: 8px; padding-left: 34px; }
+        .quiz-option {
+            display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+            background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;
+            cursor: pointer; transition: background 0.15s, border-color 0.15s;
+        }
+        .quiz-option:hover { background: #F3F4F6; border-color: #D1D5DB; }
+        .quiz-option.selected { background: var(--phase-blue-bg); border-color: var(--phase-blue); }
+        .quiz-option.correct { background: #D1FAE5; border-color: #10B981; }
+        .quiz-option.incorrect { background: #FEE2E2; border-color: #EF4444; }
+        .quiz-radio {
+            width: 18px; height: 18px; border-radius: 50%; border: 2px solid #D1D5DB;
+            flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+            transition: border-color 0.15s;
+        }
+        .quiz-option.selected .quiz-radio { border-color: var(--phase-blue); }
+        .quiz-option.selected .quiz-radio::after {
+            content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--phase-blue);
+        }
+        .quiz-option.correct .quiz-radio { border-color: #10B981; background: #10B981; }
+        .quiz-option.correct .quiz-radio::after {
+            content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 10px; color: white;
+        }
+        .quiz-option.incorrect .quiz-radio { border-color: #EF4444; background: #EF4444; }
+        .quiz-option.incorrect .quiz-radio::after {
+            content: '\f00d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 10px; color: white;
+        }
+        .quiz-option-text { font-size: 14px; font-weight: 400; color: var(--black); }
+        .quiz-submit-area {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-top: 28px; padding-top: 20px; border-top: 1px solid #F0F0F0;
+        }
+        .quiz-submit-btn {
+            display: flex; align-items: center; gap: 8px; padding: 12px 28px;
+            background: var(--phase-blue); color: var(--white); border: none;
+            border-radius: 8px; font-family: var(--font-main); font-size: 15px;
+            font-weight: 600; cursor: pointer; transition: opacity 0.2s;
+        }
+        .quiz-submit-btn:hover { opacity: 0.85; }
+        .quiz-progress-text { font-size: 13px; color: var(--grey-dark); }
+        .quiz-result { display: none; margin-top: 20px; padding: 20px 24px; border-radius: 8px; }
+        .quiz-result.passed {
+            display: flex; align-items: center; gap: 12px;
+            background: #D1FAE5; border: 1px solid #10B981;
+        }
+        .quiz-result.failed {
+            display: flex; align-items: center; gap: 12px;
+            background: #FEE2E2; border: 1px solid #EF4444;
+        }
+        .quiz-result-icon {
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .quiz-result.passed .quiz-result-icon { background: #10B981; color: white; }
+        .quiz-result.failed .quiz-result-icon { background: #EF4444; color: white; }
+        .quiz-result-text { font-size: 14px; font-weight: 500; line-height: 150%; }
+        .quiz-result.passed .quiz-result-text { color: #065F46; }
+        .quiz-result.failed .quiz-result-text { color: #991B1B; }
+        .quiz-retry-btn {
+            margin-left: auto; padding: 8px 18px; background: white;
+            border: 1px solid #EF4444; border-radius: 6px; color: #DC2626;
+            font-family: var(--font-main); font-size: 13px; font-weight: 600;
+            cursor: pointer; display: flex; align-items: center; gap: 6px;
+            flex-shrink: 0; transition: background 0.15s;
+        }
+        .quiz-retry-btn:hover { background: #FEF2F2; }
+
+        /* ===== COMPLETION REQUIREMENTS ===== */
+        .completion-requirements { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+        .requirement-item {
+            display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+            background: #F9FAFB; border-radius: 8px; font-size: 14px;
+            font-weight: 400; color: var(--black);
+        }
+        .requirement-item .req-icon {
+            width: 22px; height: 22px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; font-size: 11px;
+        }
+        .requirement-item .req-icon.done { background: #D1FAE5; color: #10B981; }
+        .requirement-item .req-icon.pending { background: #F3F4F6; border: 2px solid #D1D5DB; }
+        .btn-complete.locked { background: #F3F4F6; color: #9CA3AF; cursor: not-allowed; }
+
+        /* ===== SIDEBAR MODULE STATUS ===== */
+        .sidebar-status-card .status-items { display: flex; flex-direction: column; gap: 10px; }
+        .sidebar-status-item {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 14px; font-weight: 400; color: var(--black);
+        }
+        .sidebar-status-item .status-dot {
+            width: 20px; height: 20px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; font-size: 10px;
+        }
+        .sidebar-status-item .status-dot.done { background: #D1FAE5; color: #10B981; }
+        .sidebar-status-item .status-dot.pending { background: #F3F4F6; border: 2px solid #D1D5DB; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px; margin-top: 0;
+        }
+        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-logo { font-size: 36px; font-weight: 800; letter-spacing: 3px; color: var(--white); }
+        .footer-sub { font-size: 12px; font-weight: 300; letter-spacing: 3px; color: var(--grey-dark); text-transform: uppercase; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+        .footer-right p { font-size: 16px; font-weight: 300; line-height: 150%; }
+        .footer-right a { font-size: 16px; font-weight: 300; color: var(--white); text-decoration: underline; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid #333; }
+        .footer-copyright { font-size: 14px; font-weight: 300; color: var(--grey-dark); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
+        .footer-links a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="suche.html" class="nav-logo">/AMBER</a>
+        <div class="nav-links">
+            <a href="suche.html">Suche</a>
+            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="mitteilungen.html">Mitteilungen</a>
+            <a href="postfach.html">Postfach</a>
+            <a href="transaktionen.html">Meine Transaktionen</a>
+            <a href="academy.html" class="active">Academy</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang"><span style="font-weight:600; font-size:12px; background:#F3F4F6; padding:2px 6px; border-radius:3px;">DE</span><span>Deutsch</span></div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="focus-group" id="focus-group">
+                    <a href="#">Zur Verkäuferansicht</a>
+                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Kontoeinstellungen</a>
+                    <a href="#">AMBER-Professional</a>
+                    <a href="#">Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <div class="page-wrapper">
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <div class="content-main">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="academy.html">Academy</a>
+                <span class="separator">/</span>
+                <span>Phase 4: Abschluss</span>
+                <span class="separator">/</span>
+                <span class="current">Vertragsverhandlung, Signing &amp; Closing</span>
+            </div>
+
+            <!-- Module Header -->
+            <div class="module-header">
+                <a href="academy.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Zurück zur Academy</a>
+                <div>
+                    <span class="phase-badge"><i class="fa-solid fa-circle" style="font-size: 6px;"></i> Phase 4: Abschluss</span>
+                </div>
+                <h1 class="module-title-main">Vertragsverhandlung, Signing &amp; Closing</h1>
+                <div class="module-meta-row">
+                    <span><i class="fa-regular fa-clock"></i> 12 Min.</span>
+                    <div class="meta-divider"></div>
+                    <span style="display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-play-circle" style="color: var(--phase-blue);"></i> 8 Min. Video</span>
+                    <div class="meta-divider"></div>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; background: #D1FAE5; color: #059669; border-radius: 12px; font-size: 12px; font-weight: 600;">+10 Punkte</span>
+                    <div class="meta-divider"></div>
+                    <span>Modul 8 von 9</span>
+                </div>
+                <p class="module-intro">Die Due Diligence ist abgeschlossen, die Finanzierung steht – jetzt geht es an den Kaufvertrag und das Closing. Lerne, welche Vertragsklauseln dich als Käufer schützen, wie du das Closing vorbereitest und was am Tag der Übergabe passiert.</p>
+            </div>
+
+            <!-- ===== VIDEO ===== -->
+            <div class="video-section">
+                <div class="video-section-label">
+                    <i class="fa-solid fa-play-circle"></i> Video-Lektion
+                </div>
+                <div class="video-player" onclick="toggleVideoState()">
+                    <div class="video-overlay" id="video-overlay">
+                        <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                        <span class="video-label">Video wird in der finalen Version hier eingebettet</span>
+                    </div>
+                    <div class="video-progress-bar"><div class="video-progress-fill" id="video-progress"></div></div>
+                </div>
+                <div class="video-meta">
+                    <span class="video-duration"><i class="fa-regular fa-clock"></i> ca. 8 Min.</span>
+                    <span class="video-status pending" id="video-status"><i class="fa-regular fa-circle"></i> Noch nicht angesehen</span>
+                </div>
+            </div>
+
+            <!-- ===== REFERENZ-MATERIAL (aufklappbar) ===== -->
+            <div class="reference-section" style="margin-top: 0; border-top: none; padding-top: 0;">
+                <div class="reference-toggle" id="reference-toggle" onclick="toggleReference()">
+                    <div class="reference-toggle-left">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span class="reference-toggle-title">Referenz-Material</span>
+                        <span class="reference-toggle-sub">– Vollständiger Text zum Nachlesen</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down toggle-chevron"></i>
+                </div>
+                <div class="reference-content" id="reference-content">
+
+            <!-- ===== SECTION 1: Vom LOI zum Kaufvertrag ===== -->
+            <div class="section">
+                <h2><span class="section-number">1</span> Vom LOI zum Kaufvertrag</h2>
+                <p>Nach der Due Diligence beginnt die Vertragsphase. Die DD-Ergebnisse werden in den Kaufvertrag eingearbeitet – und hier wird es verbindlich. Der <strong>LOI (Letter of Intent)</strong> war der Rahmen, der <strong>Kaufvertrag</strong> enthält die verbindlichen Details.</p>
+
+                <h3>Berater vs. Direktverkauf</h3>
+                <ul>
+                    <li><strong>Mit Berater (beratergestützter Deal):</strong> Anwälte beider Seiten verhandeln den <strong>SPA (Share Purchase Agreement)</strong> bei einem Anteilskauf oder den <strong>APA (Asset Purchase Agreement)</strong> bei einem Kauf einzelner Vermögenswerte (z.B. Maschinen, Marke etc.). Der M&A-Berater koordiniert den Prozess.</li>
+                    <li><strong>Direktverkauf (&lt; 2 Mio. €):</strong> Oft ein einfacherer Vertrag – aber ein M&A erfahrener <strong>Anwalt ist trotzdem Pflicht</strong>. Auch bei kleinen Deals können falsche Klauseln (oder fehlende Klauseln) teuer werden.</li>
+                </ul>
+
+                <h3>Wann beginnt die Vertragsphase?</h3>
+                <p>Nachdem die erste Phase der Due Diligence abgeschlossen wurde, und keine Deal-Breaker gefunden wurden, fängt die Vertragsphase an – möglicherweise vor vollständigem Abschluss der Due Diligence. Spätere Findings werden aber selbstverständlich in den Vertragsentwürfen berücksichtigt und die Verträge erst nach vollständigem DD-Abschluss finalisiert und unterzeichnet. Die Vertragsphase dauert bei kleineren Transaktionen ca. 2 bis 4 Wochen, möglicherweise länger bei größeren Deals.</p>
+
+                <div class="highlight-box">
+                    <div class="highlight-title"><i class="fa-solid fa-lightbulb"></i> DD-Ergebnisse fließen in den Kaufvertrag ein</div>
+                    <p>Findings aus der Due Diligence können zu <strong>Kaufpreisanpassungen</strong>, zusätzlichen <strong>Garantien</strong> oder <strong>Freistellungen</strong> im Kaufvertrag führen. Ein erkanntes Steuerrisiko wird z.B. über eine Freistellungsklausel abgesichert – der Verkäufer übernimmt das Risiko, falls das Finanzamt nachfordert.</p>
+                </div>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Cross-Referenz</div>
+                    <p>Mehr zu LOI und Verhandlungsstrategie → <a href="academy-modul-angebotsstrategie.html">Modul 5: Angebotsstrategie und LOI</a><br>
+                    Mehr zu Due Diligence → <a href="academy-modul-due-diligence.html">Modul 6: Due Diligence meistern</a></p>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 2: Die wichtigsten Vertragsklauseln ===== -->
+            <div class="section">
+                <h2><span class="section-number">2</span> Die wichtigsten Vertragsklauseln</h2>
+                <p>Ein Kaufvertrag für eine Unternehmenstransaktion enthält zahlreiche Klauseln. Als Käufer solltest du die folgenden besonders gut verstehen – sie bestimmen dein Risiko und deine Rechte.</p>
+
+                <!-- Klauseln-Übersicht als Highlight-Box mit Tabelle -->
+                <div class="highlight-box">
+                    <div class="highlight-title"><i class="fa-solid fa-list-check"></i> Übersicht: Die wichtigsten Kaufvertragsklauseln</div>
+                    <div class="klauseln-table" style="border-color: #6EE7B7; margin-top: 12px;">
+                        <div class="klauseln-table-header">
+                            <span>Klausel</span>
+                            <span>Bedeutung</span>
+                        </div>
+                        <div class="klauseln-table-row">
+                            <strong>Kaufpreis &amp; Zahlung</strong>
+                            <span>Sofortzahlung, Ratenzahlung, Earn-Out oder Verkäuferdarlehen</span>
+                        </div>
+                        <div class="klauseln-table-row">
+                            <strong>Garantien (R&amp;W)</strong>
+                            <span>Verkäufer garantiert z.B. Richtigkeit der Finanzdaten</span>
+                        </div>
+                        <div class="klauseln-table-row">
+                            <strong>Freistellungen</strong>
+                            <span>Absicherung für bekannte Risiken aus der DD</span>
+                        </div>
+                        <div class="klauseln-table-row">
+                            <strong>Wettbewerbsverbot</strong>
+                            <span>Verkäufer darf X Jahre nicht konkurrieren</span>
+                        </div>
+                        <div class="klauseln-table-row">
+                            <strong>Übergangszeitraum</strong>
+                            <span>Verkäufer bleibt X Monate für Übergabe verfügbar</span>
+                        </div>
+                        <div class="klauseln-table-row">
+                            <strong>MAC-Klausel</strong>
+                            <span>Schutz bei wesentlichen Veränderungen vor Closing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Kaufpreis &amp; Zahlungsmodalitäten</h3>
+                <p>Der Kaufpreis kann auf verschiedene Arten strukturiert werden – meist als Kombination mehrerer Elemente:</p>
+                <ul>
+                    <li><strong>Sofortzahlung:</strong> Teil des Kaufpreises, der beim Closing gezahlt wird</li>
+                    <li><strong>Ratenzahlung:</strong> Kaufpreisteile, die in Tranchen über einen definierten Zeitraum gezahlt werden</li>
+                    <li><strong>Earn-Out:</strong> Ein Teil des Kaufpreises wird an zukünftige Performance-Ziele (z.B. Umsatz, EBITDA) geknüpft</li>
+                    <li><strong>Verkäuferdarlehen:</strong> Der Verkäufer belässt einen Teil des Kaufpreises als Darlehen – wird wie ein Kredit zurückgezahlt</li>
+                </ul>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Cross-Referenz</div>
+                    <p>Mehr zu Finanzierungsstrukturen mit Earn-Out und Vendordarlehen → <a href="academy-modul-finanzierung.html">Modul 7: Akquisitionsfinanzierung</a></p>
+                </div>
+
+                <h3>Garantien &amp; Gewährleistungen (Representations &amp; Warranties)</h3>
+                <p>Der Verkäufer gibt im Kaufvertrag <strong>Garantieerklärungen</strong> über den Zustand des Unternehmens ab. Typische Garantien:</p>
+                <ul>
+                    <li>Richtigkeit der Jahresabschlüsse und Finanzdaten</li>
+                    <li>Keine versteckten Verbindlichkeiten oder Schulden</li>
+                    <li>Einhaltung aller gesetzlichen Vorschriften</li>
+                    <li>Kein laufender Rechtsstreit (oder Offenlegung aller bekannten Streitigkeiten)</li>
+                    <li>Vollständigkeit der im Datenraum bereitgestellten Unterlagen</li>
+                </ul>
+                <p>Wichtige Begrenzungen der Garantien:</p>
+                <ul>
+                    <li><strong>Haftungsobergrenze (Cap):</strong> Maximaler Betrag, den der Verkäufer bei Garantieverletzungen zahlen muss – typisch: 20–50% des Kaufpreises</li>
+                    <li><strong>Haftungsuntergrenze (Basket/De-minimis):</strong> Kleine Schäden werden nicht geltend gemacht – erst ab einem Mindestbetrag (z.B. 1% des Kaufpreises)</li>
+                    <li><strong>Verjährungsfristen:</strong> Typisch <strong>12–24 Monate</strong> nach dem Closing – danach können keine Garantieansprüche mehr geltend gemacht werden</li>
+                </ul>
+
+                <h3>Freistellungen (Indemnities)</h3>
+                <p>Für <strong>bekannte Risiken</strong>, die in der Due Diligence identifiziert wurden, werden spezifische Freistellungsklauseln vereinbart. Beispiel: Wenn in der Tax DD ein offenes Steuerrisiko erkannt wurde, stellt der Verkäufer den Käufer von möglichen Steuernachzahlungen frei.</p>
+
+                <h3>Wettbewerbsverbot (Non-Compete)</h3>
+                <p>Der Verkäufer verpflichtet sich, nach dem Verkauf kein konkurrierendes Unternehmen zu gründen oder für einen Wettbewerber zu arbeiten.</p>
+                <ul>
+                    <li><strong>Übliche Dauer:</strong> 2–3 Jahre nach dem Closing</li>
+                    <li><strong>Räumliche Begrenzung:</strong> Regional oder national – muss angemessen und bestimmt sein (sonst unwirksam)</li>
+                    <li><strong>Sachliche Begrenzung:</strong> Nur auf die Branche des verkauften Unternehmens beschränkt – muss im SPA sehr klar definiert werden, um Interpretationspielraum zu vermeiden</li>
+                </ul>
+
+                <h3>Übergangszeitraum (Transition Period)</h3>
+                <p>Der Verkäufer bleibt nach dem Closing für eine definierte Zeit verfügbar, um die Übergabe zu unterstützen:</p>
+                <ul>
+                    <li><strong>Kleine Deals:</strong> Oft 3–6 Monate, teils unbezahlt (als Teil des Kaufpreises), teils als separater Beratervertrag</li>
+                    <li><strong>Größere Deals:</strong> Formaler Transition Services Agreement (TSA) mit klaren Leistungen und Vergütung</li>
+                    <li><strong>Wichtig:</strong> Konkrete Aufgaben und Verfügbarkeit im Vertrag definieren – nicht nur „der Verkäufer steht zur Verfügung"</li>
+                </ul>
+
+                <h3>Material Adverse Change (MAC-Klausel)</h3>
+                <p>Was passiert, wenn sich zwischen Vertragsunterschrift und Closing etwas Wesentliches ändert? Die MAC-Klausel regelt:</p>
+                <ul>
+                    <li>Was als „wesentliche negative Veränderung" gilt (z.B. Verlust eines Großkunden, Umsatzeinbruch > 20%)</li>
+                    <li>Welche Rechte der Käufer hat (Rücktritt vom Vertrag oder Kaufpreisanpassung)</li>
+                    <li>Zeitraum: Gilt ab Vertragsunterschrift bis zum Closing-Tag</li>
+                </ul>
+            </div>
+
+            <!-- ===== SECTION 3: Notartermin aka Signing ===== -->
+            <div class="section">
+                <h2><span class="section-number">3</span> Notartermin aka Signing (bei Share Deals)</h2>
+                <p>Wenn der Kaufvertrag verhandelt und finalisiert ist, folgt das <strong>Signing</strong> – die formelle Vertragsunterschrift. Bei einem Share Deal (GmbH-Anteilskauf) ist die <strong>notarielle Beurkundung gesetzlich vorgeschrieben</strong> (§ 15 GmbHG). Ohne Notar ist der Kauf unwirksam.</p>
+
+                <h3>Was passiert beim Notartermin?</h3>
+                <ul>
+                    <li><strong>Verlesung des Kaufvertrags:</strong> Der Notar liest den gesamten Vertrag laut vor – das ist gesetzlich vorgeschrieben und kann bei umfangreichen Verträgen mehrere Stunden dauern</li>
+                    <li><strong>Letzte Fragen und Klarstellungen:</strong> Beide Seiten können dem Notar Fragen stellen. Kleinere redaktionelle Anpassungen sind noch möglich</li>
+                    <li><strong>Unterschrift:</strong> Käufer und Verkäufer (oder deren Bevollmächtigte) unterschreiben den Kaufvertrag vor dem Notar</li>
+                    <li><strong>Beurkundung:</strong> Der Notar beurkundet den Vertrag – ab diesem Moment ist der Vertrag rechtswirksam</li>
+                </ul>
+
+                <div class="warn-box">
+                    <div class="warn-title"><i class="fa-solid fa-triangle-exclamation"></i> Wichtig: Signing ≠ Closing</div>
+                    <p>Das Signing macht den Vertrag zwar bindend, aber die tatsächliche Übertragung der Anteile und die Kaufpreiszahlung erfolgen erst beim <strong>Closing</strong>. Bei kleinen Deals fallen Signing und Closing <strong>häufig auf denselben Tag</strong> – bei größeren Transaktionen können dazwischen Tage oder Wochen liegen, in denen die im Vertrag definierten <strong>Closing Conditions</strong> erfüllt werden müssen.</p>
+                </div>
+
+                <h3>Und bei Asset Deals?</h3>
+                <p>Bei einem Asset Deal (Kauf einzelner Vermögenswerte) ist eine notarielle Beurkundung <strong>nicht zwingend</strong> erforderlich – es sei denn, Immobilien oder GmbH-Anteile Teil der Vermögenswerte sind. Oft werden Asset Deals daher privatschriftlich geschlossen. Signing und Closing können hier auch zusammenfallen.</p>
+
+            </div>
+
+            <!-- ===== SECTION 4: Closing vorbereiten ===== -->
+            <div class="section">
+                <h2><span class="section-number">4</span> Closing vorbereiten</h2>
+                <p>Nach dem Signing beginnt die Phase bis zum Closing – dem Tag, an dem die Transaktion tatsächlich vollzogen wird: die Anteile übertragen und der Kaufpreis gezahlt werden. Vorher müssen alle Closing Conditions erfüllt sein.</p>
+
+                <h3>Closing Conditions (Vollzugsvoraussetzungen)</h3>
+                <p>Bevor das Closing stattfinden kann, müssen bestimmte <strong>Bedingungen erfüllt</strong> sein, die im Kaufvertrag definiert werden. Diese sogenannten <strong>Conditions Precedent (CP)</strong> schützen beide Seiten – besonders dich als Käufer. Erst wenn alle CPs erfüllt sind, wird der Kaufpreis gezahlt und die Übertragung vollzogen.</p>
+
+                <p><strong>Mögliche Closing Conditions bei kleinen Deals:</strong></p>
+                <ul>
+                    <li><strong>Vorlage aktueller Jahresabschlüsse / BWA:</strong> Der Verkäufer muss aktuelle Finanzzahlen vorlegen, die die Bewertungsgrundlage bestätigen</li>
+                    <li><strong>Keine wesentliche Verschlechterung (MAC):</strong> Zwischen Vertragsunterschrift und Closing darf sich das Unternehmen nicht wesentlich verschlechtert haben</li>
+                    <li><strong>Finanzierungsbestätigung:</strong> Deine Bankfinanzierung muss final bestätigt und auszahlungsbereit sein</li>
+                    <li><strong>Behördliche Genehmigungen:</strong> Falls erforderlich, z.B. Kartellamtsprüfung – diese ist erst ab bestimmten Umsatzschwellen Pflicht (u.a. wenn beide Unternehmen zusammen &gt; 500 Mio. € Umsatz weltweit erzielen). Bei kleinen Deals daher irrelevant mit Ausnahme gewisser branchenspezifischer Genehmigungen</li>
+                    <li><strong>Zustimmung Dritter:</strong> Vermieter (Mietvertragsübernahme), wichtige Kunden oder Lieferanten (bei Change-of-Control-Klauseln), ggf. Gesellschafter</li>
+                    <li><strong>Schlüsselpersonen gesichert:</strong> Wichtige Mitarbeiter haben neue Arbeitsverträge unterschrieben oder der Verkäufer hat eine Übergangsvereinbarung zugesagt</li>
+                    <li><strong>Keine offenen Rechtsstreitigkeiten:</strong> Bestätigung, dass keine neuen Klagen oder Verfahren gegen das Unternehmen anhängig sind</li>
+                    <li><strong>Ordnungsgemäße Geschäftsführung:</strong> Der Verkäufer hat das Unternehmen zwischen Signing und Closing im normalen Geschäftsbetrieb weitergeführt (keine außergewöhnlichen Ausgaben, keine neuen Schulden)</li>
+                </ul>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp: CPs konkret formulieren</div>
+                    <p>Je konkreter die Closing Conditions im Kaufvertrag formuliert sind, desto weniger Streitpotenzial gibt es. Statt "aktuelle Finanzzahlen" besser: "Jahresabschluss 2025 durch Steuerberater testiert, BWA per letztem Quartal". Dein Anwalt hilft dir, die CPs sauber zu definieren.</p>
+                </div>
+
+                <h3>Checkliste: Closing-Vorbereitung</h3>
+                <div class="checklist-box">
+                    <div class="checklist-header">
+                        <div class="checklist-icon green"><i class="fa-solid fa-list-check"></i></div>
+                        <div class="checklist-label">Closing-Checkliste</div>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Finanzierung final bestätigt</strong> – Kreditzusage der Bank liegt vor, Fördermittel beantragt/bewilligt</span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Kaufvertrag unterschrieben/beurkundet</strong> – Bei Share Deal: Notartermin vereinbart und durchgeführt</span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Aufschiebende Bedingungen (Conditions Precedent) erfüllt</strong> – Z.B. behördliche Genehmigungen, Zustimmungen Dritter</span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Handelsregisteranmeldung vorbereitet</strong> – Bei Share Deal: Notar bereitet Anmeldung beim Handelsregister vor</span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Übergabe-Protokoll erstellt</strong> – Dokumentiert, was übergeben wird (Schlüssel, Zugänge, Unterlagen, etc.)</span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Bankverbindungen ausgetauscht</strong> – Für die Kaufpreiszahlung, ggf. Treuhandkonto eingerichtet</span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Vollmachten und Prokura geregelt</strong> – Wer darf nach dem Closing im Namen des Unternehmens handeln?</span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Versicherungen übertragen/neu abgeschlossen</strong> – Betriebshaftpflicht, Gebäudeversicherung etc. lückenlos regeln</span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Mitarbeiterinformation vorbereitet</strong> – Kommunikationsplan für nach dem Closing erstellt (nicht vorher informieren!)</span>
+                        </li>
+                        <li>
+                            <div class="check-icon"></div>
+                            <span><strong>Schlüsselübergabe geplant</strong> – Physische Schlüssel, IT-Zugänge, Passwörter, Tresorkombinationen</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Praxis-Tipp: Closing-Checkliste mit dem Anwalt abstimmen</div>
+                    <p>Lass deinen Anwalt die Closing-Checkliste erstellen und abarbeiten. Jeder Deal hat individuelle Closing-Voraussetzungen (Conditions Precedent), die im Kaufvertrag definiert sind. Der Anwalt stellt sicher, dass alle Bedingungen erfüllt sind, bevor der Kaufpreis gezahlt wird.</p>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 4: Der Closing-Tag ===== -->
+            <div class="section" style="border-bottom: none;">
+                <h2><span class="section-number">4</span> Der Closing-Tag</h2>
+                <p>Am Closing-Tag wird die Transaktion vollzogen. Der Ablauf hängt davon ab, ob es ein Share Deal oder Asset Deal ist – aber die grundsätzlichen Schritte sind ähnlich.</p>
+
+                <h3>Ablauf eines typischen Closing-Tags</h3>
+                <ol>
+                    <li><strong>Notartermin (Share Deal) oder Vertragsunterschrift (Asset Deal)</strong> – Bei GmbH-Anteilen ist die notarielle Beurkundung Pflicht. Der Notar verliest den Vertrag und beide Parteien unterzeichnen.</li>
+                    <li><strong>Kaufpreiszahlung</strong> – Überweisung des Kaufpreises, oft über ein <strong>Treuhandkonto (Escrow)</strong>. Der Notar oder ein Treuhänder gibt den Kaufpreis erst frei, wenn alle Bedingungen erfüllt sind.</li>
+                    <li><strong>Übergabe der Geschäftsunterlagen</strong> – Buchhaltung, Verträge, Kundenlisten, Lieferantenverträge, Mitarbeiterakten</li>
+                    <li><strong>Übergabe-Protokoll unterschreiben</strong> – Dokumentiert den Zustand bei Übergabe und was übergeben wurde</li>
+                    <li><strong>Zugänge und Vollmachten übertragen</strong> – IT-Systeme, Bankkonten, Geschäftsräume, Fahrzeuge</li>
+                </ol>
+
+                <h3>Nach dem Closing</h3>
+                <p>Mit der Unterschrift ist die Transaktion abgeschlossen – aber die Arbeit beginnt erst. Die wichtigsten Schritte unmittelbar nach dem Closing:</p>
+                <ul>
+                    <li><strong>Handelsregisteranmeldung (Share Deal)</strong> – Der Notar meldet den Gesellschafterwechsel beim Handelsregister an</li>
+                    <li><strong>Mitarbeiter informieren</strong> – Persönlich und zeitnah. Mitarbeiter erfahren den Eigentümerwechsel idealerweise von dir und dem Verkäufer gemeinsam</li>
+                    <li><strong>Kunden und Lieferanten informieren</strong> – Wichtige Geschäftspartner persönlich kontaktieren, übrige schriftlich</li>
+                    <li><strong>Versicherungen und Verträge prüfen</strong> – Falls Verträge nicht über das Unternehmen, sondern über den Verkäufer persönlich liefen, müssen diese auf dich umgeschrieben oder neu abgeschlossen werden</li>
+                    <li><strong>Bankkonten und Vollmachten aktualisieren</strong> – Neue Zeichnungsberechtigungen einrichten, alte entfernen</li>
+                </ul>
+
+                <div class="tipp-box">
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Klarer Plan vor dem Closing vorbereiten</div>
+                    <p>Die ersten 100 Tage nach dem Closing sind entscheidend für den Erfolg der Übernahme. Wie du die Übergangsphase strukturierst, Mitarbeiter einbindest und Quick Wins erzielst → <a href="academy-modul-100-tage-plan.html">Modul 9: 100-Tage-Plan</a></p>
+                </div>
+            </div>
+
+            <!-- ===== KEY TAKEAWAYS ===== -->
+            <div class="takeaways-box">
+                <div class="takeaways-title"><i class="fa-solid fa-star"></i> Key Takeaways</div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> <strong>Anwalt ist Pflicht:</strong> <span>Auch bei kleinen Deals nie ohne M&A-Anwalt den Kaufvertrag unterschreiben</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Garantien schützen dich:</strong> <span>Representations &amp; Warranties und Freistellungen sichern dich als Käufer gegen versteckte Risiken ab</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Übergangszeitraum vereinbaren:</strong> <span>Definiere konkrete Aufgaben und Verfügbarkeit des Verkäufers nach dem Closing</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Closing-Checkliste abarbeiten:</strong> <span>Finanzierung, Vertrag, Bedingungen, Übergabe-Protokoll – nichts vergessen</span></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Nach dem Closing:</strong> <span>Mitarbeiter und Kunden zuerst informieren – persönlich und zeitnah</span></li>
+                </ul>
+            </div>
+
+                </div><!-- /reference-content -->
+            </div><!-- /reference-section -->
+
+            <!-- ===== QUIZ SECTION ===== -->
+            <div class="quiz-section" id="quiz-section">
+                <div class="quiz-header">
+                    <div class="quiz-icon"><i class="fa-solid fa-clipboard-question"></i></div>
+                    <div class="quiz-title">Wissens-Check</div>
+                </div>
+                <p class="quiz-subtitle">Beantworte 5 Fragen zu Vertragsverhandlung, Signing &amp; Closing. Alle Antworten müssen korrekt sein, um das Modul abzuschließen.</p>
+
+                <!-- Frage 1 -->
+                <div class="quiz-question" data-correct="0">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">1</div>
+                        <div class="quiz-q-text">Was ist bei einem GmbH-Anteilskauf (Share Deal) in Deutschland zwingend erforderlich?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Notarielle Beurkundung</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Einfache Schriftform</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Handschlag-Vereinbarung</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Mündliche Zusage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 2 -->
+                <div class="quiz-question" data-correct="0">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">2</div>
+                        <div class="quiz-q-text">Was bedeutet "Representations &amp; Warranties" im Kaufvertrag?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Garantien des Verkäufers über den Zustand des Unternehmens</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Die Zahlungsbedingungen des Kaufpreises</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Die Wettbewerbsverbotsklausel</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Die Übergangszeitraum-Regelung</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 3 -->
+                <div class="quiz-question" data-correct="0">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">3</div>
+                        <div class="quiz-q-text">Was ist ein typischer Zeitrahmen für ein Wettbewerbsverbot des Verkäufers?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">2–3 Jahre</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">6 Monate</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">10 Jahre</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Unbegrenzt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 4 -->
+                <div class="quiz-question" data-correct="0">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">4</div>
+                        <div class="quiz-q-text">Was ist ein Escrow-Konto (Treuhandkonto) beim Closing?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Ein Konto, auf dem der Kaufpreis bis zur Erfüllung aller Bedingungen treuhänderisch verwahrt wird</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Das Geschäftskonto des gekauften Unternehmens</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Ein Sparkonto für die Earn-Out-Zahlungen</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Das Konto des Notars für die Beurkundungsgebühren</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 5 -->
+                <div class="quiz-question" data-correct="1">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">5</div>
+                        <div class="quiz-q-text">Was versteht man unter einer &bdquo;Freistellung&ldquo; (Indemnification) im Kaufvertrag?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Eine steuerliche Verg&uuml;nstigung f&uuml;r den K&auml;ufer beim Unternehmenskauf</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Die Verpflichtung des Verk&auml;ufers, den K&auml;ufer von bestimmten Risiken oder Sch&auml;den zu befreien</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Ein automatischer Anspruch auf Kaufpreisr&uuml;ckzahlung bei Garantieverletzung</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Eine Verl&auml;ngerungsklausel f&uuml;r den &Uuml;bergangszeitraum nach dem Closing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Submit -->
+                <div class="quiz-submit-area">
+                    <span class="quiz-progress-text" id="quiz-progress">0 von 5 beantwortet</span>
+                    <button class="quiz-submit-btn" id="quiz-submit" onclick="submitQuiz()">
+                        <i class="fa-solid fa-check"></i> Antworten prüfen
+                    </button>
+                </div>
+
+                <!-- Quiz Result -->
+                <div class="quiz-result" id="quiz-result"></div>
+            </div>
+
+            <!-- ===== COMPLETION & NAV ===== -->
+            <div class="module-actions">
+                <div class="completion-requirements">
+                    <div class="requirement-item">
+                        <div class="req-icon pending" id="req-video"><i class="fa-solid fa-check" style="display:none"></i></div>
+                        Video angesehen
+                    </div>
+                    <div class="requirement-item">
+                        <div class="req-icon pending" id="req-quiz"><i class="fa-solid fa-check" style="display:none"></i></div>
+                        Wissens-Check bestanden (5/5)
+                    </div>
+                </div>
+                <button class="btn-complete locked" id="btn-complete" disabled>
+                    <i class="fa-solid fa-lock"></i>
+                    Zuerst Video ansehen und Quiz bestehen
+                </button>
+                <div class="module-nav">
+                    <a href="academy-modul-finanzierung.html"><i class="fa-solid fa-arrow-left"></i> Akquisitionsfinanzierung</a>
+                    <a href="academy-modul-100-tage-plan.html">100-Tage-Plan <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="content-sidebar">
+
+            <!-- Progress Card -->
+            <div class="sidebar-card progress-card">
+                <svg width="80" height="80" viewBox="0 0 80 80">
+                    <circle cx="40" cy="40" r="34" fill="none" stroke="#E5E7EB" stroke-width="6"/>
+                    <circle cx="40" cy="40" r="34" fill="none" stroke="#10B981" stroke-width="6"
+                        stroke-dasharray="213.6" stroke-dashoffset="47.5"
+                        stroke-linecap="round" transform="rotate(-90 40 40)"/>
+                    <text x="40" y="44" text-anchor="middle" font-family="Inter" font-size="18" font-weight="700" fill="#1A1A1A">78%</text>
+                </svg>
+                <div class="progress-value">7 von 9 Modulen</div>
+                <div class="progress-label">abgeschlossen</div>
+            </div>
+
+            <!-- Module Status -->
+            <div class="sidebar-card sidebar-status-card">
+                <div class="sidebar-card-title"><i class="fa-solid fa-list-check"></i> Modul-Fortschritt</div>
+                <div class="status-items">
+                    <div class="sidebar-status-item">
+                        <div class="status-dot pending" id="sidebar-video"><i class="fa-solid fa-check" style="display:none"></i></div>
+                        Video ansehen
+                    </div>
+                    <div class="sidebar-status-item">
+                        <div class="status-dot pending" id="sidebar-quiz"><i class="fa-solid fa-check" style="display:none"></i></div>
+                        Wissens-Check bestehen
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase Module List -->
+            <div class="sidebar-card phase-modules-card">
+                <div class="sidebar-card-title"><i class="fa-solid fa-layer-group"></i> Phase 4: Abschluss</div>
+                <a href="academy-modul-kaufvertrag.html" class="phase-module-item active">
+                    <div class="module-dot"></div>
+                    Vertragsverhandlung, Signing &amp; Closing
+                </a>
+                <a href="academy-modul-100-tage-plan.html" class="phase-module-item">
+                    <div class="module-dot"></div>
+                    100-Tage-Plan
+                </a>
+            </div>
+
+            <!-- Downloads -->
+            <div class="sidebar-card download-card">
+                <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
+                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Closing-Checkliste (PDF)</div>
+            </div>
+
+            <!-- Next Module -->
+            <div class="sidebar-card next-module-card">
+                <div class="next-label">Nächstes Modul</div>
+                <div class="next-title">100-Tage-Plan</div>
+                <a href="academy-modul-100-tage-plan.html"><i class="fa-solid fa-arrow-right"></i> Modul starten</a>
+            </div>
+
+            <!-- Berater CTA -->
+            <div class="sidebar-card berater-cta-card">
+                <div class="sidebar-card-title"><i class="fa-solid fa-scale-balanced"></i> Erfahrene M&amp;A-Anwälte finden</div>
+                <p>Im DealCircle Berater-Directory findest du auf M&amp;A spezialisierte Anwälte für Kaufvertragsverhandlung, Due Diligence und Closing – gefiltert nach Fachgebiet und Transaktionsgröße.</p>
+                <a href="#"><i class="fa-solid fa-arrow-right"></i> Berater-Directory</a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-logo">/AMBER</div>
+                <div class="footer-sub">BY DEALCIRCLE</div>
+            </div>
+            <div class="footer-right">
+                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
+                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">&copy; 2026 AMBER. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">AGB</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Focus Group
+        function toggleFocusGroup(e) {
+            e.stopPropagation();
+            var fg = document.getElementById('focus-group');
+            fg.classList.toggle('open');
+        }
+        document.addEventListener('click', function() {
+            var fg = document.getElementById('focus-group');
+            if (fg) fg.classList.remove('open');
+        });
+
+        // --- State ---
+        var videoWatched = false;
+        var quizPassed = false;
+
+        // --- Video ---
+        function toggleVideoState() {
+            if (videoWatched) return;
+            videoWatched = true;
+            document.getElementById('video-progress').style.width = '100%';
+            var overlay = document.getElementById('video-overlay');
+            overlay.innerHTML = '<div class="video-play-btn" style="background: rgba(16,185,129,0.2); border-color: rgba(16,185,129,0.5);"><i class="fa-solid fa-check" style="color: #10B981; margin-left: 0;"></i></div><span class="video-label" style="color: rgba(255,255,255,0.9);">Video angesehen</span>';
+            var status = document.getElementById('video-status');
+            status.className = 'video-status watched';
+            status.innerHTML = '<i class="fa-solid fa-check-circle"></i> Angesehen';
+            var reqIcon = document.getElementById('req-video');
+            reqIcon.className = 'req-icon done';
+            reqIcon.querySelector('i').style.display = '';
+            var sidebarDot = document.getElementById('sidebar-video');
+            sidebarDot.className = 'status-dot done';
+            sidebarDot.querySelector('i').style.display = '';
+            checkCompletion();
+        }
+
+        // --- Reference Toggle ---
+        function toggleReference() {
+            var toggle = document.getElementById('reference-toggle');
+            var content = document.getElementById('reference-content');
+            toggle.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+
+        // --- Quiz ---
+        function selectOption(el) {
+            var question = el.closest('.quiz-question');
+            var options = question.querySelectorAll('.quiz-option');
+            options.forEach(function(opt) {
+                opt.classList.remove('selected', 'correct', 'incorrect');
+            });
+            el.classList.add('selected');
+            updateQuizProgress();
+        }
+
+        function updateQuizProgress() {
+            var questions = document.querySelectorAll('.quiz-question');
+            var answered = 0;
+            questions.forEach(function(q) {
+                if (q.querySelector('.quiz-option.selected')) answered++;
+            });
+            document.getElementById('quiz-progress').textContent = answered + ' von 5 beantwortet';
+        }
+
+        function submitQuiz() {
+            var questions = document.querySelectorAll('.quiz-question');
+            var correctCount = 0;
+            questions.forEach(function(q) {
+                var correctIdx = q.getAttribute('data-correct');
+                var selected = q.querySelector('.quiz-option.selected');
+                var options = q.querySelectorAll('.quiz-option');
+                options.forEach(function(opt) {
+                    opt.classList.remove('correct', 'incorrect', 'selected');
+                    opt.style.pointerEvents = 'none';
+                });
+                if (selected) {
+                    var selectedIdx = selected.getAttribute('data-idx');
+                    if (selectedIdx === correctIdx) {
+                        selected.classList.add('correct');
+                        correctCount++;
+                    } else {
+                        selected.classList.add('incorrect');
+                        options[parseInt(correctIdx)].classList.add('correct');
+                    }
+                } else {
+                    options[parseInt(correctIdx)].classList.add('correct');
+                }
+            });
+
+            var resultEl = document.getElementById('quiz-result');
+            if (correctCount === 5) {
+                quizPassed = true;
+                resultEl.className = 'quiz-result passed';
+                resultEl.innerHTML =
+                    '<div class="quiz-result-icon"><i class="fa-solid fa-check"></i></div>' +
+                    '<div class="quiz-result-text"><strong>Bestanden!</strong> Alle 5 Fragen richtig beantwortet. Wissens-Check abgeschlossen.</div>';
+                var reqIcon = document.getElementById('req-quiz');
+                reqIcon.className = 'req-icon done';
+                reqIcon.querySelector('i').style.display = '';
+                var sidebarDot = document.getElementById('sidebar-quiz');
+                sidebarDot.className = 'status-dot done';
+                sidebarDot.querySelector('i').style.display = '';
+            } else {
+                resultEl.className = 'quiz-result failed';
+                resultEl.innerHTML =
+                    '<div class="quiz-result-icon"><i class="fa-solid fa-xmark"></i></div>' +
+                    '<div class="quiz-result-text"><strong>Nicht bestanden.</strong> Du hast ' + correctCount + ' von 5 Fragen richtig. Alle 5 müssen korrekt sein.</div>' +
+                    '<button class="quiz-retry-btn" onclick="retryQuiz()"><i class="fa-solid fa-rotate-right"></i> Erneut versuchen</button>';
+            }
+            document.getElementById('quiz-submit').style.display = 'none';
+            checkCompletion();
+        }
+
+        function retryQuiz() {
+            var questions = document.querySelectorAll('.quiz-question');
+            questions.forEach(function(q) {
+                var options = q.querySelectorAll('.quiz-option');
+                options.forEach(function(opt) {
+                    opt.classList.remove('correct', 'incorrect', 'selected');
+                    opt.style.pointerEvents = '';
+                });
+            });
+            document.getElementById('quiz-result').className = 'quiz-result';
+            document.getElementById('quiz-result').innerHTML = '';
+            document.getElementById('quiz-submit').style.display = '';
+            updateQuizProgress();
+        }
+
+        // --- Completion Check ---
+        function checkCompletion() {
+            var btn = document.getElementById('btn-complete');
+            if (videoWatched && quizPassed) {
+                btn.className = 'btn-complete';
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> Als abgeschlossen markieren';
+            }
+        }
+    </script>
+
+</body>
+</html>
