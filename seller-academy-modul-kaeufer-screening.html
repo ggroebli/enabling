@@ -1484,7 +1484,7 @@
                     <div class="quiz-icon"><i class="fa-solid fa-clipboard-question"></i></div>
                     <div class="quiz-title">Wissens-Check</div>
                 </div>
-                <p class="quiz-subtitle">Beantworte 3 Fragen zum Käufer- und Angebots-Screening. Alle Antworten müssen korrekt sein, um das Modul abzuschließen.</p>
+                <p class="quiz-subtitle">Beantworte 5 Fragen zum Käufer- und Angebots-Screening. Alle Antworten müssen korrekt sein, um das Modul abzuschließen.</p>
 
                 <!-- Frage 1 -->
                 <div class="quiz-question" data-correct="1">
@@ -1564,9 +1564,63 @@
                     </div>
                 </div>
 
+
+                <!-- Frage 4 -->
+                <div class="quiz-question" data-correct="0">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">4</div>
+                        <div class="quiz-q-text">Was ist ein MBI (Management Buy-In)?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Ein externer Manager kauft das Unternehmen und übernimmt die Geschäftsführung</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Ein Mitarbeiter des Unternehmens kauft Anteile</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Ein strategischer Käufer gliedert das Unternehmen ein</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Die bestehende Geschäftsführung kauft das Unternehmen</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Frage 5 -->
+                <div class="quiz-question" data-correct="3">
+                    <div class="quiz-question-header">
+                        <div class="quiz-q-number">5</div>
+                        <div class="quiz-q-text">Warum ist es wichtig, mehrere Kaufinteressenten gleichzeitig im Prozess zu haben?</div>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-idx="0" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Weil das gesetzlich vorgeschrieben ist</span>
+                        </div>
+                        <div class="quiz-option" data-idx="1" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Damit der Berater mehr Provision erhält</span>
+                        </div>
+                        <div class="quiz-option" data-idx="2" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Weil ein einzelner Interessent meist nicht kauft</span>
+                        </div>
+                        <div class="quiz-option" data-idx="3" onclick="selectOption(this)">
+                            <div class="quiz-radio"></div>
+                            <span class="quiz-option-text">Weil Wettbewerb die Verhandlungsposition und den Preis verbessert</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Quiz Submit -->
                 <div class="quiz-submit-area">
-                    <span class="quiz-progress-text" id="quiz-progress">0 von 3 beantwortet</span>
+                    <span class="quiz-progress-text" id="quiz-progress">0 von 5 beantwortet</span>
                     <button class="quiz-submit-btn" id="quiz-submit" onclick="submitQuiz()">
                         <i class="fa-solid fa-check"></i> Antworten prüfen
                     </button>
@@ -1585,7 +1639,7 @@
                     </div>
                     <div class="requirement-item">
                         <div class="req-icon pending" id="req-quiz"><i class="fa-solid fa-check" style="display:none"></i></div>
-                        Wissens-Check bestanden (3/3)
+                        Wissens-Check bestanden (5/5)
                     </div>
                 </div>
                 <button class="btn-complete locked" id="btn-complete" disabled>
@@ -1756,7 +1810,7 @@
             questions.forEach(function(q) {
                 if (q.querySelector('.quiz-option.selected')) answered++;
             });
-            document.getElementById('quiz-progress').textContent = answered + ' von 3 beantwortet';
+            document.getElementById('quiz-progress').textContent = answered + ' von 5 beantwortet';
         }
 
         function submitQuiz() {
@@ -1785,12 +1839,12 @@
             });
 
             var resultEl = document.getElementById('quiz-result');
-            if (correctCount === 3) {
+            if (correctCount === 5) {
                 quizPassed = true;
                 resultEl.className = 'quiz-result passed';
                 resultEl.innerHTML =
                     '<div class="quiz-result-icon"><i class="fa-solid fa-check"></i></div>' +
-                    '<div class="quiz-result-text"><strong>Bestanden!</strong> Alle 3 Fragen richtig beantwortet. Wissens-Check abgeschlossen.</div>';
+                    '<div class="quiz-result-text"><strong>Bestanden!</strong> Alle 5 Fragen richtig beantwortet. Wissens-Check abgeschlossen.</div>';
                 var reqIcon = document.getElementById('req-quiz');
                 reqIcon.className = 'req-icon done';
                 reqIcon.querySelector('i').style.display = '';
@@ -1801,7 +1855,7 @@
                 resultEl.className = 'quiz-result failed';
                 resultEl.innerHTML =
                     '<div class="quiz-result-icon"><i class="fa-solid fa-xmark"></i></div>' +
-                    '<div class="quiz-result-text"><strong>Nicht bestanden.</strong> Du hast ' + correctCount + ' von 3 Fragen richtig. Alle 3 müssen korrekt sein.</div>' +
+                    '<div class="quiz-result-text"><strong>Nicht bestanden.</strong> Du hast ' + correctCount + ' von 5 Fragen richtig. Alle 5 müssen korrekt sein.</div>' +
                     '<button class="quiz-retry-btn" onclick="retryQuiz()"><i class="fa-solid fa-rotate-right"></i> Erneut versuchen</button>';
             }
             document.getElementById('quiz-submit').style.display = 'none';
