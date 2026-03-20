@@ -447,6 +447,20 @@
             font-size: 11px;
         }
 
+        /* ===== TOP HINTS ===== */
+        .top-hints { margin-bottom: 36px; }
+        .top-hints h3 { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .top-hints h3 i { color: #D97706; font-size: 20px; }
+        .hint-card { display: flex; gap: 16px; padding: 20px 24px; border: 1px solid #E5E7EB; border-radius: 10px; margin-bottom: 12px; background: #FEFCE8; border-left: 4px solid #D97706; transition: box-shadow 0.2s; }
+        .hint-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .hint-card.hint-green { background: #F0FDF4; border-left-color: #10B981; }
+        .hint-number { width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: #D97706; color: white; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+        .hint-content { flex: 1; }
+        .hint-text { font-size: 14px; font-weight: 400; line-height: 160%; color: var(--black); margin-bottom: 8px; }
+        .hint-module-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: #D97706; text-decoration: none; }
+        .hint-module-link:hover { text-decoration: underline; }
+        .hint-module-link i { font-size: 11px; }
+
         /* Retry */
         .result-actions {
             display: flex;
@@ -580,6 +594,8 @@
 
                 <div class="top-hints" id="top-hints"></div>
 
+                <div class="top-hints" id="top-hints"></div>
+
                 <div class="result-actions">
                     <button class="btn-secondary" onclick="resetCheck()"><i class="fa-solid fa-rotate"></i> Check wiederholen</button>
                     <a href="academy.html" class="btn-secondary"><i class="fa-solid fa-graduation-cap"></i> Zurück zur Academy</a>
@@ -613,6 +629,8 @@ const questions = [
     { cat: "personal", catLabel: "Persönliche Readiness", text: "Hast du einen realistischen Zeitrahmen für den gesamten Kaufprozess eingeplant (6–24 Monate)?", module: "academy-modul-angebotsstrategie.html", moduleName: "Angebotsstrategie und LOI", hint: "Von der Suche nach dem passenden Unternehmen bis zum Closing vergehen typischerweise 6–24 Monate. Plane diese Zeit bewusst ein – neben deinem aktuellen Job, Familie und dem operativen Aufwand für Suche, Due Diligence und Verhandlungen.", priority: 5 },
     { cat: "personal", catLabel: "Persönliche Readiness", text: "Hast du deine Familie über deine Kaufabsicht informiert und ihre Unterstützung?", module: "academy-modul-100-tage-plan.html", moduleName: "100-Tage-Plan", hint: "Ein Unternehmenskauf verändert dein Leben grundlegend – Arbeitszeit, Risiko, finanzielle Situation. Deine Familie muss diesen Schritt mittragen. Führe das Gespräch früh und offen.", priority: 6 },
 ];
+
+const catColors];
 
 const catColors = {
     finance: { cls: "cat-finance", color: "#10B981" },
@@ -759,6 +777,41 @@ function showResult() {
         heading.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Deine wichtigsten n\u00e4chsten Schritte';
         hintsContainer.appendChild(heading);
 
+        weakItems.forEach((item, idx) => {
+            const card = document.createElement("div");
+            card.className = "hint-card";
+            card.innerHTML = `
+                <div class="hint-number">${idx + 1}</div>
+                <div class="hint-content">
+                    <div class="hint-text">${item.q.hint}</div>
+                    <a href="${item.q.module}" class="hint-module-link"><i class="fa-solid fa-arrow-right"></i> Mehr dazu: ${item.q.moduleName}</a>
+                </div>
+            `;
+            hintsContainer.appendChild(card);
+        });
+    } else {
+        const allGood = document.createElement("div");
+        allGood.className = "hint-card hint-green";
+        allGood.innerHTML = `
+            <div class="hint-number" style="background: #10B981;">\u2713</div>
+            <div class="hint-content">
+                <div class="hint-text">Hervorragend! Du hast alle Fragen positiv beantwortet. Du bist bestens auf deinen Unternehmenskauf vorbereitet.</div>
+            </div>
+        `;
+        hintsContainer.appendChild(allGood);
+    }
+
+    // Top hints
+    const weakItems = questions.map((q, i) => ({ q, a: answers[i], idx: i }))
+        .filter(x => x.a < 2)
+        .sort((a, b) => { if (a.a !== b.a) return a.a - b.a; return (b.q.priority || 0) - (a.q.priority || 0); })
+        .slice(0, 5);
+    const hintsContainer = document.getElementById("top-hints");
+    hintsContainer.innerHTML = "";
+    if (weakItems.length > 0) {
+        const heading = document.createElement("h3");
+        heading.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Deine wichtigsten n\u00e4chsten Schritte';
+        hintsContainer.appendChild(heading);
         weakItems.forEach((item, idx) => {
             const card = document.createElement("div");
             card.className = "hint-card";
