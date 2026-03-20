@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER – Deal-Readiness-Check</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            --green: #10B981;
+            --amber: #D97706;
+            --red: #EF4444;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--white);
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            display: flex; align-items: center; padding: 0 48px; height: 72px;
+            border-bottom: 1px solid #EEE; position: fixed; top: 0; width: 1440px;
+            background: var(--white); z-index: 100;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: var(--black); text-decoration: none; margin-right: 48px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+        .nav-links a { font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-lang { display: flex; align-items: center; gap: 8px; font-size: 14px; border: 1px solid var(--grey-light); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .nav-avatar-wrapper { position: relative; }
+        .nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grey-light); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .nav-avatar i { font-size: 18px; color: var(--grey-dark); }
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== LAYOUT ===== */
+        .page-wrapper {
+            width: 1440px;
+            margin-top: 72px;
+            min-height: calc(100vh - 72px);
+            display: flex;
+            justify-content: center;
+        }
+
+        .check-container {
+            max-width: 780px;
+            width: 100%;
+            padding: 48px 48px 80px;
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            margin-bottom: 32px;
+        }
+        .breadcrumb a { color: var(--grey-dark); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--black); }
+        .breadcrumb .separator { color: var(--grey-light); }
+
+        /* ===== HEADER ===== */
+        .check-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .check-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .check-header .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 160%;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .check-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            font-size: 14px;
+            color: var(--grey-dark);
+        }
+
+        .check-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar-wrapper {
+            margin-bottom: 36px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--grey-dark);
+            margin-bottom: 8px;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background: #E5E7EB;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--green);
+            border-radius: 3px;
+            transition: width 0.4s ease;
+        }
+
+        /* ===== QUESTION CARD ===== */
+        .question-card {
+            background: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .question-category {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .cat-finance { background: #D1FAE5; color: #059669; }
+        .cat-knowledge { background: #DBEAFE; color: #2563EB; }
+        .cat-network { background: #EDE9FE; color: #7C3AED; }
+        .cat-personal { background: #FEF3C7; color: #D97706; }
+
+        .question-text {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 150%;
+            margin-bottom: 20px;
+        }
+
+        .answer-options {
+            display: flex;
+            gap: 12px;
+        }
+
+        .answer-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            background: #F9FAFB;
+            font-family: var(--font-main);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--black);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .answer-btn:hover {
+            border-color: #D1D5DB;
+            background: #F3F4F6;
+        }
+
+        .answer-btn.selected-yes {
+            border-color: var(--green);
+            background: #D1FAE5;
+            color: #059669;
+        }
+
+        .answer-btn.selected-partly {
+            border-color: var(--amber);
+            background: #FEF3C7;
+            color: #D97706;
+        }
+
+        .answer-btn.selected-no {
+            border-color: var(--red);
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        /* ===== SUBMIT ===== */
+        .submit-area {
+            text-align: center;
+            margin-top: 36px;
+        }
+
+        .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 40px;
+            background: var(--gradient-cta);
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .submit-btn:hover { opacity: 0.85; }
+        .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        /* ===== RESULT ===== */
+        .result-section {
+            display: none;
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .result-ring {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+        }
+
+        .result-ring svg { transform: rotate(-90deg); }
+
+        .result-ring-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .result-ring-pct {
+            font-size: 36px;
+            font-weight: 700;
+            display: block;
+        }
+
+        .result-ring-label {
+            font-size: 12px;
+            color: var(--grey-dark);
+        }
+
+        .result-verdict {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .result-verdict-desc {
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 160%;
+        }
+
+        /* Category results */
+        .category-results {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .cat-result-card {
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .cat-result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .cat-result-name {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .cat-result-badge {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .badge-green { background: #D1FAE5; color: #059669; }
+        .badge-amber { background: #FEF3C7; color: #D97706; }
+        .badge-red { background: #FEE2E2; color: #DC2626; }
+
+        .cat-result-bar {
+            width: 100%;
+            height: 6px;
+            background: #E5E7EB;
+            border-radius: 3px;
+            margin-bottom: 8px;
+        }
+
+        .cat-result-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.6s ease;
+        }
+
+        .cat-result-hint {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--grey-dark);
+            line-height: 150%;
+        }
+
+        .cat-result-hint a {
+            color: #2563EB;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .cat-result-hint a:hover { text-decoration: underline; }
+
+        /* ===== TOP HINTS ===== */
+        .top-hints {
+            margin-bottom: 36px;
+        }
+
+        .top-hints h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top-hints h3 i {
+            color: #D97706;
+            font-size: 20px;
+        }
+
+        .hint-card {
+            display: flex;
+            gap: 16px;
+            padding: 20px 24px;
+            border: 1px solid #E5E7EB;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            background: #FEFCE8;
+            border-left: 4px solid #D97706;
+            transition: box-shadow 0.2s;
+        }
+
+        .hint-card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .hint-card.hint-green {
+            background: #F0FDF4;
+            border-left-color: #10B981;
+        }
+
+        .hint-number {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            border-radius: 50%;
+            background: #D97706;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .hint-content {
+            flex: 1;
+        }
+
+        .hint-text {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 160%;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .hint-module-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #D97706;
+            text-decoration: none;
+        }
+
+        .hint-module-link:hover {
+            text-decoration: underline;
+        }
+
+        .hint-module-link i {
+            font-size: 11px;
+        }
+
+        /* Retry */
+        .result-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            background: var(--white);
+            font-family: var(--font-main);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--black);
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn-secondary:hover { background: #F9FAFB; }
+
+        /* ===== FOOTER LINK ===== */
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--grey-dark);
+            text-decoration: none;
+            margin-top: 40px;
+        }
+
+        .back-link:hover { color: var(--black); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="suche.html" class="nav-logo">AMBER</a>
+        <div class="nav-links">
+            <a href="suche.html">Suche</a>
+            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="mitteilungen.html">Mitteilungen</a>
+            <a href="postfach.html">Postfach</a>
+            <a href="transaktionen.html">Meine Transaktionen</a>
+            <a href="academy.html" class="active">Academy</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang"><i class="fa-solid fa-globe"></i> DE</div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="document.querySelector('.focus-group').classList.toggle('open')">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="focus-group">
+                    <a href="kauferprofil.html"><i class="fa-solid fa-user"></i>&nbsp; Mein Profil</a>
+                    <a href="#"><i class="fa-solid fa-gear"></i>&nbsp; Einstellungen</a>
+                    <a href="#"><i class="fa-solid fa-right-from-bracket"></i>&nbsp; Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <div class="check-container">
+
+            <div class="breadcrumb">
+                <a href="academy.html">Käufer-Academy</a>
+                <span class="separator">/</span>
+                <span>Deal-Readiness-Check</span>
+            </div>
+
+            <!-- ===== INTRO ===== -->
+            <div class="check-header" id="check-intro">
+                <h1><i class="fa-solid fa-clipboard-check" style="color: #10B981;"></i> Deal-Readiness-Check</h1>
+                <p class="subtitle">Wie gut bist du auf deinen ersten Unternehmenskauf vorbereitet? Beantworte 12 Fragen zu deiner Situation und erhalte eine persönliche Einschätzung mit konkreten Empfehlungen.</p>
+                <div class="check-meta">
+                    <span><i class="fa-regular fa-clock"></i> ca. 10 Min.</span>
+                    <span><i class="fa-solid fa-clipboard-question"></i> 12 Fragen</span>
+                    <span><i class="fa-solid fa-rotate"></i> Jederzeit wiederholbar</span>
+                </div>
+            </div>
+
+            <!-- ===== PROGRESS ===== -->
+            <div class="progress-bar-wrapper" id="progress-wrapper">
+                <div class="progress-info">
+                    <span id="progress-label">Frage 1 von 12</span>
+                    <span id="progress-cat"></span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- ===== QUESTIONS ===== -->
+            <div id="questions-container"></div>
+
+            <div class="submit-area" id="submit-area">
+                <button class="submit-btn" id="submit-btn" onclick="showResult()" disabled>
+                    <i class="fa-solid fa-chart-pie"></i> Auswertung anzeigen
+                </button>
+                <p style="font-size: 13px; color: #999; margin-top: 10px;" id="answer-hint">Beantworte alle 12 Fragen, um die Auswertung zu sehen.</p>
+            </div>
+
+            <!-- ===== RESULT ===== -->
+            <div class="result-section" id="result-section">
+                <div class="result-header">
+                    <div class="result-ring">
+                        <svg width="180" height="180" viewBox="0 0 180 180">
+                            <circle cx="90" cy="90" r="78" fill="none" stroke="#E5E7EB" stroke-width="10"/>
+                            <circle cx="90" cy="90" r="78" fill="none" stroke="#10B981" stroke-width="10"
+                                stroke-dasharray="490" stroke-dashoffset="490" stroke-linecap="round"
+                                id="result-ring-circle"/>
+                        </svg>
+                        <div class="result-ring-text">
+                            <span class="result-ring-pct" id="result-pct">0%</span>
+                            <span class="result-ring-label">Readiness</span>
+                        </div>
+                    </div>
+                    <div class="result-verdict" id="result-verdict"></div>
+                    <div class="result-verdict-desc" id="result-desc"></div>
+                </div>
+
+                <div class="category-results" id="category-results"></div>
+
+                <div class="top-hints" id="top-hints"></div>
+
+                <div class="result-actions">
+                    <button class="btn-secondary" onclick="resetCheck()"><i class="fa-solid fa-rotate"></i> Check wiederholen</button>
+                    <a href="academy.html" class="btn-secondary"><i class="fa-solid fa-graduation-cap"></i> Zurück zur Academy</a>
+                </div>
+            </div>
+
+            <a href="academy.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Zurück zur Käufer-Academy</a>
+
+        </div>
+    </div>
+
+<script>
+const questions = [
+    // Finanzielle Readiness
+    { cat: "finance", catLabel: "Finanzielle Readiness", text: "Hast du ein realistisches Budget für den Unternehmenskauf definiert (inkl. Kaufpreis, Nebenkosten, Betriebsmittel)?", module: "academy-modul-bewertung.html", moduleName: "Bewertung & Preisfindung", hint: "Neben dem Kaufpreis fallen Nebenkosten an: Notar, Anwalt, Due-Diligence-Berater und Betriebsmittel für die ersten Monate. Plane mindestens 5–10 % des Kaufpreises für Transaktionskosten zusätzlich ein.", priority: 10 },
+    { cat: "finance", catLabel: "Finanzielle Readiness", text: "Hast du dein investierbares Eigenkapital beziffert und daraus deine maximale Transaktionsgröße abgeleitet?", module: "academy-modul-finanzierung.html", moduleName: "Akquisitionsfinanzierung", hint: "Banken erwarten in der Regel 20–40 % Eigenkapital bei kleinen Deals. Kläre früh, wie viel du selbst aufbringen kannst – das bestimmt deine realistische Kaufpreis-Obergrenze.", priority: 10 },
+    { cat: "finance", catLabel: "Finanzielle Readiness", text: "Hast du bereits ein Gespräch mit einer Bank oder einem Finanzierungsberater über die Fremdfinanzierung eines Unternehmenskaufs geführt?", module: "academy-modul-finanzierung.html", moduleName: "Akquisitionsfinanzierung", hint: "Führe das Bankgespräch bevor du ein konkretes Unternehmen im Blick hast – so weißt du früh, welches Fremdkapitalvolumen realistisch ist und welche Sicherheiten die Bank erwartet.", priority: 9 },
+    { cat: "finance", catLabel: "Finanzielle Readiness", text: "Hast du Förderprogramme (z. B. KfW, Bürgschaftsbanken) für Unternehmensnachfolge geprüft?", module: "academy-modul-finanzierung.html", moduleName: "Akquisitionsfinanzierung", hint: "Die KfW und die Bürgschaftsbanken der Länder bieten spezielle Programme für Unternehmensnachfolge mit vergünstigten Zinsen und reduzierten Sicherheitenanforderungen. Diese Programme können die Finanzierungslücke zwischen Eigenkapital und Bankkredit schließen.", priority: 8 },
+
+    // Wissen & Vorbereitung
+    { cat: "knowledge", catLabel: "Wissen & Vorbereitung", text: "Kennst du den Unterschied zwischen Share Deal und Asset Deal und weißt, welche Variante für dich relevant ist?", module: "academy-modul-transaktionsstrukturen.html", moduleName: "Transaktionsstrukturen", hint: "Bei kleinen Deals ist der Asset Deal häufiger: Du kaufst Vermögenswerte statt Gesellschaftsanteile. Das schützt dich vor unbekannten Altverbindlichkeiten – hat aber steuerliche Konsequenzen für den Verkäufer.", priority: 7 },
+    { cat: "knowledge", catLabel: "Wissen & Vorbereitung", text: "Weißt du, welche Unterlagen du im M&A-Prozess erhältst (Teaser, NDA, IM) und worauf du dabei achten musst?", module: "academy-modul-dokumente.html", moduleName: "Dokumente im M&A-Prozess", hint: "Bei beratergestützten Verkäufen erhältst du Teaser, NDA und IM. Bei Direktverkäufen (kleine Deals) gibt es oft nur ein persönliches Gespräch und Jahresabschlüsse. Lerne, worauf du in beiden Szenarien achten musst.", priority: 6 },
+    { cat: "knowledge", catLabel: "Wissen & Vorbereitung", text: "Hast du verstanden, was bei einer Due Diligence geprüft wird und welche Red Flags es gibt?", module: "academy-modul-due-diligence.html", moduleName: "Due Diligence meistern", hint: "Die Due Diligence ist deine Absicherung vor dem Kauf. Bei kleinen Deals reichen oft 4 Prüfbereiche: Finanzen, Recht, Steuern und Kunden/Markt. Einen Steuerberater und Anwalt solltest du dabei immer einschalten.", priority: 7 },
+
+    // Netzwerk & Berater
+    { cat: "network", catLabel: "Netzwerk & Berater", text: "Hast du einen Anwalt und Steuerberater mit Transaktionserfahrung identifiziert, die dich beim Kauf begleiten können?", module: "academy-modul-kaufvertrag.html", moduleName: "Vertragsverhandlung, Signing & Closing", hint: "Ein Anwalt sichert dich bei Garantien, Haftung und Wettbewerbsverboten ab. Ein transaktionserfahrener Steuerberater hilft bei der optimalen Deal-Strukturierung und Due Diligence. Beginne früh mit der Suche – nicht jeder Berater kennt sich mit Unternehmenskäufen aus.", priority: 8 },
+    { cat: "network", catLabel: "Netzwerk & Berater", text: "Hast du dich mit anderen Käufern oder Nachfolgern ausgetauscht (z.B. Peer-Group, Netzwerk, IHK)?", module: "academy-modul-100-tage-plan.html", moduleName: "100-Tage-Plan", hint: "Der Austausch mit anderen Käufern ist unbezahlbar – sie kennen die typischen Fallstricke aus eigener Erfahrung. Prüfe Angebote deiner IHK, Online-Communities oder lokale Unternehmer-Netzwerke.", priority: 4 },
+
+    // Persönliche Readiness
+    { cat: "personal", catLabel: "Persönliche Readiness", text: "Hast du ein klares Käuferprofil definiert (Branche, Region, Umsatzgröße, persönliche Stärken)?", module: "academy-modul-suchstrategie.html", moduleName: "Suchstrategie & Käuferprofil", hint: "Ein klares Käuferprofil spart enorm viel Zeit: Definiere Branche, Region, Umsatzgröße und Budget – und gleiche es mit deinen persönlichen Stärken ab. So vermeidest du, dich in unpassenden Targets zu verlieren.", priority: 8 },
+    { cat: "personal", catLabel: "Persönliche Readiness", text: "Hast du einen realistischen Zeitrahmen für den gesamten Kaufprozess eingeplant (6–24 Monate)?", module: "academy-modul-angebotsstrategie.html", moduleName: "Angebotsstrategie und LOI", hint: "Von der Suche nach dem passenden Unternehmen bis zum Closing vergehen typischerweise 6–24 Monate. Plane diese Zeit bewusst ein – neben deinem aktuellen Job, Familie und dem operativen Aufwand für Suche, Due Diligence und Verhandlungen.", priority: 5 },
+    { cat: "personal", catLabel: "Persönliche Readiness", text: "Hast du deine Familie über deine Kaufabsicht informiert und ihre Unterstützung?", module: "academy-modul-100-tage-plan.html", moduleName: "100-Tage-Plan", hint: "Ein Unternehmenskauf verändert dein Leben grundlegend – Arbeitszeit, Risiko, finanzielle Situation. Deine Familie muss diesen Schritt mittragen. Führe das Gespräch früh und offen.", priority: 6 },
+];
+
+const catColors = {
+    finance: { cls: "cat-finance", color: "#10B981" },
+    knowledge: { cls: "cat-knowledge", color: "#2563EB" },
+    network: { cls: "cat-network", color: "#7C3AED" },
+    personal: { cls: "cat-personal", color: "#D97706" },
+};
+
+const catNames = { finance: "Finanzielle Readiness", knowledge: "Wissen & Vorbereitung", network: "Netzwerk & Berater", personal: "Persönliche Readiness" };
+
+let answers = new Array(questions.length).fill(null);
+
+function renderQuestions() {
+    const container = document.getElementById("questions-container");
+    container.innerHTML = "";
+    questions.forEach((q, i) => {
+        const card = document.createElement("div");
+        card.className = "question-card";
+        card.id = "q-" + i;
+        card.innerHTML = `
+            <div class="question-category ${catColors[q.cat].cls}">${q.catLabel}</div>
+            <div class="question-text">${q.text}</div>
+            <div class="answer-options">
+                <button class="answer-btn" onclick="answer(${i}, 2, this)">Ja</button>
+                <button class="answer-btn" onclick="answer(${i}, 1, this)">Teilweise</button>
+                <button class="answer-btn" onclick="answer(${i}, 0, this)">Nein</button>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+function answer(idx, value, btn) {
+    answers[idx] = value;
+    const card = btn.closest(".question-card");
+    card.querySelectorAll(".answer-btn").forEach(b => b.className = "answer-btn");
+    if (value === 2) btn.classList.add("selected-yes");
+    else if (value === 1) btn.classList.add("selected-partly");
+    else btn.classList.add("selected-no");
+
+    const answered = answers.filter(a => a !== null).length;
+    document.getElementById("progress-label").textContent = `${Math.min(answered + 1, 12)} von 12`;
+    document.getElementById("progress-fill").style.width = (answered / 12 * 100) + "%";
+
+    if (answered === 12) {
+        document.getElementById("submit-btn").disabled = false;
+        document.getElementById("answer-hint").textContent = "Alle Fragen beantwortet!";
+    }
+}
+
+function showResult() {
+    document.getElementById("questions-container").style.display = "none";
+    document.getElementById("submit-area").style.display = "none";
+    document.getElementById("progress-wrapper").style.display = "none";
+    document.getElementById("check-intro").style.display = "none";
+    document.getElementById("result-section").style.display = "block";
+
+    const maxScore = questions.length * 2;
+    const totalScore = answers.reduce((a, b) => a + b, 0);
+    const pct = Math.round(totalScore / maxScore * 100);
+
+    // Animate ring
+    const circle = document.getElementById("result-ring-circle");
+    const offset = 490 - (490 * pct / 100);
+    circle.style.stroke = pct >= 70 ? "#10B981" : pct >= 40 ? "#D97706" : "#EF4444";
+    setTimeout(() => { circle.style.transition = "stroke-dashoffset 1s ease"; circle.style.strokeDashoffset = offset; }, 100);
+    document.getElementById("result-pct").textContent = pct + "%";
+
+    // Verdict
+    const verdict = document.getElementById("result-verdict");
+    const desc = document.getElementById("result-desc");
+    if (pct >= 70) {
+        verdict.textContent = "Du bist gut vorbereitet!";
+        verdict.style.color = "#10B981";
+        desc.textContent = "Du hast eine solide Grundlage f\u00fcr deinen Unternehmenskauf. Schau dir die Empfehlungen unten an, um die letzten L\u00fccken zu schlie\u00dfen.";
+    } else if (pct >= 40) {
+        verdict.textContent = "Guter Anfang \u2013 aber es gibt noch L\u00fccken";
+        verdict.style.color = "#D97706";
+        desc.textContent = "Du bist auf dem richtigen Weg, aber in einigen Bereichen fehlt noch Vorbereitung. Die Empfehlungen unten zeigen dir, worauf du dich als N\u00e4chstes konzentrieren solltest.";
+    } else {
+        verdict.textContent = "Noch nicht bereit \u2013 aber das ist okay";
+        verdict.style.color = "#EF4444";
+        desc.textContent = "Ein Unternehmenskauf ist ein gro\u00dfer Schritt und Vorbereitung ist alles. Arbeite die empfohlenen Module durch, um eine solide Grundlage aufzubauen.";
+    }
+
+    // Category breakdown
+    const cats = ["finance", "knowledge", "network", "personal"];
+    const catContainer = document.getElementById("category-results");
+    catContainer.innerHTML = "";
+    cats.forEach(cat => {
+        const catQs = questions.map((q, i) => ({ q, a: answers[i] })).filter(x => x.q.cat === cat);
+        const catMax = catQs.length * 2;
+        const catScore = catQs.reduce((sum, x) => sum + x.a, 0);
+        const catPct = Math.round(catScore / catMax * 100);
+        const badgeCls = catPct >= 70 ? "badge-green" : catPct >= 40 ? "badge-amber" : "badge-red";
+        const badgeText = catPct >= 70 ? "Gut" : catPct >= 40 ? "Teilweise" : "Offen";
+        const barColor = catPct >= 70 ? "#10B981" : catPct >= 40 ? "#D97706" : "#EF4444";
+
+        const weakest = catQs.filter(x => x.a < 2).map(x => x.q);
+        const uniqueModules = [];
+        const seen = new Set();
+        weakest.forEach(q => {
+            if (!seen.has(q.module)) {
+                seen.add(q.module);
+                uniqueModules.push(q);
+            }
+        });
+
+        let hint = "";
+        if (uniqueModules.length > 0) {
+            const links = uniqueModules.map(m => `<a href="${m.module}"><i class="fa-solid fa-graduation-cap"></i> ${m.moduleName}</a>`).join(" &nbsp;|&nbsp; ");
+            hint = links;
+        } else {
+            hint = '<span style="color: #059669;"><i class="fa-solid fa-check"></i> Alle Fragen positiv beantwortet \u2013 weiter so!</span>';
+        }
+
+        const card = document.createElement("div");
+        card.className = "cat-result-card";
+        card.innerHTML = `
+            <div class="cat-result-header">
+                <span class="cat-result-name">${catNames[cat]}</span>
+                <span class="cat-result-badge ${badgeCls}">${badgeText}</span>
+            </div>
+            <div class="cat-result-bar"><div class="cat-result-fill" style="width: ${catPct}%; background: ${barColor};"></div></div>
+            <div class="cat-result-hint">${hint}</div>
+        `;
+        catContainer.appendChild(card);
+    });
+
+    // Top hints
+    const weakItems = questions.map((q, i) => ({ q, a: answers[i], idx: i }))
+        .filter(x => x.a < 2)
+        .sort((a, b) => {
+            if (a.a !== b.a) return a.a - b.a;
+            return (b.q.priority || 0) - (a.q.priority || 0);
+        })
+        .slice(0, 5);
+
+    const hintsContainer = document.getElementById("top-hints");
+    hintsContainer.innerHTML = "";
+
+    if (weakItems.length > 0) {
+        const heading = document.createElement("h3");
+        heading.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Deine wichtigsten n\u00e4chsten Schritte';
+        hintsContainer.appendChild(heading);
+
+        weakItems.forEach((item, idx) => {
+            const card = document.createElement("div");
+            card.className = "hint-card";
+            card.innerHTML = `
+                <div class="hint-number">${idx + 1}</div>
+                <div class="hint-content">
+                    <div class="hint-text">${item.q.hint}</div>
+                    <a href="${item.q.module}" class="hint-module-link"><i class="fa-solid fa-arrow-right"></i> Mehr dazu: ${item.q.moduleName}</a>
+                </div>
+            `;
+            hintsContainer.appendChild(card);
+        });
+    } else {
+        const allGood = document.createElement("div");
+        allGood.className = "hint-card hint-green";
+        allGood.innerHTML = `
+            <div class="hint-number" style="background: #10B981;">\u2713</div>
+            <div class="hint-content">
+                <div class="hint-text">Hervorragend! Du hast alle Fragen positiv beantwortet. Du bist bestens auf deinen Unternehmenskauf vorbereitet.</div>
+            </div>
+        `;
+        hintsContainer.appendChild(allGood);
+    }
+}
+
+function resetCheck() {
+    answers = new Array(questions.length).fill(null);
+    document.getElementById("questions-container").style.display = "block";
+    document.getElementById("submit-area").style.display = "block";
+    document.getElementById("progress-wrapper").style.display = "block";
+    document.getElementById("check-intro").style.display = "block";
+    document.getElementById("result-section").style.display = "none";
+    document.getElementById("submit-btn").disabled = true;
+    document.getElementById("answer-hint").textContent = "Beantworte alle 12 Fragen, um die Auswertung zu sehen.";
+    document.getElementById("progress-fill").style.width = "0%";
+    document.getElementById("progress-label").textContent = "Frage 1 von 12";
+    renderQuestions();
+    window.scrollTo(0, 0);
+}
+
+renderQuestions();
+</script>
+
+</body>
+</html>
