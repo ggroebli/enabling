@@ -572,6 +572,185 @@
         .footer-links { display: flex; gap: 24px; }
         .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
         .footer-links a:hover { color: var(--white); }
+    
+        /* ===== DOWNLOADS CENTER ===== */
+        .downloads-section {
+            margin-top: 16px;
+        }
+
+        .downloads-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+            user-select: none;
+        }
+
+        .downloads-header:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .downloads-header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .downloads-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .downloads-icon i {
+            font-size: 20px;
+            color: #7C3AED;
+        }
+
+        .downloads-header-text h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 2px;
+        }
+
+        .downloads-header-text span {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--grey-dark);
+        }
+
+        .downloads-toggle {
+            font-size: 18px;
+            color: var(--grey-dark);
+            transition: transform 0.3s;
+        }
+
+        .downloads-toggle.open {
+            transform: rotate(180deg);
+        }
+
+        .downloads-body {
+            display: none;
+            padding: 28px 0 0;
+        }
+
+        .downloads-body.open {
+            display: block;
+        }
+
+        .downloads-phase {
+            margin-bottom: 28px;
+        }
+
+        .downloads-phase:last-child {
+            margin-bottom: 0;
+        }
+
+        .downloads-phase-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--grey-dark);
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .download-card-item {
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            background: white;
+            transition: all 0.2s;
+        }
+
+        .download-card-item:hover {
+            border-color: #D1D5DB;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .download-card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .download-file-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .download-file-icon.pdf {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .download-file-icon.excel {
+            background: #D1FAE5;
+            color: #059669;
+        }
+
+        .download-file-icon i {
+            font-size: 16px;
+        }
+
+        .download-card-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 140%;
+        }
+
+        .download-card-module {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            margin-top: 2px;
+        }
+
+        .download-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 10px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #7C3AED;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .download-card-btn:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -882,6 +1061,167 @@
                 </div>
             </div>
 
+            
+            <!-- ===== DOWNLOADS CENTER ===== -->
+            <div class="downloads-section">
+                <div class="downloads-header" onclick="toggleDownloads()">
+                    <div class="downloads-header-left">
+                        <div class="downloads-icon">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+                        <div class="downloads-header-text">
+                            <h3>Alle Downloads & Vorlagen</h3>
+                            <span>11 Dokumente – Checklisten, Templates und Mustervorlagen</span>
+                        </div>
+                    </div>
+                    <div class="downloads-toggle" id="downloads-toggle">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <div class="downloads-body" id="downloads-body">
+
+                    <!-- Phase 1: Vorbereitung -->
+                    <div class="downloads-phase">
+                        <div class="downloads-phase-title">Phase 1 – Vorbereitung</div>
+                        <div class="downloads-grid">
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div>
+                                        <div class="download-card-title">Käuferprofil-Vorlage</div>
+                                        <div class="download-card-module">Suchstrategie & Käuferprofil</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div>
+                                        <div class="download-card-title">Dokumenten-Checkliste</div>
+                                        <div class="download-card-module">Suchstrategie & Käuferprofil</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon excel"><i class="fa-solid fa-file-excel"></i></div>
+                                    <div>
+                                        <div class="download-card-title">Bewertungs-Template</div>
+                                        <div class="download-card-module">Bewertung & Preisfindung</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 2: Suche & Analyse -->
+                    <div class="downloads-phase">
+                        <div class="downloads-phase-title">Phase 2 – Suche & Analyse</div>
+                        <div class="downloads-grid">
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div>
+                                        <div class="download-card-title">Checkliste: Teaser bewerten</div>
+                                        <div class="download-card-module">Dokumente im M&A-Prozess</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div>
+                                        <div class="download-card-title">Checkliste: NDA prüfen</div>
+                                        <div class="download-card-module">Dokumente im M&A-Prozess</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div>
+                                        <div class="download-card-title">Checkliste: IM bewerten</div>
+                                        <div class="download-card-module">Dokumente im M&A-Prozess</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div>
+                                        <div class="download-card-title">LOI-Mustervorlage</div>
+                                        <div class="download-card-module">Angebotsstrategie und LOI</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3: Prüfung & Finanzierung -->
+                    <div class="downloads-phase">
+                        <div class="downloads-phase-title">Phase 3 – Prüfung & Finanzierung</div>
+                        <div class="downloads-grid">
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon excel"><i class="fa-solid fa-file-excel"></i></div>
+                                    <div>
+                                        <div class="download-card-title">DD-Checkliste</div>
+                                        <div class="download-card-module">Due Diligence meistern</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div>
+                                        <div class="download-card-title">DD-Dokumentenanforderungsliste</div>
+                                        <div class="download-card-module">Due Diligence meistern</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 4 & 5: Abschluss & Nach dem Deal -->
+                    <div class="downloads-phase">
+                        <div class="downloads-phase-title">Phase 4 & 5 – Abschluss & Nach dem Deal</div>
+                        <div class="downloads-grid">
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div>
+                                        <div class="download-card-title">Closing-Checkliste</div>
+                                        <div class="download-card-module">Kaufvertrag & Closing</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                            <div class="download-card-item">
+                                <div class="download-card-top">
+                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div>
+                                        <div class="download-card-title">100-Tage-Plan Template</div>
+                                        <div class="download-card-module">100-Tage-Plan</div>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <!-- ===== READINESS CHECK BANNER ===== -->
             <div class="readiness-check-banner">
                 <div class="readiness-check-icon">
@@ -941,6 +1281,13 @@
     </footer>
 
     <script>
+                function toggleDownloads() {
+            var body = document.getElementById('downloads-body');
+            var toggle = document.getElementById('downloads-toggle');
+            body.classList.toggle('open');
+            toggle.classList.toggle('open');
+        }
+
         function toggleFocusGroup(e) {
             e.stopPropagation();
             var fg = document.getElementById('focus-group');
