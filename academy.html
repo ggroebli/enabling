@@ -669,39 +669,38 @@
         }
 
         .downloads-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .download-card-item {
             display: flex;
             flex-direction: column;
-            padding: 16px;
+            gap: 0;
             border: 1px solid #E5E7EB;
             border-radius: 8px;
+            overflow: hidden;
             background: white;
-            transition: all 0.2s;
         }
 
-        .download-card-item:hover {
-            border-color: #D1D5DB;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-
-        .download-card-top {
+        .download-list-item {
             display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 10px;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 16px;
+            border-bottom: 1px solid #F0F0F0;
+            transition: background 0.15s;
+        }
+
+        .download-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .download-list-item:hover {
+            background: #FAFAFA;
         }
 
         .download-file-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 6px;
             flex-shrink: 0;
         }
@@ -717,38 +716,49 @@
         }
 
         .download-file-icon i {
-            font-size: 16px;
+            font-size: 15px;
         }
 
-        .download-card-title {
+        .download-list-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .download-list-title {
             font-size: 13px;
             font-weight: 600;
             color: var(--black);
-            line-height: 140%;
+            line-height: 1.3;
         }
 
-        .download-card-module {
-            font-size: 11px;
+        .download-list-desc {
+            font-size: 11.5px;
             font-weight: 400;
             color: var(--grey-dark);
-            margin-top: 2px;
+            line-height: 1.4;
+            margin-top: 1px;
         }
 
-        .download-card-btn {
+        .download-list-btn {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-top: auto;
-            padding-top: 10px;
+            padding: 5px 12px;
             font-size: 12px;
             font-weight: 500;
             color: #7C3AED;
+            border: 1px solid #E5E7EB;
+            border-radius: 6px;
             text-decoration: none;
             cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: all 0.15s;
         }
 
-        .download-card-btn:hover {
-            text-decoration: underline;
+        .download-list-btn:hover {
+            background: #F5F3FF;
+            border-color: #C4B5FD;
         }
 
     </style>
@@ -1071,7 +1081,7 @@
                         </div>
                         <div class="downloads-header-text">
                             <h3>Alle Downloads & Vorlagen</h3>
-                            <span>11 Dokumente – Checklisten, Templates und Mustervorlagen</span>
+                            <span>15 Dokumente – Checklisten, Templates und Mustervorlagen</span>
                         </div>
                     </div>
                     <div class="downloads-toggle" id="downloads-toggle">
@@ -1085,35 +1095,37 @@
                     <div class="downloads-phase">
                         <div class="downloads-phase-title">Phase 1 – Vorbereitung</div>
                         <div class="downloads-grid">
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div>
-                                        <div class="download-card-title">Käuferprofil-Vorlage</div>
-                                        <div class="download-card-module">Suchstrategie & Käuferprofil</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Käuferprofil-Vorlage</div>
+                                    <div class="download-list-desc">Vorlage, um dein Käuferprofil strukturiert zu erstellen – Branche, Region, Budget, Stärken und Suchkriterien auf einen Blick.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
                             </div>
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div>
-                                        <div class="download-card-title">Dokumenten-Checkliste</div>
-                                        <div class="download-card-module">Suchstrategie & Käuferprofil</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Share Deal vs. Asset Deal</div>
+                                    <div class="download-list-desc">Vergleich beider Modelle mit Vor- und Nachteilen, typischen Anwendungsszenarien und Entscheidungshilfe für kleine Deals.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
                             </div>
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon excel"><i class="fa-solid fa-file-excel"></i></div>
-                                    <div>
-                                        <div class="download-card-title">Bewertungs-Template</div>
-                                        <div class="download-card-module">Bewertung & Preisfindung</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Dokumenten-Checkliste</div>
+                                    <div class="download-list-desc">Übersicht aller Dokumente, die du als Kaufinteressent vorbereiten solltest – von Selbstauskunft bis Finanzierungsbestätigung.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
+                            </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon excel"><i class="fa-solid fa-file-excel"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Bewertungs-Template</div>
+                                    <div class="download-list-desc">Excel-Vorlage zur Berechnung des Unternehmenswerts auf Basis von EBIT-Multiples – mit verschiedenen Szenarien.</div>
+                                </div>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> Excel</a>
                             </div>
                         </div>
                     </div>
@@ -1122,45 +1134,37 @@
                     <div class="downloads-phase">
                         <div class="downloads-phase-title">Phase 2 – Suche & Analyse</div>
                         <div class="downloads-grid">
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div>
-                                        <div class="download-card-title">Checkliste: Teaser bewerten</div>
-                                        <div class="download-card-module">Dokumente im M&A-Prozess</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Checkliste: Teaser bewerten</div>
+                                    <div class="download-list-desc">Systematische Prüfpunkte, um einen Unternehmens-Teaser schnell zu bewerten – von Branche und Kennzahlen bis zu Red Flags.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
                             </div>
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div>
-                                        <div class="download-card-title">Checkliste: NDA prüfen</div>
-                                        <div class="download-card-module">Dokumente im M&A-Prozess</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Checkliste: NDA prüfen</div>
+                                    <div class="download-list-desc">Worauf du bei einer Vertraulichkeitserklärung achten musst, bevor du sie unterschreibst – Laufzeit, Umfang, Vertragsstrafen.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
                             </div>
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div>
-                                        <div class="download-card-title">Checkliste: IM bewerten</div>
-                                        <div class="download-card-module">Dokumente im M&A-Prozess</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Checkliste: IM bewerten</div>
+                                    <div class="download-list-desc">Leitfaden zur strukturierten Analyse eines Unternehmensexposés – die wichtigsten Kapitel, Kennzahlen und Warnsignale.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
                             </div>
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div>
-                                        <div class="download-card-title">LOI-Mustervorlage</div>
-                                        <div class="download-card-module">Angebotsstrategie und LOI</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">LOI-Mustervorlage</div>
+                                    <div class="download-list-desc">Kommentierte Mustervorlage für einen Letter of Intent – mit Textbausteinen für Kaufpreis, Bedingungen und Exklusivität.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
                             </div>
                         </div>
                     </div>
@@ -1169,25 +1173,37 @@
                     <div class="downloads-phase">
                         <div class="downloads-phase-title">Phase 3 – Prüfung & Finanzierung</div>
                         <div class="downloads-grid">
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon excel"><i class="fa-solid fa-file-excel"></i></div>
-                                    <div>
-                                        <div class="download-card-title">DD-Checkliste</div>
-                                        <div class="download-card-module">Due Diligence meistern</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon excel"><i class="fa-solid fa-file-excel"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">DD-Checkliste</div>
+                                    <div class="download-list-desc">Kompakte Checkliste für die Sorgfaltsprüfung bei kleinen Deals – Finanzen, Recht, Steuern und Kunden/Markt systematisch prüfen.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> Excel</a>
                             </div>
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div>
-                                        <div class="download-card-title">DD-Dokumentenanforderungsliste</div>
-                                        <div class="download-card-module">Due Diligence meistern</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">DD-Dokumentenanforderungsliste</div>
+                                    <div class="download-list-desc">Liste aller Dokumente, die du vom Verkäufer für die Due Diligence anfordern solltest – nach Prüfbereich sortiert.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
+                            </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon excel"><i class="fa-solid fa-file-excel"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Finanzierungsplan-Vorlage</div>
+                                    <div class="download-list-desc">Excel-Vorlage zur Kombination von Eigenkapital, Bankkredit und Fördermitteln – mit Rechenbeispielen für verschiedene Transaktionsgrößen.</div>
+                                </div>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> Excel</a>
+                            </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Checkliste Bankgespräch</div>
+                                    <div class="download-list-desc">Vorbereitung für das Gespräch mit deiner Bank: mitzubringende Unterlagen, typische Fragen und worauf Kreditentscheider achten.</div>
+                                </div>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
                             </div>
                         </div>
                     </div>
@@ -1196,25 +1212,29 @@
                     <div class="downloads-phase">
                         <div class="downloads-phase-title">Phase 4 & 5 – Abschluss & Nach dem Deal</div>
                         <div class="downloads-grid">
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div>
-                                        <div class="download-card-title">Closing-Checkliste</div>
-                                        <div class="download-card-module">Kaufvertrag & Closing</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Closing-Checkliste</div>
+                                    <div class="download-list-desc">Schritt-für-Schritt-Liste für den Tag des Vertragsabschlusses – von der Notartermin-Vorbereitung bis zur Zahlungsfreigabe.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
                             </div>
-                            <div class="download-card-item">
-                                <div class="download-card-top">
-                                    <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div>
-                                        <div class="download-card-title">100-Tage-Plan Template</div>
-                                        <div class="download-card-module">100-Tage-Plan</div>
-                                    </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">Checkliste Vertragsklauseln</div>
+                                    <div class="download-list-desc">Die wichtigsten Kaufvertragsklauseln zum Prüfen: Garantien, Haftung, Wettbewerbsverbot, Übergangszeitraum und Kaufpreismechanik.</div>
                                 </div>
-                                <a href="#" class="download-card-btn"><i class="fa-solid fa-download"></i> Herunterladen</a>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
+                            </div>
+                            <div class="download-list-item">
+                                <div class="download-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                <div class="download-list-info">
+                                    <div class="download-list-title">100-Tage-Plan Template</div>
+                                    <div class="download-list-desc">Strukturierter Plan für deine ersten 100 Tage als neuer Eigentümer – Mitarbeiter, Kunden, Prozesse und Quick Wins.</div>
+                                </div>
+                                <a href="#" class="download-list-btn"><i class="fa-solid fa-download"></i> PDF</a>
                             </div>
                         </div>
                     </div>
