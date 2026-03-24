@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER &ndash; Mein Inserat: GaLaBau-Betrieb (Verk&auml;ufer)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            --black: #1A1A1A;
+            --grey-dark: #666666;
+            --grey-light: #CCCCCC;
+            --white: #FFFFFF;
+            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            --green: #10B981;
+            --blue: #2563EB;
+            --purple: #7C3AED;
+            --amber: #F59E0B;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: #F9FAFB;
+            color: var(--black);
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            display: flex; align-items: center; padding: 0 48px; height: 72px;
+            border-bottom: 1px solid #EEE; position: fixed; top: 0; width: 1440px;
+            background: var(--white); z-index: 100;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: var(--black); text-decoration: none; margin-right: 48px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
+        .nav-links a { font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .nav-lang { display: flex; align-items: center; gap: 8px; font-size: 14px; border: 1px solid var(--grey-light); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .nav-avatar-wrapper { position: relative; }
+        .nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grey-light); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .nav-avatar i { font-size: 18px; color: var(--grey-dark); }
+        .focus-group { display: none; position: absolute; top: 44px; right: 0; background: var(--white); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); border-radius: 8px; min-width: 220px; z-index: 200; overflow: hidden; }
+        .focus-group.open { display: block; }
+        .focus-group a { display: block; padding: 12px 20px; font-family: var(--font-main); font-size: 15px; font-weight: 400; color: var(--black); text-decoration: none; white-space: nowrap; }
+        .focus-group a:hover { background: #F5F5F5; }
+
+        /* ===== MAIN LAYOUT ===== */
+        .main { padding: 96px 48px 60px; width: 1440px; min-height: calc(100vh - 72px); }
+
+        .back-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 14px; font-weight: 500; color: var(--grey-dark);
+            text-decoration: none; margin-bottom: 20px;
+        }
+        .back-link:hover { color: var(--black); }
+
+        /* ===== LISTING HEADER ===== */
+        .listing-header { margin-bottom: 24px; }
+        .listing-header h1 { font-size: 26px; font-weight: 700; color: var(--black); margin-bottom: 6px; }
+        .listing-header-meta {
+            display: flex; align-items: center; gap: 16px;
+            font-size: 13px; color: var(--grey-dark);
+        }
+        .listing-header-meta span { display: flex; align-items: center; gap: 5px; }
+        .listing-badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 3px 10px; border-radius: 12px;
+            font-size: 11px; font-weight: 600;
+            background: #D1FAE5; color: #065F46;
+        }
+
+        /* ===== LISTING STATS BAR ===== */
+        .stats-bar {
+            display: flex; gap: 16px; margin-bottom: 24px;
+        }
+        .stat-card {
+            flex: 1; background: white; border: 1px solid #E5E7EB;
+            border-radius: 10px; padding: 16px 20px;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .stat-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; flex-shrink: 0;
+        }
+        .stat-icon.green { background: #D1FAE5; color: var(--green); }
+        .stat-icon.blue { background: #DBEAFE; color: var(--blue); }
+        .stat-icon.purple { background: #EDE9FE; color: var(--purple); }
+        .stat-icon.amber { background: #FEF3C7; color: var(--amber); }
+        .stat-value { font-size: 22px; font-weight: 700; color: var(--black); }
+        .stat-label { font-size: 12px; color: var(--grey-dark); margin-top: 1px; }
+
+        /* ===== TWO COLUMN ===== */
+        .content-grid {
+            display: grid; grid-template-columns: 1fr 340px;
+            gap: 24px; align-items: start;
+        }
+
+        /* ===== BUYER CARDS ===== */
+        .buyer-card {
+            background: white; border: 1px solid #E5E7EB; border-radius: 12px;
+            overflow: hidden; margin-bottom: 16px;
+            transition: box-shadow 0.2s;
+        }
+        .buyer-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .buyer-card.expanded { border-color: var(--blue); box-shadow: 0 2px 16px rgba(37,99,235,0.1); }
+
+        .buyer-card-top {
+            display: flex; align-items: center; gap: 16px;
+            padding: 20px 24px;
+            cursor: pointer;
+        }
+
+        .buyer-avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; font-size: 16px; font-weight: 700; color: white;
+        }
+        .buyer-avatar.av1 { background: #6366F1; }
+        .buyer-avatar.av2 { background: #0891B2; }
+        .buyer-avatar.av3 { background: #D946EF; }
+
+        .buyer-info { flex: 1; }
+        .buyer-name { font-size: 15px; font-weight: 600; color: var(--black); }
+        .buyer-role { font-size: 12px; color: var(--grey-dark); margin-top: 2px; }
+
+        .buyer-phase-badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 4px 10px; border-radius: 12px;
+            font-size: 11px; font-weight: 600;
+            flex-shrink: 0;
+        }
+        .buyer-phase-badge.loi { background: #FEF3C7; color: #92400E; }
+        .buyer-phase-badge.treffen { background: #DBEAFE; color: #1D4ED8; }
+        .buyer-phase-badge.ib { background: #F3F4F6; color: #374151; }
+
+        /* Expanded buyer detail */
+        .buyer-detail {
+            border-top: 1px solid #F0F0F0;
+            padding: 20px 24px;
+            display: none;
+        }
+        .buyer-card.expanded .buyer-detail { display: block; }
+
+        /* Mini timeline in buyer card */
+        .mini-timeline {
+            display: flex; align-items: center; gap: 0;
+            margin-bottom: 16px;
+        }
+        .mt-step {
+            display: flex; align-items: center;
+        }
+        .mt-dot {
+            width: 22px; height: 22px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 8px; font-weight: 600; flex-shrink: 0;
+        }
+        .mt-dot.done { background: var(--green); color: white; }
+        .mt-dot.cur { background: var(--blue); color: white; box-shadow: 0 0 0 3px rgba(37,99,235,0.2); }
+        .mt-dot.fut { background: #F3F4F6; color: #9CA3AF; font-size: 7px; }
+        .mt-line {
+            width: 20px; height: 2px; flex-shrink: 0;
+        }
+        .mt-line.done { background: var(--green); }
+        .mt-line.fut { background: #E5E7EB; }
+        .mt-labels {
+            display: flex; justify-content: space-between;
+            margin-top: 4px; margin-bottom: 16px;
+        }
+        .mt-label {
+            font-size: 9px; color: #9CA3AF;
+            text-align: center; width: 22px;
+        }
+        .mt-label.cur-label { color: var(--blue); font-weight: 700; }
+
+        /* Phase content inside buyer card */
+        .buyer-phase-content {
+            font-size: 13px; line-height: 1.6; color: #374151;
+            margin-bottom: 14px;
+        }
+
+        .buyer-resources {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            margin-bottom: 14px;
+        }
+        .buyer-res {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 12px; background: #F9FAFB;
+            border: 1px solid #E5E7EB; border-radius: 7px;
+            font-size: 12px; font-weight: 500; color: var(--black);
+            text-decoration: none; cursor: pointer;
+            transition: all 0.15s;
+        }
+        .buyer-res:hover { border-color: var(--green); background: #F0FDF4; }
+        .buyer-res i { font-size: 12px; }
+        .buyer-res i.fa-file-pdf { color: #DC2626; }
+        .buyer-res i.fa-file-excel { color: #059669; }
+        .buyer-res i.fa-graduation-cap { color: var(--purple); }
+
+        .buyer-tip {
+            display: flex; align-items: flex-start; gap: 8px;
+            padding: 9px 12px; background: #F5F3FF;
+            border-radius: 7px; margin-bottom: 14px;
+        }
+        .buyer-tip i { color: var(--purple); margin-top: 2px; flex-shrink: 0; font-size: 12px; }
+        .buyer-tip-text { font-size: 12px; color: #5B21B6; line-height: 1.5; }
+
+        .buyer-steps {
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border: 1px solid #E0E7FF; border-radius: 8px;
+            padding: 14px 16px;
+        }
+        .buyer-steps-title {
+            font-size: 12px; font-weight: 700; color: var(--black);
+            margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+        }
+        .buyer-steps-title i { color: var(--blue); font-size: 12px; }
+        .bs-item {
+            display: flex; align-items: flex-start; gap: 8px;
+            padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+            cursor: pointer;
+        }
+        .bs-item:last-child { border-bottom: none; }
+        .bs-cb {
+            width: 18px; height: 18px; border-radius: 4px;
+            border: 2px solid #CBD5E1; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0; margin-top: 1px;
+            transition: all 0.2s; background: white;
+        }
+        .bs-cb.done { background: var(--green); border-color: var(--green); color: white; }
+        .bs-cb.done i { font-size: 9px; }
+        .bs-txt { font-size: 12px; color: #374151; line-height: 1.4; }
+        .bs-txt.done-txt { text-decoration: line-through; color: #9CA3AF; }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar { position: sticky; top: 92px; display: flex; flex-direction: column; gap: 14px; }
+        .sb-card {
+            border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px; background: white;
+        }
+        .sb-title {
+            font-size: 14px; font-weight: 700; color: var(--black);
+            margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+        }
+        .sb-title i { font-size: 14px; }
+
+        /* Next Step */
+        .sb-next {
+            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            border-color: #E0E7FF;
+        }
+        .sb-next-text { font-size: 13px; line-height: 1.55; color: #374151; margin-bottom: 14px; }
+        .sb-next-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 9px 18px; background: var(--gradient-cta); border-radius: 6px;
+            font-size: 13px; font-weight: 600; color: var(--black);
+            text-decoration: none; transition: all 0.2s;
+        }
+        .sb-next-cta:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+
+        /* Downloads */
+        .dl-item {
+            display: flex; align-items: center; gap: 10px;
+            padding: 9px 0; border-bottom: 1px solid #F0F0F0;
+            font-size: 13px; color: var(--black); cursor: pointer; text-decoration: none;
+        }
+        .dl-item:last-child { border-bottom: none; }
+        .dl-item i { color: var(--purple); font-size: 14px; width: 18px; text-align: center; }
+        .dl-item:hover { color: var(--purple); }
+
+        /* KI */
+        .sb-ki { background: linear-gradient(135deg, #EDE9FE 0%, #F5F3FF 100%); border-color: #DDD6FE; }
+        .ki-txt { font-size: 13px; line-height: 1.5; color: #4C1D95; margin-bottom: 12px; }
+        .ki-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 7px 14px; background: var(--purple); border-radius: 6px;
+            font-size: 12px; font-weight: 600; color: white;
+            text-decoration: none; cursor: pointer; border: none;
+            font-family: var(--font-main);
+        }
+        .ki-btn:hover { opacity: 0.9; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            margin-top: 60px; padding: 40px 48px; border-top: 1px solid #EEE;
+            display: flex; justify-content: space-between; font-size: 13px;
+            color: var(--grey-dark); background: white;
+        }
+
+        /* ===== CHAT WIDGET ===== */
+        .chat-fab {
+            position: fixed; bottom: 28px; right: 28px;
+            display: flex; align-items: center; gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+            color: white; border-radius: 28px; cursor: pointer;
+            box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+            z-index: 500; transition: all 0.3s; font-family: var(--font-main);
+        }
+        .chat-fab:hover { box-shadow: 0 6px 28px rgba(124,58,237,0.5); transform: translateY(-2px); }
+        .chat-fab i { font-size: 18px; }
+        .chat-fab-label { font-size: 14px; font-weight: 600; }
+
+        .chat-panel {
+            position: fixed; bottom: 28px; right: 28px;
+            width: 400px; height: 580px;
+            background: white; border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+            z-index: 600; display: none; flex-direction: column;
+            overflow: hidden; font-family: var(--font-main);
+        }
+        .chat-panel.open { display: flex; }
+
+        .chat-hd {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+            color: white;
+        }
+        .chat-hd-left { display: flex; align-items: center; gap: 12px; }
+        .chat-hd-icon {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .chat-hd-icon i { font-size: 16px; }
+        .chat-hd-title { font-size: 15px; font-weight: 700; }
+        .chat-hd-sub { font-size: 11px; opacity: 0.8; }
+        .chat-x {
+            background: none; border: none; color: white; font-size: 18px;
+            cursor: pointer; opacity: 0.8;
+        }
+        .chat-x:hover { opacity: 1; }
+
+        .chat-body { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+        .chat-msg { display: flex; gap: 8px; align-items: flex-start; }
+        .chat-msg.usr { justify-content: flex-end; }
+        .chat-av {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: #EDE9FE; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0;
+        }
+        .chat-av i { font-size: 12px; color: var(--purple); }
+        .chat-bbl {
+            max-width: 300px; padding: 10px 14px; border-radius: 12px;
+            font-size: 13px; line-height: 1.55;
+        }
+        .bbl-bot { background: #F3F4F6; color: #1F2937; border-bottom-left-radius: 4px; }
+        .bbl-usr { background: var(--purple); color: white; border-bottom-right-radius: 4px; }
+        .chat-src {
+            margin-top: 8px; padding-top: 8px; border-top: 1px solid #E5E7EB;
+            font-size: 12px; display: flex; align-items: center; gap: 6px;
+        }
+        .chat-src i { color: var(--purple); }
+        .chat-src a { color: var(--purple); text-decoration: none; font-weight: 500; }
+        .chat-src a:hover { text-decoration: underline; }
+
+        .chat-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 0; }
+        .chat-chip {
+            padding: 6px 12px; border: 1px solid #DDD6FE; border-radius: 16px;
+            background: #F5F3FF; color: var(--purple); font-size: 12px;
+            font-weight: 500; cursor: pointer; font-family: var(--font-main);
+        }
+        .chat-chip:hover { background: #EDE9FE; border-color: #C4B5FD; }
+
+        .chat-input-row {
+            display: flex; align-items: center; gap: 8px;
+            padding: 12px 16px; border-top: 1px solid #E5E7EB;
+        }
+        .chat-inp {
+            flex: 1; padding: 10px 14px; border: 1px solid #E5E7EB;
+            border-radius: 8px; font-family: var(--font-main); font-size: 13px; outline: none;
+        }
+        .chat-inp:focus { border-color: var(--purple); }
+        .chat-snd {
+            width: 38px; height: 38px; border-radius: 8px;
+            background: var(--purple); border: none; color: white;
+            cursor: pointer; display: flex; align-items: center;
+            justify-content: center; font-size: 14px;
+        }
+        .chat-snd:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+
+    <!-- NAV (Verkäufer-Ansicht) -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">/AMBER</a>
+        <div class="nav-links">
+            <a href="#">Mein Inserat</a>
+            <a href="#">Interessenten</a>
+            <a href="mitteilungen.html">Mitteilungen</a>
+            <a href="postfach.html">Postfach</a>
+            <a href="#" class="active">Meine Transaktionen</a>
+            <a href="verkaufer-academy.html">Academy</a>
+        </div>
+        <div class="nav-right">
+            <div class="nav-lang"><span style="font-weight:600; font-size:12px; background:#F3F4F6; padding:2px 6px; border-radius:3px;">DE</span><span>Deutsch</span></div>
+            <div class="nav-avatar-wrapper">
+                <div class="nav-avatar" onclick="toggleFG(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="focus-group" id="fg">
+                    <a href="transaktionen.html">Zur K&auml;uferansicht</a>
+                    <a href="#">Mein Inserat bearbeiten</a>
+                    <a href="#">Kontoeinstellungen</a>
+                    <a href="#">Abmelden</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="main">
+        <a href="transaktionen.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Zur&uuml;ck zu Meine Transaktionen</a>
+
+        <!-- LISTING HEADER -->
+        <div class="listing-header">
+            <h1>Etablierter Garten- &amp; Landschaftsbauer mit langfristigen Vertr&auml;gen</h1>
+            <div class="listing-header-meta">
+                <span class="listing-badge"><i class="fa-solid fa-circle-check"></i> Inserat aktiv</span>
+                <span><i class="fa-solid fa-calendar"></i> Ver&ouml;ffentlicht am 20.02.2026</span>
+                <span><i class="fa-solid fa-eye"></i> 142 Aufrufe</span>
+                <span><i class="fa-solid fa-clock"></i> Letzte Aktivit&auml;t: heute</span>
+            </div>
+        </div>
+
+        <!-- STATS BAR -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-icon green"><i class="fa-solid fa-users"></i></div>
+                <div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Aktive Interessenten</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon amber"><i class="fa-solid fa-file-signature"></i></div>
+                <div>
+                    <div class="stat-value">1</div>
+                    <div class="stat-label">LOI erhalten</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon blue"><i class="fa-solid fa-handshake"></i></div>
+                <div>
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Matches</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon purple"><i class="fa-solid fa-chart-line"></i></div>
+                <div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Gesamt-IB erhalten</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TWO COLUMNS -->
+        <div class="content-grid">
+
+            <!-- LEFT: BUYER CARDS -->
+            <div>
+
+                <!-- ===== BUYER A: LOI vorgelegt ===== -->
+                <div class="buyer-card expanded" id="buyer-a">
+                    <div class="buyer-card-top" onclick="toggleBuyer('buyer-a')">
+                        <div class="buyer-avatar av1">MK</div>
+                        <div class="buyer-info">
+                            <div class="buyer-name">Markus Keller</div>
+                            <div class="buyer-role">Strategischer K&auml;ufer &middot; Keller Immobilien GmbH &middot; seit 06.03.</div>
+                        </div>
+                        <span class="buyer-phase-badge loi"><i class="fa-solid fa-file-signature"></i> LOI vorgelegt</span>
+                    </div>
+                    <div class="buyer-detail">
+                        <!-- Mini Timeline -->
+                        <div class="mini-timeline">
+                            <div class="mt-step"><div class="mt-dot done"><i class="fa-solid fa-check" style="font-size:8px;"></i></div></div>
+                            <div class="mt-line done"></div>
+                            <div class="mt-step"><div class="mt-dot done"><i class="fa-solid fa-check" style="font-size:8px;"></i></div></div>
+                            <div class="mt-line done"></div>
+                            <div class="mt-step"><div class="mt-dot done"><i class="fa-solid fa-check" style="font-size:8px;"></i></div></div>
+                            <div class="mt-line done"></div>
+                            <div class="mt-step"><div class="mt-dot done"><i class="fa-solid fa-check" style="font-size:8px;"></i></div></div>
+                            <div class="mt-line done"></div>
+                            <div class="mt-step"><div class="mt-dot cur"><i class="fa-solid fa-location-dot" style="font-size:8px;"></i></div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">6</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">7</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">8</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">9</div></div>
+                        </div>
+
+                        <p class="buyer-phase-content">
+                            Markus Keller hat einen <strong>Letter of Intent</strong> vorgelegt. Pr&uuml;fe das Angebot sorgf&auml;ltig &ndash; insbesondere Kaufpreis, Exklusivit&auml;tsklausel und Bedingungen. Besprich die Details mit deinem Berater, bevor du unterschreibst.
+                        </p>
+
+                        <div class="buyer-resources">
+                            <a class="buyer-res" href="#"><i class="fa-solid fa-file-pdf"></i> LOI-Checkliste f&uuml;r Verk&auml;ufer</a>
+                            <a class="buyer-res" href="#"><i class="fa-solid fa-graduation-cap"></i> Modul: LOI verhandeln</a>
+                        </div>
+
+                        <div class="buyer-tip">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span class="buyer-tip-text">Unterschreibe den LOI nicht unter Zeitdruck. Halte die Exklusivit&auml;tsklausel so kurz wie m&ouml;glich (max. 3&ndash;4 Monate) und bevorzuge wenn m&ouml;glich die mildere Abschlussexklusivit&auml;t.</span>
+                        </div>
+
+                        <div class="buyer-steps">
+                            <div class="buyer-steps-title"><i class="fa-solid fa-list-check"></i> Empfohlene Schritte</div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb done"><i class="fa-solid fa-check"></i></div>
+                                <div class="bs-txt done-txt">LOI erhalten und gelesen</div>
+                            </div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb"></div>
+                                <div class="bs-txt">Kaufpreis und Bedingungen mit eigenem Berater besprechen</div>
+                            </div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb"></div>
+                                <div class="bs-txt">Exklusivit&auml;tsklausel und Zeitplan pr&uuml;fen</div>
+                            </div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb"></div>
+                                <div class="bs-txt">Datenraum f&uuml;r Due Diligence vorbereiten</div>
+                            </div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb"></div>
+                                <div class="bs-txt">LOI annehmen, ablehnen oder Gegenangebot machen</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== BUYER B: Persönliches Treffen ===== -->
+                <div class="buyer-card" id="buyer-b">
+                    <div class="buyer-card-top" onclick="toggleBuyer('buyer-b')">
+                        <div class="buyer-avatar av2">SH</div>
+                        <div class="buyer-info">
+                            <div class="buyer-name">Sandra Hoffmann</div>
+                            <div class="buyer-role">MBI-Kandidatin &middot; Einzelperson &middot; seit 12.03.</div>
+                        </div>
+                        <span class="buyer-phase-badge treffen"><i class="fa-solid fa-location-dot"></i> NDA unterzeichnet</span>
+                    </div>
+                    <div class="buyer-detail">
+                        <div class="mini-timeline">
+                            <div class="mt-step"><div class="mt-dot done"><i class="fa-solid fa-check" style="font-size:8px;"></i></div></div>
+                            <div class="mt-line done"></div>
+                            <div class="mt-step"><div class="mt-dot done"><i class="fa-solid fa-check" style="font-size:8px;"></i></div></div>
+                            <div class="mt-line done"></div>
+                            <div class="mt-step"><div class="mt-dot cur"><i class="fa-solid fa-location-dot" style="font-size:8px;"></i></div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">4</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">5</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">6</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">7</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">8</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">9</div></div>
+                        </div>
+
+                        <p class="buyer-phase-content">
+                            Sandra Hoffmann hat die NDA unterzeichnet. Du kannst jetzt vertrauliche Unterlagen teilen &ndash; Jahresabschl&uuml;sse, BWA und Kundenlisten. Nutze die Screening-Checkliste, um sie vorab einzusch&auml;tzen, und bereite das pers&ouml;nliche Kennenlernen vor.
+                        </p>
+
+                        <div class="buyer-resources">
+                            <a class="buyer-res" href="#"><i class="fa-solid fa-file-pdf"></i> K&auml;ufer-Screening-Checkliste</a>
+                            <a class="buyer-res" href="#"><i class="fa-solid fa-file-pdf"></i> Gespr&auml;chsleitfaden Erstgespr&auml;ch</a>
+                            <a class="buyer-res" href="#"><i class="fa-solid fa-graduation-cap"></i> Modul: Kennenlernen</a>
+                        </div>
+
+                        <div class="buyer-steps">
+                            <div class="buyer-steps-title"><i class="fa-solid fa-list-check"></i> Empfohlene Schritte</div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb done"><i class="fa-solid fa-check"></i></div>
+                                <div class="bs-txt done-txt">NDA unterzeichnet</div>
+                            </div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb"></div>
+                                <div class="bs-txt">K&auml;uferprofil mit Screening-Checkliste pr&uuml;fen</div>
+                            </div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb"></div>
+                                <div class="bs-txt">Unterlagen (Jahresabschl&uuml;sse, BWA) bereitstellen</div>
+                            </div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb"></div>
+                                <div class="bs-txt">Pers&ouml;nliches Kennenlernen vorbereiten (Gespr&auml;chsleitfaden)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== BUYER C: Interessensbekundung ===== -->
+                <div class="buyer-card" id="buyer-c">
+                    <div class="buyer-card-top" onclick="toggleBuyer('buyer-c')">
+                        <div class="buyer-avatar av3">JW</div>
+                        <div class="buyer-info">
+                            <div class="buyer-name">Julian Weber</div>
+                            <div class="buyer-role">Finanzieller K&auml;ufer &middot; Weber Capital Partners &middot; seit 21.03.</div>
+                        </div>
+                        <span class="buyer-phase-badge ib"><i class="fa-solid fa-paper-plane"></i> Interessensbekundung</span>
+                    </div>
+                    <div class="buyer-detail">
+                        <div class="mini-timeline">
+                            <div class="mt-step"><div class="mt-dot cur"><i class="fa-solid fa-location-dot" style="font-size:8px;"></i></div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">2</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">3</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">4</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">5</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">6</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">7</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">8</div></div>
+                            <div class="mt-line fut"></div>
+                            <div class="mt-step"><div class="mt-dot fut">9</div></div>
+                        </div>
+
+                        <p class="buyer-phase-content">
+                            Julian Weber hat Interesse an deinem Unternehmen bekundet. Pr&uuml;fe sein K&auml;uferprofil und entscheide, ob du ein Match best&auml;tigen m&ouml;chtest. Achte besonders auf seine Erfahrung, Finanzierungsf&auml;higkeit und Motivation.
+                        </p>
+
+                        <div class="buyer-resources">
+                            <a class="buyer-res" href="#"><i class="fa-solid fa-file-pdf"></i> K&auml;ufer-Screening-Checkliste</a>
+                            <a class="buyer-res" href="#"><i class="fa-solid fa-graduation-cap"></i> Modul: K&auml;ufer-Screening</a>
+                        </div>
+
+                        <div class="buyer-tip">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span class="buyer-tip-text">Finanzielle K&auml;ufer bringen oft schnelle Abschl&uuml;sse, aber pr&uuml;fe genau, ob das Unternehmen nach dem Verkauf in guten H&auml;nden ist &ndash; das ist f&uuml;r deine Mitarbeiter wichtig.</span>
+                        </div>
+
+                        <div class="buyer-steps">
+                            <div class="buyer-steps-title"><i class="fa-solid fa-list-check"></i> Empfohlene Schritte</div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb"></div>
+                                <div class="bs-txt">K&auml;uferprofil von Julian Weber ansehen</div>
+                            </div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb"></div>
+                                <div class="bs-txt">Screening-Checkliste durchgehen: Erfahrung, Finanzierung, Motivation</div>
+                            </div>
+                            <div class="bs-item" onclick="toggleBS(this)">
+                                <div class="bs-cb"></div>
+                                <div class="bs-txt">Entscheidung: Match best&auml;tigen oder ablehnen</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: SIDEBAR -->
+            <div class="sidebar">
+                <!-- Next Step -->
+                <div class="sb-card sb-next">
+                    <div class="sb-title" style="color:#065F46;"><i class="fa-solid fa-forward-step" style="color:var(--green);"></i> Wichtigste Aufgabe</div>
+                    <p class="sb-next-text">Du hast einen <strong>LOI von Markus Keller</strong> erhalten. Pr&uuml;fe das Angebot und bereite dich auf die n&auml;chste Phase vor &ndash; unser Modul hilft dir, die richtigen Fragen zu stellen.</p>
+                    <a href="seller-academy-modul-loi.html" class="sb-next-cta"><i class="fa-solid fa-graduation-cap"></i> LOI-Modul starten</a>
+                </div>
+
+                <!-- Downloads -->
+                <div class="sb-card">
+                    <div class="sb-title"><i class="fa-solid fa-download" style="color:var(--purple);"></i> Passende Downloads</div>
+                    <a href="#" class="dl-item"><i class="fa-solid fa-file-pdf"></i> LOI-Checkliste f&uuml;r Verk&auml;ufer</a>
+                    <a href="#" class="dl-item"><i class="fa-solid fa-file-excel"></i> K&auml;ufer-Bewertungsmatrix</a>
+                    <a href="#" class="dl-item"><i class="fa-solid fa-file-pdf"></i> K&auml;ufer-Screening-Checkliste</a>
+                    <a href="#" class="dl-item"><i class="fa-solid fa-file-pdf"></i> Datenraum-Struktur-Vorlage</a>
+                    <a href="#" class="dl-item"><i class="fa-solid fa-file-pdf"></i> DD-Vorbereitungs-Checkliste</a>
+                </div>
+
+                <!-- KI-Assistent -->
+                <div class="sb-card sb-ki">
+                    <div class="sb-title" style="color:#4C1D95;"><i class="fa-solid fa-robot" style="color:var(--purple);"></i> M&amp;A-Assistent</div>
+                    <p class="ki-txt">Fragen zum LOI, zur K&auml;uferbewertung oder zur Due-Diligence-Vorbereitung? Dein KI-Assistent hilft dir weiter.</p>
+                    <button class="ki-btn" onclick="openChat()"><i class="fa-solid fa-comments"></i> Chat starten</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>&copy; 2026 AMBER &ndash; A DealCircle Product</span>
+        <span>Impressum &middot; Datenschutz &middot; AGB</span>
+    </div>
+
+    <!-- CHAT WIDGET -->
+    <div class="chat-fab" id="chat-fab" onclick="toggleChat()">
+        <i class="fa-solid fa-comments"></i>
+        <span class="chat-fab-label">M&amp;A-Assistent</span>
+    </div>
+
+    <div class="chat-panel" id="chat-panel">
+        <div class="chat-hd">
+            <div class="chat-hd-left">
+                <div class="chat-hd-icon"><i class="fa-solid fa-robot"></i></div>
+                <div>
+                    <div class="chat-hd-title">AMBER M&amp;A-Assistent</div>
+                    <div class="chat-hd-sub">Dein pers&ouml;nlicher Berater</div>
+                </div>
+            </div>
+            <button class="chat-x" onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-msg">
+                <div class="chat-av"><i class="fa-solid fa-robot"></i></div>
+                <div class="chat-bbl bbl-bot">
+                    Hallo! Du hast aktuell <strong>3 Interessenten</strong> f&uuml;r deinen GaLaBau-Betrieb, darunter einen <strong>LOI von Markus Keller</strong>. Wie kann ich dir helfen?
+                </div>
+            </div>
+            <div class="chat-chips" id="chat-chips">
+                <button class="chat-chip" onclick="sendChip('Wie pr\u00fcfe ich den LOI?')">Wie pr&uuml;fe ich den LOI?</button>
+                <button class="chat-chip" onclick="sendChip('Was ist eine faire Exklusivit\u00e4t?')">Faire Exklusivit&auml;t?</button>
+                <button class="chat-chip" onclick="sendChip('Wie bereite ich den Datenraum vor?')">Datenraum vorbereiten?</button>
+            </div>
+            <div id="chat-extra"></div>
+        </div>
+        <div class="chat-input-row">
+            <input type="text" class="chat-inp" id="chat-inp" placeholder="Schreibe eine Nachricht..." onkeypress="if(event.key==='Enter')handleSend()">
+            <button class="chat-snd" onclick="handleSend()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        function toggleFG(e) { e.stopPropagation(); document.getElementById('fg').classList.toggle('open'); }
+        document.addEventListener('click', () => document.getElementById('fg').classList.remove('open'));
+
+        function toggleBuyer(id) {
+            document.getElementById(id).classList.toggle('expanded');
+        }
+
+        function toggleBS(el) {
+            const cb = el.querySelector('.bs-cb');
+            const txt = el.querySelector('.bs-txt');
+            cb.classList.toggle('done');
+            txt.classList.toggle('done-txt');
+            cb.innerHTML = cb.classList.contains('done') ? '<i class="fa-solid fa-check"></i>' : '';
+        }
+
+        function toggleChat() {
+            const p = document.getElementById('chat-panel');
+            const f = document.getElementById('chat-fab');
+            p.classList.toggle('open');
+            f.style.display = p.classList.contains('open') ? 'none' : 'flex';
+        }
+        function openChat() {
+            document.getElementById('chat-panel').classList.add('open');
+            document.getElementById('chat-fab').style.display = 'none';
+        }
+
+        const answers = {
+            'Wie pr\u00fcfe ich den LOI?': 'Beim <strong>LOI pr\u00fcfen</strong> solltest du als Verk\u00e4ufer auf folgende Punkte achten:<br><br><ul style="margin:8px 0 8px 16px;font-size:13px;"><li><strong>Kaufpreis:</strong> Liegt er in deiner erwarteten Bandbreite?</li><li><strong>Exklusivit\u00e4t:</strong> Max. 4\u20136 Wochen sind \u00fcblich</li><li><strong>Bedingungen:</strong> DD-Vorbehalt, Finanzierungsvorbehalt \u2013 wie viele Ausstiegsm\u00f6glichkeiten hat der K\u00e4ufer?</li><li><strong>Zeitplan:</strong> Ist der geplante Ablauf realistisch?</li></ul><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="seller-academy-modul-loi.html">Modul: LOI verhandeln \u2192</a></div>',
+            'Was ist eine faire Exklusivit\u00e4t?': 'Eine <strong>Exklusivit\u00e4tsklausel</strong> im LOI bedeutet, dass du w\u00e4hrend dieser Zeit nicht mit anderen K\u00e4ufern verhandeln darfst.<br><br><ul style="margin:8px 0 8px 16px;font-size:13px;"><li><strong>3\u20134 Monate:</strong> Markt\u00fcblich f\u00fcr die gesamte DD-Phase</li><li><strong>6+ Monate:</strong> Eher zu lang \u2013 frage nach dem Grund</li><li><strong>Abschlussexklusivit\u00e4t:</strong> Mildere Variante \u2013 du darfst weiter Gespr\u00e4che f\u00fchren</li></ul>Tipp: Vereinbare eine <strong>Break-Up Fee</strong>, falls der K\u00e4ufer ohne guten Grund abspringt.<br><br><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="seller-academy-modul-loi.html">Modul: LOI verhandeln \u2192</a></div>',
+            'Wie bereite ich den Datenraum vor?': 'Nach LOI-Unterzeichnung beginnt die <strong>Due Diligence</strong>. Bereite deinen Datenraum vor:<br><br><ul style="margin:8px 0 8px 16px;font-size:13px;"><li><strong>Finanzen:</strong> Jahresabschl\u00fcsse (3 Jahre), BWA, Steuerbescheide</li><li><strong>Vertr\u00e4ge:</strong> Kundenvertr\u00e4ge, Lieferantenvertr\u00e4ge, Mietvertrag</li><li><strong>Mitarbeiter:</strong> Organigramm, Gehaltsliste, Arbeitsvertr\u00e4ge</li><li><strong>Rechtliches:</strong> Handelsregister, Gesellschaftsvertrag, Genehmigungen</li></ul>Nutze die <strong>Datenraum-Struktur-Vorlage</strong> in den Downloads \u2013 sie gibt dir die komplette Ordnerstruktur vor.<br><br><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="seller-academy-modul-dd-closing.html">Modul: DD & Closing \u2192</a></div>',
+        };
+
+        function sendChip(text) {
+            document.getElementById('chat-chips').style.display = 'none';
+            addMsg(text, true);
+            setTimeout(() => {
+                addMsg(answers[text] || 'In der finalen Version w\u00fcrde ich hier eine fundierte Antwort basierend auf der Verk\u00e4ufer-Academy geben.', false);
+            }, 600);
+        }
+
+        function handleSend() {
+            const inp = document.getElementById('chat-inp');
+            if (!inp.value.trim()) return;
+            const text = inp.value;
+            inp.value = '';
+            addMsg(text, true);
+            setTimeout(() => {
+                addMsg('Das ist eine gute Frage! In der finalen Version w\u00fcrde ich hier eine Antwort basierend auf der Verk\u00e4ufer-Academy geben.<br><br><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="verkaufer-academy.html">Zur Academy \u2192</a></div>', false);
+            }, 800);
+        }
+
+        function addMsg(html, isUser) {
+            const container = document.getElementById('chat-extra');
+            const div = document.createElement('div');
+            div.className = 'chat-msg' + (isUser ? ' usr' : '');
+            if (isUser) {
+                div.innerHTML = '<div class="chat-bbl bbl-usr">' + html + '</div>';
+            } else {
+                div.innerHTML = '<div class="chat-av"><i class="fa-solid fa-robot"></i></div><div class="chat-bbl bbl-bot">' + html + '</div>';
+            }
+            container.appendChild(div);
+            document.getElementById('chat-body').scrollTop = 99999;
+        }
+    </script>
+
+</body>
+</html>
