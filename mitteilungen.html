@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMBER – Mitteilungen</title>
+    <title>AMBER &ndash; Mitteilungen</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -18,6 +18,8 @@
             --white: #FFFFFF;
             --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
             --purple: #D55FFF;
+            --green: #10B981;
+            --blue: #2563EB;
         }
 
         body {
@@ -64,7 +66,6 @@
             width: 1344px;
         }
 
-        /* Page title */
         .page-title {
             font-size: 40px;
             font-weight: 600;
@@ -72,7 +73,7 @@
             color: var(--black);
         }
 
-        /* Filter bar row */
+        /* Filter bar */
         .filter-bar {
             display: flex;
             align-items: center;
@@ -106,9 +107,7 @@
             border-bottom: 2px solid var(--black);
         }
 
-        .filter-tab:hover {
-            opacity: 0.7;
-        }
+        .filter-tab:hover { opacity: 0.7; }
 
         .filter-dot {
             width: 10px;
@@ -132,18 +131,17 @@
             cursor: pointer;
         }
 
-        .mark-all-read:hover {
-            color: var(--black);
-        }
+        .mark-all-read:hover { color: var(--black); }
 
         /* Notification list */
         .notification-list {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 16px;
             width: 100%;
         }
 
+        /* === Classic notifications (existing) === */
         .notification-card {
             display: flex;
             align-items: flex-start;
@@ -178,9 +176,7 @@
             background: var(--purple);
         }
 
-        .unread-dot.hidden {
-            visibility: hidden;
-        }
+        .unread-dot.hidden { visibility: hidden; }
 
         .notification-date {
             font-size: 18px;
@@ -209,11 +205,188 @@
             border: none;
             cursor: pointer;
             white-space: nowrap;
-            letter-spacing: 0.02em;
         }
 
-        .notification-action:hover {
-            opacity: 0.7;
+        .notification-action:hover { opacity: 0.7; }
+
+        /* === Enablement notification (merged: phase + academy) === */
+        .en-card {
+            background: var(--white);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            border: 1px solid #F0F0F0;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .en-card.unread {
+            border-left: 3px solid var(--green);
+        }
+
+        .en-card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px 24px 0;
+        }
+
+        .en-phase-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #D1FAE5;
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .en-top-text {
+            flex: 1;
+        }
+
+        .en-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .en-project {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--grey-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .en-date {
+            font-size: 12px;
+            color: #9CA3AF;
+        }
+
+        .en-new-badge {
+            font-size: 10px;
+            font-weight: 600;
+            color: white;
+            background: var(--green);
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 4px;
+        }
+
+        .en-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 1.4;
+        }
+
+        .en-card-body {
+            padding: 10px 24px 20px 80px;
+        }
+
+        .en-description {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+
+        /* Resources row */
+        .en-resources {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .en-resource {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 12px;
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--black);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .en-resource:hover {
+            background: #F3F4F6;
+            border-color: #D1D5DB;
+        }
+
+        .en-resource i { font-size: 13px; }
+        .en-resource i.fa-file-pdf { color: #DC2626; }
+        .en-resource i.fa-file-excel { color: #059669; }
+        .en-resource i.fa-graduation-cap { color: #7C3AED; }
+
+        .en-resource-tag {
+            font-size: 10px;
+            font-weight: 500;
+            color: #9CA3AF;
+        }
+
+        /* Tip inline */
+        .en-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 9px 12px;
+            background: #F5F3FF;
+            border-radius: 7px;
+            margin-bottom: 12px;
+        }
+
+        .en-tip i {
+            color: #7C3AED;
+            margin-top: 2px;
+            flex-shrink: 0;
+            font-size: 13px;
+        }
+
+        .en-tip-text {
+            font-size: 12.5px;
+            font-weight: 400;
+            color: #5B21B6;
+            line-height: 1.5;
+        }
+
+        /* Footer with deal link */
+        .en-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            border-top: 1px solid #F0F0F0;
+            background: #FAFAFA;
+        }
+
+        .en-deal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--blue);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .en-deal-link:hover { opacity: 0.8; }
+
+        .en-time-ago {
+            font-size: 12px;
+            color: #9CA3AF;
         }
 
         /* ===== FOOTER ===== */
@@ -242,7 +415,7 @@
         <a href="suche.html" class="nav-logo">/AMBER</a>
         <div class="nav-links">
             <a href="suche.html">Suche</a>
-            <a href="suchauftraege.html">Suchaufträge</a>
+            <a href="suchauftraege.html">Suchauftr&auml;ge</a>
             <a href="mitteilungen.html" class="active">Mitteilungen</a>
             <a href="postfach.html">Postfach</a>
             <a href="transaktionen.html">Meine Transaktionen</a>
@@ -253,8 +426,8 @@
             <div class="nav-avatar-wrapper">
                 <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
                 <div class="focus-group" id="focus-group">
-                    <a href="#">Zur Verkäuferansicht</a>
-                    <a href="kauferprofil.html">Käuferprofil</a>
+                    <a href="#">Zur Verk&auml;uferansicht</a>
+                    <a href="kauferprofil.html">K&auml;uferprofil</a>
                     <a href="#">Kontoeinstellungen</a>
                     <a href="#">AMBER-Professional</a>
                     <a href="#">Abmelden</a>
@@ -267,75 +440,205 @@
     <div class="main">
         <div class="container">
 
-            <!-- Title -->
             <h1 class="page-title">Mitteilungen</h1>
 
-            <!-- Filter bar -->
-            <div class="filter-bar">
-                <div class="filter-tabs">
-                    <button class="filter-tab active">
-                        <span class="filter-dot purple"></span>
-                        Alle
-                    </button>
-                    <button class="filter-tab">
-                        <span class="filter-dot orange"></span>
-                        Ungelesen
-                    </button>
-                    <button class="filter-tab">
-                        <span class="filter-dot grey"></span>
-                        Gelesen
-                    </button>
-                </div>
-                <button class="mark-all-read">Alle als gelesen markieren</button>
-            </div>
+
 
             <!-- Notification list -->
             <div class="notification-list">
 
-                <!-- Notification 1 - unread -->
+                <!-- ===== ENABLEMENT: Persönliches Treffen (merged) ===== -->
+                <div class="en-card unread">
+                    <div class="en-card-top">
+                        <div class="en-phase-icon"><i class="fa-solid fa-handshake"></i></div>
+                        <div class="en-top-text">
+                            <div class="en-meta">
+                                <span class="en-project">Project VENTURA</span>
+                                <span class="en-date">&middot; 19.03.2026</span>
+                                <span class="en-new-badge">Neu</span>
+                            </div>
+                            <div class="en-title">Pers&ouml;nliches Treffen absolviert &ndash; n&auml;chster Schritt: Angebot vorbereiten</div>
+                        </div>
+                    </div>
+                    <div class="en-card-body">
+                        <p class="en-description">
+                            Das Treffen hat stattgefunden. Wenn du ein Angebot machen m&ouml;chtest, bereite jetzt deinen Letter of Intent (LOI) vor. Kl&auml;re parallel deine Finanzierung &ndash; das beschleunigt den Prozess.
+                        </p>
+                        <div class="en-resources">
+                            <a class="en-resource" href="#">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                LOI-Mustervorlage
+                                <span class="en-resource-tag">PDF</span>
+                            </a>
+                            <a class="en-resource" href="#">
+                                <i class="fa-solid fa-file-excel"></i>
+                                Bewertungs-Template
+                                <span class="en-resource-tag">Excel</span>
+                            </a>
+                            <a class="en-resource" href="#">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                Modul: Angebotsstrategie &amp; LOI
+                            </a>
+                        </div>
+                        <div class="en-tip">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span class="en-tip-text">Die meisten K&auml;ufer auf AMBER verhandeln eine Exklusivit&auml;tsklausel in ihrem ersten LOI &ndash; das gibt dir Planungssicherheit f&uuml;r die n&auml;chsten Schritte.</span>
+                        </div>
+                    </div>
+                    <div class="en-card-footer">
+                        <a class="en-deal-link" href="transaktion-detail.html"><i class="fa-solid fa-arrow-right"></i> Deal ansehen</a>
+                        <span class="en-time-ago">vor 5 Tagen</span>
+                    </div>
+                </div>
+
+                <!-- ===== ENABLEMENT: NDA unterzeichnet (merged) ===== -->
+                <div class="en-card unread">
+                    <div class="en-card-top">
+                        <div class="en-phase-icon"><i class="fa-solid fa-file-signature"></i></div>
+                        <div class="en-top-text">
+                            <div class="en-meta">
+                                <span class="en-project">Project VENTURA</span>
+                                <span class="en-date">&middot; 15.03.2026</span>
+                                <span class="en-new-badge">Neu</span>
+                            </div>
+                            <div class="en-title">NDA unterzeichnet &ndash; Zugang zum Unternehmensexpos&eacute;</div>
+                        </div>
+                    </div>
+                    <div class="en-card-body">
+                        <p class="en-description">
+                            Die Vertraulichkeitserkl&auml;rung ist unterzeichnet. Du erh&auml;ltst jetzt Zugang zum Informationsmemorandum (IM). Nutze die Checkliste, um es systematisch auszuwerten.
+                        </p>
+                        <div class="en-resources">
+                            <a class="en-resource" href="#">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                Checkliste: IM bewerten
+                                <span class="en-resource-tag">PDF</span>
+                            </a>
+                            <a class="en-resource" href="#">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                Modul: Dokumente im M&amp;A-Prozess
+                            </a>
+                        </div>
+                    </div>
+                    <div class="en-card-footer">
+                        <a class="en-deal-link" href="transaktion-detail.html"><i class="fa-solid fa-arrow-right"></i> Deal ansehen</a>
+                        <span class="en-time-ago">vor 9 Tagen</span>
+                    </div>
+                </div>
+
+                <!-- ===== ENABLEMENT: Match bestätigt (merged) ===== -->
+                <div class="en-card">
+                    <div class="en-card-top">
+                        <div class="en-phase-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="en-top-text">
+                            <div class="en-meta">
+                                <span class="en-project">Project VENTURA</span>
+                                <span class="en-date">&middot; 15.03.2026</span>
+                            </div>
+                            <div class="en-title">Match best&auml;tigt &ndash; bereite dich auf das Erstgespr&auml;ch vor</div>
+                        </div>
+                    </div>
+                    <div class="en-card-body">
+                        <p class="en-description">
+                            Beide Seiten haben Interesse bekundet &ndash; ihr seid jetzt ein Match! Als N&auml;chstes wird die NDA unterzeichnet. Bereite dich parallel schon auf das Kennenlerngespr&auml;ch vor.
+                        </p>
+                        <div class="en-resources">
+                            <a class="en-resource" href="#">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                Checkliste: NDA pr&uuml;fen
+                                <span class="en-resource-tag">PDF</span>
+                            </a>
+                            <a class="en-resource" href="#">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                Checkliste: Teaser bewerten
+                                <span class="en-resource-tag">PDF</span>
+                            </a>
+                            <a class="en-resource" href="#">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                Modul: Dokumente im M&amp;A-Prozess
+                            </a>
+                        </div>
+                        <div class="en-tip">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span class="en-tip-text">Kl&auml;re fr&uuml;hzeitig deine Finanzierung &ndash; die KfW bietet F&ouml;rderprogramme speziell f&uuml;r Unternehmens&uuml;bernahmen an.</span>
+                        </div>
+                    </div>
+                    <div class="en-card-footer">
+                        <a class="en-deal-link" href="transaktion-detail.html"><i class="fa-solid fa-arrow-right"></i> Deal ansehen</a>
+                        <span class="en-time-ago">vor 9 Tagen</span>
+                    </div>
+                </div>
+
+                <!-- ===== ENABLEMENT: Interessensbekundung (merged) ===== -->
+                <div class="en-card">
+                    <div class="en-card-top">
+                        <div class="en-phase-icon"><i class="fa-solid fa-paper-plane"></i></div>
+                        <div class="en-top-text">
+                            <div class="en-meta">
+                                <span class="en-project">Project VENTURA</span>
+                                <span class="en-date">&middot; 13.03.2026</span>
+                            </div>
+                            <div class="en-title">Interessensbekundung abgesendet &ndash; so geht es weiter</div>
+                        </div>
+                    </div>
+                    <div class="en-card-body">
+                        <p class="en-description">
+                            Deine Interessensbekundung wurde an den Verk&auml;ufer &uuml;bermittelt. Wenn beide Seiten Interesse haben, wird ein Match erzeugt und du erh&auml;ltst eine NDA zur Unterzeichnung.
+                        </p>
+                        <div class="en-resources">
+                            <a class="en-resource" href="#">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                Modul: Dokumente im M&amp;A-Prozess
+                            </a>
+                        </div>
+                    </div>
+                    <div class="en-card-footer">
+                        <a class="en-deal-link" href="transaktion-detail.html"><i class="fa-solid fa-arrow-right"></i> Deal ansehen</a>
+                        <span class="en-time-ago">vor 11 Tagen</span>
+                    </div>
+                </div>
+
+                <!-- ===== CLASSIC: Existing platform notifications ===== -->
                 <div class="notification-card">
                     <div class="notification-left">
                         <div class="notification-date-col">
-                            <div class="unread-dot"></div>
+                            <div class="unread-dot hidden"></div>
                             <span class="notification-date">08.02.2026</span>
                         </div>
-                        <p class="notification-text">Benjamin Tischanneri hat dein Match für "Exklusive Innenarchitektur &amp; Bauplanungsunternehmen mit stetigem Wachstum" aufgelöst, sodass dein Status auf "Ausgeschieden" geändert wurde.</p>
+                        <p class="notification-text">Benjamin Tischanneri hat dein Match f&uuml;r &bdquo;Exklusive Innenarchitektur &amp; Bauplanungsunternehmen mit stetigem Wachstum&ldquo; aufgel&ouml;st, sodass dein Status auf &bdquo;Ausgeschieden&ldquo; ge&auml;ndert wurde.</p>
                     </div>
-                    <button class="notification-action">Verkäufer kontaktieren</button>
+                    <button class="notification-action">Verk&auml;ufer kontaktieren</button>
                 </div>
 
-                <!-- Notification 2 - read -->
                 <div class="notification-card">
                     <div class="notification-left">
                         <div class="notification-date-col">
                             <div class="unread-dot hidden"></div>
                             <span class="notification-date">03.02.2026</span>
                         </div>
-                        <p class="notification-text">Gerade wurde ein Inserat mit dem Titel "Umweltfreundliche Bienenwachsprodukte Marke mit etablierten ASINs" hochgeladen, das den Kriterien deines Suchauftrags "E-Commerce" entspricht.</p>
+                        <p class="notification-text">Gerade wurde ein Inserat mit dem Titel &bdquo;Umweltfreundliche Bienenwachsprodukte Marke mit etablierten ASINs&ldquo; hochgeladen, das den Kriterien deines Suchauftrags &bdquo;E-Commerce&ldquo; entspricht.</p>
                     </div>
                     <button class="notification-action">Inserat ansehen</button>
                 </div>
 
-                <!-- Notification 3 - read -->
                 <div class="notification-card">
                     <div class="notification-left">
                         <div class="notification-date-col">
                             <div class="unread-dot hidden"></div>
                             <span class="notification-date">29.01.2026</span>
                         </div>
-                        <p class="notification-text">Gerade wurde ein Inserat mit dem Titel "Etablierte Amazon FBA Handtuch Marke " hochgeladen, das den Kriterien deines Suchauftrags "E-Commerce" entspricht.</p>
+                        <p class="notification-text">Gerade wurde ein Inserat mit dem Titel &bdquo;Etablierte Amazon FBA Handtuch Marke&ldquo; hochgeladen, das den Kriterien deines Suchauftrags &bdquo;E-Commerce&ldquo; entspricht.</p>
                     </div>
                     <button class="notification-action">Inserat ansehen</button>
                 </div>
 
-                <!-- Notification 4 - read -->
                 <div class="notification-card">
                     <div class="notification-left">
                         <div class="notification-date-col">
                             <div class="unread-dot hidden"></div>
                             <span class="notification-date">27.01.2026</span>
                         </div>
-                        <p class="notification-text">Gerade wurde ein Inserat mit dem Titel "Führende europäische E-Commerce-Plattform für personalisierte Bekleidung und Geschenkartikel mit einem skalierbaren Print-on-Demand-Geschäftsmodell" hochgeladen, das den Kriterien deines Suchauftrags "Suchalarm Nr. 7" entspricht.</p>
+                        <p class="notification-text">Gerade wurde ein Inserat mit dem Titel &bdquo;F&uuml;hrende europ&auml;ische E-Commerce-Plattform f&uuml;r personalisierte Bekleidung und Geschenkartikel mit einem skalierbaren Print-on-Demand-Gesch&auml;ftsmodell&ldquo; hochgeladen, das den Kriterien deines Suchauftrags &bdquo;Suchalarm Nr. 7&ldquo; entspricht.</p>
                     </div>
                     <button class="notification-action">Inserat ansehen</button>
                 </div>
@@ -358,7 +661,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span class="footer-copyright">© 2026 AMBER. All rights reserved.</span>
+            <span class="footer-copyright">&copy; 2026 AMBER. All rights reserved.</span>
             <div class="footer-links">
                 <a href="#">AGB</a>
                 <a href="#">Datenschutz</a>

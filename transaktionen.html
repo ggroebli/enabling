@@ -367,6 +367,246 @@
             margin-left: auto;
         }
 
+        /* ===== ENABLEMENT: Deal Phase Hints ===== */
+        .tx-card-enhanced {
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tx-card-main {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .tx-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tx-phase-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tx-phase-badge.active-phase {
+            background: #DBEAFE;
+            color: #2563EB;
+        }
+
+        .tx-phase-badge i { font-size: 10px; }
+
+        .tx-attraktivitaet {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .tx-att-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .tx-att-dot.filled { background: #10B981; }
+        .tx-att-dot.empty { background: #E5E7EB; }
+
+        .tx-enablement-bar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 25px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #F5F3FF 100%);
+            border-top: 1px solid #E0E7FF;
+        }
+
+        .tx-en-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #D1FAE5;
+            color: #10B981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 13px;
+        }
+
+        .tx-en-text {
+            flex: 1;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--black);
+            line-height: 1.4;
+        }
+
+        .tx-en-text strong {
+            font-weight: 600;
+        }
+
+        .tx-en-resources {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .tx-en-res {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--black);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .tx-en-res:hover {
+            border-color: #10B981;
+            background: #F0FDF4;
+        }
+
+        .tx-en-res i { font-size: 11px; }
+        .tx-en-res i.fa-file-pdf { color: #DC2626; }
+        .tx-en-res i.fa-graduation-cap { color: #7C3AED; }
+
+        .tx-en-deal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            background: #2563EB;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .tx-en-deal-link:hover { background: #1D4ED8; }
+
+        /* ===== Toast Banner ===== */
+        .toast-banner {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            width: 900px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 20px;
+            background: white;
+            border: 1px solid #E0E7FF;
+            border-radius: 10px;
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
+            z-index: 500;
+            opacity: 0;
+            transition: opacity 0.4s, transform 0.4s;
+        }
+
+        .toast-banner.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #D1FAE5;
+            color: #10B981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 15px;
+        }
+
+        .toast-content {
+            flex: 1;
+        }
+
+        .toast-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 1.3;
+        }
+
+        .toast-subtitle {
+            font-size: 12.5px;
+            font-weight: 400;
+            color: var(--grey-dark);
+            margin-top: 2px;
+        }
+
+        .toast-actions {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .toast-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12.5px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.15s;
+        }
+
+        .toast-btn.primary {
+            background: #2563EB;
+            color: white;
+        }
+
+        .toast-btn.primary:hover { background: #1D4ED8; }
+
+        .toast-btn.secondary {
+            background: #F3F4F6;
+            color: var(--black);
+        }
+
+        .toast-btn.secondary:hover { background: #E5E7EB; }
+
+        .toast-close {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #9CA3AF;
+            cursor: pointer;
+            padding: 4px;
+            flex-shrink: 0;
+        }
+
+        .toast-close:hover { color: var(--black); }
+
         /* ===== FOOTER ===== */
         .footer {
             background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px;
@@ -387,6 +627,20 @@
     </style>
 </head>
 <body>
+
+    <!-- ENABLEMENT: Toast Banner -->
+    <div class="toast-banner" id="toast-banner">
+        <div class="toast-icon"><i class="fa-solid fa-handshake"></i></div>
+        <div class="toast-content">
+            <div class="toast-title">Pers&ouml;nliches Treffen absolviert &ndash; bereite deinen LOI vor</div>
+            <div class="toast-subtitle">Project VENTURA &middot; Dachdeckerbetrieb mit PV-Expertise &middot; vor 5 Tagen</div>
+        </div>
+        <div class="toast-actions">
+            <a class="toast-btn primary" href="transaktion-detail.html">Deal ansehen</a>
+            <a class="toast-btn secondary" href="mitteilungen.html">Mitteilungen</a>
+        </div>
+        <button class="toast-close" onclick="closeToast()">&times;</button>
+    </div>
 
     <!-- NAV -->
     <nav class="nav">
@@ -551,24 +805,50 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="tx-card">
-                            <h3 class="tx-card-title">TEST - Marktführender Dachdeckerbetrieb mit PV-Anlagen-Expertise</h3>
-                            <p class="tx-card-desc">Das Unternehmen ist ein etablierter Marktführer in der Dachdeckerei mit spezialisierter Kompetenz bei der Installation von Photovoltaik-Anlagen. Es zeichnet sich durch innovative Methoden und eine hohe Qualitätsorientierung aus, wodurch es im Sektor der erneuerbaren Energien heraussticht. Eine Verschmelzung von traditionellem Handwerk und...</p>
-                            <div class="tx-card-actions">
-                                <button class="tx-action">Käuferprofil ansehen</button>
-                                <button class="tx-action">Verkäufer kontaktieren</button>
-                                <button class="tx-action">NDA herunterladen</button>
-                                <button class="tx-action">Match auflösen</button>
+                        <div class="tx-card-enhanced">
+                            <div class="tx-card-main">
+                                <div class="tx-card-header">
+                                    <h3 class="tx-card-title">TEST - Marktf&uuml;hrender Dachdeckerbetrieb mit PV-Anlagen-Expertise</h3>
+                                    <span class="tx-phase-badge active-phase"><i class="fa-solid fa-location-dot"></i> Pers&ouml;nliches Treffen</span>
+                                </div>
+                                <p class="tx-card-desc">Das Unternehmen ist ein etablierter Marktf&uuml;hrer in der Dachdeckerei mit spezialisierter Kompetenz bei der Installation von Photovoltaik-Anlagen. Es zeichnet sich durch innovative Methoden und eine hohe Qualit&auml;tsorientierung aus...</p>
+                                <div class="tx-card-actions">
+                                    <button class="tx-action">Verk&auml;ufer kontaktieren</button>
+                                    <button class="tx-action">NDA herunterladen</button>
+                                    <button class="tx-action">Match aufl&ouml;sen</button>
+                                </div>
+                            </div>
+                            <div class="tx-enablement-bar">
+                                <div class="tx-en-icon"><i class="fa-solid fa-arrow-right"></i></div>
+                                <span class="tx-en-text"><strong>N&auml;chster Schritt:</strong> Angebot vorbereiten &ndash; erstelle deinen LOI</span>
+                                <div class="tx-en-resources">
+                                    <a class="tx-en-res" href="#"><i class="fa-solid fa-file-pdf"></i> LOI-Vorlage</a>
+                                    <a class="tx-en-res" href="#"><i class="fa-solid fa-graduation-cap"></i> Modul</a>
+                                    <a class="tx-en-deal-link" href="transaktion-detail.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Deal-Detail</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="tx-card">
-                            <h3 class="tx-card-title">Etablierter Garten- &amp; Landschaftsbauer mit langfristigen Verträgen</h3>
-                            <p class="tx-card-desc">Das etablierte Unternehmen im Garten- und Landschaftsbau überzeugt mit Vielseitigkeit und einem gesicherten Kundenstamm aus B2B, B2G und privaten Segmenten. Seine Marktdominanz in einer Kleinstadt und langfristige Verträge garantieren stetige Umsätze und Wachstumspotenzial.</p>
-                            <div class="tx-card-actions">
-                                <button class="tx-action">Käuferprofil ansehen</button>
-                                <button class="tx-action">Verkäufer kontaktieren</button>
-                                <button class="tx-action">NDA herunterladen</button>
-                                <button class="tx-action">Match auflösen</button>
+                        <div class="tx-card-enhanced">
+                            <div class="tx-card-main">
+                                <div class="tx-card-header">
+                                    <h3 class="tx-card-title">Etablierter Garten- &amp; Landschaftsbauer mit langfristigen Vertr&auml;gen</h3>
+                                    <span class="tx-phase-badge active-phase"><i class="fa-solid fa-location-dot"></i> NDA unterzeichnet</span>
+                                </div>
+                                <p class="tx-card-desc">Das etablierte Unternehmen im Garten- und Landschaftsbau &uuml;berzeugt mit Vielseitigkeit und einem gesicherten Kundenstamm aus B2B, B2G und privaten Segmenten. Seine Marktdominanz in einer Kleinstadt und langfristige Vertr&auml;ge garantieren stetige Ums&auml;tze und Wachstumspotenzial.</p>
+                                <div class="tx-card-actions">
+                                    <button class="tx-action">Verk&auml;ufer kontaktieren</button>
+                                    <button class="tx-action">NDA herunterladen</button>
+                                    <button class="tx-action">Match aufl&ouml;sen</button>
+                                </div>
+                            </div>
+                            <div class="tx-enablement-bar">
+                                <div class="tx-en-icon"><i class="fa-solid fa-arrow-right"></i></div>
+                                <span class="tx-en-text"><strong>N&auml;chster Schritt:</strong> Unternehmensexpos&eacute; auswerten</span>
+                                <div class="tx-en-resources">
+                                    <a class="tx-en-res" href="#"><i class="fa-solid fa-file-pdf"></i> Checkliste IM</a>
+                                    <a class="tx-en-res" href="#"><i class="fa-solid fa-graduation-cap"></i> Modul</a>
+                                    <a class="tx-en-deal-link" href="transaktion-detail-galabau.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Deal-Detail</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -654,7 +934,20 @@
         }
 
         // Initialize
-        switchTab('interessensbekundungen');
+        switchTab('matches');
+
+        // Toast banner
+        setTimeout(function() {
+            document.getElementById('toast-banner').classList.add('visible');
+        }, 800);
+        setTimeout(function() {
+            closeToast();
+        }, 12000);
+
+        function closeToast() {
+            var t = document.getElementById('toast-banner');
+            if (t) t.classList.remove('visible');
+        }
     </script>
 
 </body>
