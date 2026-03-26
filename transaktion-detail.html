@@ -282,98 +282,7 @@
         }
 
         /* ===== CHAT WIDGET ===== */
-        .chat-fab {
-            position: fixed; bottom: 28px; right: 28px;
-            display: flex; align-items: center; gap: 8px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
-            color: white; border-radius: 28px; cursor: pointer;
-            box-shadow: 0 4px 20px rgba(124,58,237,0.4);
-            z-index: 500; transition: all 0.3s; font-family: var(--font-main);
-        }
-        .chat-fab:hover { box-shadow: 0 6px 28px rgba(124,58,237,0.5); transform: translateY(-2px); }
-        .chat-fab i { font-size: 18px; }
-        .chat-fab-label { font-size: 14px; font-weight: 600; }
-
-        .chat-panel {
-            position: fixed; bottom: 28px; right: 28px;
-            width: 400px; height: 580px;
-            background: white; border-radius: 16px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.2);
-            z-index: 600; display: none; flex-direction: column;
-            overflow: hidden; font-family: var(--font-main);
-        }
-        .chat-panel.open { display: flex; }
-
-        .chat-hd {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 16px 20px;
-            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
-            color: white;
-        }
-        .chat-hd-left { display: flex; align-items: center; gap: 12px; }
-        .chat-hd-icon {
-            width: 36px; height: 36px; border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            display: flex; align-items: center; justify-content: center;
-        }
-        .chat-hd-icon i { font-size: 16px; }
-        .chat-hd-title { font-size: 15px; font-weight: 700; }
-        .chat-hd-sub { font-size: 11px; opacity: 0.8; }
-        .chat-x {
-            background: none; border: none; color: white; font-size: 18px;
-            cursor: pointer; opacity: 0.8;
-        }
-        .chat-x:hover { opacity: 1; }
-
-        .chat-body { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-        .chat-msg { display: flex; gap: 8px; align-items: flex-start; }
-        .chat-msg.usr { justify-content: flex-end; }
-        .chat-av {
-            width: 28px; height: 28px; border-radius: 50%;
-            background: #EDE9FE; display: flex; align-items: center;
-            justify-content: center; flex-shrink: 0;
-        }
-        .chat-av i { font-size: 12px; color: var(--purple); }
-        .chat-bbl {
-            max-width: 300px; padding: 10px 14px; border-radius: 12px;
-            font-size: 13px; line-height: 1.55;
-        }
-        .bbl-bot { background: #F3F4F6; color: #1F2937; border-bottom-left-radius: 4px; }
-        .bbl-usr { background: var(--purple); color: white; border-bottom-right-radius: 4px; }
-        .chat-src {
-            margin-top: 8px; padding-top: 8px; border-top: 1px solid #E5E7EB;
-            font-size: 12px; display: flex; align-items: center; gap: 6px;
-        }
-        .chat-src i { color: var(--purple); }
-        .chat-src a { color: var(--purple); text-decoration: none; font-weight: 500; }
-        .chat-src a:hover { text-decoration: underline; }
-
-        .chat-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 0; }
-        .chat-chip {
-            padding: 6px 12px; border: 1px solid #DDD6FE; border-radius: 16px;
-            background: #F5F3FF; color: var(--purple); font-size: 12px;
-            font-weight: 500; cursor: pointer; font-family: var(--font-main);
-        }
-        .chat-chip:hover { background: #EDE9FE; border-color: #C4B5FD; }
-
-        .chat-input-row {
-            display: flex; align-items: center; gap: 8px;
-            padding: 12px 16px; border-top: 1px solid #E5E7EB;
-        }
-        .chat-inp {
-            flex: 1; padding: 10px 14px; border: 1px solid #E5E7EB;
-            border-radius: 8px; font-family: var(--font-main); font-size: 13px; outline: none;
-        }
-        .chat-inp:focus { border-color: var(--purple); }
-        .chat-snd {
-            width: 38px; height: 38px; border-radius: 8px;
-            background: var(--purple); border: none; color: white;
-            cursor: pointer; display: flex; align-items: center;
-            justify-content: center; font-size: 14px;
-        }
-        .chat-snd:hover { opacity: 0.9; }
-    </style>
+</style>
 </head>
 <body>
 
@@ -594,42 +503,7 @@
     </div>
 
     <!-- CHAT WIDGET -->
-    <div class="chat-fab" id="chat-fab" onclick="toggleChat()">
-        <i class="fa-solid fa-comments"></i>
-        <span class="chat-fab-label">M&amp;A-Assistent</span>
-    </div>
 
-    <div class="chat-panel" id="chat-panel">
-        <div class="chat-hd">
-            <div class="chat-hd-left">
-                <div class="chat-hd-icon"><i class="fa-solid fa-robot"></i></div>
-                <div>
-                    <div class="chat-hd-title">AMBER M&amp;A-Assistent</div>
-                    <div class="chat-hd-sub">Dein pers&ouml;nlicher Berater</div>
-                </div>
-            </div>
-            <button class="chat-x" onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="chat-body" id="chat-body">
-            <div class="chat-msg">
-                <div class="chat-av"><i class="fa-solid fa-robot"></i></div>
-                <div class="chat-bbl bbl-bot">
-                    Hallo! Ich bin dein M&amp;A-Assistent. Ich kenne alle Inhalte der AMBER Academy und helfe dir bei Fragen rund um Unternehmensk&auml;ufe.<br><br>
-                    Du bist gerade in der Phase <strong>&bdquo;Pers&ouml;nliches Treffen&ldquo;</strong> bei Project VENTURA. Wie kann ich dir helfen?
-                </div>
-            </div>
-            <div class="chat-chips" id="chat-chips">
-                <button class="chat-chip" onclick="sendChip('Was bedeutet ein Earn-Out?')">Was bedeutet ein Earn-Out?</button>
-                <button class="chat-chip" onclick="sendChip('LOI: Worauf muss ich achten?')">LOI: Worauf achten?</button>
-                <button class="chat-chip" onclick="sendChip('Brauche ich einen Berater?')">Brauche ich einen Berater?</button>
-            </div>
-            <div id="chat-extra"></div>
-        </div>
-        <div class="chat-input-row">
-            <input type="text" class="chat-inp" id="chat-inp" placeholder="Schreibe eine Nachricht..." onkeypress="if(event.key==='Enter')handleSend()">
-            <button class="chat-snd" onclick="handleSend()"><i class="fa-solid fa-paper-plane"></i></button>
-        </div>
-    </div>
 
     <script>
         // Prio stars toggle
@@ -658,49 +532,13 @@
             cb.innerHTML = cb.classList.contains('done') ? '<i class="fa-solid fa-check"></i>' : '';
         }
 
-        function toggleChat() {
-            const p = document.getElementById('chat-panel');
-            const f = document.getElementById('chat-fab');
-            p.classList.toggle('open');
-            f.style.display = p.classList.contains('open') ? 'none' : 'flex';
-        }
-        function openChat() {
-            document.getElementById('chat-panel').classList.add('open');
-            document.getElementById('chat-fab').style.display = 'none';
+        , 600);
         }
 
-        const answers = {
-            'Was bedeutet ein Earn-Out?': 'Ein <strong>Earn-Out</strong> ist eine variable Kaufpreiskomponente, die an zuk\u00fcnftige Ergebnisse des Unternehmens gekn\u00fcpft ist.<br><br><strong>Typisch bei kleinen Deals:</strong><ul style="margin:8px 0 8px 16px;font-size:13px;"><li>20\u201330% des Kaufpreises</li><li>Laufzeit: 1\u20133 Jahre</li><li>Kennzahl: meist Umsatz oder EBIT</li></ul>Ein Earn-Out kann sinnvoll sein, wenn K\u00e4ufer und Verk\u00e4ufer sich bei der Bewertung nicht einig sind \u2013 er teilt das Risiko.<br><br><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="academy-modul-transaktionsstrukturen.html">Modul: Transaktionsstrukturen \u2192</a></div>',
-            'LOI: Worauf muss ich achten?': 'Die wichtigsten Punkte f\u00fcr deinen <strong>Letter of Intent</strong>:<br><br><ul style="margin:8px 0 8px 16px;font-size:13px;"><li><strong>Kaufpreis:</strong> Bandbreite oder konkreter Betrag</li><li><strong>Exklusivit\u00e4t:</strong> Verhandle eine Exklusivit\u00e4tsphase (typisch 3\u20134 Monate)</li><li><strong>Bedingungen:</strong> DD-Vorbehalt, Finanzierungsvorbehalt</li><li><strong>Zeitplan:</strong> Wann soll das Closing stattfinden?</li></ul>Der LOI ist in der Regel <strong>nicht bindend</strong> \u2013 au\u00dfer Exklusivit\u00e4t und Vertraulichkeit.<br><br><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="academy-modul-angebotsstrategie.html">Modul: Angebotsstrategie & LOI \u2192</a></div>',
-            'Brauche ich einen Berater?': 'Das h\u00e4ngt von der Komplexit\u00e4t deines Deals ab. Grunds\u00e4tzlich gilt:<br><br><ul style="margin:8px 0 8px 16px;font-size:13px;"><li><strong>Ab LOI-Phase:</strong> Ein M&A-Berater hilft bei Verhandlung und Strukturierung</li><li><strong>Ab DD:</strong> Steuerberater und Anwalt sind fast immer sinnvoll</li><li><strong>73% der K\u00e4ufer</strong> auf AMBER holen sich sp\u00e4testens in der LOI-Phase Unterst\u00fctzung</li></ul>F\u00fcr kleine Deals (<2M EUR) reicht oft ein erfahrener Steuerberater + Anwalt statt eines spezialisierten M&A-Beraters.<br><br><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="academy-modul-finanzierung.html">Modul: Akquisitionsfinanzierung \u2192</a></div>',
-        };
-
-        function sendChip(text) {
-            document.getElementById('chat-chips').style.display = 'none';
-            addMsg(text, true);
-            setTimeout(() => {
-                addMsg(answers[text] || 'Das ist eine gute Frage! In der finalen Version w\u00fcrde ich hier eine fundierte Antwort basierend auf der AMBER Academy geben.', false);
-            }, 600);
+        , 800);
         }
 
-        function handleSend() {
-            const inp = document.getElementById('chat-inp');
-            if (!inp.value.trim()) return;
-            const text = inp.value;
-            inp.value = '';
-            addMsg(text, true);
-            setTimeout(() => {
-                addMsg('Das ist eine gute Frage! In der finalen Version w\u00fcrde ich hier eine fundierte Antwort basierend auf der AMBER Academy geben.<br><br><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="academy.html">Zur Academy \u2192</a></div>', false);
-            }, 800);
-        }
-
-        function addMsg(html, isUser) {
-            const container = document.getElementById('chat-extra');
-            const div = document.createElement('div');
-            div.className = 'chat-msg' + (isUser ? ' usr' : '');
-            if (isUser) {
-                div.innerHTML = '<div class="chat-bbl bbl-usr">' + html + '</div>';
-            } else {
+        else {
                 div.innerHTML = '<div class="chat-av"><i class="fa-solid fa-robot"></i></div><div class="chat-bbl bbl-bot">' + html + '</div>';
             }
             container.appendChild(div);
@@ -708,5 +546,7 @@
         }
     </script>
 
+    <script src="config.js"></script>
+<script src="ki-assistent.js"></script>
 </body>
 </html>

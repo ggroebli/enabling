@@ -295,98 +295,7 @@
         }
 
         /* ===== CHAT WIDGET ===== */
-        .chat-fab {
-            position: fixed; bottom: 28px; right: 28px;
-            display: flex; align-items: center; gap: 8px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
-            color: white; border-radius: 28px; cursor: pointer;
-            box-shadow: 0 4px 20px rgba(124,58,237,0.4);
-            z-index: 500; transition: all 0.3s; font-family: var(--font-main);
-        }
-        .chat-fab:hover { box-shadow: 0 6px 28px rgba(124,58,237,0.5); transform: translateY(-2px); }
-        .chat-fab i { font-size: 18px; }
-        .chat-fab-label { font-size: 14px; font-weight: 600; }
-
-        .chat-panel {
-            position: fixed; bottom: 28px; right: 28px;
-            width: 400px; height: 580px;
-            background: white; border-radius: 16px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.2);
-            z-index: 600; display: none; flex-direction: column;
-            overflow: hidden; font-family: var(--font-main);
-        }
-        .chat-panel.open { display: flex; }
-
-        .chat-hd {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 16px 20px;
-            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
-            color: white;
-        }
-        .chat-hd-left { display: flex; align-items: center; gap: 12px; }
-        .chat-hd-icon {
-            width: 36px; height: 36px; border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            display: flex; align-items: center; justify-content: center;
-        }
-        .chat-hd-icon i { font-size: 16px; }
-        .chat-hd-title { font-size: 15px; font-weight: 700; }
-        .chat-hd-sub { font-size: 11px; opacity: 0.8; }
-        .chat-x {
-            background: none; border: none; color: white; font-size: 18px;
-            cursor: pointer; opacity: 0.8;
-        }
-        .chat-x:hover { opacity: 1; }
-
-        .chat-body { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-        .chat-msg { display: flex; gap: 8px; align-items: flex-start; }
-        .chat-msg.usr { justify-content: flex-end; }
-        .chat-av {
-            width: 28px; height: 28px; border-radius: 50%;
-            background: #EDE9FE; display: flex; align-items: center;
-            justify-content: center; flex-shrink: 0;
-        }
-        .chat-av i { font-size: 12px; color: var(--purple); }
-        .chat-bbl {
-            max-width: 300px; padding: 10px 14px; border-radius: 12px;
-            font-size: 13px; line-height: 1.55;
-        }
-        .bbl-bot { background: #F3F4F6; color: #1F2937; border-bottom-left-radius: 4px; }
-        .bbl-usr { background: var(--purple); color: white; border-bottom-right-radius: 4px; }
-        .chat-src {
-            margin-top: 8px; padding-top: 8px; border-top: 1px solid #E5E7EB;
-            font-size: 12px; display: flex; align-items: center; gap: 6px;
-        }
-        .chat-src i { color: var(--purple); }
-        .chat-src a { color: var(--purple); text-decoration: none; font-weight: 500; }
-        .chat-src a:hover { text-decoration: underline; }
-
-        .chat-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 0; }
-        .chat-chip {
-            padding: 6px 12px; border: 1px solid #DDD6FE; border-radius: 16px;
-            background: #F5F3FF; color: var(--purple); font-size: 12px;
-            font-weight: 500; cursor: pointer; font-family: var(--font-main);
-        }
-        .chat-chip:hover { background: #EDE9FE; border-color: #C4B5FD; }
-
-        .chat-input-row {
-            display: flex; align-items: center; gap: 8px;
-            padding: 12px 16px; border-top: 1px solid #E5E7EB;
-        }
-        .chat-inp {
-            flex: 1; padding: 10px 14px; border: 1px solid #E5E7EB;
-            border-radius: 8px; font-family: var(--font-main); font-size: 13px; outline: none;
-        }
-        .chat-inp:focus { border-color: var(--purple); }
-        .chat-snd {
-            width: 38px; height: 38px; border-radius: 8px;
-            background: var(--purple); border: none; color: white;
-            cursor: pointer; display: flex; align-items: center;
-            justify-content: center; font-size: 14px;
-        }
-        .chat-snd:hover { opacity: 0.9; }
-    </style>
+</style>
 </head>
 <body>
 
@@ -705,41 +614,7 @@
     </div>
 
     <!-- CHAT WIDGET -->
-    <div class="chat-fab" id="chat-fab" onclick="toggleChat()">
-        <i class="fa-solid fa-comments"></i>
-        <span class="chat-fab-label">M&amp;A-Assistent</span>
-    </div>
 
-    <div class="chat-panel" id="chat-panel">
-        <div class="chat-hd">
-            <div class="chat-hd-left">
-                <div class="chat-hd-icon"><i class="fa-solid fa-robot"></i></div>
-                <div>
-                    <div class="chat-hd-title">AMBER M&amp;A-Assistent</div>
-                    <div class="chat-hd-sub">Dein pers&ouml;nlicher Berater</div>
-                </div>
-            </div>
-            <button class="chat-x" onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="chat-body" id="chat-body">
-            <div class="chat-msg">
-                <div class="chat-av"><i class="fa-solid fa-robot"></i></div>
-                <div class="chat-bbl bbl-bot">
-                    Hallo! Du hast aktuell <strong>3 Interessenten</strong> f&uuml;r deinen GaLaBau-Betrieb, darunter einen <strong>LOI von Markus Keller</strong>. Wie kann ich dir helfen?
-                </div>
-            </div>
-            <div class="chat-chips" id="chat-chips">
-                <button class="chat-chip" onclick="sendChip('Wie pr\u00fcfe ich den LOI?')">Wie pr&uuml;fe ich den LOI?</button>
-                <button class="chat-chip" onclick="sendChip('Was ist eine faire Exklusivit\u00e4t?')">Faire Exklusivit&auml;t?</button>
-                <button class="chat-chip" onclick="sendChip('Wie bereite ich den Datenraum vor?')">Datenraum vorbereiten?</button>
-            </div>
-            <div id="chat-extra"></div>
-        </div>
-        <div class="chat-input-row">
-            <input type="text" class="chat-inp" id="chat-inp" placeholder="Schreibe eine Nachricht..." onkeypress="if(event.key==='Enter')handleSend()">
-            <button class="chat-snd" onclick="handleSend()"><i class="fa-solid fa-paper-plane"></i></button>
-        </div>
-    </div>
 
     <script>
         function toggleFG(e) { e.stopPropagation(); document.getElementById('fg').classList.toggle('open'); }
@@ -757,49 +632,13 @@
             cb.innerHTML = cb.classList.contains('done') ? '<i class="fa-solid fa-check"></i>' : '';
         }
 
-        function toggleChat() {
-            const p = document.getElementById('chat-panel');
-            const f = document.getElementById('chat-fab');
-            p.classList.toggle('open');
-            f.style.display = p.classList.contains('open') ? 'none' : 'flex';
-        }
-        function openChat() {
-            document.getElementById('chat-panel').classList.add('open');
-            document.getElementById('chat-fab').style.display = 'none';
+        , 600);
         }
 
-        const answers = {
-            'Wie pr\u00fcfe ich den LOI?': 'Beim <strong>LOI pr\u00fcfen</strong> solltest du als Verk\u00e4ufer auf folgende Punkte achten:<br><br><ul style="margin:8px 0 8px 16px;font-size:13px;"><li><strong>Kaufpreis:</strong> Liegt er in deiner erwarteten Bandbreite?</li><li><strong>Exklusivit\u00e4t:</strong> Max. 4\u20136 Wochen sind \u00fcblich</li><li><strong>Bedingungen:</strong> DD-Vorbehalt, Finanzierungsvorbehalt \u2013 wie viele Ausstiegsm\u00f6glichkeiten hat der K\u00e4ufer?</li><li><strong>Zeitplan:</strong> Ist der geplante Ablauf realistisch?</li></ul><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="seller-academy-modul-loi.html">Modul: LOI verhandeln \u2192</a></div>',
-            'Was ist eine faire Exklusivit\u00e4t?': 'Eine <strong>Exklusivit\u00e4tsklausel</strong> im LOI bedeutet, dass du w\u00e4hrend dieser Zeit nicht mit anderen K\u00e4ufern verhandeln darfst.<br><br><ul style="margin:8px 0 8px 16px;font-size:13px;"><li><strong>3\u20134 Monate:</strong> Markt\u00fcblich f\u00fcr die gesamte DD-Phase</li><li><strong>6+ Monate:</strong> Eher zu lang \u2013 frage nach dem Grund</li><li><strong>Abschlussexklusivit\u00e4t:</strong> Mildere Variante \u2013 du darfst weiter Gespr\u00e4che f\u00fchren</li></ul>Tipp: Vereinbare eine <strong>Break-Up Fee</strong>, falls der K\u00e4ufer ohne guten Grund abspringt.<br><br><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="seller-academy-modul-loi.html">Modul: LOI verhandeln \u2192</a></div>',
-            'Wie bereite ich den Datenraum vor?': 'Nach LOI-Unterzeichnung beginnt die <strong>Due Diligence</strong>. Bereite deinen Datenraum vor:<br><br><ul style="margin:8px 0 8px 16px;font-size:13px;"><li><strong>Finanzen:</strong> Jahresabschl\u00fcsse (3 Jahre), BWA, Steuerbescheide</li><li><strong>Vertr\u00e4ge:</strong> Kundenvertr\u00e4ge, Lieferantenvertr\u00e4ge, Mietvertrag</li><li><strong>Mitarbeiter:</strong> Organigramm, Gehaltsliste, Arbeitsvertr\u00e4ge</li><li><strong>Rechtliches:</strong> Handelsregister, Gesellschaftsvertrag, Genehmigungen</li></ul>Nutze die <strong>Datenraum-Struktur-Vorlage</strong> in den Downloads \u2013 sie gibt dir die komplette Ordnerstruktur vor.<br><br><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="seller-academy-modul-dd-closing.html">Modul: DD & Closing \u2192</a></div>',
-        };
-
-        function sendChip(text) {
-            document.getElementById('chat-chips').style.display = 'none';
-            addMsg(text, true);
-            setTimeout(() => {
-                addMsg(answers[text] || 'In der finalen Version w\u00fcrde ich hier eine fundierte Antwort basierend auf der Verk\u00e4ufer-Academy geben.', false);
-            }, 600);
+        , 800);
         }
 
-        function handleSend() {
-            const inp = document.getElementById('chat-inp');
-            if (!inp.value.trim()) return;
-            const text = inp.value;
-            inp.value = '';
-            addMsg(text, true);
-            setTimeout(() => {
-                addMsg('Das ist eine gute Frage! In der finalen Version w\u00fcrde ich hier eine Antwort basierend auf der Verk\u00e4ufer-Academy geben.<br><br><div class="chat-src"><i class="fa-solid fa-graduation-cap"></i><a href="verkaufer-academy.html">Zur Academy \u2192</a></div>', false);
-            }, 800);
-        }
-
-        function addMsg(html, isUser) {
-            const container = document.getElementById('chat-extra');
-            const div = document.createElement('div');
-            div.className = 'chat-msg' + (isUser ? ' usr' : '');
-            if (isUser) {
-                div.innerHTML = '<div class="chat-bbl bbl-usr">' + html + '</div>';
-            } else {
+        else {
                 div.innerHTML = '<div class="chat-av"><i class="fa-solid fa-robot"></i></div><div class="chat-bbl bbl-bot">' + html + '</div>';
             }
             container.appendChild(div);
@@ -807,5 +646,7 @@
         }
     </script>
 
+    <script src="config.js"></script>
+<script src="ki-assistent.js"></script>
 </body>
 </html>
