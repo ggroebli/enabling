@@ -8,5 +8,5 @@ nul
 
 # PowerShell-Scripts (nur lokal gebraucht)
 *.ps1
-# API key for KI-Assistent (never commit)
-config.js
+# API key for KI-Assistent (Mockup only — set spending limit on OpenRouter!)
+# config.js
