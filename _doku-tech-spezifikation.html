@@ -81,6 +81,26 @@
         ul, ol { padding-left: 24px; margin: 8px 0; }
         li { margin-bottom: 4px; }
 
+        
+        /* Screenshot frames */
+        .screenshot { margin: 20px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.15); border: 1px solid #D1D5DB; }
+        .screenshot-bar { background: linear-gradient(180deg, #F3F4F6, #E5E7EB); padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #D1D5DB; }
+        .screenshot-dots { display: flex; gap: 6px; }
+        .screenshot-dots span { width: 12px; height: 12px; border-radius: 50%; }
+        .screenshot-dots .red { background: #EF4444; }
+        .screenshot-dots .yellow { background: #F59E0B; }
+        .screenshot-dots .green { background: #10B981; }
+        .screenshot-url { flex: 1; background: white; border: 1px solid #D1D5DB; border-radius: 6px; padding: 5px 12px; font-size: 11px; color: #6B7280; font-family: monospace; margin-left: 8px; }
+        .screenshot iframe { width: 100%; border: none; display: block; background: white; }
+        .screenshot-label { padding: 10px 16px; background: #F9FAFB; border-top: 1px solid #E5E7EB; font-size: 12px; color: #6B7280; display: flex; align-items: center; gap: 8px; }
+        .screenshot-label strong { color: #1A1A1A; }
+        .screenshot-label .badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+        .screenshot-label .badge-new { background: #D1FAE5; color: #059669; }
+        .screenshot-label .badge-changed { background: #DBEAFE; color: #2563EB; }
+        .screenshot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .screenshot-grid .screenshot iframe { height: 400px; }
+        .screenshot-full .screenshot iframe { height: 600px; }
+
         /* Footer */
         .doc-footer { background: #1A1A1A; color: #9CA3AF; padding: 32px 0; font-size: 13px; text-align: center; margin-top: 48px; }
 
@@ -208,6 +228,83 @@
             <h4><i class="fa-solid fa-code-branch"></i> Git-Referenz</h4>
             <p>Der Original-Stand aller Seiten <strong>vor</strong> Enablement ist im Git-Tag <code>pre-enablement</code> gespeichert. Zurucksetzen: <code>git reset --hard pre-enablement</code>. Die Original-HTML-Quelltexte liegen als <code>*.txt</code>-Dateien im Projektordner (z.B. <code>Suche.txt</code>, <code>Listing.txt</code>). Screenshots der Original-Plattform: <code>*.png</code>-Dateien.</p>
         </div>
+
+        <h3 style="margin-top:32px;">Visuelle Referenz: Erweiterte Seiten</h3>
+        <div class="screenshot-grid">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /suche.html</div>
+            </div>
+            <iframe src="suche.html" height="350" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>suche.html – Gating</strong> <span class="badge badge-changed">Erweitert</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /listing.html</div>
+            </div>
+            <iframe src="listing.html" height="350" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>listing.html – KI-Analyse</strong> <span class="badge badge-changed">Erweitert</span></div>
+        </div>
+        </div>
+        <div class="screenshot-grid" style="margin-top:16px;">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /kauferprofil.html</div>
+            </div>
+            <iframe src="kauferprofil.html" height="350" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>kauferprofil.html – Readiness Score</strong> <span class="badge badge-changed">Erweitert</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /transaktionen.html</div>
+            </div>
+            <iframe src="transaktionen.html" height="350" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>transaktionen.html – Enablement-Bars</strong> <span class="badge badge-changed">Erweitert</span></div>
+        </div>
+        </div>
+
+        <h3 style="margin-top:32px;">Visuelle Referenz: Neue Seiten</h3>
+        <div class="screenshot-grid">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /academy.html</div>
+            </div>
+            <iframe src="academy.html" height="350" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>academy.html – Academy Startseite</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /transaktion-detail.html</div>
+            </div>
+            <iframe src="transaktion-detail.html" height="350" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>transaktion-detail.html – Deal-Detail</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+        </div>
+        <div class="screenshot-grid" style="margin-top:16px;">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /transaktion-detail-verkaeufer.html</div>
+            </div>
+            <iframe src="transaktion-detail-verkaeufer.html" height="350" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>transaktion-detail-verkaeufer.html</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /academy-modul-dokumente.html</div>
+            </div>
+            <iframe src="academy-modul-dokumente.html" height="350" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>academy-modul-dokumente.html</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+        </div>
+
     </div>
 </section>
 

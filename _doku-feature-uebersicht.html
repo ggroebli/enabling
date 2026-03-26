@@ -159,6 +159,26 @@
         .sidebar-block h5 { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #9CA3AF; margin-bottom: 4px; }
         .sidebar-block p { font-size: 12px; color: #4B5563; }
 
+        
+        /* Screenshot frames */
+        .screenshot { margin: 20px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.15); border: 1px solid #D1D5DB; }
+        .screenshot-bar { background: linear-gradient(180deg, #F3F4F6, #E5E7EB); padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #D1D5DB; }
+        .screenshot-dots { display: flex; gap: 6px; }
+        .screenshot-dots span { width: 12px; height: 12px; border-radius: 50%; }
+        .screenshot-dots .red { background: #EF4444; }
+        .screenshot-dots .yellow { background: #F59E0B; }
+        .screenshot-dots .green { background: #10B981; }
+        .screenshot-url { flex: 1; background: white; border: 1px solid #D1D5DB; border-radius: 6px; padding: 5px 12px; font-size: 11px; color: #6B7280; font-family: monospace; margin-left: 8px; }
+        .screenshot iframe { width: 100%; border: none; display: block; background: white; }
+        .screenshot-label { padding: 10px 16px; background: #F9FAFB; border-top: 1px solid #E5E7EB; font-size: 12px; color: #6B7280; display: flex; align-items: center; gap: 8px; }
+        .screenshot-label strong { color: #1A1A1A; }
+        .screenshot-label .badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+        .screenshot-label .badge-new { background: #D1FAE5; color: #059669; }
+        .screenshot-label .badge-changed { background: #DBEAFE; color: #2563EB; }
+        .screenshot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .screenshot-grid .screenshot iframe { height: 400px; }
+        .screenshot-full .screenshot iframe { height: 600px; }
+
         /* Footer */
         .doc-footer { background: #1A1A1A; color: #9CA3AF; padding: 32px 0; font-size: 13px; text-align: center; margin-top: 48px; }
     </style>
@@ -182,6 +202,7 @@
 <div class="toc container" style="margin-top:40px;">
     <h2>Inhalt</h2>
     <div class="toc-grid">
+        <a href="#screenshots"><span class="toc-num" style="background:#059669;color:white;">&#x1f4f7;</span> Screenshots aller Seiten</a>
         <a href="#vorher-nachher"><span class="toc-num" style="background:#7C3AED;color:white;">★</span> Vorher &rarr; Nachher</a>
         <a href="#vision"><span class="toc-num">1</span> Produktvision: Drei Ebenen</a>
         <a href="#academy"><span class="toc-num">2</span> Readiness Academy</a>
@@ -359,6 +380,159 @@
                     <div style="font-size:11px;color:#6B7280;">Deal-Phasen mit Content</div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- SCREENSHOTS -->
+<section id="screenshots">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Live-Ansichten</div>
+            <h2>Die wichtigsten Seiten im Uberblick</h2>
+            <p>Hier siehst du die echten Mockup-Seiten, eingebettet als Vorschau. Jede Seite kann auch direkt im Browser geoffnet werden.</p>
+        </div>
+
+        <h3 style="margin-top:32px;font-size:18px;">Kaufer-Journey</h3>
+
+        <div class="screenshot-grid">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /suche.html</div>
+            </div>
+            <iframe src="suche.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Suchseite – Gating bei niedrigem Score</strong> <span class="badge badge-changed">Erweitert</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /listing.html</div>
+            </div>
+            <iframe src="listing.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Listing-Detail – KI-Analyse + Interest-Modal</strong> <span class="badge badge-changed">Erweitert</span></div>
+        </div>
+        </div>
+
+        <div class="screenshot-grid" style="margin-top:24px;">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /kauferprofil.html</div>
+            </div>
+            <iframe src="kauferprofil.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Kauferprofil – Readiness Score + Missing Hints</strong> <span class="badge badge-changed">Erweitert</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /transaktionen.html</div>
+            </div>
+            <iframe src="transaktionen.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Meine Transaktionen – Enablement-Bars + Toast</strong> <span class="badge badge-changed">Erweitert</span></div>
+        </div>
+        </div>
+
+        <div class="screenshot-grid" style="margin-top:24px;">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /suchauftraege.html</div>
+            </div>
+            <iframe src="suchauftraege.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Suchauftrage – Competition-Daten</strong> <span class="badge badge-changed">Erweitert</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /mitteilungen.html</div>
+            </div>
+            <iframe src="mitteilungen.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Mitteilungen – Enablement-Notifications</strong> <span class="badge badge-changed">Erweitert</span></div>
+        </div>
+        </div>
+
+        <h3 style="margin-top:40px;font-size:18px;">Academy &amp; Readiness</h3>
+
+        <div class="screenshot-grid">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /academy.html</div>
+            </div>
+            <iframe src="academy.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Kaufer-Academy – 3 Phasen, 12 Module</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /verkaufer-academy.html</div>
+            </div>
+            <iframe src="verkaufer-academy.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Verkaufer-Academy – 10 Module</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+        </div>
+
+        <div class="screenshot-grid" style="margin-top:24px;">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /deal-readiness-check.html</div>
+            </div>
+            <iframe src="deal-readiness-check.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Kaufer Readiness-Check (Selbsttest)</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /verkaufsbereitschafts-check.html</div>
+            </div>
+            <iframe src="verkaufsbereitschafts-check.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Verkaufer Readiness-Check</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+        </div>
+
+        <h3 style="margin-top:40px;font-size:18px;">Deal-Detailseiten (komplett neu)</h3>
+
+        <div class="screenshot-grid">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /transaktion-detail.html</div>
+            </div>
+            <iframe src="transaktion-detail.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Deal-Detail Kaufer – Phase 4, Checkliste + Sidebar</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /transaktion-detail-verkaeufer.html</div>
+            </div>
+            <iframe src="transaktion-detail-verkaeufer.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Deal-Detail Verkaufer – Multi-Kaufer-Ubersicht</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+        </div>
+
+        <h3 style="margin-top:40px;font-size:18px;">Academy-Module (Beispiele)</h3>
+
+        <div class="screenshot-grid">
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /academy-modul-dokumente.html</div>
+            </div>
+            <iframe src="academy-modul-dokumente.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Modul: Dokumente im M&A-Prozess (Video + Quiz)</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
+            <div class="screenshot">
+            <div class="screenshot-bar">
+                <div class="screenshot-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                <div class="screenshot-url">file:/// ... /seller-academy-modul-exit-readiness.html</div>
+            </div>
+            <iframe src="seller-academy-modul-exit-readiness.html" height="400" loading="lazy" style="pointer-events:none;transform-origin:top left;"></iframe>
+            <div class="screenshot-label"><strong>Modul: Exit-Readiness (Verkaufer)</strong> <span class="badge badge-new">Neu</span></div>
+        </div>
         </div>
     </div>
 </section>
