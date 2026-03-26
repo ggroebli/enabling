@@ -2880,22 +2880,21 @@
         }
 
         var systemPrompt = "Du bist der AMBER M&A-Assistent auf einer Plattform fuer Unternehmenskaeufe und -verkaeufe im deutschen Mittelstand (SME M&A).\n\n" +
-            "WICHTIGSTE REGEL: Der ACADEMY-CONTENT unten ist deine EINZIGE Wahrheitsquelle. Wenn die Academy eine klare Position hat (z.B. 'Warnung', 'Achtung', 'No-Go', 'nicht empfohlen', 'streichen'), dann vertritt EXAKT diese Position. Relativiere oder verwaeessere die Academy-Aussagen NIEMALS mit allgemeinem Wissen. Die Academy wurde speziell fuer unerfahrene Kaeufer/Verkaeufer kleiner Unternehmen geschrieben — ihre Empfehlungen sind bewusst so formuliert.\n\n" +
-            "WEITERE REGELN:\n" +
-            "1. Durchsuche ALLE Module gruendlich nach relevanten Informationen zur Frage.\n" +
-            "2. Wenn die Academy eine Warnung oder klare Empfehlung gibt, stelle diese in den Vordergrund deiner Antwort.\n" +
-            "3. NUR wenn die Academy ein Thema ueberhaupt nicht behandelt, darfst du allgemeines Wissen ergaenzen — kennzeichne das mit 'Allgemein gilt:'.\n" +
+            "REGELN:\n" +
+            "1. Beantworte die Frage basierend auf dem ACADEMY-CONTENT unten. Durchsuche ALLE Module gruendlich nach relevanten Informationen.\n" +
+            "2. Widersprich NIEMALS dem Academy-Content.\n" +
+            "3. Wenn die Frage ueber den Academy-Content hinausgeht, kannst du allgemeines M&A-Wissen ergaenzen, aber markiere das klar (z.B. 'Allgemein gilt:').\n" +
             "4. Bei Rechts-/Steuerfragen: Weise darauf hin, dass ein Anwalt/Steuerberater konsultiert werden sollte.\n" +
-            "5. Zielgruppe: Privatpersonen, die erstmals ein kleines Unternehmen kaufen oder verkaufen wollen (Deals <2M EUR). Kein Fachjargon.\n" +
+            "5. Zielgruppe: Privatpersonen, die erstmals ein kleines Unternehmen kaufen oder verkaufen wollen (Deals <2M EUR).\n" +
             "6. Antworte auf Deutsch, duze den User.\n" +
             "7. Halte Antworten kurz und praegnant (max 200 Woerter). Komm direkt zum Punkt.\n" +
             "8. Formatiere mit HTML: <strong> fuer Hervorhebungen, <ul><li> fuer Listen, <br> fuer Absaetze. KEIN Markdown, KEINE Backticks.\n" +
-            "9. Nenne KEINE Quellen, Modulnamen oder Referenzen in deiner Antwort — das uebernimmt das System automatisch.\n" +
+            "9. Nenne am Ende in eckigen Klammern das Quell-Modul, z.B. [Modul: Dokumente im M&A-Prozess].\n" +
             "10. " + perspectiveNote + "\n" +
             historyContext + "\n\n" +
             "ACADEMY-CONTENT (19 Module):\n" + academyContent;
 
-        // Debug removed for production
+        console.log("API call: system prompt length=" + systemPrompt.length + " chars, key=" + window.AMBER_API_KEY.substring(0,8) + "...");
 
         // OpenRouter API (OpenAI-compatible format)
         fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -2907,7 +2906,7 @@
                 "X-Title": "AMBER M&A-Assistent"
             },
             body: JSON.stringify({
-                model: "anthropic/claude-3.5-haiku",
+                model: "anthropic/claude-haiku-4-5-20251001",
                 max_tokens: 600,
                 messages: [
                     { role: "system", content: systemPrompt },
@@ -3140,13 +3139,21 @@
                 hideTyping();
 
                 if (apiAnswer && !error) {
-                    // API answer — no static source link (would be inaccurate)
-                    addMessage(apiAnswer, false);
+                    // Use API answer with source link from static match
+                    var sourceLink = "";
+                    var matches = findBestMatches(query, perspective, 1);
+                    if (matches.length > 0) {
+                        var src = matches[0].source;
+                        sourceLink = '<br><div class="ka-src"><i class="fa-solid fa-graduation-cap"></i>' +
+                                     '<a href="' + src.url + '">Quelle: ' + src.title + ' \u2192</a></div>';
+                    }
+                    addMessage(apiAnswer + sourceLink, false);
                     chatHistory.push({ role: "assistant", text: apiAnswer });
                 } else {
-                    // API failed — fall back to static KB answer
-                    console.warn("KI-Assistent API error:", error);
-                    addMessage(staticResponse.html, false);
+                    // Show the error visibly instead of silent fallback
+                    var errorMsg = '<div style="color:#DC2626;font-size:12px;padding:8px;background:#FEE2E2;border-radius:8px;margin-bottom:8px;">' +
+                        '<strong>API-Fehler:</strong> ' + (error || 'Unbekannt') + '</div>';
+                    addMessage(errorMsg + staticResponse.html, false);
                     chatHistory.push({ role: "assistant", text: staticResponse.html });
                 }
 
