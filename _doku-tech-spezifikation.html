@@ -108,6 +108,7 @@
 <div class="toc container" style="margin-top:40px;">
     <h2>Inhaltsverzeichnis</h2>
     <div class="toc-grid">
+        <a href="#s0"><span class="toc-num" style="background:#7C3AED;color:white;">★</span> Vorher &rarr; Nachher</a>
         <a href="#s1"><span class="toc-num">1</span> Architektur-Uberblick</a>
         <a href="#s2"><span class="toc-num">2</span> 9-Phasen-Prozesskette</a>
         <a href="#s3"><span class="toc-num">3</span> Kaufer: Checklisten pro Phase</a>
@@ -136,6 +137,79 @@
         <a href="#s26"><span class="toc-num">26</span> Mockup-Dateien</a>
     </div>
 </div>
+
+
+<!-- VORHER/NACHHER -->
+<section id="s0">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Kontext</div>
+            <h2>0. Vorher &rarr; Nachher: Was hat sich verandert?</h2>
+            <p>Die ursprungliche AMBER-Plattform war ein reiner M&amp;A-Marktplatz. Das Enablement fugt drei Ebenen hinzu: Readiness Academy, In-Flow Guidance und KI-Assistent. Hier die konkreten Anderungen pro Seite.</p>
+        </div>
+
+        <h3>Bestehende Seiten: Enablement-Erweiterungen</h3>
+        <table>
+            <tr><th>Seite</th><th>Vorher (Original)</th><th>Nachher (mit Enablement)</th><th>Referenz-Datei (Original)</th></tr>
+            <tr>
+                <td><strong>Suchseite</strong><br><code>suche.html</code></td>
+                <td>Listing-Karten mit Filterfunktion. Alle Inserate fur alle Nutzer sichtbar.</td>
+                <td>+ Gating: Listings geblurrt bei Score &lt;30%<br>+ Overlay mit CTA "Readiness Score verbessern"<br>+ Competition-Hinweise in Suchauftragen</td>
+                <td><code>Suche.txt</code><br><code>Suche Screenshot.png</code></td>
+            </tr>
+            <tr>
+                <td><strong>Listing-Detail</strong><br><code>listing.html</code></td>
+                <td>Statische Inseratsdarstellung. Button "Interesse bekunden" ohne Kontext.</td>
+                <td>+ KI-Analyse: Match-Score (82%), 4 Chancen, 4 Risiken<br>+ Interest-Modal mit Verkaufer-Fragen (Synergien, Finanzierung, Erfahrung)<br>+ Finanzierungsubersicht</td>
+                <td><code>Listing.txt</code><br><code>Listing 100% Screenshot.png</code></td>
+            </tr>
+            <tr>
+                <td><strong>Kauferprofil</strong><br><code>kauferprofil.html</code></td>
+                <td>Einfaches Profilformular ohne Feedback oder Vollstandigkeitsanzeige.</td>
+                <td>+ Readiness Score Banner (SVG Ring, z.B. 45%)<br>+ Missing-Field Hints mit Academy-Links<br>+ Score-Impact: welches Feld wie viel bringt</td>
+                <td><code>Kauferprofil.txt</code><br><code>Kauferprofil 50% Screenshot.png</code></td>
+            </tr>
+            <tr>
+                <td><strong>Suchauftrage</strong><br><code>suchauftraege.html</code></td>
+                <td>Liste gespeicherter Suchauftrage mit Ergebnis-Zahlen.</td>
+                <td>+ Competition-Daten pro Alert ("5 Kaufer, 80% hoherer Score")<br>+ Gesperrt-Badges mit Tooltips<br>+ Locked-Summary CTA<br>+ Academy-Tip</td>
+                <td><code>Suchauftrage.txt</code></td>
+            </tr>
+            <tr>
+                <td><strong>Meine Transaktionen</strong><br><code>transaktionen.html</code></td>
+                <td>3 Tabs (Merkliste, IB, Matches) mit einfachen Karten. Keine Fuhrung.</td>
+                <td>+ Enablement-Bars pro Match-Karte (Next Step + Download + Modul)<br>+ Phase-Badges (farbige Chips)<br>+ Toast-Banner bei Phasenwechsel<br>+ Kontextuelle Academy-Cards pro Tab</td>
+                <td><code>Meine Transaktionen.txt</code><br><code>Meine Transaktionen Screenshot.png</code></td>
+            </tr>
+            <tr>
+                <td><strong>Mitteilungen</strong><br><code>mitteilungen.html</code></td>
+                <td>Standard-Benachrichtigungen ohne Enablement-Kontext.</td>
+                <td>+ Phasenwechsel-Mitteilungen mit Downloads + Academy-Links<br>+ Gelesen-Status (gruner Rand, Badge)<br>+ Praxis-Tipps in Mitteilungen</td>
+                <td><code>Mitteilungen.txt</code></td>
+            </tr>
+        </table>
+
+        <h3>Komplett neue Seiten</h3>
+        <table>
+            <tr><th>Seite</th><th>Beschreibung</th><th>Enablement-Ebene</th></tr>
+            <tr><td><code>academy.html</code></td><td>Kaufer-Academy Startseite (Hero, Score-Ring, 3 Phasen, 12 Module)</td><td>Ebene 1: Readiness</td></tr>
+            <tr><td><code>verkaufer-academy.html</code></td><td>Verkaufer-Academy Startseite (10 Module)</td><td>Ebene 1: Readiness</td></tr>
+            <tr><td><code>academy-modul-*.html</code> (9x)</td><td>Kaufer-Academy-Module (Video + Quiz + Referenz)</td><td>Ebene 1: Readiness</td></tr>
+            <tr><td><code>seller-academy-modul-*.html</code> (10x)</td><td>Verkaufer-Academy-Module</td><td>Ebene 1: Readiness</td></tr>
+            <tr><td><code>deal-readiness-check.html</code></td><td>Kaufer-Readiness-Selbsttest</td><td>Ebene 1: Readiness</td></tr>
+            <tr><td><code>verkaufsbereitschafts-check.html</code></td><td>Verkaufer-Readiness-Selbsttest</td><td>Ebene 1: Readiness</td></tr>
+            <tr><td><code>transaktion-detail.html</code></td><td>Deal-Detail Kaufer (Timeline, Checkliste, Sidebar)</td><td>Ebene 2: In-Flow</td></tr>
+            <tr><td><code>transaktion-detail-galabau.html</code></td><td>Deal-Detail Kaufer (Beispiel Phase 3)</td><td>Ebene 2: In-Flow</td></tr>
+            <tr><td><code>transaktion-detail-verkaeufer.html</code></td><td>Deal-Detail Verkaufer (Multi-Kaufer, Stats-Bar)</td><td>Ebene 2: In-Flow</td></tr>
+            <tr><td><code>ki-assistent.js</code></td><td>KI-Chat-Widget (Claude AI, Academy-Kontext, Quick Actions)</td><td>Ebene 3: KI-Assistent</td></tr>
+        </table>
+
+        <div class="info-box" style="margin-top:16px;">
+            <h4><i class="fa-solid fa-code-branch"></i> Git-Referenz</h4>
+            <p>Der Original-Stand aller Seiten <strong>vor</strong> Enablement ist im Git-Tag <code>pre-enablement</code> gespeichert. Zurucksetzen: <code>git reset --hard pre-enablement</code>. Die Original-HTML-Quelltexte liegen als <code>*.txt</code>-Dateien im Projektordner (z.B. <code>Suche.txt</code>, <code>Listing.txt</code>). Screenshots der Original-Plattform: <code>*.png</code>-Dateien.</p>
+        </div>
+    </div>
+</section>
 
 <!-- 1. ARCHITEKTUR -->
 <section id="s1">
