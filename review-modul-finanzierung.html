@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Review: Modul 7 – Akquisitionsfinanzierung (Fremdkapital)</title>
+    <style>
+        body {
+            font-family: Calibri, Arial, sans-serif;
+            font-size: 11pt;
+            color: #1A1A1A;
+            max-width: 800px;
+            margin: 40px auto;
+            line-height: 1.6;
+        }
+
+        /* ===== DOKUMENT-HEADER ===== */
+        .doc-header {
+            border-bottom: 3px solid #0D9488;
+            padding-bottom: 16px;
+            margin-bottom: 32px;
+        }
+        .doc-meta {
+            font-size: 10pt;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .doc-title {
+            font-size: 22pt;
+            font-weight: bold;
+            color: #0D9488;
+            margin-bottom: 6px;
+        }
+        .doc-subtitle {
+            font-size: 11pt;
+            color: #444;
+        }
+
+        /* ===== ABSCHNITTE ===== */
+        h1 { font-size: 16pt; font-weight: bold; color: #0D9488; margin-top: 32px; margin-bottom: 8px; border-bottom: 1px solid #CCFBF1; padding-bottom: 4px; }
+        h2 { font-size: 13pt; font-weight: bold; color: #1A1A1A; margin-top: 20px; margin-bottom: 6px; }
+        p { margin: 8px 0; }
+        ul, ol { margin: 8px 0 8px 20px; padding: 0; }
+        li { margin: 4px 0; }
+
+        /* ===== BOXEN ===== */
+        .box {
+            border-left: 4px solid #ccc;
+            padding: 10px 14px;
+            margin: 14px 0;
+            background: #F9FAFB;
+        }
+        .box-title {
+            font-weight: bold;
+            font-size: 10pt;
+            margin-bottom: 4px;
+        }
+        .box p, .box li { font-size: 10.5pt; }
+
+        .box-highlight { border-left-color: #0D9488; background: #F0FDFA; }
+        .box-highlight .box-title { color: #0D9488; }
+
+        .box-tipp { border-left-color: #10B981; background: #F0FDF4; }
+        .box-tipp .box-title { color: #059669; }
+
+        .box-warn { border-left-color: #F59E0B; background: #FFFBEB; }
+        .box-warn .box-title { color: #D97706; }
+
+        /* ===== TABELLE (Finanzierungsplan) ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 10.5pt;
+        }
+        th {
+            background: #F0FDFA;
+            font-weight: bold;
+            text-align: left;
+            padding: 8px 12px;
+            border: 1px solid #CCFBF1;
+        }
+        th.right, td.right { text-align: right; }
+        td {
+            padding: 7px 12px;
+            border: 1px solid #E5E7EB;
+        }
+        tr.total td {
+            font-weight: bold;
+            background: #F0FDFA;
+        }
+
+        /* ===== KEY TAKEAWAYS ===== */
+        .takeaways {
+            background: #F0FDF4;
+            border: 1px solid #99F6E4;
+            border-radius: 4px;
+            padding: 16px 20px;
+            margin: 28px 0 20px;
+        }
+        .takeaways-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #1A1A1A;
+            margin-bottom: 10px;
+        }
+        .takeaways table {
+            margin: 0;
+        }
+        .takeaways td {
+            border: none;
+            padding: 3px 8px 3px 0;
+            vertical-align: top;
+        }
+        .takeaways td:first-child { color: #10B981; font-weight: bold; width: 20px; }
+        .takeaways td:nth-child(2) { font-weight: bold; white-space: nowrap; padding-right: 12px; }
+        .takeaways td:nth-child(3) { font-weight: 300; }
+
+        /* ===== QUIZ ===== */
+        .quiz-section {
+            margin-top: 32px;
+            border-top: 2px solid #E5E7EB;
+            padding-top: 24px;
+        }
+        .quiz-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #1A1A1A;
+            margin-bottom: 6px;
+        }
+        .quiz-subtitle {
+            font-size: 10pt;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .quiz-q {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+        .quiz-q:last-child { border-bottom: none; }
+        .quiz-q-header {
+            font-weight: bold;
+            font-size: 11pt;
+            margin-bottom: 8px;
+        }
+        .quiz-q-number {
+            display: inline-block;
+            background: #0D9488;
+            color: white;
+            font-size: 10pt;
+            font-weight: bold;
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .quiz-options { margin-left: 30px; }
+        .quiz-option { margin: 4px 0; font-size: 10.5pt; padding: 4px 8px; }
+        .quiz-option.correct {
+            background: #D1FAE5;
+            border-left: 3px solid #10B981;
+            font-weight: bold;
+        }
+        .correct-label {
+            font-size: 9pt;
+            color: #059669;
+            font-weight: bold;
+            margin-left: 6px;
+        }
+
+        /* ===== TRENNLINIE ===== */
+        hr { border: none; border-top: 1px solid #E5E7EB; margin: 24px 0; }
+
+        /* ===== REVIEW-HINWEIS ===== */
+        .review-note {
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            border-radius: 4px;
+            padding: 12px 16px;
+            margin-bottom: 28px;
+            font-size: 10pt;
+            color: #92400E;
+        }
+        .review-note strong { display: block; margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+
+<!-- DOKUMENT-HEADER -->
+<div class="doc-header">
+    <div class="doc-meta">AMBER Academy · Modul 7 von 9 · Phase 3: Prüfung &amp; Finanzierung</div>
+    <div class="doc-title">Akquisitionsfinanzierung (Fremdkapital)</div>
+    <div class="doc-subtitle">Format: Video + Guide &nbsp;|&nbsp; Dauer: 15 Min. &nbsp;|&nbsp; 5 Abschnitte + Wissens-Check (5 Fragen)</div>
+</div>
+
+<!-- REVIEW-HINWEIS -->
+<div class="review-note">
+    <strong>Hinweis für den Reviewer</strong>
+    Bitte Änderungen im Überarbeitungsmodus (Word: Überprüfen → Änderungen nachverfolgen) vornehmen. Die korrekte Quiz-Antwort ist jeweils grün markiert. Zielgruppe: Privatpersonen mit wenig M&amp;A-Vorwissen, Deals &lt; 2 Mio. EUR.
+</div>
+
+<!-- ============================================================ -->
+<h1>1 &nbsp; Wie viel Eigenkapital brauchst du?</h1>
+
+<p>Die wichtigste Frage bei der Akquisitionsfinanzierung: <strong>Wie viel Eigenkapital muss ich selbst mitbringen?</strong> Das Eigenkapital ist der Anteil des Kaufpreises, den du nicht über Kredite finanzierst – dein „Skin in the Game".</p>
+
+<h2>Die typische Eigenkapitalquote</h2>
+<p>Bei einer Bankenfinanzierung für Unternehmenskäufe liegt die <strong>typische Eigenkapitalquote bei 15–40%</strong> des Kaufpreises. Das heißt: Die Bank finanziert 60–75% über einen Kredit, den Rest bringst du als Eigenkapital ein.</p>
+
+<div class="box box-highlight">
+    <div class="box-title">&#128161; Rechenbeispiel</div>
+    <p><strong>Kaufpreis: 1.000.000 €</strong><br>
+    Eigenkapitalquote 15%: <strong>150.000 € Eigenkapital</strong> + 850.000 € Bankkredit<br>
+    Eigenkapitalquote 25%: <strong>250.000 € Eigenkapital</strong> + 750.000 € Bankkredit<br><br>
+    Dein verfügbares Eigenkapital bestimmt also direkt die maximale Kaufpreisobergrenze.</p>
+</div>
+
+<h2>Was zählt als Eigenkapital?</h2>
+<p>Nicht alles, was du einbringst, muss aus deinem Bankkonto kommen. Banken akzeptieren verschiedene Quellen als Eigenkapitalersatz – mit einer wichtigen Einschränkung:</p>
+<ul>
+    <li><strong>„Echtes" Eigenkapital (Bargeld)</strong> – Deine Ersparnisse, liquide Vermögenswerte. Davon solltest du mindestens ca. 10% des Kaufpreises selbst aufbringen.</li>
+    <li><strong>Verkäuferdarlehen</strong> – Der Verkäufer lässt einen Teil des Kaufpreises als Darlehen stehen. Banken werten dies in der Regel als Quasi-Eigenkapital.</li>
+    <li><strong>Earn-Out</strong> – Ein Teil des Kaufpreises wird erfolgsabhängig nachgezahlt. Auch dies wird von Banken als Teil des Eigenkapitals gewertet.</li>
+</ul>
+
+<div class="box box-highlight">
+    <div class="box-title">&#128161; Wichtig: Verkäuferdarlehen und Earn-Out</div>
+    <p>Verkäuferdarlehen werden von Banken in der Regel als Teil des erbrachten Eigenkapitals gewertet, <strong>sofern der Käufer selbst ca. 10% als echtes Eigenkapital mitbringt</strong> oder bereit ist, entsprechende Sicherheiten abzugeben. Ein Earn-Out verschiebt einen Teil des Kaufpreises in die Zukunft und knüpft ihn an die zukünftige Entwicklung des Unternehmens.</p>
+    <p>Er wird in der Regel <strong>nicht als Eigenkapital gewertet</strong>, reduziert aber den Kaufpreis zum Closing und entlastet den Cashflow in den ersten Jahren.</p>
+    <p>Banken bewerten Earn-Outs besonders positiv, wenn sie nachrangig, erfolgsabhängig und ohne feste Mindestzahlungen strukturiert sind.</p>
+</div>
+
+<div class="box box-tipp">
+    <div class="box-title">&#10003; Cross-Referenz</div>
+    <p>Mehr zu Transaktionsstrukturen mit Verkäuferdarlehen und Earn-Out → Modul 2: Transaktionsablauf und Deal-Strukturen verstehen</p>
+</div>
+
+<!-- ============================================================ -->
+<h1>2 &nbsp; Die Finanzierungsbausteine</h1>
+
+<p>Eine Akquisitionsfinanzierung besteht in der Regel aus mehreren Bausteinen, die zusammen den Kaufpreis plus Transaktionskosten abdecken.</p>
+
+<h2>Bankkredit (Senior Debt)</h2>
+<p>Der Bankkredit ist der größte Finanzierungsbaustein – typischerweise 60–75% des Kaufpreises.</p>
+<ul>
+    <li><strong>Laufzeit:</strong> 5–7 Jahre, mit regelmäßiger Tilgung</li>
+    <li><strong>Sicherheiten:</strong> Die Bank besichert den Kredit in der Regel über die Vermögenswerte des gekauften Unternehmens (Maschinen, Forderungen, ggf. Immobilien) sowie persönliche Bürgschaften des Käufers</li>
+    <li><strong>Tilgungsfähigkeit:</strong> Die Bank prüft, ob das Unternehmen den Kredit aus dem laufenden Cashflow bedienen kann – der sogenannte Debt Service Coverage Ratio (DSCR) muss über 1,0 liegen, idealerweise bei mind. 1,2–1,5</li>
+    <li><strong>Welche Banken?</strong> Nicht jede Bank macht Akquisitionsfinanzierungen. Sparkassen und Volksbanken finanzieren häufig kleinere Deals, größere Häuser und spezialisierte Banken ab ca. 2 Mio. € Kaufpreis</li>
+</ul>
+
+<h2>Mezzanine-Kapital</h2>
+<p>Mezzanine-Kapital ist eine Mischform zwischen Eigen- und Fremdkapital. Es wird häufig über eine Mittelständische Beteiligungsgesellschaft (MBG) des Bundeslandes bereitgestellt – meist in dem Bundesland, in dem das Zielunternehmen sitzt.</p>
+<ul>
+    <li><strong>Typischer Anteil:</strong> Häufig 10–30% des Kaufpreises</li>
+    <li><strong>Struktur:</strong> Oft als (typisch) stille Beteiligung oder eigenkapitalähnliches Instrument</li>
+    <li><strong>Laufzeit:</strong> Häufig 5–10 Jahre, teils endfällig</li>
+    <li><strong>Sicherheiten:</strong> Meist keine klassischen dinglichen Sicherheiten; dafür sind die Konditionen in der Regel teurer als Senior Debt</li>
+    <li><strong>Bankensicht:</strong> Kann – je nach Ausgestaltung – als eigenkapitalähnlicher Baustein wirken (v. a. wegen Nachrangigkeit und langer Kapitalbindung) und damit die Finanzierung insgesamt „bankfähiger" machen</li>
+</ul>
+<p><strong>Wichtig:</strong> Mezzanine ist nicht immer der richtige Baustein – insbesondere, weil es zusätzliche Kosten und Strukturkomplexität mitbringen kann. Sinnvoll kann es z. B. sein, wenn Eigenkapital für eine solide Struktur nicht ausreicht, oder wenn die Bank aufgrund der Eigenkapitalquote / Risikostruktur zurückhaltend ist und eine Finanzierungslücke geschlossen werden muss.</p>
+
+<h2>Verkäuferdarlehen (Vendor Loan)</h2>
+<p>Der Verkäufer belässt einen Teil des Kaufpreises als Darlehen im Unternehmen – typischerweise 10–30% des Kaufpreises.</p>
+<ul>
+    <li><strong>Vorteil für den Käufer:</strong> Reduziert den benötigten Bankkredit und das Eigenkapital</li>
+    <li><strong>Vorteil für den Verkäufer:</strong> Kann den Gesamtkaufpreis erhöhen und zeigt Vertrauen in das Unternehmen</li>
+    <li><strong>Vorteil für den Finanzierungspartner (Bank):</strong> Signalisiert Banken, dass der Verkäufer weiterhin unternehmerisches Risiko trägt und selbst von der zukünftigen Stabilität und Ertragskraft des Unternehmens überzeugt ist.</li>
+    <li><strong>Typische Konditionen:</strong> Nachrangig zum Bankkredit, Laufzeit 2–5 Jahre, strukturiert als endfälliges Darlehen</li>
+    <li><strong>Bankensicht:</strong> Wird als wirtschaftliches Eigenkapital gewertet, da nachrangig zum Bankkredit</li>
+</ul>
+
+<h2>Earn-Out</h2>
+<p>Ein Teil des Kaufpreises wird an die zukünftige Performance des Unternehmens geknüpft – z.B. an Umsatz- oder EBITDA-Ziele.</p>
+<ul>
+    <li><strong>Typischer Anteil:</strong> 10–20% des Kaufpreises</li>
+    <li><strong>Laufzeit:</strong> Meist 1–3 Jahre nach dem Closing</li>
+    <li><strong>Risikoteilung:</strong> Schützt den Käufer, wenn die Performance nach der Übernahme schlechter ist als erwartet</li>
+</ul>
+
+<h2>Fördermittel (KfW, Bürgschaftsbank)</h2>
+<p>In Deutschland gibt es spezielle Förderprogramme für Unternehmensübernahmen und -nachfolgen – ein häufig unterschätzter Finanzierungsbaustein.</p>
+<ul>
+    <li><strong>KfW-Förderkredite:</strong> Die KfW (Kreditanstalt für Wiederaufbau) bietet vergünstigte Kredite für Nachfolgen und Übernahmen – mit niedrigeren Zinsen und längeren Laufzeiten als Bankkredite</li>
+    <li><strong>Bürgschaftsbank:</strong> Übernimmt einen Teil des Ausfallrisikos gegenüber der finanzierenden Bank – besonders hilfreich, wenn du wenig Sicherheiten hast</li>
+    <li><strong>ERP-Gründerkredit:</strong> Bis zu 125.000 € haftungsfreigestellt (die Bank trägt kaum Risiko) – ideal für kleinere Übernahmen</li>
+</ul>
+
+<div class="box box-tipp">
+    <div class="box-title">&#10003; Praxis-Tipp: KfW immer prüfen</div>
+    <p>KfW-Förderkredite werden über die finanzierende Bank beantragt – <strong>nicht direkt bei der KfW</strong>. Sprich deinen Bankberater oder uns darauf an. Es gibt Banken, die kennen sich besser mit den Förderprogrammen für Übernahmen aus als andere. Wenn dein Bankberater nicht weiterweiß, wechsle die Bank oder binde einen spezialisierten Finanzierungsberater ein.</p>
+</div>
+
+<!-- ============================================================ -->
+<h1>3 &nbsp; Dein Finanzierungsplan</h1>
+
+<p>Jetzt fügen wir die Bausteine zusammen. Ein Finanzierungsplan zeigt, wie du den Kaufpreis plus Transaktionskosten aufbringst – und ob die Finanzierung tragfähig ist.</p>
+
+<h2>Beispiel: Finanzierungsplan für einen 800.000 €-Deal</h2>
+
+<table>
+    <tr>
+        <th>Baustein</th>
+        <th class="right">Betrag</th>
+        <th class="right">Anteil</th>
+    </tr>
+    <tr>
+        <td>Eigenkapital (Bargeld)</td>
+        <td class="right"><strong>100.000 €</strong></td>
+        <td class="right">~12%</td>
+    </tr>
+    <tr>
+        <td>Verkäuferdarlehen</td>
+        <td class="right"><strong>120.000 €</strong></td>
+        <td class="right">15%</td>
+    </tr>
+    <tr>
+        <td>Bankkredit (inkl. KfW-Anteil)</td>
+        <td class="right"><strong>530.000 €</strong></td>
+        <td class="right">~66%</td>
+    </tr>
+    <tr>
+        <td>Transaktionskosten (Anwalt, StB, DD)</td>
+        <td class="right"><strong>50.000 €</strong></td>
+        <td class="right">~6%</td>
+    </tr>
+    <tr class="total">
+        <td>Gesamtfinanzierungsbedarf</td>
+        <td class="right">850.000 €</td>
+        <td class="right">100%</td>
+    </tr>
+</table>
+
+<p>In diesem Beispiel bringt der Käufer ~12% echtes Eigenkapital mit. Zusammen mit dem Verkäuferdarlehen (15%) liegt die Eigenkapitalquote bei ~27% – komfortabel innerhalb der typischen Anforderung der Bank.</p>
+
+<h2>Tilgungsfähigkeit prüfen (DSCR)</h2>
+<p>Die Bank prüft, ob das Unternehmen den Kredit aus dem laufenden Cashflow zurückzahlen kann. Die Kennzahl dafür ist der <strong>Debt Service Coverage Ratio (DSCR)</strong>:</p>
+
+<div class="box box-highlight">
+    <div class="box-title">&#128161; DSCR – Die Schlüsselkennzahl für die Bank</div>
+    <p><strong>DSCR = Freier Cashflow ÷ Schuldendienst (Tilgung + Zinsen)</strong><br><br>
+    Beispiel: 120.000 € freier Cashflow ÷ 90.000 € Schuldendienst = <strong>DSCR 1,33</strong><br><br>
+    Die Bank erwartet einen DSCR von mindestens <strong>1,2</strong> – das bedeutet, das Unternehmen erwirtschaftet 20% mehr, als es für die Kreditbedienung braucht. Je höher der DSCR, desto besser deine Verhandlungsposition bei Zinsen und Konditionen.</p>
+</div>
+
+<div class="box box-warn">
+    <div class="box-title">&#9888; Vergiss die Transaktionskosten nicht</div>
+    <p>Viele Käufer rechnen nur den Kaufpreis – und vergessen die <strong>Transaktionskosten</strong>: Anwalt, Steuerberater, Due Diligence, Notar, ggf. Maklergebühren. Plane mindestens 5–10% des Kaufpreises zusätzlich ein. Bei einem 800.000 €-Deal sind das 40.000–80.000 € extra.</p>
+    <p>Zusätzlich beachten: Es kann sein, dass zusätzlich eine Betriebsmittellinie oder eine sonstige Liquiditätsfinanzierung erforderlich ist, insbesondere wenn im Rahmen der Transaktion nur wenig Cash übernommen wird oder nach dem Closing ein erhöhter Working-Capital-Bedarf entsteht.</p>
+</div>
+
+<!-- ============================================================ -->
+<h1>4 &nbsp; Fördermittel im Detail</h1>
+
+<p>Deutschland hat eines der besten Fördersysteme für Unternehmensnachfolgen in Europa. Nutze es.</p>
+
+<h2>KfW-Förderprogramme</h2>
+<ul>
+    <li><strong>ERP-Gründerkredit – StartGeld:</strong> Bis 125.000 €, 80% Haftungsfreistellung für die Bank, ideal für kleine Übernahmen</li>
+    <li><strong>ERP-Gründerkredit – Universell:</strong> Bis 25 Mio. €, für größere Übernahmen, vergünstigte Zinsen</li>
+    <li><strong>ERP-Kapital für Gründung:</strong> Nachrangdarlehen bis 500.000 €, wird von Banken als Eigenkapital gewertet</li>
+</ul>
+
+<h2>Bürgschaftsbank</h2>
+<p>Wenn du wenig Sicherheiten hast (z.B. keine Immobilie), kann die Bürgschaftsbank deines Bundeslandes einspringen:</p>
+<ul>
+    <li>Übernimmt bis zu 80% des Ausfallrisikos gegenüber der Bank</li>
+    <li>Die Bank hat dadurch weniger Risiko und ist eher bereit, den Kredit zu vergeben</li>
+    <li>Kosten: 1–2% jährliche Provision auf den Bürgschaftsbetrag</li>
+    <li>Beantragung über deine finanzierende Bank (nicht direkt bei der Bürgschaftsbank)</li>
+</ul>
+
+<h2>Weitere Fördermöglichkeiten</h2>
+<ul>
+    <li><strong>BAFA-Beratungsförderung:</strong> Zuschüsse für professionelle Beratung bei der Übernahme (bis zu 80% der Beratungskosten)</li>
+    <li><strong>Landesförderbanken:</strong> Jedes Bundesland hat eigene Programme – prüfe die Förderbank deines Standorts</li>
+    <li><strong>Mikrokredite:</strong> Für sehr kleine Übernahmen (unter 100.000 €) gibt es spezialisierte Mikrokreditgeber</li>
+</ul>
+
+<div class="box box-tipp">
+    <div class="box-title">&#10003; Praxis-Tipp: Förderung vor dem Bankgespräch recherchieren</div>
+    <p>Informiere dich <strong>vor</strong> dem Bankgespräch über passende Förderprogramme. So kannst du dem Bankberater einen durchdachten Finanzierungsplan vorlegen, der Fördermittel bereits integriert. Das zeigt Professionalität und erhöht deine Chancen auf eine Kreditzusage.</p>
+</div>
+
+<!-- ============================================================ -->
+<h1>5 &nbsp; Das Bankgespräch vorbereiten</h1>
+
+<p>Das Bankgespräch ist ein Verkaufsgespräch – du verkaufst der Bank dein Übernahmekonzept. Vorbereitung ist alles.</p>
+
+<h2>Was die Bank von dir erwartet</h2>
+<ol>
+    <li><strong>Businessplan</strong> – Beschreibung des Zielunternehmens, deine Qualifikation, dein Übernahmekonzept, Markt- und Wettbewerbsanalyse</li>
+    <li><strong>Finanzplan</strong> – GuV, Cashflow und Bilanz für 3–5 Jahre, mit realistischen Annahmen und einem konservativen Szenario</li>
+    <li><strong>Kapitaldienstfähigkeit</strong> – Nachweis, dass das Unternehmen den Kredit aus dem Cashflow bedienen kann (DSCR &gt; 1,2)</li>
+    <li><strong>Eigenkapitalnachweis</strong> – Beleg, dass du das nötige Eigenkapital hast (Kontoauszüge, Vermögensaufstellung)</li>
+    <li><strong>Informationen zum Zielunternehmen</strong> – Jahresabschlüsse der letzten 3 Jahre, ggf. IM oder Teaser</li>
+</ol>
+
+<h2>Typische Fragen der Bank</h2>
+<ul>
+    <li>Warum dieses Unternehmen? Was ist dein Hintergrund?</li>
+    <li>Wie realistisch sind die Planzahlen? Was passiert im Worst Case?</li>
+    <li>Welche Sicherheiten können Sie bieten?</li>
+    <li>Wie sieht Ihr Eigenkapitalanteil aus?</li>
+    <li>Gibt es ein Verkäuferdarlehen? Bleibt der Alteigentümer in der Übergangsphase?</li>
+    <li>Wie ist die Kundenstruktur? Gibt es Abhängigkeiten von Einzelkunden?</li>
+</ul>
+
+<div class="box box-warn">
+    <div class="box-title">&#9888; Nicht nur eine Bank ansprechen</div>
+    <p>Sprich mindestens <strong>2–3 Banken</strong> an. Nicht jede Bank macht Akquisitionsfinanzierungen, und die Konditionen können stark variieren. Wenn eine Bank absagt, heißt das nicht, dass dein Vorhaben nicht finanzierbar ist – oft liegt es an der internen Risikopolitik der Bank.</p>
+</div>
+
+<div class="box box-tipp">
+    <div class="box-title">&#10003; AMBER Finanzierungs-Check</div>
+    <p>Auf AMBER findest du bei jedem Inserat einen <strong>Finanzierungs-Check</strong>, der dir anhand des geschätzten Kaufpreises zeigt, wie viel Eigenkapital du voraussichtlich brauchst. Nutze diese Schätzung als Ausgangspunkt für deine Finanzierungsplanung.</p>
+</div>
+
+<!-- ============================================================ -->
+<hr>
+
+<!-- KEY TAKEAWAYS -->
+<div class="takeaways">
+    <div class="takeaways-title">&#11088; Key Takeaways</div>
+    <table>
+        <tr>
+            <td>&#10003;</td>
+            <td>EK-Quote 15–40%:</td>
+            <td>Die Bank erwartet 15–40% Eigenkapital, davon mindestens ~10% als echtes Bargeld</td>
+        </tr>
+        <tr>
+            <td>&#10003;</td>
+            <td>Verkäuferdarlehen = Quasi-EK:</td>
+            <td>Verkäuferdarlehen werden von Banken als Eigenkapitalersatz gewertet und reduzieren deine nötige Bareinlage</td>
+        </tr>
+        <tr>
+            <td>&#10003;</td>
+            <td>Fördermittel nutzen:</td>
+            <td>KfW und Bürgschaftsbanken bieten vergünstigte Kredite und Risikoübernahme – immer vor dem Bankgespräch prüfen</td>
+        </tr>
+        <tr>
+            <td>&#10003;</td>
+            <td>DSCR &gt; 1,2:</td>
+            <td>Das Unternehmen muss den Kredit aus dem laufenden Cashflow bedienen können – das ist die Schlüsselkennzahl für die Bank</td>
+        </tr>
+    </table>
+</div>
+
+<!-- ============================================================ -->
+<!-- QUIZ -->
+<div class="quiz-section">
+    <div class="quiz-title">&#128203; Wissens-Check (5 Fragen)</div>
+    <div class="quiz-subtitle">Die korrekte Antwort ist jeweils grün markiert.</div>
+
+    <!-- Frage 1 -->
+    <div class="quiz-q">
+        <div class="quiz-q-header">
+            <span class="quiz-q-number">1</span>
+            Wie hoch ist die typische Eigenkapitalquote bei einer Bankenfinanzierung für Unternehmenskäufe?
+        </div>
+        <div class="quiz-options">
+            <div class="quiz-option">A &nbsp; 50–60% – die Hälfte muss man selbst aufbringen</div>
+            <div class="quiz-option correct">B &nbsp; 15–40% – den Rest finanziert die Bank <span class="correct-label">&#10003; Richtig</span></div>
+            <div class="quiz-option">C &nbsp; 0% – Banken finanzieren Unternehmenskäufe komplett</div>
+            <div class="quiz-option">D &nbsp; 5–10% – der Rest kommt von der KfW</div>
+        </div>
+    </div>
+
+    <!-- Frage 2 -->
+    <div class="quiz-q">
+        <div class="quiz-q-header">
+            <span class="quiz-q-number">2</span>
+            Warum werden Verkäuferdarlehen von Banken als Quasi-Eigenkapital gewertet?
+        </div>
+        <div class="quiz-options">
+            <div class="quiz-option">A &nbsp; Weil der Verkäufer das Geld geschenkt bekommt</div>
+            <div class="quiz-option">B &nbsp; Weil es gesetzlich so vorgeschrieben ist</div>
+            <div class="quiz-option correct">C &nbsp; Weil das Verkäuferdarlehen nachrangig zum Bankkredit ist – die Bank wird im Ernstfall zuerst bedient <span class="correct-label">&#10003; Richtig</span></div>
+            <div class="quiz-option">D &nbsp; Weil Verkäuferdarlehen keine Zinsen kosten</div>
+        </div>
+    </div>
+
+    <!-- Frage 3 -->
+    <div class="quiz-q">
+        <div class="quiz-q-header">
+            <span class="quiz-q-number">3</span>
+            Was misst der DSCR (Debt Service Coverage Ratio)?
+        </div>
+        <div class="quiz-options">
+            <div class="quiz-option correct">A &nbsp; Ob das Unternehmen genügend Cashflow erwirtschaftet, um Tilgung und Zinsen des Kredits zu bedienen <span class="correct-label">&#10003; Richtig</span></div>
+            <div class="quiz-option">B &nbsp; Wie hoch die Eigenkapitalrendite des Käufers ist</div>
+            <div class="quiz-option">C &nbsp; Den Anteil der Fördermittel an der Gesamtfinanzierung</div>
+            <div class="quiz-option">D &nbsp; Den Unternehmenswert im Verhältnis zum Kaufpreis</div>
+        </div>
+    </div>
+
+    <!-- Frage 4 -->
+    <div class="quiz-q">
+        <div class="quiz-q-header">
+            <span class="quiz-q-number">4</span>
+            Wie werden KfW-Förderkredite beantragt?
+        </div>
+        <div class="quiz-options">
+            <div class="quiz-option">A &nbsp; Direkt auf der KfW-Website als Online-Antrag</div>
+            <div class="quiz-option">B &nbsp; Über den Notar beim Kaufvertrag</div>
+            <div class="quiz-option">C &nbsp; Über die IHK deines Standorts</div>
+            <div class="quiz-option correct">D &nbsp; Über die finanzierende Bank – die KfW vergibt Förderkredite nicht direkt an Endkunden <span class="correct-label">&#10003; Richtig</span></div>
+        </div>
+    </div>
+
+    <!-- Frage 5 -->
+    <div class="quiz-q">
+        <div class="quiz-q-header">
+            <span class="quiz-q-number">5</span>
+            Was macht eine Bürgschaftsbank?
+        </div>
+        <div class="quiz-options">
+            <div class="quiz-option">A &nbsp; Sie vergibt Kredite direkt an den Käufer</div>
+            <div class="quiz-option correct">B &nbsp; Sie übernimmt einen Teil des Ausfallrisikos gegenüber der finanzierenden Bank, damit diese eher bereit ist, den Kredit zu vergeben <span class="correct-label">&#10003; Richtig</span></div>
+            <div class="quiz-option">C &nbsp; Sie prüft die Bonität des Verkäufers</div>
+            <div class="quiz-option">D &nbsp; Sie ersetzt den Eigenkapitalanteil des Käufers vollständig</div>
+        </div>
+    </div>
+
+</div>
+
+    <script src="config.js"></script>
+<script src="ki-assistent.js"></script>
+</body>
+</html>
