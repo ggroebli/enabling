@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER Enablement – Feature-Übersicht</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #1A1A1A; background: #FAFAFA; line-height: 1.6; }
+
+        /* Header */
+        .doc-header { background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%); color: white; padding: 60px 0 48px; }
+        .doc-header .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+        .doc-header h1 { font-size: 36px; font-weight: 800; margin-bottom: 8px; }
+        .doc-header .subtitle { font-size: 18px; color: #9CA3AF; font-weight: 400; }
+        .doc-header .meta { margin-top: 24px; display: flex; gap: 32px; font-size: 13px; color: #6B7280; }
+        .doc-header .meta span { display: flex; align-items: center; gap: 6px; }
+
+        /* Container */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+        /* Table of Contents */
+        .toc { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 32px; margin: 40px auto; max-width: 1100px; }
+        .toc h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #1A1A1A; }
+        .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; }
+        .toc a { color: #7C3AED; text-decoration: none; font-size: 14px; padding: 6px 0; display: flex; align-items: center; gap: 8px; }
+        .toc a:hover { color: #6D28D9; }
+        .toc-num { background: #F3F4F6; color: #6B7280; font-size: 11px; font-weight: 600; width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+        /* Sections */
+        section { padding: 48px 0; }
+        section:nth-child(even) { background: white; }
+        .section-header { margin-bottom: 32px; }
+        .section-header .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7C3AED; margin-bottom: 8px; }
+        .section-header h2 { font-size: 28px; font-weight: 700; }
+        .section-header p { font-size: 15px; color: #6B7280; margin-top: 8px; max-width: 720px; }
+
+        /* Three Layers */
+        .layers-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 32px; }
+        .layer-card { background: white; border-radius: 12px; padding: 28px; border: 1px solid #E5E7EB; position: relative; overflow: hidden; }
+        .layer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+        .layer-card.green::before { background: linear-gradient(90deg, #10B981, #059669); }
+        .layer-card.blue::before { background: linear-gradient(90deg, #2563EB, #1D4ED8); }
+        .layer-card.purple::before { background: linear-gradient(90deg, #7C3AED, #6D28D9); }
+        .layer-num { font-size: 48px; font-weight: 800; color: #F3F4F6; position: absolute; top: 12px; right: 16px; }
+        .layer-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: white; margin-bottom: 16px; }
+        .layer-icon.green { background: #10B981; }
+        .layer-icon.blue { background: #2563EB; }
+        .layer-icon.purple { background: #7C3AED; }
+        .layer-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+        .layer-card .when { font-size: 12px; color: #9CA3AF; font-weight: 500; margin-bottom: 12px; }
+        .layer-card p { font-size: 14px; color: #6B7280; line-height: 1.5; }
+        .layer-card ul { margin-top: 12px; list-style: none; }
+        .layer-card ul li { font-size: 13px; color: #4B5563; padding: 4px 0; padding-left: 20px; position: relative; }
+        .layer-card ul li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: #10B981; font-size: 11px; }
+
+        /* Feature Cards */
+        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .feature-card { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 24px; transition: box-shadow 0.2s; }
+        .feature-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .feature-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .feature-card h3 i { color: #7C3AED; font-size: 14px; }
+        .feature-card p { font-size: 13px; color: #6B7280; line-height: 1.5; }
+        .feature-card .mockup-link { margin-top: 12px; }
+        .feature-card .mockup-link a { font-size: 12px; color: #7C3AED; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
+        .feature-card .mockup-link a:hover { text-decoration: underline; }
+
+        /* Phase Timeline */
+        .phase-timeline { display: flex; gap: 0; margin: 32px 0; overflow-x: auto; padding-bottom: 16px; }
+        .phase-item { flex: 1; min-width: 100px; text-align: center; position: relative; }
+        .phase-item::after { content: ''; position: absolute; top: 16px; right: -50%; width: 100%; height: 2px; background: #E5E7EB; z-index: 0; }
+        .phase-item:last-child::after { display: none; }
+        .phase-dot { width: 32px; height: 32px; border-radius: 50%; background: #E5E7EB; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; position: relative; z-index: 1; font-size: 12px; font-weight: 700; color: #6B7280; }
+        .phase-dot.active { background: #2563EB; color: white; }
+        .phase-dot.done { background: #10B981; color: white; }
+        .phase-name { font-size: 10px; color: #6B7280; line-height: 1.3; padding: 0 4px; }
+
+        /* Big Feature Sections */
+        .big-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin: 32px 0; }
+        .big-feature.reverse { direction: rtl; }
+        .big-feature.reverse > * { direction: ltr; }
+        .big-feature-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+        .big-feature-text p { font-size: 14px; color: #6B7280; margin-bottom: 16px; }
+        .big-feature-visual { background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%); border: 1px solid #E0E7FF; border-radius: 12px; padding: 24px; min-height: 200px; }
+
+        /* Info Box */
+        .info-box { background: #F5F3FF; border: 1px solid #E0E7FF; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+        .info-box h4 { font-size: 14px; font-weight: 600; color: #7C3AED; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .info-box p, .info-box ul { font-size: 13px; color: #4B5563; }
+        .info-box ul { margin-top: 8px; padding-left: 20px; }
+        .info-box ul li { margin-bottom: 4px; }
+
+        /* Perspective Section */
+        .perspective-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+        .perspective-card { border-radius: 12px; padding: 24px; }
+        .perspective-card.buyer { background: #DBEAFE; border: 1px solid #93C5FD; }
+        .perspective-card.seller { background: #FEF3C7; border: 1px solid #FCD34D; }
+        .perspective-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .perspective-card ul { list-style: none; }
+        .perspective-card ul li { font-size: 13px; padding: 4px 0; padding-left: 20px; position: relative; }
+        .perspective-card.buyer ul li::before { content: '\f007'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: #2563EB; font-size: 10px; }
+        .perspective-card.seller ul li::before { content: '\f1ad'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: #D97706; font-size: 10px; }
+
+        /* Stats */
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0; }
+        .stat-card { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px; text-align: center; }
+        .stat-num { font-size: 32px; font-weight: 800; color: #7C3AED; }
+        .stat-label { font-size: 12px; color: #6B7280; margin-top: 4px; }
+
+        /* Academy Modules */
+        .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+        .module-card { background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; }
+        .module-card .badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px; }
+        .module-card .badge.video { background: #EDE9FE; color: #7C3AED; }
+        .module-card .badge.guide { background: #DBEAFE; color: #2563EB; }
+        .module-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+        .module-card .duration { font-size: 11px; color: #9CA3AF; }
+
+        /* Downloads Table */
+        .downloads-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13px; }
+        .downloads-table th { background: #F9FAFB; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 12px; color: #6B7280; border-bottom: 2px solid #E5E7EB; }
+        .downloads-table td { padding: 10px 12px; border-bottom: 1px solid #F3F4F6; }
+        .downloads-table tr:hover { background: #F9FAFB; }
+        .downloads-table .format { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
+        .downloads-table .format.pdf { background: #FEE2E2; color: #DC2626; }
+        .downloads-table .format.excel { background: #D1FAE5; color: #059669; }
+
+        /* Flow diagram */
+        .flow-diagram { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 24px 0; padding: 24px; background: white; border: 1px solid #E5E7EB; border-radius: 12px; }
+        .flow-step { background: #F3F4F6; border-radius: 8px; padding: 12px 16px; font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+        .flow-step i { color: #7C3AED; }
+        .flow-arrow { color: #D1D5DB; font-size: 18px; }
+        .flow-step.highlight { background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%); border: 1px solid #E0E7FF; }
+
+        /* Separator */
+        .sep { height: 1px; background: #E5E7EB; margin: 0; }
+
+        /* Page links */
+        .page-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+        .page-link { background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; text-decoration: none; color: #1A1A1A; transition: all 0.2s; display: block; }
+        .page-link:hover { border-color: #7C3AED; box-shadow: 0 2px 8px rgba(124,58,237,0.1); }
+        .page-link .name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+        .page-link .desc { font-size: 11px; color: #9CA3AF; }
+        .page-link .file { font-size: 10px; color: #7C3AED; margin-top: 8px; font-family: monospace; }
+
+        /* Checklist Preview */
+        .checklist-preview { background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; margin-top: 12px; }
+        .checklist-preview h4 { font-size: 13px; font-weight: 600; margin-bottom: 8px; color: #2563EB; }
+        .check-item { font-size: 12px; padding: 4px 0; display: flex; align-items: center; gap: 8px; color: #4B5563; }
+        .check-item .box { width: 16px; height: 16px; border: 2px solid #D1D5DB; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .check-item .box.done { background: #10B981; border-color: #10B981; color: white; font-size: 9px; }
+
+        /* Sidebar Preview */
+        .sidebar-preview { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; margin-top: 12px; }
+        .sidebar-block { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #E5E7EB; }
+        .sidebar-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .sidebar-block h5 { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #9CA3AF; margin-bottom: 4px; }
+        .sidebar-block p { font-size: 12px; color: #4B5563; }
+
+        /* Footer */
+        .doc-footer { background: #1A1A1A; color: #9CA3AF; padding: 32px 0; font-size: 13px; text-align: center; margin-top: 48px; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+    <div class="container">
+        <h1>AMBER Enablement – Feature-Ubersicht</h1>
+        <div class="subtitle">Alle Enablement-Features auf einen Blick</div>
+        <div class="meta">
+            <span><i class="fa-solid fa-calendar"></i> Stand: 26. Marz 2026</span>
+            <span><i class="fa-solid fa-users"></i> Fur: Senior Team (Graig, Kai, Anja, Florian)</span>
+            <span><i class="fa-solid fa-code-branch"></i> Status: Mockup-Phase</span>
+        </div>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc container" style="margin-top:40px;">
+    <h2>Inhalt</h2>
+    <div class="toc-grid">
+        <a href="#vision"><span class="toc-num">1</span> Produktvision: Drei Ebenen</a>
+        <a href="#academy"><span class="toc-num">2</span> Readiness Academy</a>
+        <a href="#inflow"><span class="toc-num">3</span> In-Flow Enablement</a>
+        <a href="#prozesskette"><span class="toc-num">4</span> 9-Phasen-Prozesskette</a>
+        <a href="#deal-detail"><span class="toc-num">5</span> Deal-Detailseiten</a>
+        <a href="#ki"><span class="toc-num">6</span> KI-Assistent</a>
+        <a href="#readiness"><span class="toc-num">7</span> Readiness Score &amp; Gating</a>
+        <a href="#downloads"><span class="toc-num">8</span> Download-Center</a>
+        <a href="#mitteilungen"><span class="toc-num">9</span> Mitteilungen &amp; Notifications</a>
+        <a href="#perspektiven"><span class="toc-num">10</span> Kaufer- &amp; Verkaufer-Perspektive</a>
+        <a href="#seiten"><span class="toc-num">11</span> Alle Mockup-Seiten</a>
+        <a href="#stats"><span class="toc-num">12</span> Zahlen &amp; Umfang</a>
+    </div>
+</div>
+
+<!-- 1. VISION -->
+<section id="vision">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Das Konzept</div>
+            <h2>Produktvision: Drei Ebenen</h2>
+            <p>Das AMBER Enablement begleitet unerfahrene Kaufer und Verkaufer durch den gesamten M&amp;A-Prozess – von der Vorbereitung bis zum Closing. Drei integrierte Ebenen greifen ineinander.</p>
+        </div>
+
+        <div class="layers-grid">
+            <div class="layer-card green">
+                <span class="layer-num">1</span>
+                <div class="layer-icon green"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>Readiness Academy</h3>
+                <div class="when">VOR dem Deal</div>
+                <p>Nutzer vorbereiten, bevor sie in einen Deal eintreten. Wissensmodule, Selbsttests und Readiness Score.</p>
+                <ul>
+                    <li>19 Academy-Module (9 Kaufer, 10 Verkaufer)</li>
+                    <li>Video + Quiz + Referenz pro Modul</li>
+                    <li>Readiness Score fur Kaufer &amp; Verkaufer</li>
+                    <li>Readiness-Checks (Selbsttests)</li>
+                    <li>30 Download-Vorlagen</li>
+                </ul>
+            </div>
+            <div class="layer-card blue">
+                <span class="layer-num">2</span>
+                <div class="layer-icon blue"><i class="fa-solid fa-route"></i></div>
+                <h3>In-Flow Guidance</h3>
+                <div class="when">WAHREND des Deals</div>
+                <p>Zur richtigen Zeit die richtigen Informationen. Kontextuelle Hilfe, Checklisten und Downloads bei jedem Schritt.</p>
+                <ul>
+                    <li>9 Deal-Phasen mit je 5 Schritten</li>
+                    <li>Sidebar mit Next-Step-Tipps</li>
+                    <li>Phasenspezifische Downloads</li>
+                    <li>Automatische Mitteilungen</li>
+                    <li>Berater-Empfehlungen</li>
+                </ul>
+            </div>
+            <div class="layer-card purple">
+                <span class="layer-num">3</span>
+                <div class="layer-icon purple"><i class="fa-solid fa-robot"></i></div>
+                <h3>KI-Assistent</h3>
+                <div class="when">JEDERZEIT verfugbar</div>
+                <p>Personlicher M&amp;A-Berater als Chatbot. Kennt alle Academy-Inhalte und beantwortet Fragen kontextbezogen.</p>
+                <ul>
+                    <li>Chat-Widget auf jeder Seite</li>
+                    <li>Claude AI via OpenRouter</li>
+                    <li>Academy als Wissensgrundlage</li>
+                    <li>Phasenspezifische Quick Actions</li>
+                    <li>Quellenverweise auf Academy-Module</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top:24px;">
+            <h4><i class="fa-solid fa-link"></i> Wie die Ebenen zusammenwirken</h4>
+            <p>Die drei Ebenen sind keine isolierten Features, sondern verweisen standig aufeinander. Ein Beispiel: Der Kaufer ist in Phase 5 (LOI vorgelegt). Die <strong>In-Flow Guidance</strong> zeigt eine Checkliste mit "Due-Diligence-Team zusammenstellen". Die <strong>Sidebar</strong> verlinkt auf das Academy-Modul "Due Diligence meistern". Der <strong>KI-Assistent</strong> bietet als Quick Action "Wie lauft eine Due Diligence ab?" an. Alles greift nahtlos ineinander.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 2. ACADEMY -->
+<section id="academy" style="background:white;">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Ebene 1</div>
+            <h2>Readiness Academy</h2>
+            <p>Umfassende Lernplattform mit Modulen fur Kaufer und Verkaufer. Jedes Modul enthalt Video, Quiz und Referenzmaterial.</p>
+        </div>
+
+        <div class="perspective-grid">
+            <div class="perspective-card buyer">
+                <h3><i class="fa-solid fa-user"></i> Kaufer-Academy (9 Module)</h3>
+                <ul>
+                    <li><strong>Suchstrategie &amp; Kauferprofil</strong> – 15 Min.</li>
+                    <li><strong>Transaktionsablauf &amp; Deal-Strukturen</strong> – 15 Min.</li>
+                    <li><strong>Bewertung &amp; Preisfindung</strong> – 12 Min.</li>
+                    <li><strong>Dokumente im M&amp;A-Prozess</strong> – 12 Min.</li>
+                    <li><strong>Angebotsstrategie &amp; LOI</strong> – 12 Min.</li>
+                    <li><strong>Due Diligence meistern</strong> – 15 Min.</li>
+                    <li><strong>Akquisitionsfinanzierung</strong> – 15 Min.</li>
+                    <li><strong>Kaufvertrag &amp; Closing</strong> – 12 Min.</li>
+                    <li><strong>100-Tage-Plan</strong> – 15 Min.</li>
+                </ul>
+            </div>
+            <div class="perspective-card seller">
+                <h3><i class="fa-solid fa-building"></i> Verkaufer-Academy (10 Module)</h3>
+                <ul>
+                    <li><strong>Exit-Readiness</strong> – 15 Min.</li>
+                    <li><strong>Verkaufsberater mandatieren</strong> – 12 Min.</li>
+                    <li><strong>Verkaufsprozess verstehen</strong> – 15 Min.</li>
+                    <li><strong>Unternehmensbewertung</strong> – 12 Min.</li>
+                    <li><strong>Unterlagen vorbereiten</strong> – 15 Min.</li>
+                    <li><strong>Kaufer-Screening</strong> – 12 Min.</li>
+                    <li><strong>Kennenlernen</strong> – 12 Min.</li>
+                    <li><strong>LOI verhandeln</strong> – 15 Min.</li>
+                    <li><strong>DD &amp; Closing</strong> – 15 Min.</li>
+                    <li><strong>Ubergabe</strong> – 12 Min.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top:24px;">
+            <h4><i class="fa-solid fa-puzzle-piece"></i> Modul-Aufbau</h4>
+            <p>Jedes Modul folgt dem gleichen Aufbau: (1) <strong>Video</strong> mit KI-generiertem Content, (2) <strong>Quiz</strong> mit 5 Fragen zur Lernkontrolle (Completion Gating: Quiz erst nach Video), (3) <strong>Referenzmaterial</strong> zum Nachschlagen. Modulabschluss fliesst in den Readiness Score ein.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 3. IN-FLOW -->
+<section id="inflow">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Ebene 2</div>
+            <h2>In-Flow Enablement</h2>
+            <p>Kontextuelle Hilfe direkt im Deal-Prozess. Der Nutzer bekommt bei jedem Schritt genau die Informationen, die er gerade braucht.</p>
+        </div>
+
+        <div class="flow-diagram">
+            <div class="flow-step"><i class="fa-solid fa-list-check"></i> Checklisten</div>
+            <span class="flow-arrow"><i class="fa-solid fa-plus"></i></span>
+            <div class="flow-step"><i class="fa-solid fa-lightbulb"></i> Sidebar-Tipps</div>
+            <span class="flow-arrow"><i class="fa-solid fa-plus"></i></span>
+            <div class="flow-step"><i class="fa-solid fa-download"></i> Downloads</div>
+            <span class="flow-arrow"><i class="fa-solid fa-plus"></i></span>
+            <div class="flow-step"><i class="fa-solid fa-bell"></i> Mitteilungen</div>
+            <span class="flow-arrow"><i class="fa-solid fa-plus"></i></span>
+            <div class="flow-step"><i class="fa-solid fa-user-tie"></i> Berater-Empfehlung</div>
+            <span class="flow-arrow"><i class="fa-solid fa-plus"></i></span>
+            <div class="flow-step highlight"><i class="fa-solid fa-robot"></i> KI-Assistent</div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-list-check"></i> Empfohlene Schritte</h3>
+                <p>Jede Phase hat 5 konkrete Schritte als interaktive Checkliste. Schritt 1 ist automatisch erledigt (= der Trigger-Event). Der Nutzer arbeitet die restlichen Schritte ab.</p>
+                <div class="checklist-preview">
+                    <h4>Phase 3: NDA unterzeichnet (Kaufer)</h4>
+                    <div class="check-item"><span class="box done"><i class="fa-solid fa-check"></i></span> NDA sorgfaltig lesen und unterschreiben</div>
+                    <div class="check-item"><span class="box"></span> Jahresabschlusse und BWA vom Verkaufer anfordern</div>
+                    <div class="check-item"><span class="box"></span> Unterlagen mit Checkliste systematisch prufen</div>
+                    <div class="check-item"><span class="box"></span> Erste Bewertung durchrechnen</div>
+                    <div class="check-item"><span class="box"></span> Fragenkatalog fur das personliche Treffen vorbereiten</div>
+                </div>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-sidebar-flip"></i> Sidebar-Content</h3>
+                <p>Rechte Sidebar auf der Deal-Detailseite mit 4 Blocken, die sich automatisch an die aktuelle Phase anpassen.</p>
+                <div class="sidebar-preview">
+                    <div class="sidebar-block">
+                        <h5>A: Dein nachster Schritt</h5>
+                        <p>Phasenspezifischer Tipp + Link zum passenden Academy-Modul</p>
+                    </div>
+                    <div class="sidebar-block">
+                        <h5>B: Passende Downloads</h5>
+                        <p>2-4 relevante Templates und Checklisten</p>
+                    </div>
+                    <div class="sidebar-block">
+                        <h5>C: Berater empfohlen</h5>
+                        <p>Phase 1-3: dezent / Phase 4-8: prominent</p>
+                    </div>
+                    <div class="sidebar-block">
+                        <h5>D: M&amp;A-Assistent</h5>
+                        <p>CTA zum KI-Chat-Widget</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-bell"></i> Automatische Mitteilungen</h3>
+                <p>Bei jedem Phasenwechsel erhalten beide Seiten automatisch eine Mitteilung mit: Beschreibung, relevanten Downloads, Link zum passenden Academy-Modul und einem Praxis-Tipp.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-bars-progress"></i> Enablement-Bar</h3>
+                <p>Auf "Meine Transaktionen" zeigt jede Match-Karte eine Enablement-Bar mit dem nachsten Schritt, einem Download-Link und dem passenden Academy-Modul. Inklusive farbigem Phase-Badge.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-champagne-glasses"></i> Toast-Banner</h3>
+                <p>Bei Phasenwechsel erscheint oben auf "Meine Transaktionen" ein animierter Toast mit dem aktuellen Status. Auto-Dismiss nach 12 Sekunden, wird nur einmal pro Phasenwechsel angezeigt.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-user-tie"></i> Berater-Empfehlungen</h3>
+                <p>Kontextuelle Berater-Empfehlungen, die sich mit dem Deal-Fortschritt intensivieren. Phase 1-3: dezenter Hinweis. Phase 4-8: prominenter CTA mit spezifischem Berater-Typ (Steuerberater, M&amp;A-Anwalt).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. PROZESSKETTE -->
+<section id="prozesskette" style="background:white;">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Herzstuck</div>
+            <h2>Die 9-Phasen-Prozesskette</h2>
+            <p>Jeder Deal durchlauft exakt 9 Phasen – fur Kaufer und Verkaufer identisch, aber mit unterschiedlichem Content. Kein Uberspringen, kein Rucksprung.</p>
+        </div>
+
+        <div class="phase-timeline">
+            <div class="phase-item"><div class="phase-dot done">1</div><div class="phase-name">Interessens-bekundung</div></div>
+            <div class="phase-item"><div class="phase-dot done">2</div><div class="phase-name">Match</div></div>
+            <div class="phase-item"><div class="phase-dot done">3</div><div class="phase-name">NDA unter-zeichnet</div></div>
+            <div class="phase-item"><div class="phase-dot active">4</div><div class="phase-name">Personliches Treffen</div></div>
+            <div class="phase-item"><div class="phase-dot">5</div><div class="phase-name">LOI vorgelegt</div></div>
+            <div class="phase-item"><div class="phase-dot">6</div><div class="phase-name">LOI unter-zeichnet</div></div>
+            <div class="phase-item"><div class="phase-dot">7</div><div class="phase-name">Notartermin</div></div>
+            <div class="phase-item"><div class="phase-dot">8</div><div class="phase-name">Signing</div></div>
+            <div class="phase-item"><div class="phase-dot">9</div><div class="phase-name">Closing</div></div>
+        </div>
+
+        <div class="info-box">
+            <h4><i class="fa-solid fa-gear"></i> Was bei jedem Phasenwechsel passiert</h4>
+            <ul>
+                <li><strong>Checkliste</strong> wird aktualisiert (5 neue Schritte, Schritt 1 auto-erledigt)</li>
+                <li><strong>Sidebar</strong> aktualisiert Next-Step-Tipp, Downloads und Berater-Empfehlung</li>
+                <li><strong>Mitteilung</strong> wird fur beide Seiten erstellt (mit Downloads + Academy-Link)</li>
+                <li><strong>Toast-Banner</strong> erscheint auf "Meine Transaktionen"</li>
+                <li><strong>KI-Assistent</strong> aktualisiert Quick-Action-Chips</li>
+                <li><strong>Enablement-Bar</strong> auf der Transaktionsubersicht wird aktualisiert</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- 5. DEAL-DETAIL -->
+<section id="deal-detail">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Zentrale Seiten</div>
+            <h2>Deal-Detailseiten</h2>
+            <p>Die Deal-Detailseite ist das Herz des In-Flow Enablements. Hier kommen Checkliste, Sidebar, Timeline und KI-Assistent zusammen.</p>
+        </div>
+
+        <div class="perspective-grid">
+            <div class="perspective-card buyer">
+                <h3><i class="fa-solid fa-user"></i> Kaufer-Deal-Detail</h3>
+                <ul>
+                    <li><strong>Timeline</strong> – Horizontaler Stepper mit 9 Phasen-Dots</li>
+                    <li><strong>Checkliste</strong> – 5 abhakbare Schritte der aktuellen Phase</li>
+                    <li><strong>Phasenbeschreibung</strong> – Fliesstext zur Orientierung</li>
+                    <li><strong>Deal-Attraktivitat</strong> – 1-5 Skala (nur Kaufer)</li>
+                    <li><strong>Sidebar</strong> – Next Step, Downloads, Berater, Assistent</li>
+                    <li><strong>KI-Assistent</strong> – Floating Button mit phasenspezifischen Fragen</li>
+                </ul>
+            </div>
+            <div class="perspective-card seller">
+                <h3><i class="fa-solid fa-building"></i> Verkaufer-Deal-Detail</h3>
+                <ul>
+                    <li><strong>Multi-Kaufer-Ubersicht</strong> – Alle Interessenten als expandierbare Karten</li>
+                    <li><strong>Stats-Bar</strong> – Aggregierte Zahlen (aktive IB, Matches, LOI)</li>
+                    <li><strong>Pro Kaufer:</strong> Eigene Phase, Checkliste, Mini-Timeline</li>
+                    <li><strong>Sortierung</strong> – Hochste Phase zuerst</li>
+                    <li><strong>Sidebar</strong> – Passt sich dem zuletzt geoffneten Kaufer an</li>
+                    <li><strong>Kaufer-Bewertungsmatrix</strong> – Systematisches Screening</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="feature-card" style="margin-top:24px;">
+            <h3><i class="fa-solid fa-star"></i> Deal-Attraktivitat (nur Kaufer)</h3>
+            <p>Der Kaufer kann seine subjektive Einschatzung auf einer Skala von 1 (Sehr attraktiv, dunkelgrun) bis 5 (Unattraktiv, rot) eintragen. Das Feld ist nur fur den Kaufer sichtbar und wird pro Deal gespeichert. Optional: Sortierung auf "Meine Transaktionen" nach Attraktivitat.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 6. KI-ASSISTENT -->
+<section id="ki" style="background:white;">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Ebene 3</div>
+            <h2>KI-Assistent</h2>
+            <p>Chat-Widget auf jeder Seite. Beantwortet M&amp;A-Fragen basierend auf dem gesamten Academy-Content. Aktuell live mit Claude AI uber OpenRouter.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-comments"></i> Chat-Widget</h3>
+                <p>Floating Button unten rechts (lila Gradient). Offnet ein 400px breites Chat-Panel. Bot-Begruessung passt sich an die aktuelle Seite/Phase an. 3 Quick-Action-Chips pro Phase.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-brain"></i> Claude AI Integration</h3>
+                <p>Im KI-Modus sendet der Assistent den vollstandigen Academy-Content (~196K Zeichen) als Kontext an Claude Haiku. Antworten sind fundiert, quellenbasiert und tonlich auf Augenhohe.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-bolt"></i> Quick Actions pro Phase</h3>
+                <p>3 vordefinierte Fragen pro Phase und Perspektive (Kaufer/Verkaufer). Insgesamt 54 Quick-Action-Paare, die sich automatisch an den Deal-Kontext anpassen.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-shield-check"></i> Guardrails</h3>
+                <p>Der Assistent verweist bei Rechts- und Steuerfragen konsequent an Fachleute. Academy-Positionen werden nicht verwassert. Tonalitat: ruhig, sachlich, auf Augenhohe.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. READINESS -->
+<section id="readiness">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Qualitatsicherung</div>
+            <h2>Readiness Score &amp; Gating</h2>
+            <p>Der Readiness Score misst, wie gut ein Nutzer auf einen Deal vorbereitet ist. Bei niedrigem Score werden bestimmte Funktionen eingeschrankt.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-chart-pie"></i> Kaufer-Readiness-Score</h3>
+                <p>SVG-Ring auf dem Kauferprofil (z.B. 45%). Basiert auf Profilvollstandigkeit, abgeschlossenen Academy-Modulen und Readiness-Check. Missing-Field-Hints zeigen, was fehlt, mit direkten Academy-Links.</p>
+                <div class="mockup-link"><a href="kauferprofil.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Mockup: kauferprofil.html</a></div>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-lock"></i> Gating auf der Suchseite</h3>
+                <p>Listings werden bei niedrigem Readiness Score (&lt;30%) geblurrt und mit einem Overlay versehen: "Vervollstandige dein Kauferprofil". Sichtbar, aber nicht zuganglich – motiviert zur Profilvervollstandigung.</p>
+                <div class="mockup-link"><a href="suche.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Mockup: suche.html</a></div>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-clipboard-check"></i> Readiness-Checks</h3>
+                <p>Interaktive Selbsttests fur Kaufer ("Bin ich bereit fur eine Akquisition?") und Verkaufer ("Ist mein Unternehmen verkaufsbereit?"). Ergebnis fliesst in den Score ein.</p>
+                <div class="mockup-link"><a href="deal-readiness-check.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Mockup: deal-readiness-check.html</a></div>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-trophy"></i> Competition-Daten</h3>
+                <p>Auf der Suchauftrage-Seite sieht der Kaufer: "5 Kaufer suchen ahnlich, 80% haben einen hoheren Score". Erzeugt Dringlichkeit ohne Panik.</p>
+                <div class="mockup-link"><a href="suchauftraege.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Mockup: suchauftraege.html</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. DOWNLOADS -->
+<section id="downloads" style="background:white;">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Vorlagen &amp; Checklisten</div>
+            <h2>Download-Center</h2>
+            <p>30 professionelle Vorlagen und Checklisten (15 Kaufer, 15 Verkaufer) in PDF und Excel. Werden kontextuell in der richtigen Phase angeboten.</p>
+        </div>
+
+        <div class="perspective-grid">
+            <div class="perspective-card buyer">
+                <h3><i class="fa-solid fa-user"></i> Kaufer-Downloads (15)</h3>
+                <ul>
+                    <li>Kauferprofil-Vorlage (PDF)</li>
+                    <li>Dokumenten-Checkliste (PDF)</li>
+                    <li>NDA-Checkliste (PDF)</li>
+                    <li>Checkliste Teaser/IM bewerten (PDF)</li>
+                    <li>Bewertungs-Template (Excel)</li>
+                    <li>LOI-Mustervorlage (PDF)</li>
+                    <li>Share Deal vs. Asset Deal (PDF)</li>
+                    <li>Finanzierungsplan-Vorlage (Excel)</li>
+                    <li>DD-Checkliste (PDF)</li>
+                    <li>DD-Dokumenten-Liste (PDF)</li>
+                    <li>Checkliste Bankgesprach (PDF)</li>
+                    <li>Checkliste Vertragsklauseln (PDF)</li>
+                    <li>Closing-Checkliste (PDF)</li>
+                    <li>100-Tage-Plan Template (PDF)</li>
+                </ul>
+            </div>
+            <div class="perspective-card seller">
+                <h3><i class="fa-solid fa-building"></i> Verkaufer-Downloads (15)</h3>
+                <ul>
+                    <li>Kaufer-Screening-Checkliste (PDF)</li>
+                    <li>Kaufer-Bewertungsmatrix (Excel)</li>
+                    <li>Gesprachsleitfaden Erstgesprach (PDF)</li>
+                    <li>NDA-Vorlage (PDF)</li>
+                    <li>Unterlagen-Checkliste (PDF)</li>
+                    <li>Referenz-Checkliste (PDF)</li>
+                    <li>LOI-Checkliste fur Verkaufer (PDF)</li>
+                    <li>Exklusivitats-Merkblatt (PDF)</li>
+                    <li>DD-Vorbereitungs-Checkliste (PDF)</li>
+                    <li>Datenraum-Vorlage (Excel)</li>
+                    <li>Closing-Day-Checkliste (PDF)</li>
+                    <li>Kaufvertrags-Checkliste (PDF)</li>
+                    <li>Ubergabe-Checkliste (PDF)</li>
+                    <li>Wissenstransfer-Plan (PDF)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 9. MITTEILUNGEN -->
+<section id="mitteilungen">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Kommunikation</div>
+            <h2>Mitteilungen &amp; Notifications</h2>
+            <p>Automatische Benachrichtigungen bei jedem Phasenwechsel. Beide Seiten (Kaufer und Verkaufer) erhalten eine eigene, perspektivspezifische Mitteilung.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-envelope-open"></i> Phasenwechsel-Mitteilungen</h3>
+                <p>Pro Phasenwechsel eine automatische Mitteilung mit: Titel, Beschreibung, 1-2 Inline-Downloads, Link zum Academy-Modul, und optionalem Praxis-Tipp.</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fa-solid fa-circle-dot"></i> Gelesen-Status</h3>
+                <p>Ungelesen: gruner Rand + "Neu"-Badge. Gelesen: nach Klick oder 2 Sekunden im Viewport. Nav-Counter zeigt ungelesene Anzahl (roter Dot).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 10. PERSPEKTIVEN -->
+<section id="perspektiven" style="background:white;">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Dual-Perspektive</div>
+            <h2>Kaufer- &amp; Verkaufer-Ansicht</h2>
+            <p>Jeder User kann sowohl Kaufer als auch Verkaufer sein. Die Perspektive wird uber das Avatar-Dropdown gewechselt. Jede Perspektive hat eigene Navigation, Academy und Deal-Ansichten.</p>
+        </div>
+
+        <div class="perspective-grid">
+            <div class="perspective-card buyer">
+                <h3><i class="fa-solid fa-user"></i> Kaufer-Navigation</h3>
+                <ul>
+                    <li>Suche (Inserate durchsuchen)</li>
+                    <li>Suchauftrage (Alerts verwalten)</li>
+                    <li>Mitteilungen</li>
+                    <li>Postfach</li>
+                    <li>Meine Transaktionen</li>
+                    <li>Academy (Kaufer-Module)</li>
+                </ul>
+            </div>
+            <div class="perspective-card seller">
+                <h3><i class="fa-solid fa-building"></i> Verkaufer-Navigation</h3>
+                <ul>
+                    <li>Mein Inserat</li>
+                    <li>Interessenten</li>
+                    <li>Mitteilungen</li>
+                    <li>Postfach</li>
+                    <li>Meine Transaktionen</li>
+                    <li>Academy (Verkaufer-Module)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 11. SEITEN -->
+<section id="seiten">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Alle Mockups</div>
+            <h2>Ubersicht aller Seiten</h2>
+            <p>37 HTML-Mockups im Projektordner. Jede Seite kann direkt im Browser geoffnet werden.</p>
+        </div>
+
+        <div class="page-grid">
+            <a href="academy.html" class="page-link">
+                <div class="name">Academy Startseite</div>
+                <div class="desc">Hero, Score-Ring, 3 Phasen, 12 Module, Berater-CTA</div>
+                <div class="file">academy.html</div>
+            </a>
+            <a href="kauferprofil.html" class="page-link">
+                <div class="name">Kauferprofil</div>
+                <div class="desc">Readiness Score (45%), Missing-Field Hints</div>
+                <div class="file">kauferprofil.html</div>
+            </a>
+            <a href="suche.html" class="page-link">
+                <div class="name">Suche</div>
+                <div class="desc">Gating bei niedrigem Score, Listing-Karten</div>
+                <div class="file">suche.html</div>
+            </a>
+            <a href="listing.html" class="page-link">
+                <div class="name">Listing-Detail</div>
+                <div class="desc">KI-Analyse (82% Match), Interest-Modal</div>
+                <div class="file">listing.html</div>
+            </a>
+            <a href="suchauftraege.html" class="page-link">
+                <div class="name">Suchauftrage</div>
+                <div class="desc">Competition-Daten, Gesperrt-Badges</div>
+                <div class="file">suchauftraege.html</div>
+            </a>
+            <a href="transaktionen.html" class="page-link">
+                <div class="name">Meine Transaktionen</div>
+                <div class="desc">Phase-Badges, Enablement-Bars, Toast</div>
+                <div class="file">transaktionen.html</div>
+            </a>
+            <a href="transaktion-detail.html" class="page-link">
+                <div class="name">Deal-Detail (Kaufer)</div>
+                <div class="desc">Timeline, Checkliste, Sidebar, Phase 4</div>
+                <div class="file">transaktion-detail.html</div>
+            </a>
+            <a href="transaktion-detail-verkaeufer.html" class="page-link">
+                <div class="name">Deal-Detail (Verkaufer)</div>
+                <div class="desc">Multi-Kaufer, Stats-Bar, Screening</div>
+                <div class="file">transaktion-detail-verkaeufer.html</div>
+            </a>
+            <a href="mitteilungen.html" class="page-link">
+                <div class="name">Mitteilungen</div>
+                <div class="desc">Enablement-Notifications, Gelesen-Status</div>
+                <div class="file">mitteilungen.html</div>
+            </a>
+            <a href="deal-readiness-check.html" class="page-link">
+                <div class="name">Readiness-Check (Kaufer)</div>
+                <div class="desc">Interaktiver Selbsttest</div>
+                <div class="file">deal-readiness-check.html</div>
+            </a>
+            <a href="verkaufsbereitschafts-check.html" class="page-link">
+                <div class="name">Readiness-Check (Verkaufer)</div>
+                <div class="desc">Verkaufsbereitschafts-Selbsttest</div>
+                <div class="file">verkaufsbereitschafts-check.html</div>
+            </a>
+            <a href="verkaufer-academy.html" class="page-link">
+                <div class="name">Verkaufer-Academy</div>
+                <div class="desc">10 Verkaufer-Module, eigene Startseite</div>
+                <div class="file">verkaufer-academy.html</div>
+            </a>
+        </div>
+
+        <div class="info-box" style="margin-top:24px;">
+            <h4><i class="fa-solid fa-graduation-cap"></i> Academy-Module (19 Stuck)</h4>
+            <p>Zusatzlich gibt es 9 Kaufer-Module (<code>academy-modul-*.html</code>) und 10 Verkaufer-Module (<code>seller-academy-modul-*.html</code>) – jedes mit Video, Quiz und Referenzmaterial.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 12. STATS -->
+<section id="stats" style="background:white;">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Auf einen Blick</div>
+            <h2>Zahlen &amp; Umfang</h2>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-num">37</div>
+                <div class="stat-label">HTML-Mockup-Seiten</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">19</div>
+                <div class="stat-label">Academy-Module</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">9</div>
+                <div class="stat-label">Deal-Phasen</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">30</div>
+                <div class="stat-label">Download-Vorlagen</div>
+            </div>
+        </div>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-num">90</div>
+                <div class="stat-label">Checklisten-Schritte (9x5x2)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">54</div>
+                <div class="stat-label">KI Quick-Action-Paare</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">16</div>
+                <div class="stat-label">Mitteilungs-Templates</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">2</div>
+                <div class="stat-label">Perspektiven (Kaufer/Verkaufer)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+    <div class="container">
+        AMBER Enablement – Feature-Ubersicht | Stand: 26. Marz 2026 | Erstellt mit Claude Code
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBER Enablement – Technische Spezifikation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #1A1A1A; background: #FAFAFA; line-height: 1.6; font-size: 14px; }
+
+        /* Header */
+        .doc-header { background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%); color: white; padding: 60px 0 48px; }
+        .doc-header .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .doc-header h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+        .doc-header .subtitle { font-size: 16px; color: #9CA3AF; }
+        .doc-header .meta { margin-top: 24px; display: flex; gap: 32px; font-size: 13px; color: #6B7280; flex-wrap: wrap; }
+        .doc-header .meta span { display: flex; align-items: center; gap: 6px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        /* TOC */
+        .toc { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 32px; margin: 40px auto; max-width: 1200px; }
+        .toc h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+        .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 32px; }
+        .toc a { color: #7C3AED; text-decoration: none; font-size: 13px; padding: 4px 0; display: flex; align-items: center; gap: 8px; }
+        .toc a:hover { color: #6D28D9; }
+        .toc-num { background: #F3F4F6; color: #6B7280; font-size: 10px; font-weight: 600; width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+        /* Sections */
+        section { padding: 40px 0; border-top: 1px solid #E5E7EB; }
+        .section-header { margin-bottom: 24px; }
+        .section-header .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7C3AED; margin-bottom: 4px; }
+        .section-header h2 { font-size: 24px; font-weight: 700; }
+        .section-header p { font-size: 13px; color: #6B7280; margin-top: 6px; max-width: 800px; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+        th { background: #F9FAFB; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 12px; color: #6B7280; border-bottom: 2px solid #E5E7EB; position: sticky; top: 0; }
+        td { padding: 10px 12px; border-bottom: 1px solid #F3F4F6; vertical-align: top; }
+        tr:hover { background: #FAFAFA; }
+        td.phase { font-weight: 600; color: #2563EB; white-space: nowrap; }
+        td.done { color: #10B981; }
+        td code { background: #F3F4F6; padding: 1px 4px; border-radius: 3px; font-size: 12px; font-family: 'Courier New', monospace; }
+
+        /* Info boxes */
+        .info-box { background: #F5F3FF; border: 1px solid #E0E7FF; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+        .info-box h4 { font-size: 13px; font-weight: 600; color: #7C3AED; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .info-box p, .info-box ul { font-size: 12px; color: #4B5563; }
+        .info-box ul { margin-top: 6px; padding-left: 20px; }
+        .info-box ul li { margin-bottom: 3px; }
+
+        .warn-box { background: #FEF3C7; border: 1px solid #FCD34D; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+        .warn-box h4 { font-size: 13px; font-weight: 600; color: #D97706; margin-bottom: 6px; }
+        .warn-box p { font-size: 12px; color: #92400E; }
+
+        .tech-box { background: #DBEAFE; border: 1px solid #93C5FD; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+        .tech-box h4 { font-size: 13px; font-weight: 600; color: #1D4ED8; margin-bottom: 6px; }
+        .tech-box p, .tech-box code, .tech-box pre { font-size: 12px; color: #1E40AF; }
+        .tech-box pre { background: #EFF6FF; padding: 12px; border-radius: 6px; margin-top: 8px; overflow-x: auto; white-space: pre; font-family: 'Courier New', monospace; }
+
+        /* Perspective tabs */
+        .persp-tabs { display: flex; gap: 0; margin-bottom: 0; }
+        .persp-tab { padding: 10px 20px; font-size: 13px; font-weight: 600; border: 1px solid #E5E7EB; cursor: default; border-bottom: none; border-radius: 8px 8px 0 0; }
+        .persp-tab.buyer { background: #DBEAFE; color: #1D4ED8; }
+        .persp-tab.seller { background: #FEF3C7; color: #D97706; }
+
+        /* Phase header in table */
+        .phase-header { background: #EFF6FF; font-weight: 700; }
+        .phase-header td { color: #1D4ED8; border-bottom: 2px solid #93C5FD; }
+
+        /* Design tokens */
+        .color-swatch { display: inline-block; width: 16px; height: 16px; border-radius: 4px; vertical-align: middle; margin-right: 6px; border: 1px solid rgba(0,0,0,0.1); }
+
+        /* Sub-sections */
+        h3 { font-size: 18px; font-weight: 700; margin: 28px 0 12px; padding-top: 16px; }
+        h4 { font-size: 15px; font-weight: 600; margin: 20px 0 8px; }
+
+        /* Lists */
+        ul, ol { padding-left: 24px; margin: 8px 0; }
+        li { margin-bottom: 4px; }
+
+        /* Footer */
+        .doc-footer { background: #1A1A1A; color: #9CA3AF; padding: 32px 0; font-size: 13px; text-align: center; margin-top: 48px; }
+
+        /* Print */
+        @media print { .toc { break-after: page; } section { break-inside: avoid; } }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+    <div class="container">
+        <h1>AMBER Enablement – Technische Spezifikation</h1>
+        <div class="subtitle">Vollstandige Implementierungs-Referenz fur das Tech-Team</div>
+        <div class="meta">
+            <span><i class="fa-solid fa-calendar"></i> Stand: 26. Marz 2026</span>
+            <span><i class="fa-solid fa-users"></i> Fur: Tech-Team (Bubble.io-Umsetzung)</span>
+            <span><i class="fa-solid fa-code-branch"></i> Basierend auf: In-Flow Enablement Spezifikation.md</span>
+            <span><i class="fa-solid fa-file-lines"></i> Erganzend: _doku-feature-uebersicht.html (Senior-Team-Doku)</span>
+        </div>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc container" style="margin-top:40px;">
+    <h2>Inhaltsverzeichnis</h2>
+    <div class="toc-grid">
+        <a href="#s1"><span class="toc-num">1</span> Architektur-Uberblick</a>
+        <a href="#s2"><span class="toc-num">2</span> 9-Phasen-Prozesskette</a>
+        <a href="#s3"><span class="toc-num">3</span> Kaufer: Checklisten pro Phase</a>
+        <a href="#s4"><span class="toc-num">4</span> Kaufer: Sidebar-Content pro Phase</a>
+        <a href="#s5"><span class="toc-num">5</span> Kaufer: Quick Actions pro Phase</a>
+        <a href="#s6"><span class="toc-num">6</span> Kaufer: Mitteilungen pro Phase</a>
+        <a href="#s7"><span class="toc-num">7</span> Kaufer: Enablement-Bar</a>
+        <a href="#s8"><span class="toc-num">8</span> Verkaufer: Checklisten pro Phase</a>
+        <a href="#s9"><span class="toc-num">9</span> Verkaufer: Sidebar-Content pro Phase</a>
+        <a href="#s10"><span class="toc-num">10</span> Verkaufer: Quick Actions pro Phase</a>
+        <a href="#s11"><span class="toc-num">11</span> Academy-Modul-Zuordnung</a>
+        <a href="#s12"><span class="toc-num">12</span> Downloads pro Phase</a>
+        <a href="#s13"><span class="toc-num">13</span> Download-Katalog (vollstandig)</a>
+        <a href="#s14"><span class="toc-num">14</span> Phasenwechsel-Trigger</a>
+        <a href="#s15"><span class="toc-num">15</span> Checklisten: Persistenz &amp; Lifecycle</a>
+        <a href="#s16"><span class="toc-num">16</span> Toast-Banner</a>
+        <a href="#s17"><span class="toc-num">17</span> Mitteilungen: Lifecycle</a>
+        <a href="#s18"><span class="toc-num">18</span> Multi-Kaufer-Logik (Verkaufer)</a>
+        <a href="#s19"><span class="toc-num">19</span> KI-Assistent: Architektur</a>
+        <a href="#s20"><span class="toc-num">20</span> Berater-Box: Varianten</a>
+        <a href="#s21"><span class="toc-num">21</span> Navigation &amp; Perspektivwechsel</a>
+        <a href="#s22"><span class="toc-num">22</span> Deal-Attraktivitat</a>
+        <a href="#s23"><span class="toc-num">23</span> Readiness Score &amp; Gating</a>
+        <a href="#s24"><span class="toc-num">24</span> Design-System</a>
+        <a href="#s25"><span class="toc-num">25</span> Edge Cases</a>
+        <a href="#s26"><span class="toc-num">26</span> Mockup-Dateien</a>
+    </div>
+</div>
+
+<!-- 1. ARCHITEKTUR -->
+<section id="s1">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Uberblick</div>
+            <h2>1. Architektur-Uberblick</h2>
+            <p>Das Enablement-System besteht aus drei Ebenen, die uber die Prozesskette (9 Phasen) miteinander verbunden sind. Jeder Phasenwechsel triggert automatisch Content-Updates auf allen Ebenen.</p>
+        </div>
+
+        <div class="tech-box">
+            <h4>Datenfluss bei Phasenwechsel</h4>
+            <pre>
+Phasenwechsel (z.B. Phase 2 → 3)
+  ├── Checkliste: Neue 5 Steps laden (Step 1 = auto-done)
+  ├── Sidebar: Next-Step, Downloads, Berater aktualisieren
+  ├── Mitteilung: Fur BEIDE Seiten erstellen
+  ├── Toast-Banner: Markierung fur nachsten Besuch von "Meine Transaktionen"
+  ├── KI-Assistent: Quick-Action-Chips aktualisieren
+  ├── Enablement-Bar: Text + Links aktualisieren
+  └── Timestamp: Phasenwechsel-Zeitpunkt speichern
+            </pre>
+        </div>
+
+        <div class="info-box">
+            <h4><i class="fa-solid fa-database"></i> Kernprinzip: Deterministischer Content</h4>
+            <p>Alle Inhalte (Checklisten-Texte, Sidebar-Tipps, Downloads, Mitteilungen) sind <strong>statisch konfiguriert</strong> – keine dynamische Generierung. Das System rendert Content basierend auf: <code>phase</code> + <code>perspektive</code> (Kaufer/Verkaufer) + <code>has_advisor</code> (Boolean). Alle Mapping-Tabellen finden sich in den Abschnitten 3-10.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 2. PROZESSKETTE -->
+<section id="s2">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Grundstruktur</div>
+            <h2>2. 9-Phasen-Prozesskette</h2>
+        </div>
+
+        <table>
+            <tr><th>#</th><th>Phase</th><th>Beschreibung</th><th>Timeline-Dot</th></tr>
+            <tr><td>1</td><td><strong>Interessensbekundung</strong></td><td>Kaufer bekundet Interesse an einem Inserat</td><td>Grau/Grun/Blau (je nach Status)</td></tr>
+            <tr><td>2</td><td><strong>Match</strong></td><td>Beide Seiten haben Interesse bestatigt</td><td>wie oben</td></tr>
+            <tr><td>3</td><td><strong>NDA unterzeichnet</strong></td><td>Vertraulichkeitserklarung liegt vor</td><td>wie oben</td></tr>
+            <tr><td>4</td><td><strong>Personliches Treffen</strong></td><td>Erstes personliches Kennenlernen</td><td>wie oben</td></tr>
+            <tr><td>5</td><td><strong>LOI vorgelegt</strong></td><td>Letter of Intent wurde eingereicht</td><td>wie oben</td></tr>
+            <tr><td>6</td><td><strong>LOI unterzeichnet</strong></td><td>LOI von beiden Seiten unterschrieben</td><td>wie oben</td></tr>
+            <tr><td>7</td><td><strong>Notartermin</strong></td><td>Notartermin ist vereinbart</td><td>wie oben</td></tr>
+            <tr><td>8</td><td><strong>Signing</strong></td><td>Kaufvertrag ist unterschrieben</td><td>wie oben</td></tr>
+            <tr><td>9</td><td><strong>Closing</strong></td><td>Transaktion vollstandig abgeschlossen</td><td>wie oben</td></tr>
+        </table>
+
+        <div class="tech-box">
+            <h4>Timeline-Darstellung (CSS)</h4>
+            <pre>
+Abgeschlossen: Gruner Dot + Hakchen (#10B981)
+Aktuell:       Blauer Dot + Puls-Animation (#2563EB)
+Zukunftig:     Grauer Dot (#E5E7EB)
+Verbindung:    2px solid Linie zwischen Dots
+            </pre>
+        </div>
+
+        <div class="warn-box">
+            <h4>Regeln</h4>
+            <p>Phasen konnen NICHT ubersprungen werden (strikt sequenziell 1→2→3→...→9). Rucksprunge sind NICHT moglich. Bei Abbruch → Status "Ausgeschieden" (kein Enablement-Content mehr).</p>
+        </div>
+    </div>
+</section>
+
+<!-- 3. KAUFER CHECKLISTEN -->
+<section id="s3">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Deterministische Tabelle</div>
+            <h2>3. Kaufer: Checklisten pro Phase</h2>
+            <p>Jede Phase hat exakt 5 Schritte. Schritt 1 ist bei Phaseneintritt automatisch als "erledigt" markiert.</p>
+        </div>
+
+        <div class="persp-tabs"><span class="persp-tab buyer"><i class="fa-solid fa-user" style="margin-right:6px;"></i> Kaufer-Perspektive</span></div>
+        <table>
+            <tr><th>Phase</th><th>#</th><th>Schritt</th><th>Status bei Eintritt</th></tr>
+            <tr class="phase-header"><td colspan="4">Phase 1: Interessensbekundung</td></tr>
+            <tr><td class="phase">1</td><td>1</td><td>Interessensbekundung abgesendet</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Inserat-Details sorgfaltig prufen (Branche, Grosse, Standort)</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Eigene Finanzierungsmoglichkeiten grob einschatzen</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Kauferprofil vervollstandigen (erhoht Match-Chancen)</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Auf Antwort des Verkaufers warten</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 2: Match</td></tr>
+            <tr><td class="phase">2</td><td>1</td><td>Match bestatigt</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>NDA sorgfaltig lesen (Checkliste nutzen)</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>NDA unterzeichnen und zurucksenden</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Fragenkatalog fur das Erstgesprach vorbereiten</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Fruhzeitig Finanzierung klaren (KfW-Forderprogramme prufen)</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 3: NDA unterzeichnet</td></tr>
+            <tr><td class="phase">3</td><td>1</td><td>NDA sorgfaltig lesen und unterschreiben</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Jahresabschlusse und BWA vom Verkaufer anfordern</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Unterlagen mit der Checkliste "IM bewerten" systematisch prufen</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Erste Bewertung durchrechnen (Bewertungs-Template nutzen)</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Fragenkatalog fur das personliche Treffen vorbereiten</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 4: Personliches Treffen</td></tr>
+            <tr><td class="phase">4</td><td>1</td><td>Notizen vom Treffen auswerten und offene Fragen notieren</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Unternehmensbewertung durchrechnen (Bewertungs-Template nutzen)</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Deal-Struktur festlegen: Share Deal oder Asset Deal?</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>LOI-Entwurf vorbereiten (LOI-Mustervorlage anpassen)</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Finanzierung klaren: Eigenkapital, Bankgesprach, Fordermittel</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 5: LOI vorgelegt</td></tr>
+            <tr><td class="phase">5</td><td>1</td><td>LOI-Entwurf beim Verkaufer eingereicht</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Auf Ruckmeldung des Verkaufers warten</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Eventuelle Nachverhandlungen fuhren (Kaufpreis, Exklusivitat, Bedingungen)</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Finanzierungszusage einholen (falls noch nicht geschehen)</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Due-Diligence-Team zusammenstellen (Steuerberater, Anwalt)</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 6: LOI unterzeichnet</td></tr>
+            <tr><td class="phase">6</td><td>1</td><td>LOI von beiden Seiten unterschrieben</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Due-Diligence-Checkliste vorbereiten</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Datenraum-Zugang beantragen und Dokumente systematisch prufen</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Finanzierung finalisieren (Bankgesprach, Kreditvertrag)</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Kaufvertragsentwurf mit Anwalt vorbereiten</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 7: Notartermin</td></tr>
+            <tr><td class="phase">7</td><td>1</td><td>Notartermin vereinbart</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Kaufvertragsentwurf final prufen (mit Anwalt)</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Checkliste Vertragsklauseln durchgehen</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Finanzierung final bestatigen lassen</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Closing-Checkliste vorbereiten</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 8: Signing</td></tr>
+            <tr><td class="phase">8</td><td>1</td><td>Kaufvertrag beim Notar unterschrieben</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Closing-Bedingungen prufen und erfullen</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Kaufpreiszahlung vorbereiten / auslosen</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Ubernahmeplanung starten (100-Tage-Plan)</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Kommunikationsplan fur Mitarbeiter und Kunden vorbereiten</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 9: Closing</td></tr>
+            <tr><td class="phase">9</td><td>1</td><td>Transaktion vollstandig abgeschlossen</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>100-Tage-Plan starten</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Ubergabegesprache mit dem Verkaufer fuhren</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Mitarbeiter und Kunden informieren</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Erste Quick Wins identifizieren und umsetzen</td><td>Offen</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 4. KAUFER SIDEBAR -->
+<section id="s4">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Deterministische Tabelle</div>
+            <h2>4. Kaufer: Sidebar-Content pro Phase</h2>
+            <p>Rechte Sidebar (320px, sticky) auf der Deal-Detailseite. 4 Blocke: "Dein nachster Schritt", "Passende Downloads", "Berater empfohlen", "M&amp;A-Assistent".</p>
+        </div>
+
+        <h3>Block A: "Dein nachster Schritt"</h3>
+        <table>
+            <tr><th>Phase</th><th>Tipp-Text</th><th>Academy-Modul (CTA)</th></tr>
+            <tr><td class="phase">1</td><td>Wahrend du auf die Antwort wartest: Vervollstandige dein Kauferprofil – das zeigt dem Verkaufer, dass du ein ernsthafter Kandidat bist.</td><td>Suchstrategie &amp; Kauferprofil</td></tr>
+            <tr><td class="phase">2</td><td>Ihr seid ein Match! Lies die NDA sorgfaltig und bereite dich auf das Erstgesprach vor. Unser Modul zeigt dir, worauf du achten musst.</td><td>Dokumente im M&amp;A-Prozess</td></tr>
+            <tr><td class="phase">3</td><td>Die NDA ist unterschrieben – jetzt bekommst du Zugang zu den Unternehmensunterlagen. Unser Modul zeigt dir, worauf du bei den Dokumenten achten musst und wie du die Zahlen richtig einordnest.</td><td>Dokumente im M&amp;A-Prozess</td></tr>
+            <tr><td class="phase">4</td><td>Das Treffen war positiv? Dann ist jetzt der richtige Zeitpunkt, dein Angebot zu formulieren. Unser LOI-Modul zeigt dir Schritt fur Schritt, wie du einen uberzeugenden Letter of Intent erstellst.</td><td>Angebotsstrategie &amp; LOI</td></tr>
+            <tr><td class="phase">5</td><td>Dein LOI ist raus – jetzt heisst es warten und parallel die DD vorbereiten. Unser Modul erklart dir, wie du die Due Diligence strukturiert angehst.</td><td>Due Diligence meistern</td></tr>
+            <tr><td class="phase">6</td><td>LOI steht – jetzt Due Diligence und Finanzierung parallel starten. Unser Modul hilft dir, den Datenraum systematisch zu prufen und nichts zu ubersehen.</td><td>Due Diligence meistern</td></tr>
+            <tr><td class="phase">7</td><td>Notartermin steht – prufe den Kaufvertrag sorgfaltig mit deinem Anwalt. Unser Modul zeigt dir die wichtigsten Vertragsklauseln.</td><td>Kaufvertrag &amp; Closing</td></tr>
+            <tr><td class="phase">8</td><td>Vertrag unterschrieben – bereite jetzt die Ubernahme vor. Der 100-Tage-Plan hilft dir, strukturiert zu starten.</td><td>100-Tage-Plan</td></tr>
+            <tr><td class="phase">9</td><td>Herzlichen Gluckwunsch! Du bist jetzt Unternehmer. Starte mit dem 100-Tage-Plan – die ersten Wochen entscheiden uber den langfristigen Erfolg.</td><td>100-Tage-Plan</td></tr>
+        </table>
+
+        <h3>Block C: "Berater empfohlen"</h3>
+        <table>
+            <tr><th>Phase</th><th>Variante</th><th>Text</th></tr>
+            <tr><td class="phase">1–3</td><td>Dezent</td><td>Viele Kaufer ziehen spatestens ab der Due-Diligence-Phase einen Berater hinzu. Noch ist es fruh – aber wenn du die Unterlagen ausgewertet hast und weitergehen willst, kann ein erfahrener Steuerberater oder M&amp;A-Berater helfen.</td></tr>
+            <tr><td class="phase">4–5</td><td>Prominent</td><td>Die meisten Kaufer holen sich in dieser Phase professionelle Unterstutzung. Ein M&amp;A-Berater hilft dir bei der Bewertung, LOI-Verhandlung und Due Diligence – besonders wertvoll ab der Angebotsphase.</td></tr>
+            <tr><td class="phase">6–8</td><td>Prominent</td><td>Fur die Due Diligence und Vertragsverhandlung sind Steuerberater und Anwalt fast immer sinnvoll. Bei kleinen Deals (&lt;2M EUR) reicht oft ein erfahrener Steuerberater + Anwalt statt eines spezialisierten M&amp;A-Beraters.</td></tr>
+            <tr><td class="phase">9</td><td>Ausgeblendet</td><td>—</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 5. KAUFER QUICK ACTIONS -->
+<section id="s5">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Deterministische Tabelle</div>
+            <h2>5. Kaufer: Chat-Widget Quick Actions pro Phase</h2>
+        </div>
+        <table>
+            <tr><th>Phase</th><th>Quick Action 1</th><th>Quick Action 2</th><th>Quick Action 3</th></tr>
+            <tr><td class="phase">1</td><td>Was passiert nach meiner Interessensbekundung?</td><td>Wie verbessere ich mein Kauferprofil?</td><td>Was ist ein Teaser?</td></tr>
+            <tr><td class="phase">2</td><td>Was ist eine NDA?</td><td>Wie bereite ich mich auf das Erstgesprach vor?</td><td>Brauche ich einen Berater?</td></tr>
+            <tr><td class="phase">3</td><td>Was steht in einem IM?</td><td>Worauf bei der BWA achten?</td><td>Wie berechne ich den Unternehmenswert?</td></tr>
+            <tr><td class="phase">4</td><td>Was bedeutet ein Earn-Out?</td><td>LOI: Worauf achten?</td><td>Brauche ich einen Berater?</td></tr>
+            <tr><td class="phase">5</td><td>Wie lange dauert die LOI-Verhandlung?</td><td>Was ist eine faire Exklusivitat?</td><td>Was passiert nach dem LOI?</td></tr>
+            <tr><td class="phase">6</td><td>Wie lauft eine Due Diligence ab?</td><td>Welche Dokumente brauche ich im Datenraum?</td><td>Wie finanziere ich die Ubernahme?</td></tr>
+            <tr><td class="phase">7</td><td>Worauf muss ich im Kaufvertrag achten?</td><td>Was sind typische Vertragsklauseln?</td><td>Was passiert zwischen Signing und Closing?</td></tr>
+            <tr><td class="phase">8</td><td>Was sind Closing-Bedingungen?</td><td>Wie plane ich die Ubernahme?</td><td>Wann informiere ich die Mitarbeiter?</td></tr>
+            <tr><td class="phase">9</td><td>Was ist ein 100-Tage-Plan?</td><td>Wie fuhre ich die Ubergabegesprache?</td><td>Welche Quick Wins gibt es?</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 6. KAUFER MITTEILUNGEN -->
+<section id="s6">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Deterministische Tabelle</div>
+            <h2>6. Kaufer: Mitteilungen pro Phasenwechsel</h2>
+        </div>
+        <table>
+            <tr><th>Ubergang</th><th>Titel</th><th>Downloads</th><th>Academy-Modul</th><th>Tipp</th></tr>
+            <tr><td class="phase">1→2</td><td>Match bestatigt – bereite dich auf das Erstgesprach vor</td><td>NDA-Checkliste, Teaser-Checkliste</td><td>Dokumente im M&amp;A-Prozess</td><td>Klare fruhzeitig deine Finanzierung – die KfW bietet Forderprogramme speziell fur Unternehmensubernahmen an.</td></tr>
+            <tr><td class="phase">2→3</td><td>NDA unterzeichnet – Zugang zum Unternehmensexpose</td><td>Checkliste IM bewerten</td><td>Dokumente im M&amp;A-Prozess</td><td>—</td></tr>
+            <tr><td class="phase">3→4</td><td>Personliches Treffen absolviert – nachster Schritt: Angebot vorbereiten</td><td>LOI-Mustervorlage, Bewertungs-Template</td><td>Angebotsstrategie &amp; LOI</td><td>Die meisten Kaufer auf AMBER verhandeln eine Exklusivitatsklausel in ihrem ersten LOI.</td></tr>
+            <tr><td class="phase">4→5</td><td>LOI vorgelegt – dein Angebot ist beim Verkaufer</td><td>DD-Checkliste</td><td>Due Diligence meistern</td><td>—</td></tr>
+            <tr><td class="phase">5→6</td><td>LOI unterzeichnet – Due Diligence und Finanzierung starten</td><td>DD-Checkliste, DD-Doku-Liste</td><td>Due Diligence meistern</td><td>Stelle dein DD-Team zusammen: Steuerberater fur die Zahlen, Anwalt fur den Kaufvertrag.</td></tr>
+            <tr><td class="phase">6→7</td><td>Notartermin vereinbart – Kaufvertrag prufen</td><td>Checkliste Vertragsklauseln, Closing-Checkliste</td><td>Kaufvertrag &amp; Closing</td><td>—</td></tr>
+            <tr><td class="phase">7→8</td><td>Kaufvertrag unterschrieben – Closing vorbereiten</td><td>Closing-Checkliste</td><td>Kaufvertrag &amp; Closing</td><td>—</td></tr>
+            <tr><td class="phase">8→9</td><td>Closing abgeschlossen – Gluckwunsch, du bist Unternehmer!</td><td>100-Tage-Plan Template</td><td>100-Tage-Plan</td><td>Die ersten 100 Tage entscheiden uber den langfristigen Erfolg. Erst zuhoren, dann optimieren.</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 7. ENABLEMENT-BAR -->
+<section id="s7">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Deterministische Tabelle</div>
+            <h2>7. Kaufer: Enablement-Bar (Transaktionsubersicht)</h2>
+        </div>
+        <table>
+            <tr><th>Phase</th><th>Bar-Text</th><th>Download-Link</th><th>Modul-Link</th></tr>
+            <tr><td class="phase">1</td><td>Nachster Schritt: Warte auf die Antwort des Verkaufers</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">2</td><td>Nachster Schritt: NDA prufen und unterzeichnen</td><td>NDA-Checkliste</td><td>Dokumente im M&amp;A-Prozess</td></tr>
+            <tr><td class="phase">3</td><td>Nachster Schritt: Unternehmensexpose auswerten</td><td>Checkliste IM</td><td>Dokumente im M&amp;A-Prozess</td></tr>
+            <tr><td class="phase">4</td><td>Nachster Schritt: Angebot vorbereiten – erstelle deinen LOI</td><td>LOI-Vorlage</td><td>Angebotsstrategie &amp; LOI</td></tr>
+            <tr><td class="phase">5</td><td>Nachster Schritt: Due Diligence vorbereiten</td><td>DD-Checkliste</td><td>Due Diligence meistern</td></tr>
+            <tr><td class="phase">6</td><td>Nachster Schritt: Datenraum prufen und Finanzierung finalisieren</td><td>DD-Doku-Liste</td><td>Due Diligence meistern</td></tr>
+            <tr><td class="phase">7</td><td>Nachster Schritt: Kaufvertrag mit Anwalt prufen</td><td>Checkliste Vertragsklauseln</td><td>Kaufvertrag &amp; Closing</td></tr>
+            <tr><td class="phase">8</td><td>Nachster Schritt: Closing-Bedingungen erfullen</td><td>Closing-Checkliste</td><td>Kaufvertrag &amp; Closing</td></tr>
+            <tr><td class="phase">9</td><td>Geschafft! Starte deinen 100-Tage-Plan</td><td>100-Tage-Plan Template</td><td>100-Tage-Plan</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 8. VERKAUFER CHECKLISTEN -->
+<section id="s8">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Deterministische Tabelle</div>
+            <h2>8. Verkaufer: Checklisten pro Phase</h2>
+        </div>
+
+        <div class="persp-tabs"><span class="persp-tab seller"><i class="fa-solid fa-building" style="margin-right:6px;"></i> Verkaufer-Perspektive</span></div>
+        <table>
+            <tr><th>Phase</th><th>#</th><th>Schritt</th><th>Status</th></tr>
+            <tr class="phase-header"><td colspan="4">Phase 1: Interessensbekundung erhalten</td></tr>
+            <tr><td class="phase">1</td><td>1</td><td>Neue Interessensbekundung erhalten</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Kauferprofil ansehen und prufen</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Profil mit eigenen Kriterien abgleichen (Branche, Erfahrung, Kaufkraft)</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Kaufkraft und Finanzierungsfahigkeit einschatzen</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Match bestatigen oder freundlich ablehnen</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 2: Match</td></tr>
+            <tr><td class="phase">2</td><td>1</td><td>Match bestatigt – beidseitiges Interesse</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>NDA zur Unterzeichnung an den Kaufer senden</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Erstgesprach vorbereiten (Gesprachsleitfaden nutzen)</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Unterlagen zusammenstellen (Jahresabschlusse, BWA)</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Gesprachstermin vereinbaren</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 3: NDA unterzeichnet</td></tr>
+            <tr><td class="phase">3</td><td>1</td><td>NDA unterzeichnet</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Kauferprofil mit Screening-Checkliste prufen</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Unterlagen (Jahresabschlusse, BWA) bereitstellen</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Personliches Kennenlernen vorbereiten (Gesprachsleitfaden)</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 4: Personliches Treffen</td></tr>
+            <tr><td class="phase">4</td><td>1</td><td>Personliches Treffen durchgefuhrt</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Kaufer mit Bewertungsmatrix systematisch einschatzen</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Referenzen und Finanzierungsnachweis anfragen</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Entscheidung: Weitermachen oder freundlich absagen?</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 5: LOI vorgelegt</td></tr>
+            <tr><td class="phase">5</td><td>1</td><td>LOI erhalten und gelesen</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Wesentliche Punkte prufen: Kaufpreis, Deal-Struktur, Exklusivitat</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Ruckfragen mit dem Kaufer klaren</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Mit Berater/Anwalt durchsprechen</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>LOI unterschreiben oder Gegenvorschlag formulieren</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 6: LOI unterzeichnet</td></tr>
+            <tr><td class="phase">6</td><td>1</td><td>LOI von beiden Seiten unterschrieben</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Datenraum fur die Due Diligence vorbereiten</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Dokumente strukturiert hochladen (Datenraum-Vorlage nutzen)</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Mitarbeiter und Schlusselpersonen informieren (falls notig)</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Steuerberater/Anwalt fur Kaufvertragsverhandlung einbinden</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 7: Notartermin</td></tr>
+            <tr><td class="phase">7</td><td>1</td><td>Notartermin vereinbart</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Kaufvertragsentwurf mit Anwalt prufen</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Closing-Checkliste durchgehen</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Ubergabeplanung starten</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 8: Signing</td></tr>
+            <tr><td class="phase">8</td><td>1</td><td>Kaufvertrag unterschrieben</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Closing-Bedingungen erfullen</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Ubergabeplan mit dem Kaufer abstimmen</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Mitarbeiter und Kunden uber den Eigentumerwechsel informieren</td><td>Offen</td></tr>
+
+            <tr class="phase-header"><td colspan="4">Phase 9: Closing</td></tr>
+            <tr><td class="phase">9</td><td>1</td><td>Transaktion vollstandig abgeschlossen</td><td class="done">Erledigt</td></tr>
+            <tr><td></td><td>2</td><td>Strukturierte Ubergabe starten (Ubergabe-Checkliste)</td><td>Offen</td></tr>
+            <tr><td></td><td>3</td><td>Wissenstransfer-Plan mit dem Kaufer umsetzen</td><td>Offen</td></tr>
+            <tr><td></td><td>4</td><td>Kunden- und Lieferantenbeziehungen ubergeben</td><td>Offen</td></tr>
+            <tr><td></td><td>5</td><td>Eigenes nachstes Kapitel planen</td><td>Offen</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 9. VERKAUFER SIDEBAR -->
+<section id="s9">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Deterministische Tabelle</div>
+            <h2>9. Verkaufer: Sidebar-Content pro Phase</h2>
+        </div>
+
+        <h3>Block A: "Dein nachster Schritt"</h3>
+        <table>
+            <tr><th>Phase</th><th>Tipp-Text</th><th>Academy-Modul</th></tr>
+            <tr><td class="phase">1</td><td>Neuer Interessent! Prufe sein Profil sorgfaltig. Unser Screening-Modul zeigt dir, worauf du achten musst.</td><td>Kaufer-Screening</td></tr>
+            <tr><td class="phase">2</td><td>Match bestatigt – bereite das Erstgesprach vor. Unser Modul gibt dir einen Gesprachsleitfaden.</td><td>Kennenlernen</td></tr>
+            <tr><td class="phase">3</td><td>NDA steht – jetzt kannst du offen sprechen. Bereite die Unterlagen vor und plane das Kennenlernen.</td><td>Kennenlernen</td></tr>
+            <tr><td class="phase">4</td><td>Das Treffen war gut? Bewerte den Kaufer systematisch mit der Bewertungsmatrix.</td><td>Kaufer-Screening</td></tr>
+            <tr><td class="phase">5</td><td>LOI erhalten – prufe das Angebot sorgfaltig. Unser Modul zeigt dir die wichtigsten Punkte.</td><td>LOI verhandeln</td></tr>
+            <tr><td class="phase">6</td><td>LOI steht – bereite den Datenraum fur die Due Diligence vor.</td><td>DD &amp; Closing</td></tr>
+            <tr><td class="phase">7</td><td>Notartermin steht – prufe den Kaufvertrag und bereite das Closing vor.</td><td>DD &amp; Closing</td></tr>
+            <tr><td class="phase">8</td><td>Vertrag unterschrieben – letzte Schritte bis zum Closing.</td><td>DD &amp; Closing</td></tr>
+            <tr><td class="phase">9</td><td>Verkauf abgeschlossen! Starte die Ubergabe strukturiert.</td><td>Ubergabe</td></tr>
+        </table>
+
+        <h3>Block C: Berater-Empfehlung (Verkaufer)</h3>
+        <table>
+            <tr><th>Phase</th><th>Variante</th><th>Text</th></tr>
+            <tr><td class="phase">1–3</td><td>Dezent</td><td>Viele Verkaufer mandatieren einen M&amp;A-Berater, der den gesamten Prozess begleitet. Besonders bei der Kaufersuche und Verhandlung kann das wertvoll sein.</td></tr>
+            <tr><td class="phase">4–6</td><td>Prominent</td><td>Ab der LOI-Phase ist ein erfahrener Berater besonders wertvoll – fur die Vertragsverhandlung und den Datenraum.</td></tr>
+            <tr><td class="phase">7–8</td><td>Prominent</td><td>Fur die Kaufvertragsverhandlung ist ein spezialisierter M&amp;A-Anwalt unerlasslich.</td></tr>
+            <tr><td class="phase">9</td><td>Ausgeblendet</td><td>—</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 10. VERKAUFER QUICK ACTIONS -->
+<section id="s10">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Deterministische Tabelle</div>
+            <h2>10. Verkaufer: Chat-Widget Quick Actions pro Phase</h2>
+        </div>
+        <table>
+            <tr><th>Phase</th><th>Quick Action 1</th><th>Quick Action 2</th><th>Quick Action 3</th></tr>
+            <tr><td class="phase">1</td><td>Wie prufe ich einen Interessenten?</td><td>Was ist ein gutes Kauferprofil?</td><td>Wann lehne ich ab?</td></tr>
+            <tr><td class="phase">2</td><td>Wie bereite ich das Erstgesprach vor?</td><td>Was darf ich vor der NDA verraten?</td><td>Brauche ich einen Berater?</td></tr>
+            <tr><td class="phase">3</td><td>Welche Unterlagen muss ich teilen?</td><td>Was gehort in ein IM?</td><td>Wie schutze ich vertrauliche Infos?</td></tr>
+            <tr><td class="phase">4</td><td>Wie bewerte ich den Kaufer?</td><td>Worauf achten beim Kennenlernen?</td><td>Was sind Red Flags bei Kaufern?</td></tr>
+            <tr><td class="phase">5</td><td>Wie prufe ich den LOI?</td><td>Was ist eine faire Exklusivitat?</td><td>Wie bereite ich den Datenraum vor?</td></tr>
+            <tr><td class="phase">6</td><td>Was gehort in den Datenraum?</td><td>Wie lauft die Due Diligence ab?</td><td>Was pruft der Kaufer?</td></tr>
+            <tr><td class="phase">7</td><td>Worauf beim Kaufvertrag achten?</td><td>Was sind typische Klauseln?</td><td>Was passiert beim Notar?</td></tr>
+            <tr><td class="phase">8</td><td>Was sind Closing-Bedingungen?</td><td>Wann informiere ich meine Mitarbeiter?</td><td>Wie plane ich die Ubergabe?</td></tr>
+            <tr><td class="phase">9</td><td>Wie gestalte ich die Ubergabe?</td><td>Wie lange dauert der Wissenstransfer?</td><td>Was kommt nach dem Verkauf?</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 11. ACADEMY-ZUORDNUNG -->
+<section id="s11">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Deterministische Tabelle</div>
+            <h2>11. Academy-Modul-Zuordnung</h2>
+        </div>
+
+        <h3>Kaufer-Academy (9 Module)</h3>
+        <table>
+            <tr><th>Modul</th><th>Datei</th><th>Relevante Phasen</th><th>Dauer</th></tr>
+            <tr><td>Suchstrategie &amp; Kauferprofil</td><td><code>academy-modul-suchstrategie.html</code></td><td>Pre-Deal, Phase 1</td><td>15 Min.</td></tr>
+            <tr><td>Transaktionsablauf &amp; Deal-Strukturen</td><td><code>academy-modul-transaktionsstrukturen.html</code></td><td>Pre-Deal, Phase 4</td><td>15 Min.</td></tr>
+            <tr><td>Bewertung &amp; Preisfindung</td><td><code>academy-modul-bewertung.html</code></td><td>Phase 3–4</td><td>12 Min.</td></tr>
+            <tr><td>Dokumente im M&amp;A-Prozess</td><td><code>academy-modul-dokumente.html</code></td><td>Phase 2–3</td><td>12 Min.</td></tr>
+            <tr><td>Angebotsstrategie &amp; LOI</td><td><code>academy-modul-angebotsstrategie.html</code></td><td>Phase 4–5</td><td>12 Min.</td></tr>
+            <tr><td>Due Diligence meistern</td><td><code>academy-modul-due-diligence.html</code></td><td>Phase 5–6</td><td>15 Min.</td></tr>
+            <tr><td>Akquisitionsfinanzierung</td><td><code>academy-modul-finanzierung.html</code></td><td>Phase 3–6</td><td>15 Min.</td></tr>
+            <tr><td>Kaufvertrag &amp; Closing</td><td><code>academy-modul-kaufvertrag.html</code></td><td>Phase 7–8</td><td>12 Min.</td></tr>
+            <tr><td>100-Tage-Plan</td><td><code>academy-modul-100-tage-plan.html</code></td><td>Phase 8–9</td><td>15 Min.</td></tr>
+        </table>
+
+        <h3>Verkaufer-Academy (10 Module)</h3>
+        <table>
+            <tr><th>Modul</th><th>Datei</th><th>Relevante Phasen</th><th>Dauer</th></tr>
+            <tr><td>Exit-Readiness</td><td><code>seller-academy-modul-exit-readiness.html</code></td><td>Pre-Deal</td><td>15 Min.</td></tr>
+            <tr><td>Verkaufsberater mandatieren</td><td><code>seller-academy-modul-verkaufsberater.html</code></td><td>Pre-Deal</td><td>12 Min.</td></tr>
+            <tr><td>Verkaufsprozess verstehen</td><td><code>seller-academy-modul-verkaufsprozess.html</code></td><td>Pre-Deal</td><td>15 Min.</td></tr>
+            <tr><td>Unternehmensbewertung</td><td><code>seller-academy-modul-bewertung.html</code></td><td>Pre-Deal, Phase 5</td><td>12 Min.</td></tr>
+            <tr><td>Unterlagen vorbereiten</td><td><code>seller-academy-modul-unterlagen.html</code></td><td>Pre-Deal, Phase 3</td><td>15 Min.</td></tr>
+            <tr><td>Kaufer-Screening</td><td><code>seller-academy-modul-kaeufer-screening.html</code></td><td>Phase 1, Phase 4</td><td>12 Min.</td></tr>
+            <tr><td>Kennenlernen</td><td><code>seller-academy-modul-kennenlernen.html</code></td><td>Phase 2–3</td><td>12 Min.</td></tr>
+            <tr><td>LOI verhandeln</td><td><code>seller-academy-modul-loi.html</code></td><td>Phase 5</td><td>15 Min.</td></tr>
+            <tr><td>DD &amp; Closing</td><td><code>seller-academy-modul-dd-closing.html</code></td><td>Phase 6–8</td><td>15 Min.</td></tr>
+            <tr><td>Ubergabe</td><td><code>seller-academy-modul-uebergabe.html</code></td><td>Phase 9</td><td>12 Min.</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 12. DOWNLOADS PRO PHASE -->
+<section id="s12">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Deterministische Tabelle</div>
+            <h2>12. Downloads pro Phase</h2>
+        </div>
+
+        <h3>Kaufer-Downloads pro Phase</h3>
+        <table>
+            <tr><th>Phase</th><th>Download 1</th><th>Download 2</th><th>Download 3</th><th>Download 4</th></tr>
+            <tr><td class="phase">1</td><td>Kauferprofil-Vorlage (PDF)</td><td>Dokumenten-Checkliste (PDF)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">2</td><td>NDA-Checkliste (PDF)</td><td>Checkliste Teaser bewerten (PDF)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">3</td><td>Checkliste IM bewerten (PDF)</td><td>NDA-Checkliste (PDF)</td><td>Bewertungs-Template (Excel)</td><td>—</td></tr>
+            <tr><td class="phase">4</td><td>LOI-Mustervorlage (PDF)</td><td>Bewertungs-Template (Excel)</td><td>Share Deal vs. Asset Deal (PDF)</td><td>Finanzierungsplan-Vorlage (Excel)</td></tr>
+            <tr><td class="phase">5</td><td>DD-Checkliste (PDF)</td><td>Finanzierungsplan-Vorlage (Excel)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">6</td><td>DD-Checkliste (PDF)</td><td>DD-Doku-Liste (PDF)</td><td>Finanzierungsplan (Excel)</td><td>Checkliste Bankgesprach (PDF)</td></tr>
+            <tr><td class="phase">7</td><td>Checkliste Vertragsklauseln (PDF)</td><td>Closing-Checkliste (PDF)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">8</td><td>Closing-Checkliste (PDF)</td><td>100-Tage-Plan Template (PDF)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">9</td><td>100-Tage-Plan Template (PDF)</td><td>—</td><td>—</td><td>—</td></tr>
+        </table>
+
+        <h3>Verkaufer-Downloads pro Phase</h3>
+        <table>
+            <tr><th>Phase</th><th>Download 1</th><th>Download 2</th><th>Download 3</th><th>Download 4</th></tr>
+            <tr><td class="phase">1</td><td>Kaufer-Screening-Checkliste (PDF)</td><td>Kaufer-Bewertungsmatrix (Excel)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">2</td><td>Gesprachsleitfaden Erstgesprach (PDF)</td><td>NDA-Vorlage (PDF)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">3</td><td>Kaufer-Screening-Checkliste (PDF)</td><td>Gesprachsleitfaden (PDF)</td><td>Unterlagen-Checkliste (PDF)</td><td>—</td></tr>
+            <tr><td class="phase">4</td><td>Kaufer-Bewertungsmatrix (Excel)</td><td>Referenz-Checkliste (PDF)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">5</td><td>LOI-Checkliste fur Verkaufer (PDF)</td><td>Exklusivitats-Merkblatt (PDF)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">6</td><td>DD-Vorbereitungs-Checkliste (PDF)</td><td>Datenraum-Vorlage (Excel)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">7</td><td>Closing-Day-Checkliste (PDF)</td><td>Kaufvertrags-Checkliste (PDF)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">8</td><td>Closing-Day-Checkliste (PDF)</td><td>Ubergabe-Checkliste (PDF)</td><td>—</td><td>—</td></tr>
+            <tr><td class="phase">9</td><td>Ubergabe-Checkliste (PDF)</td><td>Wissenstransfer-Plan (PDF)</td><td>—</td><td>—</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 13. DOWNLOAD-KATALOG -->
+<section id="s13">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Vollstandiger Katalog</div>
+            <h2>13. Download-Katalog</h2>
+        </div>
+
+        <h3>Kaufer-Downloads (15 Dateien)</h3>
+        <table>
+            <tr><th>ID</th><th>Dateiname</th><th>Format</th><th>Beschreibung</th></tr>
+            <tr><td>K-01</td><td><code>kaeufer-profil-vorlage.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Vorlage fur ein aussagekraftiges Kauferprofil</td></tr>
+            <tr><td>K-02</td><td><code>dokumenten-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Ubersicht aller Dokumente im M&amp;A-Prozess</td></tr>
+            <tr><td>K-03</td><td><code>nda-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Prufpunkte fur die NDA-Prufung</td></tr>
+            <tr><td>K-04</td><td><code>checkliste-teaser-bewerten.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Kriterien zur Teaser-Bewertung</td></tr>
+            <tr><td>K-05</td><td><code>checkliste-im-bewerten.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Systematische Auswertung des IM</td></tr>
+            <tr><td>K-06</td><td><code>bewertungs-template.xlsx</code></td><td><span class="format excel">Excel</span></td><td>Multiple-Bewertung, DCF-Ansatz, Szenarioanalyse</td></tr>
+            <tr><td>K-07</td><td><code>loi-mustervorlage.pdf</code></td><td><span class="format pdf">PDF</span></td><td>LOI-Template mit Erlauterungen</td></tr>
+            <tr><td>K-08</td><td><code>share-deal-vs-asset-deal.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Vergleich der Dealstrukturen</td></tr>
+            <tr><td>K-09</td><td><code>finanzierungsplan-vorlage.xlsx</code></td><td><span class="format excel">Excel</span></td><td>Kalkulation EK/FK-Mix, Kapitaldienstfahigkeit</td></tr>
+            <tr><td>K-10</td><td><code>dd-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Vollstandige DD-Prufungsliste</td></tr>
+            <tr><td>K-11</td><td><code>dd-doku-liste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Welche Dokumente im Datenraum angefordert werden</td></tr>
+            <tr><td>K-12</td><td><code>checkliste-bankgespraech.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Vorbereitung auf das Finanzierungsgesprach</td></tr>
+            <tr><td>K-13</td><td><code>checkliste-vertragsklauseln.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Wichtigste Klauseln im Kaufvertrag</td></tr>
+            <tr><td>K-14</td><td><code>closing-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Alle Schritte zwischen Signing und Closing</td></tr>
+            <tr><td>K-15</td><td><code>100-tage-plan-template.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Strukturierte Ubernahmeplanung</td></tr>
+        </table>
+
+        <h3>Verkaufer-Downloads (14 Dateien)</h3>
+        <table>
+            <tr><th>ID</th><th>Dateiname</th><th>Format</th><th>Beschreibung</th></tr>
+            <tr><td>V-01</td><td><code>kaeufer-screening-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Systematische Kauferbewertung</td></tr>
+            <tr><td>V-02</td><td><code>kaeufer-bewertungsmatrix.xlsx</code></td><td><span class="format excel">Excel</span></td><td>Scoring-Matrix fur Kaufervergleich</td></tr>
+            <tr><td>V-03</td><td><code>gespraechsleitfaden-erstgespraech.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Struktur fur das Kennenlerngesprach</td></tr>
+            <tr><td>V-04</td><td><code>nda-vorlage.pdf</code></td><td><span class="format pdf">PDF</span></td><td>NDA-Template fur Verkaufer</td></tr>
+            <tr><td>V-05</td><td><code>unterlagen-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Welche Dokumente vorbereitet werden mussen</td></tr>
+            <tr><td>V-06</td><td><code>referenz-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Prufpunkte fur Kaufer-Referenzen</td></tr>
+            <tr><td>V-07</td><td><code>loi-checkliste-verkaeufer.pdf</code></td><td><span class="format pdf">PDF</span></td><td>LOI-Prufpunkte aus Verkaufersicht</td></tr>
+            <tr><td>V-08</td><td><code>exklusivitaets-merkblatt.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Verhandlungs- und Abschlussexklusivitat erklart</td></tr>
+            <tr><td>V-09</td><td><code>dd-vorbereitungs-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Datenraum-Vorbereitung</td></tr>
+            <tr><td>V-10</td><td><code>datenraum-vorlage.xlsx</code></td><td><span class="format excel">Excel</span></td><td>Ordnerstruktur und Dokumentenliste fur den Datenraum</td></tr>
+            <tr><td>V-11</td><td><code>closing-day-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Alle Schritte am Closing-Tag</td></tr>
+            <tr><td>V-12</td><td><code>kaufvertrags-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Wichtigste Klauseln aus Verkaufersicht</td></tr>
+            <tr><td>V-13</td><td><code>uebergabe-checkliste.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Strukturierte Ubergabe nach Closing</td></tr>
+            <tr><td>V-14</td><td><code>wissenstransfer-plan.pdf</code></td><td><span class="format pdf">PDF</span></td><td>Template fur den Wissenstransfer-Zeitplan</td></tr>
+        </table>
+
+        <div class="tech-box">
+            <h4>Pfad-Konvention</h4>
+            <pre>/downloads/{perspektive}/{dateiname}
+z.B. /downloads/kaeufer/loi-mustervorlage.pdf
+     /downloads/verkaeufer/kaeufer-screening-checkliste.pdf</pre>
+        </div>
+    </div>
+</section>
+
+<!-- 14. PHASENWECHSEL-TRIGGER -->
+<section id="s14">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Technische Logik</div>
+            <h2>14. Phasenwechsel-Trigger &amp; Berechtigungen</h2>
+        </div>
+        <table>
+            <tr><th>Ubergang</th><th>Trigger-Typ</th><th>Ausloser</th><th>Wer darf auslosen?</th></tr>
+            <tr><td class="phase">→ Phase 1</td><td>User-Aktion</td><td>Kaufer klickt "Interesse bekunden"</td><td>Kaufer</td></tr>
+            <tr><td class="phase">1 → 2</td><td>System</td><td>Verkaufer bestatigt die IB</td><td>Verkaufer → System erzeugt Match</td></tr>
+            <tr><td class="phase">2 → 3</td><td>System</td><td>NDA von beiden Seiten digital unterzeichnet</td><td>System erkennt beide Unterschriften</td></tr>
+            <tr><td class="phase">3 → 4</td><td>User-Aktion</td><td>Kaufer oder Verkaufer markiert "Treffen hat stattgefunden"</td><td>Beide; idealerweise bestAtigen beide</td></tr>
+            <tr><td class="phase">4 → 5</td><td>System</td><td>Kaufer ladt LOI hoch oder sendet LOI uber Plattform</td><td>Kaufer</td></tr>
+            <tr><td class="phase">5 → 6</td><td>System</td><td>LOI von beiden Seiten digital unterzeichnet</td><td>System erkennt beide Unterschriften</td></tr>
+            <tr><td class="phase">6 → 7</td><td>User-Aktion</td><td>Kaufer oder Verkaufer tragt Notartermin ein</td><td>Beide</td></tr>
+            <tr><td class="phase">7 → 8</td><td>User-Aktion</td><td>Bestatigung "Kaufvertrag unterschrieben"</td><td>Beide bestatigen</td></tr>
+            <tr><td class="phase">8 → 9</td><td>User-Aktion</td><td>Bestatigung "Closing abgeschlossen"</td><td>Beide bestatigen</td></tr>
+        </table>
+
+        <div class="warn-box">
+            <h4>Sonderfall: Ausscheiden</h4>
+            <p><strong>Kaufer zieht sich zuruck:</strong> Status → "Ausgeschieden (Kaufer)"<br>
+            <strong>Verkaufer lehnt ab:</strong> Status → "Ausgeschieden (Verkaufer)" (Phase 2-8) oder "Abgelehnt" (Phase 1)<br>
+            Bei "Ausgeschieden" wird kein Enablement-Content mehr angezeigt. Graues Badge mit Datum.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 15. CHECKLISTEN PERSISTENZ -->
+<section id="s15">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Technische Details</div>
+            <h2>15. Checklisten: Persistenz &amp; Lifecycle</h2>
+        </div>
+
+        <div class="tech-box">
+            <h4>Datenmodell</h4>
+            <pre>
+checklist_item {
+    deal_id:     FK → Deal
+    user_id:     FK → User (Kaufer oder Verkaufer)
+    phase:       Integer 1-9
+    step_index:  Integer 1-5
+    checked:     Boolean (Default: false)
+    checked_at:  Timestamp (nullable)
+}</pre>
+        </div>
+
+        <ul>
+            <li>Bei Phasenwechsel: Schritt 1 der neuen Phase automatisch <code>checked: true</code></li>
+            <li>Alte Checkliste bleibt gespeichert, ist aber nicht mehr auf der Deal-Detailseite sichtbar</li>
+            <li>In der Phasen-Historie (vertikale Timeline): Abgeschlossene Phasen aufklappbar (read-only)</li>
+            <li>Items werden aus der Konfiguration geladen, nicht vom User erstellt</li>
+            <li>Optional: Fortschrittsanzeige "3 von 5 Schritten erledigt"</li>
+        </ul>
+    </div>
+</section>
+
+<!-- 16. TOAST -->
+<section id="s16">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Technische Details</div>
+            <h2>16. Toast-Banner</h2>
+        </div>
+        <table>
+            <tr><th>Eigenschaft</th><th>Wert</th></tr>
+            <tr><td>Trigger</td><td>User offnet "Meine Transaktionen" + Phasenwechsel seit letztem Besuch</td></tr>
+            <tr><td>Welcher Deal?</td><td>Jungster Phasenwechsel; bei Gleichstand: hochste Phase</td></tr>
+            <tr><td>Position</td><td>Fixed, oben mittig, 88px von oben (72px Nav + 16px)</td></tr>
+            <tr><td>Animation</td><td>Slide-in von oben (300ms ease-out)</td></tr>
+            <tr><td>Auto-Dismiss</td><td>12 Sekunden</td></tr>
+            <tr><td>Manuell</td><td>X-Button oben rechts</td></tr>
+            <tr><td>CTAs</td><td>"Deal ansehen" → Detail-Seite, "Mitteilungen" → mitteilungen.html</td></tr>
+            <tr><td>Max. Anzeige</td><td>1 Toast gleichzeitig, kein Stapeln</td></tr>
+            <tr><td>Persistenz</td><td><code>user_toast_seen</code> mit <code>deal_id</code> + <code>phase</code></td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 17. MITTEILUNGEN -->
+<section id="s17">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Technische Details</div>
+            <h2>17. Mitteilungen: Lifecycle &amp; Gelesen-Status</h2>
+        </div>
+        <table>
+            <tr><th>Eigenschaft</th><th>Wert</th></tr>
+            <tr><td>Erstellung</td><td>Automatisch bei Phasenwechsel, fur BEIDE Seiten</td></tr>
+            <tr><td>Ungelesen</td><td>Gruner linker Rand (3px solid <span class="color-swatch" style="background:#10B981"></span> #10B981) + Badge "Neu"</td></tr>
+            <tr><td>→ Gelesen</td><td>Klick auf Karte ODER 2 Sekunden im Viewport</td></tr>
+            <tr><td>Sortierung</td><td>Neueste zuerst (<code>created_at DESC</code>), Ungelesene gepinnt</td></tr>
+            <tr><td>Archivierung</td><td>Nie geloscht, auch nach Deal-Abschluss</td></tr>
+            <tr><td>Nav-Counter</td><td>Roter Kreis (18px) mit Zahl; bei &gt;9: "9+"</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 18. MULTI-KAUFER -->
+<section id="s18">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Verkaufer-Logik</div>
+            <h2>18. Multi-Kaufer-Logik</h2>
+        </div>
+        <table>
+            <tr><th>Element</th><th>Logik</th></tr>
+            <tr><td>Stats-Bar</td><td>Aggregiert: "X Aktive Interessenten", "X LOI", "X Matches"</td></tr>
+            <tr><td>Kaufer-Karten</td><td>Sortiert nach Phase (hochste zuerst), dann Datum (neueste zuerst)</td></tr>
+            <tr><td>Default</td><td>Kaufer mit hochster Phase ausgeklappt, alle anderen eingeklappt</td></tr>
+            <tr><td>Sidebar (1 offen)</td><td>Content der Phase dieses Kaufers</td></tr>
+            <tr><td>Sidebar (mehrere offen)</td><td>Content des zuletzt ausgeklappten Kaufers</td></tr>
+            <tr><td>Sidebar (alle zu)</td><td>Content des am weitesten fortgeschrittenen Kaufers</td></tr>
+            <tr><td>Checklisten</td><td>Pro Kaufer eigene Checkliste, unabhangig voneinander</td></tr>
+            <tr><td>Mini-Timeline</td><td>Kompakte Dots pro Kaufer-Card, Tooltip bei Hover</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 19. KI-ASSISTENT -->
+<section id="s19">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Technische Architektur</div>
+            <h2>19. KI-Assistent</h2>
+        </div>
+
+        <h3>MVP: Hardcoded Antworten (54 Paare)</h3>
+        <div class="tech-box">
+            <h4>Datenformat</h4>
+            <pre>
+{
+    phase: int,           // 1-9
+    perspective: string,  // "kaeufer" | "verkaeufer"
+    question: string,     // Quick-Action-Text
+    answer: string,       // HTML-formatierte Antwort
+    sources: [{
+        label: string,    // "Modul: Due Diligence meistern"
+        url: string       // "academy-modul-due-diligence.html"
+    }]
+}</pre>
+        </div>
+
+        <h3>Aktueller Stand: Claude API Integration</h3>
+        <table>
+            <tr><th>Eigenschaft</th><th>Wert</th></tr>
+            <tr><td>Modell</td><td><code>anthropic/claude-3.5-haiku</code> via OpenRouter</td></tr>
+            <tr><td>API</td><td>OpenRouter (OpenAI-kompatibel)</td></tr>
+            <tr><td>Kontext</td><td>Vollstandiger Academy-Content (~196K Zeichen / ~49K Tokens)</td></tr>
+            <tr><td>System-Prompt</td><td>Rolle + Academy-Content + Tonalitatsregeln</td></tr>
+            <tr><td>Max Tokens (Antwort)</td><td>600</td></tr>
+            <tr><td>Fallback</td><td>Bei API-Fehler → statische KB (321 Eintrage)</td></tr>
+            <tr><td>API-Key</td><td><code>window.AMBER_API_KEY</code> (in config.js)</td></tr>
+        </table>
+
+        <h3>Chat-UI</h3>
+        <table>
+            <tr><th>Element</th><th>Spezifikation</th></tr>
+            <tr><td>Floating Button</td><td>56px Kreis, fixed bottom-right (24px), Lila Gradient, <code>fa-comments</code> Icon</td></tr>
+            <tr><td>Panel</td><td>400px breit, Slide-in 300ms, volle Hohe minus Nav (72px), z-index: 1000</td></tr>
+            <tr><td>Header</td><td>Lila Gradient, "AMBER M&amp;A-Assistent", Badge "KI-MODUS" oder "ACADEMY"</td></tr>
+            <tr><td>Quick-Action-Chips</td><td>Lila Border, rounded, verschwinden nach Klick</td></tr>
+            <tr><td>Input</td><td>Fixed unten, "Schreibe eine Nachricht...", Send-Button</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 20. BERATER-BOX -->
+<section id="s20">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Design-Varianten</div>
+            <h2>20. Berater-Box</h2>
+        </div>
+        <table>
+            <tr><th>Eigenschaft</th><th>Variante "dezent" (Phase 1-3)</th><th>Variante "prominent" (Phase 4-8)</th></tr>
+            <tr><td>Hintergrund</td><td><span class="color-swatch" style="background:#F9FAFB"></span> #F9FAFB</td><td>Enablement-Gradient</td></tr>
+            <tr><td>Border</td><td>1px solid #E5E7EB</td><td>1px solid #E0E7FF</td></tr>
+            <tr><td>Icon</td><td><code>fa-user-tie</code> Grau (#9CA3AF)</td><td><code>fa-user-tie</code> Lila (#7C3AED), 24px</td></tr>
+            <tr><td>Text-Farbe</td><td>#6B7280 (mittelgrau)</td><td>#1A1A1A (schwarz)</td></tr>
+            <tr><td>CTA</td><td>Text-Link "Berater finden →"</td><td>Gruner Button (CTA-Gradient)</td></tr>
+            <tr><td>Position</td><td>Unterster Sidebar-Block</td><td>Dritter Sidebar-Block</td></tr>
+        </table>
+        <p style="margin-top:12px;font-size:13px;color:#6B7280;"><strong>Phase 9:</strong> Berater-Box wird nicht angezeigt.</p>
+    </div>
+</section>
+
+<!-- 21. NAVIGATION -->
+<section id="s21">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Technische Details</div>
+            <h2>21. Navigation &amp; Perspektivwechsel</h2>
+        </div>
+        <table>
+            <tr><th>Nav-Element</th><th>Kaufer</th><th>Verkaufer</th></tr>
+            <tr><td>Link 1</td><td>Suche → <code>suche.html</code></td><td>Mein Inserat → <code>inserat.html</code></td></tr>
+            <tr><td>Link 2</td><td>Suchauftrage → <code>suchauftraege.html</code></td><td>Interessenten → <code>transaktion-detail-verkaeufer.html</code></td></tr>
+            <tr><td>Link 3</td><td>Mitteilungen → <code>mitteilungen.html</code></td><td>Mitteilungen → <code>mitteilungen.html</code></td></tr>
+            <tr><td>Link 4</td><td>Postfach → <code>postfach.html</code></td><td>Postfach → <code>postfach.html</code></td></tr>
+            <tr><td>Link 5</td><td>Meine Transaktionen → <code>transaktionen.html</code></td><td>Meine Transaktionen → <code>transaktionen.html</code></td></tr>
+            <tr><td>Link 6</td><td>Academy → <code>academy.html</code></td><td>Academy → <code>verkaufer-academy.html</code></td></tr>
+        </table>
+        <div class="info-box" style="margin-top:16px;">
+            <h4>Perspektiv-Erkennung</h4>
+            <p>Serverseitig als User-Preference gespeichert. Beim Login: zuletzt genutzte Perspektive. Wechsel uber Focus-Group → neue Perspektive speichern + Redirect zur Startseite.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 22. DEAL-ATTRAKTIVITAT -->
+<section id="s22">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Kaufer-Feature</div>
+            <h2>22. Deal-Attraktivitat</h2>
+        </div>
+        <table>
+            <tr><th>Wert</th><th>Label</th><th>Hintergrund</th><th>Text</th></tr>
+            <tr><td>1</td><td>Sehr attraktiv</td><td><span class="color-swatch" style="background:#065F46"></span> #065F46</td><td>#FFFFFF</td></tr>
+            <tr><td>2</td><td>Attraktiv</td><td><span class="color-swatch" style="background:#10B981"></span> #10B981</td><td>#FFFFFF</td></tr>
+            <tr><td>3</td><td>Neutral</td><td><span class="color-swatch" style="background:#F59E0B"></span> #F59E0B</td><td>#FFFFFF</td></tr>
+            <tr><td>4</td><td>Weniger attraktiv</td><td><span class="color-swatch" style="background:#F97316"></span> #F97316</td><td>#FFFFFF</td></tr>
+            <tr><td>5</td><td>Unattraktiv</td><td><span class="color-swatch" style="background:#EF4444"></span> #EF4444</td><td>#FFFFFF</td></tr>
+        </table>
+        <p style="margin-top:12px;font-size:13px;color:#6B7280;">Position: Deal-Info-Box oben rechts. Nur fur Kaufer sichtbar. Pro User pro Deal gespeichert.</p>
+    </div>
+</section>
+
+<!-- 23. READINESS -->
+<section id="s23">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Technische Details</div>
+            <h2>23. Readiness Score &amp; Gating</h2>
+        </div>
+
+        <div class="tech-box">
+            <h4>SVG Readiness Ring</h4>
+            <pre>
+Kreisumfang: 314px (bei r=50)
+Berechnung:  stroke-dashoffset = 314 - (314 * score / 100)
+Beispiel 45%: stroke-dashoffset = 314 - 141.3 = 172.7
+Farben:      Hintergrund #E5E7EB, Fortschritt #10B981</pre>
+        </div>
+
+        <h3>Gating-Logik</h3>
+        <table>
+            <tr><th>Score</th><th>Verhalten auf Suchseite</th><th>Verhalten auf Deal-Detail</th></tr>
+            <tr><td>&lt;30%</td><td>Listings geblurrt + Overlay "Readiness Score verbessern"</td><td>Gelbes Banner: "Profil unvollstandig (Score: X%)" + CTA</td></tr>
+            <tr><td>≥30%</td><td>Alle Listings sichtbar</td><td>Kein Banner</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 24. DESIGN-SYSTEM -->
+<section id="s24">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Referenz</div>
+            <h2>24. Design-System</h2>
+        </div>
+
+        <h3>Farben</h3>
+        <table>
+            <tr><th>Farbe</th><th>Hex</th><th>Verwendung</th></tr>
+            <tr><td><span class="color-swatch" style="background:#10B981"></span> Grun</td><td>#10B981</td><td>Positiv: erledigt, Chancen, Score-Ring</td></tr>
+            <tr><td><span class="color-swatch" style="background:#F59E0B"></span> Amber</td><td>#F59E0B / #FEF3C7</td><td>Warnung: fehlende Felder, gesperrte Inhalte</td></tr>
+            <tr><td><span class="color-swatch" style="background:#DC2626"></span> Rot</td><td>#DC2626 / #EF4444</td><td>Negativ: Wettbewerb, Risiken</td></tr>
+            <tr><td><span class="color-swatch" style="background:#7C3AED"></span> Lila</td><td>#7C3AED / #EDE9FE</td><td>Academy, KI, Module, Tipps</td></tr>
+            <tr><td><span class="color-swatch" style="background:#2563EB"></span> Blau</td><td>#2563EB / #DBEAFE</td><td>Deal-Phase, Aktuelle Phase</td></tr>
+        </table>
+
+        <h3>Enablement-Gradient (alle Enablement-Elemente)</h3>
+        <div class="tech-box">
+            <pre>background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+border: 1px solid #E0E7FF;
+border-radius: 8px;</pre>
+        </div>
+
+        <h3>Layout</h3>
+        <table>
+            <tr><th>Eigenschaft</th><th>Wert</th></tr>
+            <tr><td>Breite</td><td>1440px fixed</td></tr>
+            <tr><td>Font</td><td>Inter (Google Fonts)</td></tr>
+            <tr><td>Nav-Hohe</td><td>72px fixed top</td></tr>
+            <tr><td>Icons</td><td>Font Awesome 6 Free</td></tr>
+            <tr><td>Karten-Shadow</td><td>0px 4px 20px rgba(0,0,0,0.15)</td></tr>
+        </table>
+
+        <h3>Modul-Typ Badges</h3>
+        <table>
+            <tr><th>Typ</th><th>Badge BG</th><th>Badge Text</th></tr>
+            <tr><td>Video</td><td>#EDE9FE</td><td>#7C3AED</td></tr>
+            <tr><td>Guide</td><td>#DBEAFE</td><td>#2563EB</td></tr>
+            <tr><td>Test</td><td>#FEF3C7</td><td>#D97706</td></tr>
+            <tr><td>Template</td><td>#D1FAE5</td><td>#059669</td></tr>
+            <tr><td>Checkliste</td><td>#FEE2E2</td><td>#DC2626</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 25. EDGE CASES -->
+<section id="s25">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Sonderfalle</div>
+            <h2>25. Edge Cases</h2>
+        </div>
+        <table>
+            <tr><th>Szenario</th><th>Verhalten</th></tr>
+            <tr><td>Deal wird abgebrochen (Kaufer)</td><td>Status → "Ausgeschieden". Kein Enablement. Grauer Badge. Mitteilung an Verkaufer.</td></tr>
+            <tr><td>Verkaufer lehnt IB ab (Phase 1)</td><td>Status → "Abgelehnt". Mitteilung an Kaufer.</td></tr>
+            <tr><td>Kaufer hat mehrere Deals</td><td>Jeder Deal unabhangig: eigene Phase, Checkliste, Attraktivitat. KI-Assistent auf Deal-Detail = deal-spezifisch.</td></tr>
+            <tr><td>Verkaufer hat kein Inserat</td><td>CTA "Erstelle dein Inserat". Academy-Module zuganglich, keine Deal-Features.</td></tr>
+            <tr><td>Readiness &lt;30%</td><td>Listings geblurrt. Gelbes Banner auf Deal-Detail.</td></tr>
+            <tr><td>Wartezeit-Phase</td><td>"Auf Ruckmeldung warten" als Checklisten-Step. Sidebar-Tipp: "Nutze die Wartezeit fur..."</td></tr>
+            <tr><td>Direktverkauf vs. Berater</td><td>Boolean <code>has_advisor</code> am Inserat. Phase 3: Variante "Jahresabschlusse/BWA" vs. "IM".</td></tr>
+            <tr><td>Academy-Modul nicht abgeschlossen</td><td>CTA "Modul starten". Wenn fertig: "Modul wiederholen" + grunes Hakchen.</td></tr>
+            <tr><td>Mehrere Phasenwechsel gleichzeitig</td><td>Toast zeigt nur den relevantesten Deal (hochste Phase). Rest in Mitteilungen.</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- 26. MOCKUP-DATEIEN -->
+<section id="s26">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Referenz</div>
+            <h2>26. Mockup-Dateien</h2>
+        </div>
+        <table>
+            <tr><th>Datei</th><th>Zeigt</th></tr>
+            <tr><td><code>transaktion-detail.html</code></td><td>Kaufer Deal-Detail, Phase 4 (Personliches Treffen)</td></tr>
+            <tr><td><code>transaktion-detail-galabau.html</code></td><td>Kaufer Deal-Detail, Phase 3 (NDA unterzeichnet)</td></tr>
+            <tr><td><code>transaktion-detail-verkaeufer.html</code></td><td>Verkaufer Deal-Detail, 3 Kaufer auf Phase 1/3/5</td></tr>
+            <tr><td><code>mitteilungen.html</code></td><td>Enablement-Mitteilungen fur Phase 1–4</td></tr>
+            <tr><td><code>transaktionen.html</code></td><td>Enablement-Bars + Toast-Banner</td></tr>
+            <tr><td><code>suche.html</code></td><td>Gating bei niedrigem Score</td></tr>
+            <tr><td><code>listing.html</code></td><td>KI-Analyse + Interest-Modal</td></tr>
+            <tr><td><code>kauferprofil.html</code></td><td>Readiness Score + Missing-Field Hints</td></tr>
+            <tr><td><code>academy.html</code></td><td>Academy Startseite, 3 Phasen, 12 Module</td></tr>
+            <tr><td><code>verkaufer-academy.html</code></td><td>Verkaufer-Academy, 10 Module</td></tr>
+            <tr><td><code>deal-readiness-check.html</code></td><td>Kaufer-Readiness-Selbsttest</td></tr>
+            <tr><td><code>verkaufsbereitschafts-check.html</code></td><td>Verkaufer-Readiness-Selbsttest</td></tr>
+            <tr><td><code>academy-modul-*.html</code> (9x)</td><td>Kaufer-Academy-Module (Video + Quiz + Referenz)</td></tr>
+            <tr><td><code>seller-academy-modul-*.html</code> (10x)</td><td>Verkaufer-Academy-Module</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+    <div class="container">
+        AMBER Enablement – Technische Spezifikation | Stand: 26. Marz 2026 | Erstellt mit Claude Code<br>
+        Erganzend: <code>In-Flow Enablement Spezifikation.md</code> (Markdown-Quelle) | <code>_doku-feature-uebersicht.html</code> (Senior-Team-Version)
+    </div>
+</div>
+
+</body>
+</html>
