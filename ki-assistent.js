@@ -2890,7 +2890,7 @@
             "6. Antworte auf Deutsch, duze den User.\n" +
             "7. Halte Antworten kurz und praegnant (max 200 Woerter). Komm direkt zum Punkt.\n" +
             "8. Formatiere mit HTML: <strong> fuer Hervorhebungen, <ul><li> fuer Listen, <br> fuer Absaetze. KEIN Markdown, KEINE Backticks.\n" +
-            "9. Nenne am Ende in eckigen Klammern das Quell-Modul, z.B. [Modul: Dokumente im M&A-Prozess].\n" +
+            "9. Nenne KEINE Quellen, Modulnamen oder Referenzen in deiner Antwort — das uebernimmt das System automatisch.\n" +
             "10. " + perspectiveNote + "\n" +
             historyContext + "\n\n" +
             "ACADEMY-CONTENT (19 Module):\n" + academyContent;
@@ -3140,15 +3140,8 @@
                 hideTyping();
 
                 if (apiAnswer && !error) {
-                    // Use API answer with source link from static match
-                    var sourceLink = "";
-                    var matches = findBestMatches(query, perspective, 1);
-                    if (matches.length > 0) {
-                        var src = matches[0].source;
-                        sourceLink = '<br><div class="ka-src"><i class="fa-solid fa-graduation-cap"></i>' +
-                                     '<a href="' + src.url + '">Quelle: ' + src.title + ' \u2192</a></div>';
-                    }
-                    addMessage(apiAnswer + sourceLink, false);
+                    // API answer — no static source link (would be inaccurate)
+                    addMessage(apiAnswer, false);
                     chatHistory.push({ role: "assistant", text: apiAnswer });
                 } else {
                     // API failed — fall back to static KB answer
