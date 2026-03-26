@@ -3177,6 +3177,7 @@
     }
 
     function showFollowUpChips(lastQuery, perspective) {
+        if (API_ENABLED) return; // API mode: no static KB chips
         var related = findRelatedTopics(lastQuery, perspective);
         if (related.length === 0) return;
 
