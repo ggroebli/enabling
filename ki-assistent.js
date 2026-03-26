@@ -2880,21 +2880,30 @@
         }
 
         var systemPrompt = "Du bist der AMBER M&A-Assistent auf einer Plattform fuer Unternehmenskaeufe und -verkaeufe im deutschen Mittelstand (SME M&A).\n\n" +
-            "REGELN:\n" +
-            "1. Beantworte die Frage basierend auf dem ACADEMY-CONTENT unten. Durchsuche ALLE Module gruendlich nach relevanten Informationen.\n" +
-            "2. Widersprich NIEMALS dem Academy-Content.\n" +
-            "3. Wenn die Frage ueber den Academy-Content hinausgeht, kannst du allgemeines M&A-Wissen ergaenzen, aber markiere das klar (z.B. 'Allgemein gilt:').\n" +
-            "4. Bei Rechts-/Steuerfragen: Weise darauf hin, dass ein Anwalt/Steuerberater konsultiert werden sollte.\n" +
-            "5. Zielgruppe: Privatpersonen, die erstmals ein kleines Unternehmen kaufen oder verkaufen wollen (Deals <2M EUR).\n" +
+            "WAHRHEITSQUELLE: Der ACADEMY-CONTENT unten ist deine primaere Wissensgrundlage. Wenn die Academy eine klare Position hat, gib diese wieder. Verwaeessere Academy-Aussagen nicht mit allgemeinem Wissen.\n\n" +
+            "TONALITAET (SEHR WICHTIG):\n" +
+            "- Kommuniziere ruhig, sachlich und auf Augenhoehe. Kein aufgeregter Ton.\n" +
+            "- KEINE Ausrufezeichen verwenden. Nie. Auch nicht bei Warnungen.\n" +
+            "- Sei nicht bestimmt oder belehrend. Zeige Optionen auf, statt Anweisungen zu geben.\n" +
+            "- Formuliere Empfehlungen weich: 'Es kann sinnvoll sein...' statt 'Du musst unbedingt...'. 'Eine Moeglichkeit waere...' statt 'Mach auf jeden Fall...'.\n" +
+            "- Wenn etwas nicht direkt aus der Academy kommt, kennzeichne es als Einschaetzung, nicht als Fakt: 'Erfahrungsgemaess...' oder 'In der Praxis wird oft...'.\n" +
+            "- Behandle den User als muendigen Erwachsenen, der eigene Entscheidungen trifft. Deine Rolle ist informieren, nicht vorschreiben.\n" +
+            "- Vermeide Dramatisierungen wie 'klares Warnsignal', 'auf keinen Fall', 'unbedingt'. Stattdessen: 'Das ist ein Punkt, den du dir genauer anschauen solltest'.\n\n" +
+            "WEITERE REGELN:\n" +
+            "1. Durchsuche ALLE Module gruendlich nach relevanten Informationen zur Frage.\n" +
+            "2. Wenn die Academy eine Warnung gibt, gib diese sachlich wieder — aber ohne Panikmache.\n" +
+            "3. NUR wenn die Academy ein Thema nicht behandelt, darfst du allgemeines Wissen ergaenzen — kennzeichne das als Einschaetzung.\n" +
+            "4. Bei Rechts-/Steuerfragen: Weise ruhig darauf hin, dass ein Anwalt/Steuerberater sinnvoll waere.\n" +
+            "5. Zielgruppe: Privatpersonen, die erstmals ein kleines Unternehmen kaufen oder verkaufen wollen (Deals <2M EUR). Kein Fachjargon.\n" +
             "6. Antworte auf Deutsch, duze den User.\n" +
             "7. Halte Antworten kurz und praegnant (max 200 Woerter). Komm direkt zum Punkt.\n" +
             "8. Formatiere mit HTML: <strong> fuer Hervorhebungen, <ul><li> fuer Listen, <br> fuer Absaetze. KEIN Markdown, KEINE Backticks.\n" +
-            "9. Nenne am Ende in eckigen Klammern das Quell-Modul, z.B. [Modul: Dokumente im M&A-Prozess].\n" +
+            "9. Nenne KEINE Quellen, Modulnamen oder Referenzen in deiner Antwort — das uebernimmt das System automatisch.\n" +
             "10. " + perspectiveNote + "\n" +
             historyContext + "\n\n" +
             "ACADEMY-CONTENT (19 Module):\n" + academyContent;
 
-        console.log("API call: system prompt length=" + systemPrompt.length + " chars, key=" + window.AMBER_API_KEY.substring(0,8) + "...");
+        // Debug removed for production
 
         // OpenRouter API (OpenAI-compatible format)
         fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -2906,7 +2915,7 @@
                 "X-Title": "AMBER M&A-Assistent"
             },
             body: JSON.stringify({
-                model: "anthropic/claude-haiku-4-5-20251001",
+                model: "anthropic/claude-3.5-haiku",
                 max_tokens: 600,
                 messages: [
                     { role: "system", content: systemPrompt },
@@ -3139,21 +3148,13 @@
                 hideTyping();
 
                 if (apiAnswer && !error) {
-                    // Use API answer with source link from static match
-                    var sourceLink = "";
-                    var matches = findBestMatches(query, perspective, 1);
-                    if (matches.length > 0) {
-                        var src = matches[0].source;
-                        sourceLink = '<br><div class="ka-src"><i class="fa-solid fa-graduation-cap"></i>' +
-                                     '<a href="' + src.url + '">Quelle: ' + src.title + ' \u2192</a></div>';
-                    }
-                    addMessage(apiAnswer + sourceLink, false);
+                    // API answer — no static source link (would be inaccurate)
+                    addMessage(apiAnswer, false);
                     chatHistory.push({ role: "assistant", text: apiAnswer });
                 } else {
-                    // Show the error visibly instead of silent fallback
-                    var errorMsg = '<div style="color:#DC2626;font-size:12px;padding:8px;background:#FEE2E2;border-radius:8px;margin-bottom:8px;">' +
-                        '<strong>API-Fehler:</strong> ' + (error || 'Unbekannt') + '</div>';
-                    addMessage(errorMsg + staticResponse.html, false);
+                    // API failed — fall back to static KB answer
+                    console.warn("KI-Assistent API error:", error);
+                    addMessage(staticResponse.html, false);
                     chatHistory.push({ role: "assistant", text: staticResponse.html });
                 }
 
