@@ -9,7 +9,8 @@
  * - Dual-mode: Static KB (offline) + API mode (online)
  *
  * Einbindung: <script src="ki-assistent.js"><\/script> vor </body>
- * API-Mode: <script>window.AMBER_API_KEY = 'sk-ant-...';<\/script> vor dem Widget-Script
+ * API-Mode (Proxy): <script>window.AMBER_PROXY_URL = 'https://amber-proxy.DEIN-ACCOUNT.workers.dev';<\/script>
+ * API-Mode (Direkt): <script>window.AMBER_API_KEY = 'sk-or-...';<\/script>
  */
 
 (function() {
@@ -2855,10 +2856,10 @@
     // 5. CLAUDE API INTEGRATION (optional)
     // =========================================================================
 
-    var API_ENABLED = !!(window.AMBER_API_KEY);
+    var API_ENABLED = !!(window.AMBER_API_KEY || window.AMBER_PROXY_URL);
 
     function callClaudeAPI(query, contextChunks, perspective, callback) {
-        if (!window.AMBER_API_KEY) {
+        if (!window.AMBER_API_KEY && !window.AMBER_PROXY_URL) {
             callback(null, "API key not set");
             return;
         }
@@ -2905,15 +2906,17 @@
 
         // Debug removed for production
 
-        // OpenRouter API (OpenAI-compatible format)
-        fetch("https://openrouter.ai/api/v1/chat/completions", {
+        // API call: Cloudflare Worker proxy (preferred) or direct OpenRouter
+        var apiUrl = window.AMBER_PROXY_URL || "https://openrouter.ai/api/v1/chat/completions";
+        var apiHeaders = { "Content-Type": "application/json" };
+        if (!window.AMBER_PROXY_URL && window.AMBER_API_KEY) {
+            apiHeaders["Authorization"] = "Bearer " + window.AMBER_API_KEY;
+            apiHeaders["HTTP-Referer"] = window.location.href;
+            apiHeaders["X-Title"] = "AMBER M&A-Assistent";
+        }
+        fetch(apiUrl, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + window.AMBER_API_KEY,
-                "HTTP-Referer": window.location.href,
-                "X-Title": "AMBER M&A-Assistent"
-            },
+            headers: apiHeaders,
             body: JSON.stringify({
                 model: "anthropic/claude-3.5-haiku",
                 max_tokens: 600,
