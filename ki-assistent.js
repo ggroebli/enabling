@@ -2918,7 +2918,7 @@
                 model: "anthropic/claude-3.5-haiku",
                 max_tokens: 600,
                 messages: [
-                    { role: "system", content: systemPrompt },
+                    { role: "system", content: [{ type: "text", text: systemPrompt, cache_control: { type: "ephemeral" } }] },
                     { role: "user", content: query }
                 ]
             })
