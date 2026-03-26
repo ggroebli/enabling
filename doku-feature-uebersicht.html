@@ -163,6 +163,13 @@
         
         
         
+        
+        /* Collapsible screenshots */
+        details summary { list-style: none; }
+        details summary::-webkit-details-marker { display: none; }
+        details[open] summary { margin-bottom: 16px; }
+        details[open] summary::before { content: ""; }
+        details summary::before { content: ""; }
         /* Screenshot frames */
         .ss-section { margin: 40px 0; }
         .ss-section h3 { font-size: 18px; margin-bottom: 20px; color: #1A1A1A; }
@@ -396,8 +403,11 @@
         <div class="section-header">
             <div class="label">Live-Ansichten</div>
             <h2>Die wichtigsten Seiten im &Uuml;berblick</h2>
-            <p>Jede Vorschau zeigt die echte Mockup-Seite, herunterskaliert. Die Seiten k&ouml;nnen auch einzeln im Browser ge&ouml;ffnet werden.</p>
+            <p>Am besten besuchst du direkt die <a href="https://ggroebli.github.io/enabling/" style="color:#7C3AED;font-weight:600;">GitHub-Pages-Seite</a> und klickst dich selbst durch die einzelnen Mockups. Alternativ kannst du dir hier einen ersten Eindruck verschaffen:</p>
         </div>
+
+        <details style="margin-top:8px;">
+            <summary style="cursor:pointer;font-size:15px;font-weight:600;color:#7C3AED;padding:12px 0;user-select:none;">&#x25B6; Screenshots aufklappen</summary>
 
         <div class="ss-section">
             <h3>&#x1f6d2; K&auml;ufer-Journey (erweiterte Seiten)</h3>
@@ -554,6 +564,8 @@
                 <div class="ss-label"><strong>Modul: Exit-Readiness (Verk&auml;ufer)</strong> <span class="badge b-new">Neu</span></div>
             </div>
         </div>
+
+        </details>
     </div>
 </section>
 
