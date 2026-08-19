@@ -20,7 +20,6 @@ Die Mockups dienen als **Konzeptgrundlage für das Team** (nicht als Production 
 | **Florian (Fynn)** | Product / Mockups – erstellt die Mockups mit Claude Code |
 | **Graig** | Strategy / Content – inhaltliche Konzeption |
 | **Kai** | Strategy / Content – Academy-Module, Content |
-| **Anja** | Content – KI-generierte Videos und Texte |
 
 ## Konzept-Dokument
 
