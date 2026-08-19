@@ -639,8 +639,6 @@
 
                 <div class="top-hints" id="top-hints"></div>
 
-                <div class="top-hints" id="top-hints"></div>
-
                 <div class="result-actions">
                     <button class="btn-secondary" onclick="resetCheck()"><i class="fa-solid fa-rotate"></i> Check wiederholen</button>
                     <a href="verkaufer-academy.html" class="btn-secondary"><i class="fa-solid fa-graduation-cap"></i> Zurück zur Academy</a>
@@ -822,41 +820,6 @@ function showResult() {
         heading.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Deine wichtigsten n\u00e4chsten Schritte';
         hintsContainer.appendChild(heading);
 
-        weakItems.forEach((item, idx) => {
-            const card = document.createElement("div");
-            card.className = "hint-card";
-            card.innerHTML = `
-                <div class="hint-number">${idx + 1}</div>
-                <div class="hint-content">
-                    <div class="hint-text">${item.q.hint}</div>
-                    <a href="${item.q.module}" class="hint-module-link"><i class="fa-solid fa-arrow-right"></i> Mehr dazu: ${item.q.moduleName}</a>
-                </div>
-            `;
-            hintsContainer.appendChild(card);
-        });
-    } else {
-        const allGood = document.createElement("div");
-        allGood.className = "hint-card hint-green";
-        allGood.innerHTML = `
-            <div class="hint-number" style="background: #10B981;">\u2713</div>
-            <div class="hint-content">
-                <div class="hint-text">Hervorragend! Du hast alle Fragen positiv beantwortet. Du bist bestens auf den Verkaufsprozess vorbereitet.</div>
-            </div>
-        `;
-        hintsContainer.appendChild(allGood);
-    }
-
-    // Top hints
-    const weakItems = questions.map((q, i) => ({ q, a: answers[i], idx: i }))
-        .filter(x => x.a < 2)
-        .sort((a, b) => { if (a.a !== b.a) return a.a - b.a; return (b.q.priority || 0) - (a.q.priority || 0); })
-        .slice(0, 5);
-    const hintsContainer = document.getElementById("top-hints");
-    hintsContainer.innerHTML = "";
-    if (weakItems.length > 0) {
-        const heading = document.createElement("h3");
-        heading.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Deine wichtigsten n\u00e4chsten Schritte';
-        hintsContainer.appendChild(heading);
         weakItems.forEach((item, idx) => {
             const card = document.createElement("div");
             card.className = "hint-card";
