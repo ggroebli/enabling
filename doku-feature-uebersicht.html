@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMBER Enablement – Feature-Übersicht</title>
+    <title>DUB Enablement – Feature-Übersicht</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -25,15 +25,15 @@
         .toc { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 32px; margin: 40px auto; max-width: 1100px; }
         .toc h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #1A1A1A; }
         .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; }
-        .toc a { color: #7C3AED; text-decoration: none; font-size: 14px; padding: 6px 0; display: flex; align-items: center; gap: 8px; }
-        .toc a:hover { color: #6D28D9; }
+        .toc a { color: #EE7A1E; text-decoration: none; font-size: 14px; padding: 6px 0; display: flex; align-items: center; gap: 8px; }
+        .toc a:hover { color: #0F2744; }
         .toc-num { background: #F3F4F6; color: #6B7280; font-size: 11px; font-weight: 600; width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
         /* Sections */
         section { padding: 48px 0; }
         section:nth-child(even) { background: white; }
         .section-header { margin-bottom: 32px; }
-        .section-header .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7C3AED; margin-bottom: 8px; }
+        .section-header .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #EE7A1E; margin-bottom: 8px; }
         .section-header h2 { font-size: 28px; font-weight: 700; }
         .section-header p { font-size: 15px; color: #6B7280; margin-top: 8px; max-width: 720px; }
 
@@ -42,13 +42,13 @@
         .layer-card { background: white; border-radius: 12px; padding: 28px; border: 1px solid #E5E7EB; position: relative; overflow: hidden; }
         .layer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
         .layer-card.green::before { background: linear-gradient(90deg, #10B981, #059669); }
-        .layer-card.blue::before { background: linear-gradient(90deg, #2563EB, #1D4ED8); }
-        .layer-card.purple::before { background: linear-gradient(90deg, #7C3AED, #6D28D9); }
+        .layer-card.blue::before { background: linear-gradient(90deg, #0F2744, #1D4ED8); }
+        .layer-card.purple::before { background: linear-gradient(90deg, #EE7A1E, #0F2744); }
         .layer-num { font-size: 48px; font-weight: 800; color: #F3F4F6; position: absolute; top: 12px; right: 16px; }
         .layer-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: white; margin-bottom: 16px; }
         .layer-icon.green { background: #10B981; }
-        .layer-icon.blue { background: #2563EB; }
-        .layer-icon.purple { background: #7C3AED; }
+        .layer-icon.blue { background: #0F2744; }
+        .layer-icon.purple { background: #EE7A1E; }
         .layer-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
         .layer-card .when { font-size: 12px; color: #9CA3AF; font-weight: 500; margin-bottom: 12px; }
         .layer-card p { font-size: 14px; color: #6B7280; line-height: 1.5; }
@@ -61,10 +61,10 @@
         .feature-card { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 24px; transition: box-shadow 0.2s; }
         .feature-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
         .feature-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-        .feature-card h3 i { color: #7C3AED; font-size: 14px; }
+        .feature-card h3 i { color: #EE7A1E; font-size: 14px; }
         .feature-card p { font-size: 13px; color: #6B7280; line-height: 1.5; }
         .feature-card .mockup-link { margin-top: 12px; }
-        .feature-card .mockup-link a { font-size: 12px; color: #7C3AED; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
+        .feature-card .mockup-link a { font-size: 12px; color: #EE7A1E; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
         .feature-card .mockup-link a:hover { text-decoration: underline; }
 
         /* Phase Timeline */
@@ -73,7 +73,7 @@
         .phase-item::after { content: ''; position: absolute; top: 16px; right: -50%; width: 100%; height: 2px; background: #E5E7EB; z-index: 0; }
         .phase-item:last-child::after { display: none; }
         .phase-dot { width: 32px; height: 32px; border-radius: 50%; background: #E5E7EB; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; position: relative; z-index: 1; font-size: 12px; font-weight: 700; color: #6B7280; }
-        .phase-dot.active { background: #2563EB; color: white; }
+        .phase-dot.active { background: #0F2744; color: white; }
         .phase-dot.done { background: #10B981; color: white; }
         .phase-name { font-size: 10px; color: #6B7280; line-height: 1.3; padding: 0 4px; }
 
@@ -83,11 +83,11 @@
         .big-feature.reverse > * { direction: ltr; }
         .big-feature-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
         .big-feature-text p { font-size: 14px; color: #6B7280; margin-bottom: 16px; }
-        .big-feature-visual { background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%); border: 1px solid #E0E7FF; border-radius: 12px; padding: 24px; min-height: 200px; }
+        .big-feature-visual { background: linear-gradient(135deg, #EAF2FB 0%, #F5F9FD 50%, #E6F0FA 100%); border: 1px solid #CFE0F2; border-radius: 12px; padding: 24px; min-height: 200px; }
 
         /* Info Box */
-        .info-box { background: #F5F3FF; border: 1px solid #E0E7FF; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
-        .info-box h4 { font-size: 14px; font-weight: 600; color: #7C3AED; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .info-box { background: #E6F0FA; border: 1px solid #CFE0F2; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+        .info-box h4 { font-size: 14px; font-weight: 600; color: #EE7A1E; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
         .info-box p, .info-box ul { font-size: 13px; color: #4B5563; }
         .info-box ul { margin-top: 8px; padding-left: 20px; }
         .info-box ul li { margin-bottom: 4px; }
@@ -95,26 +95,26 @@
         /* Perspective Section */
         .perspective-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
         .perspective-card { border-radius: 12px; padding: 24px; }
-        .perspective-card.buyer { background: #DBEAFE; border: 1px solid #93C5FD; }
+        .perspective-card.buyer { background: #E6F0FA; border: 1px solid #93C5FD; }
         .perspective-card.seller { background: #FEF3C7; border: 1px solid #FCD34D; }
         .perspective-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
         .perspective-card ul { list-style: none; }
         .perspective-card ul li { font-size: 13px; padding: 4px 0; padding-left: 20px; position: relative; }
-        .perspective-card.buyer ul li::before { content: '\f007'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: #2563EB; font-size: 10px; }
+        .perspective-card.buyer ul li::before { content: '\f007'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: #0F2744; font-size: 10px; }
         .perspective-card.seller ul li::before { content: '\f1ad'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: #D97706; font-size: 10px; }
 
         /* Stats */
         .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0; }
         .stat-card { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 20px; text-align: center; }
-        .stat-num { font-size: 32px; font-weight: 800; color: #7C3AED; }
+        .stat-num { font-size: 32px; font-weight: 800; color: #EE7A1E; }
         .stat-label { font-size: 12px; color: #6B7280; margin-top: 4px; }
 
         /* Academy Modules */
         .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
         .module-card { background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; }
         .module-card .badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px; }
-        .module-card .badge.video { background: #EDE9FE; color: #7C3AED; }
-        .module-card .badge.guide { background: #DBEAFE; color: #2563EB; }
+        .module-card .badge.video { background: #E6F0FA; color: #EE7A1E; }
+        .module-card .badge.guide { background: #E6F0FA; color: #0F2744; }
         .module-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
         .module-card .duration { font-size: 11px; color: #9CA3AF; }
 
@@ -130,9 +130,9 @@
         /* Flow diagram */
         .flow-diagram { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 24px 0; padding: 24px; background: white; border: 1px solid #E5E7EB; border-radius: 12px; }
         .flow-step { background: #F3F4F6; border-radius: 8px; padding: 12px 16px; font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
-        .flow-step i { color: #7C3AED; }
+        .flow-step i { color: #EE7A1E; }
         .flow-arrow { color: #D1D5DB; font-size: 18px; }
-        .flow-step.highlight { background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%); border: 1px solid #E0E7FF; }
+        .flow-step.highlight { background: linear-gradient(135deg, #EAF2FB 0%, #F5F9FD 50%, #E6F0FA 100%); border: 1px solid #CFE0F2; }
 
         /* Separator */
         .sep { height: 1px; background: #E5E7EB; margin: 0; }
@@ -140,14 +140,14 @@
         /* Page links */
         .page-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
         .page-link { background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; text-decoration: none; color: #1A1A1A; transition: all 0.2s; display: block; }
-        .page-link:hover { border-color: #7C3AED; box-shadow: 0 2px 8px rgba(124,58,237,0.1); }
+        .page-link:hover { border-color: #EE7A1E; box-shadow: 0 2px 8px rgba(124,58,237,0.1); }
         .page-link .name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
         .page-link .desc { font-size: 11px; color: #9CA3AF; }
-        .page-link .file { font-size: 10px; color: #7C3AED; margin-top: 8px; font-family: monospace; }
+        .page-link .file { font-size: 10px; color: #EE7A1E; margin-top: 8px; font-family: monospace; }
 
         /* Checklist Preview */
         .checklist-preview { background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; margin-top: 12px; }
-        .checklist-preview h4 { font-size: 13px; font-weight: 600; margin-bottom: 8px; color: #2563EB; }
+        .checklist-preview h4 { font-size: 13px; font-weight: 600; margin-bottom: 8px; color: #0F2744; }
         .check-item { font-size: 12px; padding: 4px 0; display: flex; align-items: center; gap: 8px; color: #4B5563; }
         .check-item .box { width: 16px; height: 16px; border: 2px solid #D1D5DB; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .check-item .box.done { background: #10B981; border-color: #10B981; color: white; font-size: 9px; }
@@ -187,10 +187,57 @@
         .ss-label strong { color: #1A1A1A; }
         .ss-label .badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
         .ss-label .b-new { background: #D1FAE5; color: #059669; }
-        .ss-label .b-ext { background: #DBEAFE; color: #2563EB; }
+        .ss-label .b-ext { background: #E6F0FA; color: #0F2744; }
 
         /* Footer */
         .doc-footer { background: #1A1A1A; color: #9CA3AF; padding: 32px 0; font-size: 13px; text-align: center; margin-top: 48px; }
+    
+        /* ===================== DUB CI OVERRIDE ===================== */
+        :root {
+            --navy:#0F2744; --navy-2:#14294A; --dub-orange:#EE7A1E;
+            --dub-orange-light:#FDEBD8; --footer-link:#AEB8CC;
+            --gradient-cta: linear-gradient(120deg,#163862 0%,#0F2744 100%);
+        }
+        .dub-logo { display:inline-flex; align-items:center; gap:10px; text-decoration:none; margin-right:40px; }
+        .dub-badge { display:inline-flex; align-items:center; justify-content:center; background:var(--navy); color:#fff; font-weight:800; letter-spacing:.5px; width:40px; height:40px; border-radius:9px; font-size:16px; }
+        .dub-logo-text { display:flex; flex-direction:column; line-height:1.05; color:var(--navy); font-weight:700; font-size:15px; }
+        .dub-logo-text span { font-weight:400; color:var(--navy); font-size:14px; }
+        .dub-logo--light .dub-badge { background:var(--navy-2); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
+        .dub-logo--light .dub-logo-text, .dub-logo--light .dub-logo-text span { color:#fff; }
+        .nav-links { display:flex; align-items:center; gap:4px; background:#F4F5F7; padding:5px; border-radius:30px; margin:0 auto; flex:0 1 auto; }
+        .nav-links a { font-size:14px; font-weight:500; color:var(--navy); text-decoration:none; padding:8px 16px; border-radius:24px; white-space:nowrap; }
+        .nav-links a:hover { background:#E9EBEF; opacity:1; }
+        .nav-links a.active { background:var(--navy); color:#fff; font-weight:600; }
+        .nav-right { display:flex; align-items:center; gap:12px; }
+        .nav-lang { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--navy); border:1px solid #E2E5EA; padding:8px 12px; border-radius:24px; cursor:pointer; }
+        .nav-account { display:flex; align-items:center; gap:10px; border:1px solid #E2E5EA; padding:5px 5px 5px 14px; border-radius:28px; cursor:pointer; }
+        .nav-account-name { font-size:14px; font-weight:600; color:var(--navy); }
+        .nav-account-initials { width:32px; height:32px; border-radius:50%; background:var(--navy); color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+        .footer { background:var(--navy) !important; color:#fff !important; padding:56px 48px 28px; width:1440px; margin-top:80px; }
+        .footer-top { display:flex; justify-content:space-between; align-items:flex-start; gap:48px; margin-bottom:0; }
+        .footer-brand { display:flex; flex-direction:column; }
+        .footer-tagline { font-size:14px; font-weight:300; color:var(--footer-link); margin-top:16px; max-width:280px; line-height:150%; }
+        .footer-contact { display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
+        .footer-contact-title { font-size:16px; font-weight:700; margin-bottom:4px; color:#fff; }
+        .footer-contact-row { display:flex; align-items:center; gap:10px; font-size:14px; color:#E5E9F0; }
+        .footer-contact-row i { color:var(--dub-orange); width:16px; text-align:center; }
+        .footer-contact-row a { color:inherit; }
+        .footer-contact-btn { display:inline-flex; align-items:center; gap:8px; margin-top:8px; padding:10px 20px; border:1px solid rgba(255,255,255,.35); border-radius:24px; color:#fff; font-size:14px; font-weight:600; text-decoration:none; }
+        .footer-contact-btn:hover { background:rgba(255,255,255,.08); }
+        .footer-social { display:flex; gap:16px; margin-top:14px; }
+        .footer-social a { color:var(--footer-link); font-size:18px; text-decoration:none; }
+        .footer-social a:hover { color:#fff; }
+        .footer-cols { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin-top:40px; padding:40px 0; border-top:1px solid rgba(255,255,255,.1); }
+        .footer-col-title { font-size:14px; font-weight:700; color:var(--dub-orange); margin-bottom:16px; }
+        .footer-col a { display:block; font-size:14px; font-weight:300; color:var(--footer-link); text-decoration:none; margin-bottom:10px; line-height:140%; }
+        .footer-col a:hover { color:#fff; }
+        .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); }
+        .footer-badges { display:flex; align-items:center; gap:20px; flex-wrap:wrap; font-size:13px; font-weight:300; color:var(--footer-link); }
+        .footer-badges .dot { color:var(--dub-orange); margin-right:6px; }
+        .footer-badges a { color:var(--footer-link); text-decoration:none; }
+        .footer-badges a:hover { color:#fff; }
+        .footer-copyright { font-size:13px; font-weight:300; color:#8894AD; }
+    
     </style>
 </head>
 <body>
@@ -198,7 +245,7 @@
 <!-- HEADER -->
 <div class="doc-header">
     <div class="container">
-        <h1>AMBER Enablement – Feature-Ubersicht</h1>
+        <h1>DUB Enablement – Feature-Ubersicht</h1>
         <div class="subtitle">Alle Enablement-Features auf einen Blick</div>
         <div class="meta">
             <span><i class="fa-solid fa-calendar"></i> Stand: 26. Marz 2026</span>
@@ -213,7 +260,7 @@
     <h2>Inhalt</h2>
     <div class="toc-grid">
         <a href="#screenshots"><span class="toc-num" style="background:#059669;color:white;">&#x1f4f7;</span> Screenshots aller Seiten</a>
-        <a href="#vorher-nachher"><span class="toc-num" style="background:#7C3AED;color:white;">★</span> Vorher &rarr; Nachher</a>
+        <a href="#vorher-nachher"><span class="toc-num" style="background:#EE7A1E;color:white;">★</span> Vorher &rarr; Nachher</a>
         <a href="#vision"><span class="toc-num">1</span> Produktvision: Drei Ebenen</a>
         <a href="#academy"><span class="toc-num">2</span> Readiness Academy</a>
         <a href="#inflow"><span class="toc-num">3</span> In-Flow Enablement</a>
@@ -239,11 +286,11 @@
         <div class="section-header">
             <div class="label">Live-Ansichten</div>
             <h2>Die wichtigsten Seiten im &Uuml;berblick</h2>
-            <p>Am besten besuchst du direkt die <a href="https://ggroebli.github.io/enabling/academy.html" target="_blank" style="color:#7C3AED;font-weight:600;">GitHub-Pages-Seite (ggroebli.github.io/enabling/academy.html)</a> und klickst dich selbst durch die einzelnen Mockups. Alternativ kannst du dir hier einen ersten Eindruck verschaffen:</p>
+            <p>Am besten besuchst du direkt die <a href="https://ggroebli.github.io/enabling/academy.html" target="_blank" style="color:#EE7A1E;font-weight:600;">GitHub-Pages-Seite (ggroebli.github.io/enabling/academy.html)</a> und klickst dich selbst durch die einzelnen Mockups. Alternativ kannst du dir hier einen ersten Eindruck verschaffen:</p>
         </div>
 
         <details style="margin-top:8px;">
-            <summary style="cursor:pointer;font-size:15px;font-weight:600;color:#7C3AED;padding:12px 0;user-select:none;">&#x25B6; Screenshots aufklappen</summary>
+            <summary style="cursor:pointer;font-size:15px;font-weight:600;color:#EE7A1E;padding:12px 0;user-select:none;">&#x25B6; Screenshots aufklappen</summary>
 
         <div class="ss-section">
             <h3>&#x1f6d2; K&auml;ufer-Journey (erweiterte Seiten)</h3>
@@ -411,7 +458,7 @@
         <div class="section-header">
             <div class="label">Das Konzept</div>
             <h2>Produktvision: Drei Ebenen</h2>
-            <p>Das AMBER Enablement begleitet unerfahrene Kaufer und Verkaufer durch den gesamten M&amp;A-Prozess – von der Vorbereitung bis zum Closing. Drei integrierte Ebenen greifen ineinander.</p>
+            <p>Das DUB Enablement begleitet unerfahrene Kaufer und Verkaufer durch den gesamten M&amp;A-Prozess – von der Vorbereitung bis zum Closing. Drei integrierte Ebenen greifen ineinander.</p>
         </div>
 
         <div class="layers-grid">
@@ -473,7 +520,7 @@
         <div class="section-header">
             <div class="label">Der Unterschied</div>
             <h2>Vorher &rarr; Nachher: Was hat sich verandert?</h2>
-            <p>Die ursprungliche AMBER-Plattform war ein reiner Marktplatz fur M&amp;A-Profis. Das Enablement verwandelt sie in eine Plattform, die auch Erstkaeufer und Erstverkaeufer erfolgreich durch den Prozess fuhrt.</p>
+            <p>Die ursprungliche DUB-Plattform war ein reiner Marktplatz fur M&amp;A-Profis. Das Enablement verwandelt sie in eine Plattform, die auch Erstkaeufer und Erstverkaeufer erfolgreich durch den Prozess fuhrt.</p>
         </div>
 
         <!-- Before/After comparison cards -->
@@ -603,7 +650,7 @@
         </div>
 
         <!-- Summary -->
-        <div style="background:linear-gradient(135deg,#F0FDF4 0%,#F0FDFA 50%,#F5F3FF 100%);border:1px solid #E0E7FF;border-radius:12px;padding:24px;margin-top:32px;">
+        <div style="background:linear-gradient(135deg,#EAF2FB 0%,#F5F9FD 50%,#E6F0FA 100%);border:1px solid #CFE0F2;border-radius:12px;padding:24px;margin-top:32px;">
             <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;">Zusammenfassung: Von 8 auf 37 Seiten</h3>
             <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px;">
                 <div style="text-align:center;">
@@ -617,13 +664,13 @@
                     <div style="font-size:11px;color:#6B7280;">Seiten (Enablement)</div>
                 </div>
                 <div style="text-align:center;">
-                    <div style="font-size:12px;color:#7C3AED;font-weight:600;">Neu</div>
-                    <div style="font-size:28px;font-weight:800;color:#7C3AED;">19</div>
+                    <div style="font-size:12px;color:#EE7A1E;font-weight:600;">Neu</div>
+                    <div style="font-size:28px;font-weight:800;color:#EE7A1E;">19</div>
                     <div style="font-size:11px;color:#6B7280;">Academy-Module</div>
                 </div>
                 <div style="text-align:center;">
-                    <div style="font-size:12px;color:#2563EB;font-weight:600;">Neu</div>
-                    <div style="font-size:28px;font-weight:800;color:#2563EB;">9</div>
+                    <div style="font-size:12px;color:#0F2744;font-weight:600;">Neu</div>
+                    <div style="font-size:28px;font-weight:800;color:#0F2744;">9</div>
                     <div style="font-size:11px;color:#6B7280;">Deal-Phasen mit Content</div>
                 </div>
             </div>
@@ -1138,7 +1185,7 @@
 <!-- FOOTER -->
 <div class="doc-footer">
     <div class="container">
-        AMBER Enablement – Feature-Ubersicht | Stand: 26. Marz 2026 | Erstellt mit Claude Code
+        DUB Enablement – Feature-Ubersicht | Stand: 26. Marz 2026 | Erstellt mit Claude Code
     </div>
 </div>
 

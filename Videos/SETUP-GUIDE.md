@@ -107,7 +107,7 @@ Reihenfolge-Begründung: Du brauchst die geklonte Stimme als Audio-Datei, bevor 
 3. Upload → Verarbeitung: 24–48 Stunden
 4. Consent-Formular ausfüllen (HeyGen muss bestätigt sehen, dass du Inhaber des Gesichts bist)
 
-> **Alternative:** Wenn du keinen eigenen Avatar willst, gibt es **Stock-Avatare** im Marketplace. Aber: AMBER-Lehrvideos wirken authentischer mit einem echten "Gesicht" der Firma.
+> **Alternative:** Wenn du keinen eigenen Avatar willst, gibt es **Stock-Avatare** im Marketplace. Aber: DUB-Lehrvideos wirken authentischer mit einem echten "Gesicht" der Firma.
 
 ### 2.4 Voice in HeyGen einbinden
 
@@ -132,7 +132,7 @@ Für den ersten Test: **Weg 1** ist robuster.
 1. Dashboard → **Create Video** → **Avatar Video**
 2. Avatar auswählen (deiner)
 3. Voice: **Upload Audio** → MP3 aus ElevenLabs
-4. Hintergrund: einfarbig (z.B. AMBER-Schwarz #1A1A1A) oder Greenscreen für späteren Schnitt
+4. Hintergrund: einfarbig (z.B. DUB-Schwarz #1A1A1A) oder Greenscreen für späteren Schnitt
 5. **Generate** → 5–15 Min
 6. Download als MP4 (1080p, MP4-H264)
 
@@ -179,7 +179,7 @@ Browser öffnet `http://localhost:3000` → Remotion Studio läuft.
 Im Studio:
 1. Sidebar links → **Compositions**
 2. Neue Komposition: Name `amber-modul-01`, 1920x1080, 30 fps
-3. In `src/Composition.tsx`: AMBER-Branding einbauen (Logo, Bauchbinde, Outro-Card)
+3. In `src/Composition.tsx`: DUB-Branding einbauen (Logo, Bauchbinde, Outro-Card)
 4. HeyGen-Video als `<Video>` einbetten
 5. Preview: Spacebar = Play
 
@@ -212,7 +212,7 @@ Wenn alle drei Tools laufen, **mach einen Smoke-Test** mit nur 30 Sekunden:
 1. Nimm die ersten 3 Sätze aus Modul 1 (Intro-Block)
 2. ElevenLabs → 20 Sek MP3
 3. HeyGen → 20 Sek Avatar-Video
-4. Remotion → kurzes Intro mit AMBER-Logo + Avatar + Outro
+4. Remotion → kurzes Intro mit DUB-Logo + Avatar + Outro
 
 So findest du in 20 Minuten alle Stolpersteine, bevor du das ganze 7-Minuten-Modul produzierst.
 

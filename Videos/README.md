@@ -1,4 +1,4 @@
-# Videos – AMBER Academy
+# Videos – DUB Academy
 
 Sammelordner für alle KI-generierten Lehrvideos der Käufer-Akademie (und später Verkäufer-Akademie).
 Skripte werden hier abgelegt, mit dem Tool-Workflow generiert und später in die jeweiligen `academy-modul-*.html` eingebettet.
@@ -40,8 +40,8 @@ Drei Tools, orchestriert durch Claude Code:
 - [ ] Sprecher:in festlegen (gleiche Person wie Avatar oder andere?)
 
 #### Für die Motion Graphics (Remotion)
-- [ ] AMBER-Logo (SVG, weiß auf transparent)
-- [ ] AMBER-Farb-Codes (sind in `CLAUDE.md` dokumentiert)
+- [ ] DUB-Logo (SVG, weiß auf transparent)
+- [ ] DUB-Farb-Codes (sind in `CLAUDE.md` dokumentiert)
 - [ ] Schriftart Inter (Google Fonts, frei)
 - [ ] Bauchbinden-Template-Skizze (z.B. unten links: Modul-Nummer + Titel)
 
@@ -61,7 +61,7 @@ Drei Tools, orchestriert durch Claude Code:
 
 Damit alle Skripte konsistent klingen:
 
-- **Du-Form**, lockerer AMBER-Ton (siehe Modul 1 als Referenz)
+- **Du-Form**, lockerer DUB-Ton (siehe Modul 1 als Referenz)
 - **Sprechdauer 6–7 Min** pro Modul (entspricht ca. 800–1.000 Wörtern)
 - **Struktur**: Intro → 3 Abschnitte → Zusammenfassung
 - **Keine Fake-Zahlen** (siehe Memory). Lieber "in der Regel rund 20%" statt "73% der Käufer..."

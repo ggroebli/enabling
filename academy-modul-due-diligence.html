@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMBER – Academy: Due Diligence meistern</title>
+    <title>DUB – Academy: Due Diligence meistern</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -16,7 +16,7 @@
             --grey-dark: #666666;
             --grey-light: #CCCCCC;
             --white: #FFFFFF;
-            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            --gradient-cta: linear-gradient(85.13deg, #163862 0%, #0F2744 96.11%);
             --phase-blue: #0D9488;
             --phase-blue-bg: #CCFBF1;
         }
@@ -190,7 +190,7 @@
 
         /* ===== HIGHLIGHT BOX ===== */
         .highlight-box {
-            background: linear-gradient(135deg, #CCFBF1 0%, #DBEAFE 50%, #D1FAE5 100%);
+            background: linear-gradient(135deg, #CCFBF1 0%, #E6F0FA 50%, #D1FAE5 100%);
             border: 1px solid #99F6E4;
             border-radius: 8px; padding: 20px 24px; margin: 16px 0;
         }
@@ -202,7 +202,7 @@
 
         /* ===== TIPP BOX ===== */
         .tipp-box {
-            background: #F0FDF4; border-left: 4px solid #10B981;
+            background: #EAF2FB; border-left: 4px solid #10B981;
             border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0;
         }
         .tipp-box .tipp-title {
@@ -260,7 +260,7 @@
 
         /* ===== KEY TAKEAWAYS ===== */
         .takeaways-box {
-            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            background: linear-gradient(135deg, #EAF2FB 0%, #F5F9FD 50%, #E6F0FA 100%);
             border: 1px solid #99F6E4;
             border-radius: 8px; padding: 28px 32px; margin: 40px 0 32px;
         }
@@ -286,7 +286,7 @@
             display: flex; align-items: center; justify-content: center; gap: 8px;
             width: 100%; padding: 14px 32px; background: var(--gradient-cta);
             border: none; border-radius: 8px; font-family: var(--font-main);
-            font-size: 16px; font-weight: 600; color: var(--black); cursor: pointer;
+            font-size: 16px; font-weight: 600; color: #fff; cursor: pointer;
         }
         .btn-complete:hover { opacity: 0.85; }
 
@@ -312,7 +312,7 @@
         }
 
         .progress-card {
-            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
+            background: linear-gradient(135deg, #EAF2FB 0%, #F5F9FD 50%, #E6F0FA 100%);
             border: 1px solid #99F6E4; text-align: center; padding: 24px 20px;
         }
         .progress-card .progress-label {
@@ -367,7 +367,7 @@
         .berater-cta-card a {
             display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
             background: var(--gradient-cta); border-radius: 20px; font-size: 13px;
-            font-weight: 600; color: var(--black); text-decoration: none;
+            font-weight: 600; color: #fff; text-decoration: none;
         }
         .berater-cta-card a:hover { opacity: 0.85; }
 
@@ -396,7 +396,7 @@
         .quiz-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
         .quiz-icon {
             width: 44px; height: 44px; border-radius: 10px;
-            background: linear-gradient(135deg, #CCFBF1 0%, #DBEAFE 100%);
+            background: linear-gradient(135deg, #CCFBF1 0%, #E6F0FA 100%);
             display: flex; align-items: center; justify-content: center;
         }
         .quiz-icon i { font-size: 20px; color: var(--phase-blue); }
@@ -562,13 +562,60 @@
         .footer-links { display: flex; gap: 24px; }
         .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
         .footer-links a:hover { color: var(--white); }
+    
+        /* ===================== DUB CI OVERRIDE ===================== */
+        :root {
+            --navy:#0F2744; --navy-2:#14294A; --dub-orange:#EE7A1E;
+            --dub-orange-light:#FDEBD8; --footer-link:#AEB8CC;
+            --gradient-cta: linear-gradient(120deg,#163862 0%,#0F2744 100%);
+        }
+        .dub-logo { display:inline-flex; align-items:center; gap:10px; text-decoration:none; margin-right:40px; }
+        .dub-badge { display:inline-flex; align-items:center; justify-content:center; background:var(--navy); color:#fff; font-weight:800; letter-spacing:.5px; width:40px; height:40px; border-radius:9px; font-size:16px; }
+        .dub-logo-text { display:flex; flex-direction:column; line-height:1.05; color:var(--navy); font-weight:700; font-size:15px; }
+        .dub-logo-text span { font-weight:400; color:var(--navy); font-size:14px; }
+        .dub-logo--light .dub-badge { background:var(--navy-2); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
+        .dub-logo--light .dub-logo-text, .dub-logo--light .dub-logo-text span { color:#fff; }
+        .nav-links { display:flex; align-items:center; gap:4px; background:#F4F5F7; padding:5px; border-radius:30px; margin:0 auto; flex:0 1 auto; }
+        .nav-links a { font-size:14px; font-weight:500; color:var(--navy); text-decoration:none; padding:8px 16px; border-radius:24px; white-space:nowrap; }
+        .nav-links a:hover { background:#E9EBEF; opacity:1; }
+        .nav-links a.active { background:var(--navy); color:#fff; font-weight:600; }
+        .nav-right { display:flex; align-items:center; gap:12px; }
+        .nav-lang { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--navy); border:1px solid #E2E5EA; padding:8px 12px; border-radius:24px; cursor:pointer; }
+        .nav-account { display:flex; align-items:center; gap:10px; border:1px solid #E2E5EA; padding:5px 5px 5px 14px; border-radius:28px; cursor:pointer; }
+        .nav-account-name { font-size:14px; font-weight:600; color:var(--navy); }
+        .nav-account-initials { width:32px; height:32px; border-radius:50%; background:var(--navy); color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+        .footer { background:var(--navy) !important; color:#fff !important; padding:56px 48px 28px; width:1440px; margin-top:80px; }
+        .footer-top { display:flex; justify-content:space-between; align-items:flex-start; gap:48px; margin-bottom:0; }
+        .footer-brand { display:flex; flex-direction:column; }
+        .footer-tagline { font-size:14px; font-weight:300; color:var(--footer-link); margin-top:16px; max-width:280px; line-height:150%; }
+        .footer-contact { display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
+        .footer-contact-title { font-size:16px; font-weight:700; margin-bottom:4px; color:#fff; }
+        .footer-contact-row { display:flex; align-items:center; gap:10px; font-size:14px; color:#E5E9F0; }
+        .footer-contact-row i { color:var(--dub-orange); width:16px; text-align:center; }
+        .footer-contact-row a { color:inherit; }
+        .footer-contact-btn { display:inline-flex; align-items:center; gap:8px; margin-top:8px; padding:10px 20px; border:1px solid rgba(255,255,255,.35); border-radius:24px; color:#fff; font-size:14px; font-weight:600; text-decoration:none; }
+        .footer-contact-btn:hover { background:rgba(255,255,255,.08); }
+        .footer-social { display:flex; gap:16px; margin-top:14px; }
+        .footer-social a { color:var(--footer-link); font-size:18px; text-decoration:none; }
+        .footer-social a:hover { color:#fff; }
+        .footer-cols { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin-top:40px; padding:40px 0; border-top:1px solid rgba(255,255,255,.1); }
+        .footer-col-title { font-size:14px; font-weight:700; color:var(--dub-orange); margin-bottom:16px; }
+        .footer-col a { display:block; font-size:14px; font-weight:300; color:var(--footer-link); text-decoration:none; margin-bottom:10px; line-height:140%; }
+        .footer-col a:hover { color:#fff; }
+        .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); }
+        .footer-badges { display:flex; align-items:center; gap:20px; flex-wrap:wrap; font-size:13px; font-weight:300; color:var(--footer-link); }
+        .footer-badges .dot { color:var(--dub-orange); margin-right:6px; }
+        .footer-badges a { color:var(--footer-link); text-decoration:none; }
+        .footer-badges a:hover { color:#fff; }
+        .footer-copyright { font-size:13px; font-weight:300; color:#8894AD; }
+    
     </style>
 </head>
 <body>
 
     <!-- NAV -->
     <nav class="nav">
-        <a href="suche.html" class="nav-logo">/AMBER</a>
+        <a href="suche.html" class="dub-logo"><span class="dub-badge">DUB</span><span class="dub-logo-text">Deutsche<span>Unternehmerbörse</span></span></a>
         <div class="nav-links">
             <a href="suche.html">Suche</a>
             <a href="suchauftraege.html">Suchaufträge</a>
@@ -578,14 +625,14 @@
             <a href="academy.html" class="active">Academy</a>
         </div>
         <div class="nav-right">
-            <div class="nav-lang"><span style="font-weight:600; font-size:12px; background:#F3F4F6; padding:2px 6px; border-radius:3px;">DE</span><span>Deutsch</span></div>
+            <div class="nav-lang">DE <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></div>
             <div class="nav-avatar-wrapper">
-                <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="nav-account" onclick="toggleFocusGroup(event)"><span class="nav-account-name">Graig</span><span class="nav-account-initials">GG</span></div>
                 <div class="focus-group" id="focus-group">
                     <a href="verkaufer-academy.html">Zur Verkäuferansicht</a>
                     <a href="kauferprofil.html">Käuferprofil</a>
                     <a href="#">Kontoeinstellungen</a>
-                    <a href="#">AMBER-Professional</a>
+                    <a href="#">DUB-Professional</a>
                     <a href="#">Abmelden</a>
                 </div>
             </div>
@@ -858,8 +905,8 @@
                 </ul>
 
                 <div class="tipp-box">
-                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Berater finden über AMBER</div>
-                    <p>Im <strong>AMBER Berater-Directory</strong> findest du spezialisierte Berater für alle DD-Bereiche – von Steuerberatern mit M&A-Erfahrung bis zu spezialisierten IT-DD-Beratern. Die Berater sind nach Fachgebiet, Region und Transaktionsgröße filterbar.</p>
+                    <div class="tipp-title"><i class="fa-solid fa-lightbulb"></i> Berater finden über DUB</div>
+                    <p>Im <strong>DUB Berater-Directory</strong> findest du spezialisierte Berater für alle DD-Bereiche – von Steuerberatern mit M&A-Erfahrung bis zu spezialisierten IT-DD-Beratern. Die Berater sind nach Fachgebiet, Region und Transaktionsgröße filterbar.</p>
                 </div>
 
                 <h3>Kosten der Due Diligence</h3>
@@ -1126,7 +1173,7 @@
             <!-- Berater CTA -->
             <div class="sidebar-card berater-cta-card">
                 <div class="sidebar-card-title"><i class="fa-solid fa-user-tie"></i> DD-Berater finden</div>
-                <p>Im AMBER Berater-Directory findest du spezialisierte Berater für Financial, Legal, Tax und weitere DD-Bereiche – gefiltert nach Fachgebiet und Transaktionsgröße.</p>
+                <p>Im DUB Berater-Directory findest du spezialisierte Berater für Financial, Legal, Tax und weitere DD-Bereiche – gefiltert nach Fachgebiet und Transaktionsgröße.</p>
                 <a href="#"><i class="fa-solid fa-arrow-right"></i> Berater-Directory</a>
             </div>
 
@@ -1137,22 +1184,71 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-top">
-            <div class="footer-left">
-                <div class="footer-logo">/AMBER</div>
-                <div class="footer-sub">BY DEALCIRCLE</div>
+            <div class="footer-brand">
+                <a href="#" class="dub-logo dub-logo--light">
+                    <span class="dub-badge">DUB</span>
+                    <span class="dub-logo-text">Deutsche<span>Unternehmerbörse</span></span>
+                </a>
+                <p class="footer-tagline">Europas führendes Portal für Unternehmensnachfolge.</p>
             </div>
-            <div class="footer-right">
-                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
-                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            <div class="footer-contact">
+                <div class="footer-contact-title">Fragen? Wir sind für dich da.</div>
+                <div class="footer-contact-row"><i class="fa-solid fa-phone"></i> +49 40 42 23 78 80</div>
+                <div class="footer-contact-row"><i class="fa-solid fa-envelope"></i> <a href="mailto:info@dub.de" style="color:inherit;text-decoration:none;">info@dub.de</a></div>
+                <a href="#" class="footer-contact-btn">Kontakt aufnehmen <i class="fa-solid fa-arrow-right" style="font-size:12px;"></i></a>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-cols">
+            <div class="footer-col">
+                <div class="footer-col-title">Nachfolge in Deutschland</div>
+                <a href="#">Baden-Württemberg</a>
+                <a href="#">Bayern</a>
+                <a href="#">Berlin</a>
+                <a href="#">Hamburg</a>
+                <a href="#">Hessen</a>
+                <a href="#">Nordrhein-Westfalen</a>
+                <a href="#">Sachsen</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Unternehmensbörse</div>
+                <a href="#">Unternehmen kaufen</a>
+                <a href="#">Unternehmen verkaufen</a>
+                <a href="#">Hotel kaufen</a>
+                <a href="#">Online Shop kaufen oder verkaufen</a>
+                <a href="#">Handwerksbetrieb verkaufen</a>
+                <a href="#">Restaurant kaufen oder verkaufen</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Service &amp; Wissen</div>
+                <a href="#">KMU Multiples</a>
+                <a href="#">Finanzierung prüfen</a>
+                <a href="#">Hilfe &amp; FAQ</a>
+                <a href="#">Glossar</a>
+                <a href="#">Wissen</a>
+                <a href="verkaufer-academy.html">Academy</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Pakete</div>
+                <a href="#">Pakete für Verkäuferseite</a>
+                <a href="#">Pakete für Käuferseite</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <span class="footer-copyright">&copy; 2026 AMBER. All rights reserved.</span>
-            <div class="footer-links">
-                <a href="#">AGB</a>
-                <a href="#">Datenschutz</a>
+            <div class="footer-badges">
+                <span><span class="dot">•</span> Über 90.000 registrierte Nutzer</span>
+                <span><span class="dot">•</span> DSGVO-konform</span>
+                <span><span class="dot">•</span> Made in Germany</span>
                 <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">AGB</a>
             </div>
+            <span class="footer-copyright">© 2026 Deutsche Unternehmerbörse GmbH</span>
         </div>
     </footer>
 

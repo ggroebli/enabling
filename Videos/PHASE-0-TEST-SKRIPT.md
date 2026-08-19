@@ -6,7 +6,7 @@ Wichtig: Sprich normal, nicht künstlich langsam. Atme ruhig. Wenn du dich versp
 
 ---
 
-Hallo und willkommen zum ersten Modul der AMBER Academy. Heute geht es um deine Suchstrategie und dein Käuferprofil.
+Hallo und willkommen zum ersten Modul der DUB Academy. Heute geht es um deine Suchstrategie und dein Käuferprofil.
 
 Bevor du auf Plattformen nach Unternehmen suchst, solltest du dir über ein paar grundlegende Dinge klar werden. Denn wer ohne klare Kriterien sucht, verzettelt sich schnell und verpasst dabei die wirklich guten Gelegenheiten.
 

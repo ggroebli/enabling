@@ -8,7 +8,7 @@
 
 ## Inhaltsverzeichnis
 
-1. [Prozesskette (AMBER-Phasen)](#1-prozesskette)
+1. [Prozesskette (DUB-Phasen)](#1-prozesskette)
 2. [Käufer: Empfohlene Schritte pro Phase](#2-käufer-empfohlene-schritte)
 3. [Käufer: Sidebar-Content pro Phase](#3-käufer-sidebar-content)
 4. [Käufer: Chat-Widget Quick Actions pro Phase](#4-käufer-chat-widget)
@@ -35,7 +35,7 @@
 
 ## 1. Prozesskette
 
-Die AMBER-Prozesskette hat **9 Phasen**, die für Käufer und Verkäufer identisch sind (aber aus unterschiedlichen Perspektiven erlebt werden):
+Die DUB-Prozesskette hat **9 Phasen**, die für Käufer und Verkäufer identisch sind (aber aus unterschiedlichen Perspektiven erlebt werden):
 
 | # | Phase | Beschreibung |
 |---|-------|-------------|
@@ -255,7 +255,7 @@ Auf jeder Phase identisch:
 | 9 – Closing | "Was ist ein 100-Tage-Plan?" | "Wie führe ich die Übergabegespräche?" | "Welche Quick Wins gibt es?" |
 
 **Chat-Eröffnung (dynamisch):**
-"Hallo! Ich bin dein M&A-Assistent. Ich kenne alle Inhalte der AMBER Academy und helfe dir bei Fragen rund um Unternehmenskäufe. Du bist gerade in der Phase **"{Phasenname}"** bei {Projektname}. Wie kann ich dir helfen?"
+"Hallo! Ich bin dein M&A-Assistent. Ich kenne alle Inhalte der DUB Academy und helfe dir bei Fragen rund um Unternehmenskäufe. Du bist gerade in der Phase **"{Phasenname}"** bei {Projektname}. Wie kann ich dir helfen?"
 
 ---
 
@@ -267,7 +267,7 @@ Auf jeder Phase identisch:
 |-------|-------|-------------|-----------|--------------|------|
 | 1 → 2 | "Match bestätigt – bereite dich auf das Erstgespräch vor" | "Beide Seiten haben Interesse bekundet – ihr seid jetzt ein Match! Als Nächstes wird die NDA unterzeichnet." | NDA-Checkliste, Teaser-Checkliste | Dokumente im M&A-Prozess | "Kläre frühzeitig deine Finanzierung – die KfW bietet Förderprogramme speziell für Unternehmensübernahmen an." |
 | 2 → 3 | "NDA unterzeichnet – Zugang zum Unternehmensexposé" | "Die Vertraulichkeitserklärung ist unterzeichnet. Du erhältst jetzt Zugang zum Informationsmemorandum (IM). Nutze die Checkliste, um es systematisch auszuwerten." | Checkliste IM bewerten | Dokumente im M&A-Prozess | — |
-| 3 → 4 | "Persönliches Treffen absolviert – nächster Schritt: Angebot vorbereiten" | "Das Treffen hat stattgefunden. Wenn du ein Angebot machen möchtest, bereite jetzt deinen Letter of Intent (LOI) vor. Kläre parallel deine Finanzierung." | LOI-Mustervorlage, Bewertungs-Template | Angebotsstrategie & LOI | "Die meisten Käufer auf AMBER verhandeln eine Exklusivitätsklausel in ihrem ersten LOI – das gibt dir Planungssicherheit." |
+| 3 → 4 | "Persönliches Treffen absolviert – nächster Schritt: Angebot vorbereiten" | "Das Treffen hat stattgefunden. Wenn du ein Angebot machen möchtest, bereite jetzt deinen Letter of Intent (LOI) vor. Kläre parallel deine Finanzierung." | LOI-Mustervorlage, Bewertungs-Template | Angebotsstrategie & LOI | "Die meisten Käufer auf DUB verhandeln eine Exklusivitätsklausel in ihrem ersten LOI – das gibt dir Planungssicherheit." |
 | 4 → 5 | "LOI vorgelegt – dein Angebot ist beim Verkäufer" | "Dein Letter of Intent wurde übermittelt. Der Verkäufer wird dein Angebot prüfen. Bereite dich parallel auf die Due Diligence vor." | DD-Checkliste | Due Diligence meistern | — |
 | 5 → 6 | "LOI unterzeichnet – Due Diligence und Finanzierung starten" | "Der LOI ist von beiden Seiten unterschrieben. Jetzt beginnt die Due Diligence – du hast Zugang zum Datenraum." | DD-Checkliste, DD-Doku-Liste | Due Diligence meistern | "Stelle dein DD-Team zusammen: Steuerberater für die Zahlen, Anwalt für den Kaufvertrag." |
 | 6 → 7 | "Notartermin vereinbart – Kaufvertrag prüfen" | "Der Notartermin steht. Prüfe den Kaufvertragsentwurf sorgfältig mit deinem Anwalt." | Checkliste Vertragsklauseln, Closing-Checkliste | Kaufvertrag & Closing | — |
@@ -783,11 +783,11 @@ Für den Plattform-Launch empfehlen wir **hardcoded Antwort-Paare** pro Quick-Ac
 | Eigenschaft | Wert |
 |-------------|------|
 | **Modell** | Claude (oder gleichwertig) via API |
-| **System-Prompt** | Enthält: (1) Rolle ("Du bist ein M&A-Berater-Assistent für AMBER"), (2) aktuelle Phase + Deal-Kontext, (3) Academy-Inhalte als Retrieval-Kontext |
+| **System-Prompt** | Enthält: (1) Rolle ("Du bist ein M&A-Berater-Assistent für DUB"), (2) aktuelle Phase + Deal-Kontext, (3) Academy-Inhalte als Retrieval-Kontext |
 | **Retrieval** | Academy-Modul-Texte werden als RAG-Kontext mitgegeben. Pro Frage wird das relevanteste Modul identifiziert (basierend auf Phase-Mapping aus §10) |
 | **Antwort-Regeln** | (1) Keine Rechts-/Steuerberatung – bei sensiblen Themen: "Sprich mit einem Berater/Anwalt". (2) Quellen-Transparenz: Jede Antwort referenziert das Academy-Modul. (3) Kein Zugriff auf vertrauliche Deal-Daten (Finanzzahlen, Dokumente) ohne explizite Freigabe |
 | **Freitext** | Aktiviert – User kann beliebige Fragen stellen |
-| **Fallback** | Wenn keine Antwort möglich: "Das kann ich leider nicht beantworten. Wende dich an deinen M&A-Berater oder kontaktiere den AMBER-Support." |
+| **Fallback** | Wenn keine Antwort möglich: "Das kann ich leider nicht beantworten. Wende dich an deinen M&A-Berater oder kontaktiere den DUB-Support." |
 
 ### Chat-UI-Spezifikation
 
@@ -795,7 +795,7 @@ Für den Plattform-Launch empfehlen wir **hardcoded Antwort-Paare** pro Quick-Ac
 |---------|------|
 | **Floating Button** | Kreis, 56px Durchmesser, Position: fixed bottom-right (24px Abstand), Farbe: Lila Gradient (`#7C3AED` → `#6D28D9`), Icon: Chat-Bubble (Font Awesome `fa-comments`) |
 | **Panel** | 400px breit, von rechts einfahrend (Slide-in 300ms), volle Höhe minus Nav (72px), z-index: 1000 |
-| **Header** | Lila Gradient-Header, Titel "AMBER M&A-Assistent", Untertitel "Dein persönlicher Berater", X-Close-Button |
+| **Header** | Lila Gradient-Header, Titel "DUB M&A-Assistent", Untertitel "Dein persönlicher Berater", X-Close-Button |
 | **Bot-Avatar** | Lila Kreis mit Roboter-Icon |
 | **User-Avatar** | Grauer Kreis mit User-Icon |
 | **Quick-Action-Chips** | Lila Border, rounded, klickbar. Verschwinden nach dem ersten Klick (werden durch die Frage/Antwort ersetzt) |
@@ -856,7 +856,7 @@ Jeder User kann sowohl Käufer als auch Verkäufer sein. Die Perspektive wird ü
 | **Zur Verkäuferansicht** → Verkäufer-Startseite | **Zur Käuferansicht** → Käufer-Startseite |
 | Käuferprofil → `kauferprofil.html` | Mein Inserat bearbeiten |
 | Kontoeinstellungen | Kontoeinstellungen |
-| AMBER-Professional | AMBER-Professional |
+| DUB-Professional | DUB-Professional |
 | Abmelden | Abmelden |
 
 ### Perspektiv-Erkennung

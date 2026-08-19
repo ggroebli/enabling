@@ -1,6 +1,6 @@
 # Phase 0: Gratis-Smoke-Test
 
-**Ziel:** In 2 Stunden für $0 wissen, ob der KI-Video-Workflow für AMBER funktioniert.
+**Ziel:** In 2 Stunden für $0 wissen, ob der KI-Video-Workflow für DUB funktioniert.
 **Was du danach weißt:** Ob ElevenLabs deine Stimme + deutsche Fachbegriffe gut klont und ob HeyGen-Lippensync mit dem Audio überzeugend wirkt. Erst wenn beides klar "ja" ist, gibst du Geld aus.
 
 ---
@@ -40,7 +40,7 @@
 - Im **Text-to-Speech**-Fenster diesen Test-Text einfügen (kritische M&A-Fachbegriffe):
 
 ```
-Hallo und willkommen zum ersten Modul der AMBER Academy.
+Hallo und willkommen zum ersten Modul der DUB Academy.
 Heute geht es um deine Suchstrategie und dein Käuferprofil.
 Wir sprechen über EBIT, EBITDA, Multiples und Earn-Out-Klauseln.
 Du brauchst in der Regel rund 20 Prozent des Kaufpreises als Eigenkapital.
@@ -82,7 +82,7 @@ Den Rest finanzierst du über Bankdarlehen oder ein Verkäuferdarlehen.
   - Passen die Mundbewegungen zu deutschen Lauten?
   - Wirkt der Avatar lebendig oder mechanisch?
 
-> **Entscheidungspunkt 2:** Wenn Lippensync schlecht ist, brauchen wir Avatar IV/V – das gibt's nur ab Creator-Plan. Wenn auch das nicht klappt (was selten ist bei AMBER-Sprechstil), müsste man den Workflow grundlegend überdenken.
+> **Entscheidungspunkt 2:** Wenn Lippensync schlecht ist, brauchen wir Avatar IV/V – das gibt's nur ab Creator-Plan. Wenn auch das nicht klappt (was selten ist bei DUB-Sprechstil), müsste man den Workflow grundlegend überdenken.
 
 ### 9. Eigenes Avatar-Test-Video aufnehmen (15 Min – schon Vorbereitung für Phase 1)
 - Smartphone frontal in Augenhöhe positionieren (am besten an Wand lehnen oder Stativ)

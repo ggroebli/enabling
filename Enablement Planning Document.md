@@ -1,4 +1,4 @@
-# AMBER Enablement – Planning Document
+# DUB Enablement – Planning Document
 
 **Erstellt:** 12. Februar 2026
 **Basierend auf:** Strategie-Brainstorming vom 04. Februar 2026 (Florian, Graig, Kai, Fynn)
@@ -8,7 +8,7 @@
 
 ## 1. Das Problem
 
-AMBER will auf 20.000 Deals und 1 Mio. Nutzer skalieren. Das bedeutet, dass zunehmend **unerfahrene User** auf die Plattform kommen – Unternehmer, die noch nie ein Unternehmen verkauft haben, und Kaufinteressenten ohne M&A-Erfahrung.
+DUB will auf 20.000 Deals und 1 Mio. Nutzer skalieren. Das bedeutet, dass zunehmend **unerfahrene User** auf die Plattform kommen – Unternehmer, die noch nie ein Unternehmen verkauft haben, und Kaufinteressenten ohne M&A-Erfahrung.
 
 **Kernfragen:**
 - Wie machen wir einen Erstverkäufer "exit-ready", der keine Ahnung von M&A hat?

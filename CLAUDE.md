@@ -1,4 +1,4 @@
-# AMBER Enablement – Projekt-Kontext für Claude Code
+# DUB Enablement – Projekt-Kontext für Claude Code
 
 ## Quick Start (für neue Teammitglieder)
 
@@ -9,7 +9,7 @@
 
 ## Was ist das hier?
 
-Statische HTML-Mockups für das **Enablement-Produkt** der AMBER M&A-Plattform (Käuferseite). AMBER ist ein Marktplatz für Unternehmenskäufe/-verkäufe im deutschen Mittelstand (SME M&A). Das Enablement-Produkt soll unerfahrene Käufer und Verkäufer durch den gesamten M&A-Prozess begleiten.
+Statische HTML-Mockups für das **Enablement-Produkt** der DUB M&A-Plattform (Käuferseite). DUB ist ein Marktplatz für Unternehmenskäufe/-verkäufe im deutschen Mittelstand (SME M&A). Das Enablement-Produkt soll unerfahrene Käufer und Verkäufer durch den gesamten M&A-Prozess begleiten.
 
 Die Mockups dienen als **Konzeptgrundlage für das Team** (nicht als Production Code). Sie werden in Bubble.io umgesetzt.
 

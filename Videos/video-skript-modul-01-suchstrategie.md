@@ -1,12 +1,12 @@
 # Video-Skript: Suchstrategie & Käuferprofil
-## AMBER Academy – Käufer-Modul 1
+## DUB Academy – Käufer-Modul 1
 ### Geschätzte Sprechdauer: ca. 6–7 Minuten
 
 ---
 
 ### INTRO
 
-Hallo und willkommen zum ersten Modul der AMBER Academy. Heute geht es um ein Thema, das viele Käufer unterschätzen: deine Suchstrategie und dein Käuferprofil. Bevor du auf Plattformen nach Unternehmen suchst, solltest du dir über ein paar grundlegende Dinge klar werden. Denn wer ohne klare Kriterien sucht, verzettelt sich schnell und verpasst dabei die wirklich guten Gelegenheiten.
+Hallo und willkommen zum ersten Modul der DUB Academy. Heute geht es um ein Thema, das viele Käufer unterschätzen: deine Suchstrategie und dein Käuferprofil. Bevor du auf Plattformen nach Unternehmen suchst, solltest du dir über ein paar grundlegende Dinge klar werden. Denn wer ohne klare Kriterien sucht, verzettelt sich schnell und verpasst dabei die wirklich guten Gelegenheiten.
 
 ---
 
@@ -36,7 +36,7 @@ Okay, jetzt wird es konkret. Dein Käuferprofil beantwortet im Kern zwei Fragen:
 
 Ein Beispiel: Wenn du 150.000 Euro Eigenkapital mitbringst, liegt deine realistische Kaufpreisobergrenze grob bei 500.000 bis 750.000 Euro. Vergiss dabei nicht die Transaktionskosten für Anwalt, Steuerberater, Due Diligence und Notar. Bei kleinen Deals solltest du dafür einen spürbaren Aufschlag auf den Kaufpreis einplanen.
 
-In der AMBER Academy findest du dazu übrigens eine interaktive Bierdeckelrechnung. Da gibst du einfach dein Eigenkapital ein und siehst sofort, welche Kaufpreise und EBIT-Größen für dich realistisch sind.
+In der DUB Academy findest du dazu übrigens eine interaktive Bierdeckelrechnung. Da gibst du einfach dein Eigenkapital ein und siehst sofort, welche Kaufpreise und EBIT-Größen für dich realistisch sind.
 
 **Branche und Geschäftsmodell.** Hast du Erfahrung in einer bestimmten Branche? Das erleichtert den Einstieg enorm und gibt dem Verkäufer das Vertrauen, dass sein Lebenswerk in guten Händen ist. Überlege auch, welcher Geschäftsmodelltyp zu dir passt: Dienstleistung, Produktion, Handel oder Software? Jedes Modell hat ganz unterschiedliche Anforderungen.
 
@@ -52,7 +52,7 @@ Gut, dein Profil steht. Jetzt geht es darum, die richtigen Kanäle zu nutzen. Es
 
 Und an dieser Stelle ein wichtiger Hinweis vorweg: Bei kleineren Unternehmen führt der Verkäufer den Prozess oft selbst, ohne M&A-Berater. Du sprichst also direkt mit dem Inhaber, und der erste Eindruck zählt doppelt. Bei größeren Deals, in der Regel ab ein bis zwei Millionen Euro Kaufpreis, ist häufig ein Berater zwischengeschaltet, der den Prozess strukturiert. Beide Wege sind völlig normal – aber sie laufen unterschiedlich ab.
 
-**M-und-A-Plattformen** sind besonders gut für kleinere Deals geeignet, bei denen kein Berater mandatiert ist. Mit AMBER hast du bereits Zugang zu einem Großteil der relevanten Deals im deutschen Mittelstand. Erstelle ein Käuferprofil, setze Suchkriterien und erhalte passende Listings per Alert. Und über DealCircle bekommst du zusätzlich Zugang zu Deals, die nicht öffentlich auf Plattformen inseriert sind.
+**M-und-A-Plattformen** sind besonders gut für kleinere Deals geeignet, bei denen kein Berater mandatiert ist. Mit DUB hast du bereits Zugang zu einem Großteil der relevanten Deals im deutschen Mittelstand. Erstelle ein Käuferprofil, setze Suchkriterien und erhalte passende Listings per Alert. Und über DealCircle bekommst du zusätzlich Zugang zu Deals, die nicht öffentlich auf Plattformen inseriert sind.
 
 **Berater und Nachfolgeberater.** Ab etwa 1 bis 2 Millionen Euro Kaufpreis sind häufig Berater auf Verkäuferseite mandatiert. Die haben neben ihren Plattformprojekten oft weitere Mandate, die sie nicht öffentlich ausschreiben. Melde dich regelmäßig bei relevanten Beratungshäusern. Wer präsent bleibt, wird bei passenden Mandaten zuerst kontaktiert.
 

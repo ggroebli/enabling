@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMBER – Käuferprofil</title>
+    <title>DUB – Käuferprofil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -16,7 +16,7 @@
             --grey-dark: #666666;
             --grey-light: #CCCCCC;
             --white: #FFFFFF;
-            --gradient-cta: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            --gradient-cta: linear-gradient(85.13deg, #163862 0%, #0F2744 96.11%);
         }
 
         body {
@@ -260,27 +260,27 @@
         .card-edit-form .edit-label { display: flex; align-items: center; gap: 8px; width: 380px; flex-shrink: 0; font-size: 14px; font-weight: 600; color: #1A1A1A; }
         .card-edit-form .edit-label i { width: 20px; text-align: center; font-size: 14px; color: #666; }
         .card-edit-form .edit-input { flex: 1; padding: 9px 14px; border: 1px solid #E5E7EB; border-radius: 6px; font-size: 14px; font-family: var(--font-main); color: #1A1A1A; background: #FAFAFA; box-sizing: border-box; outline: none; }
-        .card-edit-form .edit-input:focus { border-color: #2563EB; box-shadow: 0 0 0 2px rgba(37,99,235,0.1); background: white; }
+        .card-edit-form .edit-input:focus { border-color: #0F2744; box-shadow: 0 0 0 2px rgba(37,99,235,0.1); background: white; }
         .card-edit-form select.edit-input { cursor: pointer; }
         .card-edit-form .edit-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
         .card-edit-form .btn-cancel { background: white; color: #666; border: 1px solid #E5E7EB; padding: 8px 20px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--font-main); }
-        .card-edit-form .btn-save { background: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%); color: #1A1A1A; border: none; padding: 8px 20px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: var(--font-main); }
+        .card-edit-form .btn-save { background: linear-gradient(85.13deg, #163862 0%, #0F2744 96.11%); color: #1A1A1A; border: none; padding: 8px 20px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: var(--font-main); }
         .card-edit-form .edit-upload { display: flex; align-items: center; gap: 10px; }
         .card-edit-form .edit-upload-btn { background: white; border: 1px dashed #D1D5DB; border-radius: 6px; padding: 8px 16px; font-size: 13px; color: #666; cursor: pointer; font-family: var(--font-main); display: flex; align-items: center; gap: 6px; }
-        .card-edit-form .edit-upload-btn:hover { border-color: #2563EB; color: #2563EB; }
+        .card-edit-form .edit-upload-btn:hover { border-color: #0F2744; color: #0F2744; }
 
-        /* ===== ENABLEMENT: Unified AMBER-Score Section ===== */
+        /* ===== ENABLEMENT: Unified DUB-Score Section ===== */
         .unified-score-section {
             display: flex;
             flex-direction: column;
             gap: 0;
             padding: 32px 48px;
-            background: linear-gradient(135deg, #EDE9FE 0%, #DBEAFE 50%, #D1FAE5 100%);
+            background: linear-gradient(135deg, #E6F0FA 0%, #E6F0FA 50%, #D1FAE5 100%);
             border: 1px solid #C7D2FE;
             border-radius: 8px;
         }
 
-        /* Hero area with main AMBER-Score */
+        /* Hero area with main DUB-Score */
         .score-hero {
             display: flex;
             flex-direction: column;
@@ -309,7 +309,7 @@
 
         .hero-circle-fill {
             fill: none;
-            stroke: #7C3AED;
+            stroke: #EE7A1E;
             stroke-width: 10;
             stroke-linecap: round;
             stroke-dasharray: 408.4;
@@ -328,7 +328,7 @@
         .hero-percent {
             font-size: 36px;
             font-weight: 700;
-            color: #7C3AED;
+            color: #EE7A1E;
             line-height: 1;
         }
 
@@ -536,7 +536,7 @@
             font-family: var(--font-main);
             font-size: 14px;
             font-weight: 600;
-            color: var(--black);
+            color: #fff;
             cursor: pointer;
             white-space: nowrap;
             text-decoration: none;
@@ -572,7 +572,7 @@
         .endorsement-number {
             font-size: 36px;
             font-weight: 700;
-            color: #7C3AED;
+            color: #EE7A1E;
             line-height: 1;
         }
 
@@ -601,12 +601,12 @@
             align-items: center;
             justify-content: space-between;
             padding: 8px 12px;
-            background: #F5F3FF;
+            background: #E6F0FA;
             border: 1px solid #E9D5FF;
             border-radius: 6px;
             font-size: 12px;
             font-weight: 500;
-            color: #7C3AED;
+            color: #EE7A1E;
             gap: 8px;
         }
 
@@ -623,7 +623,7 @@
         }
 
         .endorsement-badge-count {
-            background: #7C3AED;
+            background: #EE7A1E;
             color: var(--white);
             padding: 2px 8px;
             border-radius: 10px;
@@ -684,8 +684,8 @@
             gap: 10px;
         }
         .ai-badge {
-            background: #EDE9FE;
-            color: #7C3AED;
+            background: #E6F0FA;
+            color: #EE7A1E;
             font-size: 11px;
             font-weight: 600;
             padding: 3px 10px;
@@ -749,7 +749,7 @@
             border-color: #93C5FD;
         }
         .sd-linkedin-banner.is-success {
-            background: #F0FDF4;
+            background: #EAF2FB;
             border-color: #86EFAC;
         }
         @keyframes sd-spin {
@@ -793,7 +793,7 @@
             box-sizing: border-box;
         }
         .sd-q-prefilled {
-            background: #F0FDF4;
+            background: #EAF2FB;
             border: 1px solid #BBF7D0;
             border-radius: 6px;
             padding: 10px 14px;
@@ -808,20 +808,20 @@
             justify-content: space-between;
             align-items: center;
             padding: 14px 20px;
-            background: linear-gradient(135deg, #F0FDF4 0%, #F0FDFA 50%, #F5F3FF 100%);
-            border: 1px solid #E0E7FF;
+            background: linear-gradient(135deg, #EAF2FB 0%, #F5F9FD 50%, #E6F0FA 100%);
+            border: 1px solid #CFE0F2;
             border-radius: 8px;
         }
         .sd-generate-hint {
             font-size: 13px;
-            color: #7C3AED;
+            color: #EE7A1E;
             font-weight: 500;
             display: flex;
             align-items: center;
             gap: 7px;
         }
         .btn-generate {
-            background: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            background: linear-gradient(85.13deg, #163862 0%, #0F2744 96.11%);
             color: #1A1A1A;
             border: none;
             padding: 10px 22px;
@@ -842,7 +842,7 @@
             background: white;
         }
         .sd-preview-header {
-            background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+            background: linear-gradient(135deg, #E6F0FA 0%, #E6F0FA 100%);
             padding: 12px 20px;
             display: flex;
             justify-content: space-between;
@@ -852,7 +852,7 @@
         .sd-preview-label {
             font-size: 13px;
             font-weight: 600;
-            color: #7C3AED;
+            color: #EE7A1E;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -904,14 +904,14 @@
             display: flex;
             gap: 12px;
             align-items: flex-start;
-            background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+            background: linear-gradient(135deg, #E6F0FA 0%, #E6F0FA 100%);
             border: 1px solid #DDD6FE;
             border-radius: 8px;
             padding: 14px 18px;
         }
         .sd-intro-icon {
             font-size: 18px;
-            color: #7C3AED;
+            color: #EE7A1E;
             flex-shrink: 0;
             margin-top: 1px;
         }
@@ -943,7 +943,7 @@
         }
         .btn-regenerate {
             background: white;
-            color: #7C3AED;
+            color: #EE7A1E;
             border: 1px solid #DDD6FE;
             padding: 8px 16px;
             border-radius: 6px;
@@ -956,7 +956,7 @@
             font-family: var(--font-main);
         }
         .btn-save-primary {
-            background: linear-gradient(85.13deg, #9EFCEF 0%, #CCFDBA 96.11%);
+            background: linear-gradient(85.13deg, #163862 0%, #0F2744 96.11%);
             color: #1A1A1A;
             border: none;
             padding: 10px 28px;
@@ -974,7 +974,7 @@
         .suchkriterien-card { flex-direction: column; gap: 0; padding: 32px 48px 40px; }
         .sk-header { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         .sk-view { width: 100%; border-top: 1px solid #F0F0F0; margin-top: 20px; padding-top: 20px; }
-        .sk-info-badge { display: flex; align-items: center; gap: 7px; margin-bottom: 16px; padding: 9px 14px; background: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 6px; font-size: 12px; color: #7C3AED; font-weight: 500; }
+        .sk-info-badge { display: flex; align-items: center; gap: 7px; margin-bottom: 16px; padding: 9px 14px; background: #E6F0FA; border: 1px solid #DDD6FE; border-radius: 6px; font-size: 12px; color: #EE7A1E; font-weight: 500; }
         .sk-edit-form { display: none; width: 100%; border-top: 1px solid #F0F0F0; margin-top: 20px; padding-top: 24px; flex-direction: column; gap: 20px; }
         .suchkriterien-card.is-editing .sk-view { display: none; }
         .suchkriterien-card.is-editing .sk-edit-form { display: flex; }
@@ -991,7 +991,7 @@
         .sk-pair .sk-input { flex: 1; }
         .sk-pair-sep { font-size: 12px; color: #9CA3AF; flex-shrink: 0; }
         .sk-save-row { display: flex; justify-content: space-between; align-items: center; padding-top: 4px; gap: 12px; }
-        .sk-save-alert-btn { background: white; color: #2563EB; border: 1px solid #BFDBFE; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 7px; font-family: var(--font-main); }
+        .sk-save-alert-btn { background: white; color: #0F2744; border: 1px solid #BFDBFE; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 7px; font-family: var(--font-main); }
         .sk-save-alert-btn:hover { background: #EFF6FF; }
         /* Branchenfokus Toggle */
         .sk-toggle-group { display: flex; border: 1px solid #E5E7EB; border-radius: 6px; overflow: hidden; }
@@ -1002,14 +1002,14 @@
         .sk-branch-q { font-size: 13px; font-weight: 600; color: #1A1A1A; }
         .sk-branch-radios { display: flex; gap: 20px; margin-top: 6px; }
         .sk-radio-lbl { display: flex; align-items: center; gap: 6px; font-size: 14px; color: #1A1A1A; cursor: pointer; }
-        .sk-radio-lbl input[type="radio"] { accent-color: #2563EB; width: 15px; height: 15px; flex-shrink: 0; }
-        .sk-branch-preview { display: flex; align-items: flex-start; gap: 8px; margin-top: 10px; padding: 10px 14px; background: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 6px; font-size: 13px; color: #1A1A1A; line-height: 1.5; }
-        .sk-agnostisch-note { font-size: 13px; color: #10B981; display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 6px; }
+        .sk-radio-lbl input[type="radio"] { accent-color: #0F2744; width: 15px; height: 15px; flex-shrink: 0; }
+        .sk-branch-preview { display: flex; align-items: flex-start; gap: 8px; margin-top: 10px; padding: 10px 14px; background: #E6F0FA; border: 1px solid #DDD6FE; border-radius: 6px; font-size: 13px; color: #1A1A1A; line-height: 1.5; }
+        .sk-agnostisch-note { font-size: 13px; color: #10B981; display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: #EAF2FB; border: 1px solid #BBF7D0; border-radius: 6px; }
         /* Region Dropdown */
         .sk-region-wrapper { position: relative; }
         .sk-region-display { display: flex; align-items: center; justify-content: space-between; min-height: 42px; padding: 7px 12px; border: 1px solid #E5E7EB; border-radius: 6px; background: #FAFAFA; cursor: pointer; gap: 8px; }
         .sk-region-tags { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; align-items: center; }
-        .sk-region-tag { display: flex; align-items: center; gap: 5px; background: #DBEAFE; color: #1E40AF; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 4px; white-space: nowrap; }
+        .sk-region-tag { display: flex; align-items: center; gap: 5px; background: #E6F0FA; color: #1E40AF; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 4px; white-space: nowrap; }
         .sk-region-tag .sk-tag-x { cursor: pointer; font-size: 10px; opacity: 0.6; }
         .sk-region-tag .sk-tag-x:hover { opacity: 1; }
         .sk-region-placeholder { font-size: 14px; color: #9CA3AF; }
@@ -1019,7 +1019,7 @@
         .sk-rgp-label:not(:first-child) { border-top: 1px solid #F3F4F6; padding-top: 10px; }
         .sk-rgp-country { display: flex; align-items: center; padding: 0 12px 0 16px; }
         .sk-rgp-country-lbl { display: flex; align-items: center; gap: 9px; font-size: 14px; color: #1A1A1A; cursor: pointer; padding: 8px 0; flex: 1; }
-        .sk-rgp-country-lbl input[type="checkbox"] { accent-color: #2563EB; flex-shrink: 0; }
+        .sk-rgp-country-lbl input[type="checkbox"] { accent-color: #0F2744; flex-shrink: 0; }
         .sk-rgp-expand { background: none; border: none; cursor: pointer; color: #9CA3AF; padding: 5px 7px; border-radius: 4px; font-size: 11px; }
         .sk-rgp-expand:hover { background: #F3F4F6; color: #555; }
         .sk-rgp-expand i { transition: transform 0.15s; display: block; }
@@ -1028,7 +1028,7 @@
         .sk-rgp-states.is-open { display: flex; }
         .sk-rgp-state { display: flex; align-items: center; gap: 8px; padding: 5px 16px 5px 36px; font-size: 13px; color: #374151; cursor: pointer; }
         .sk-rgp-state:hover { background: #F3F4F6; }
-        .sk-rgp-state input[type="checkbox"] { accent-color: #2563EB; flex-shrink: 0; }
+        .sk-rgp-state input[type="checkbox"] { accent-color: #0F2744; flex-shrink: 0; }
 
         /* Toggle: View-State (default) – nur generierter Text sichtbar */
         .selbstdarstellung-card .sd-questionnaire { display: none; }
@@ -1065,13 +1065,60 @@
         .footer-links { display: flex; gap: 24px; }
         .footer-links a { font-size: 14px; font-weight: 300; color: var(--grey-dark); text-decoration: none; }
         .footer-links a:hover { color: var(--white); }
+    
+        /* ===================== DUB CI OVERRIDE ===================== */
+        :root {
+            --navy:#0F2744; --navy-2:#14294A; --dub-orange:#EE7A1E;
+            --dub-orange-light:#FDEBD8; --footer-link:#AEB8CC;
+            --gradient-cta: linear-gradient(120deg,#163862 0%,#0F2744 100%);
+        }
+        .dub-logo { display:inline-flex; align-items:center; gap:10px; text-decoration:none; margin-right:40px; }
+        .dub-badge { display:inline-flex; align-items:center; justify-content:center; background:var(--navy); color:#fff; font-weight:800; letter-spacing:.5px; width:40px; height:40px; border-radius:9px; font-size:16px; }
+        .dub-logo-text { display:flex; flex-direction:column; line-height:1.05; color:var(--navy); font-weight:700; font-size:15px; }
+        .dub-logo-text span { font-weight:400; color:var(--navy); font-size:14px; }
+        .dub-logo--light .dub-badge { background:var(--navy-2); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
+        .dub-logo--light .dub-logo-text, .dub-logo--light .dub-logo-text span { color:#fff; }
+        .nav-links { display:flex; align-items:center; gap:4px; background:#F4F5F7; padding:5px; border-radius:30px; margin:0 auto; flex:0 1 auto; }
+        .nav-links a { font-size:14px; font-weight:500; color:var(--navy); text-decoration:none; padding:8px 16px; border-radius:24px; white-space:nowrap; }
+        .nav-links a:hover { background:#E9EBEF; opacity:1; }
+        .nav-links a.active { background:var(--navy); color:#fff; font-weight:600; }
+        .nav-right { display:flex; align-items:center; gap:12px; }
+        .nav-lang { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--navy); border:1px solid #E2E5EA; padding:8px 12px; border-radius:24px; cursor:pointer; }
+        .nav-account { display:flex; align-items:center; gap:10px; border:1px solid #E2E5EA; padding:5px 5px 5px 14px; border-radius:28px; cursor:pointer; }
+        .nav-account-name { font-size:14px; font-weight:600; color:var(--navy); }
+        .nav-account-initials { width:32px; height:32px; border-radius:50%; background:var(--navy); color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+        .footer { background:var(--navy) !important; color:#fff !important; padding:56px 48px 28px; width:1440px; margin-top:80px; }
+        .footer-top { display:flex; justify-content:space-between; align-items:flex-start; gap:48px; margin-bottom:0; }
+        .footer-brand { display:flex; flex-direction:column; }
+        .footer-tagline { font-size:14px; font-weight:300; color:var(--footer-link); margin-top:16px; max-width:280px; line-height:150%; }
+        .footer-contact { display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
+        .footer-contact-title { font-size:16px; font-weight:700; margin-bottom:4px; color:#fff; }
+        .footer-contact-row { display:flex; align-items:center; gap:10px; font-size:14px; color:#E5E9F0; }
+        .footer-contact-row i { color:var(--dub-orange); width:16px; text-align:center; }
+        .footer-contact-row a { color:inherit; }
+        .footer-contact-btn { display:inline-flex; align-items:center; gap:8px; margin-top:8px; padding:10px 20px; border:1px solid rgba(255,255,255,.35); border-radius:24px; color:#fff; font-size:14px; font-weight:600; text-decoration:none; }
+        .footer-contact-btn:hover { background:rgba(255,255,255,.08); }
+        .footer-social { display:flex; gap:16px; margin-top:14px; }
+        .footer-social a { color:var(--footer-link); font-size:18px; text-decoration:none; }
+        .footer-social a:hover { color:#fff; }
+        .footer-cols { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin-top:40px; padding:40px 0; border-top:1px solid rgba(255,255,255,.1); }
+        .footer-col-title { font-size:14px; font-weight:700; color:var(--dub-orange); margin-bottom:16px; }
+        .footer-col a { display:block; font-size:14px; font-weight:300; color:var(--footer-link); text-decoration:none; margin-bottom:10px; line-height:140%; }
+        .footer-col a:hover { color:#fff; }
+        .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); }
+        .footer-badges { display:flex; align-items:center; gap:20px; flex-wrap:wrap; font-size:13px; font-weight:300; color:var(--footer-link); }
+        .footer-badges .dot { color:var(--dub-orange); margin-right:6px; }
+        .footer-badges a { color:var(--footer-link); text-decoration:none; }
+        .footer-badges a:hover { color:#fff; }
+        .footer-copyright { font-size:13px; font-weight:300; color:#8894AD; }
+    
     </style>
 </head>
 <body>
 
     <!-- NAV -->
     <nav class="nav">
-        <a href="suche.html" class="nav-logo">/AMBER</a>
+        <a href="suche.html" class="dub-logo"><span class="dub-badge">DUB</span><span class="dub-logo-text">Deutsche<span>Unternehmerbörse</span></span></a>
         <div class="nav-links">
             <a href="suche.html">Suche</a>
             <a href="suchauftraege.html">Suchaufträge</a>
@@ -1081,14 +1128,14 @@
             <a href="academy.html">Academy</a>
         </div>
         <div class="nav-right">
-            <div class="nav-lang"><span style="font-weight:600; font-size:12px; background:#F3F4F6; padding:2px 6px; border-radius:3px;">DE</span><span>Deutsch</span></div>
+            <div class="nav-lang">DE <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></div>
             <div class="nav-avatar-wrapper">
-                <div class="nav-avatar" onclick="toggleFocusGroup(event)"><i class="fa-solid fa-user"></i></div>
+                <div class="nav-account" onclick="toggleFocusGroup(event)"><span class="nav-account-name">Graig</span><span class="nav-account-initials">GG</span></div>
                 <div class="focus-group" id="focus-group">
                     <a href="#">Zur Verkäuferansicht</a>
                     <a href="kauferprofil.html">Käuferprofil</a>
                     <a href="#">Kontoeinstellungen</a>
-                    <a href="#">AMBER-Professional</a>
+                    <a href="#">DUB-Professional</a>
                     <a href="#">Abmelden</a>
                 </div>
             </div>
@@ -1102,9 +1149,9 @@
             <!-- Title -->
             <h1 class="page-title">Mein Käuferprofil</h1>
 
-            <!-- ENABLEMENT: Unified AMBER-Score Section -->
+            <!-- ENABLEMENT: Unified DUB-Score Section -->
             <div class="unified-score-section">
-                <!-- Hero: Main AMBER-Score -->
+                <!-- Hero: Main DUB-Score -->
                 <div class="score-hero">
                     <div class="score-hero-ring">
                         <svg width="140" height="140" viewBox="0 0 140 140">
@@ -1113,10 +1160,10 @@
                         </svg>
                         <div class="score-hero-text">
                             <div class="hero-percent" id="hero-percent">55%</div>
-                            <div class="hero-label">AMBER-Score</div>
+                            <div class="hero-label">DUB-Score</div>
                         </div>
                     </div>
-                    <div class="score-hero-title">Dein AMBER-Score</div>
+                    <div class="score-hero-title">Dein DUB-Score</div>
                     <div class="score-hero-subtitle">Setzt sich zusammen aus: Readiness (60%) + Endorsements (40%)</div>
                 </div>
 
@@ -1430,7 +1477,7 @@
                             </div>
                             <!-- Vorschau -->
                             <div class="sk-branch-preview" id="sk-branch-preview">
-                                <i class="fa-solid fa-eye" style="color:#7C3AED; flex-shrink:0;"></i>
+                                <i class="fa-solid fa-eye" style="color:#EE7A1E; flex-shrink:0;"></i>
                                 <span id="sk-branch-preview-text">Ich suche gezielt in den Bereichen <strong>FinTech, Agentur</strong>.</span>
                             </div>
                         </div>
@@ -1655,7 +1702,7 @@
                             <div class="sd-q-prefilled">
                                 <i class="fa-solid fa-circle-check" style="color:#10B981; flex-shrink:0;"></i>
                                 <span>Aus Käuferprofil übernommen: <strong id="sd-criteria-text">Branche: FinTech, Agentur · Region: Deutschland, Österreich, Schweiz</strong></span>
-                                <a href="#" onclick="updateSDSuchkriterien(); return false;" style="font-size:12px; color:#2563EB; margin-left:auto; white-space:nowrap; text-decoration:none; font-weight:500;">Aktualisieren <i class="fa-solid fa-rotate" style="font-size:11px;"></i></a>
+                                <a href="#" onclick="updateSDSuchkriterien(); return false;" style="font-size:12px; color:#0F2744; margin-left:auto; white-space:nowrap; text-decoration:none; font-weight:500;">Aktualisieren <i class="fa-solid fa-rotate" style="font-size:11px;"></i></a>
                             </div>
                         </div>
 
@@ -1690,7 +1737,7 @@
                     <div class="sd-preview-sections">
                         <div class="sd-section">
                             <div class="sd-section-title">Über mich</div>
-                            <div class="sd-section-text sd-editable" contenteditable="true" id="sd-out-about">Ich bringe einen Hintergrund als Co-Founder & Managing Partner mit und verfüge über umfangreiche Erfahrung bei DealCircle / AMBER. Zuvor war ich als Lead Portfolio Manager bei OMR tätig – unter anderem als Prokurist bei OMR X. Darüber hinaus bin ich Spiegel-Bestsellerautor und Podcast-Host.</div>
+                            <div class="sd-section-text sd-editable" contenteditable="true" id="sd-out-about">Ich bringe einen Hintergrund als Co-Founder & Managing Partner mit und verfüge über umfangreiche Erfahrung bei DealCircle / DUB. Zuvor war ich als Lead Portfolio Manager bei OMR tätig – unter anderem als Prokurist bei OMR X. Darüber hinaus bin ich Spiegel-Bestsellerautor und Podcast-Host.</div>
                         </div>
                         <div class="sd-section">
                             <div class="sd-section-title">Meine Kaufmotivation</div>
@@ -1774,22 +1821,71 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-top">
-            <div class="footer-left">
-                <div class="footer-logo">/AMBER</div>
-                <div class="footer-sub">BY DEALCIRCLE</div>
+            <div class="footer-brand">
+                <a href="#" class="dub-logo dub-logo--light">
+                    <span class="dub-badge">DUB</span>
+                    <span class="dub-logo-text">Deutsche<span>Unternehmerbörse</span></span>
+                </a>
+                <p class="footer-tagline">Europas führendes Portal für Unternehmensnachfolge.</p>
             </div>
-            <div class="footer-right">
-                <p>Fragen zu AMBER? Wir helfen dir<br>gerne bei deinem Anliegen.</p>
-                <a href="mailto:support@amber.deals">support@amber.deals</a>
+            <div class="footer-contact">
+                <div class="footer-contact-title">Fragen? Wir sind für dich da.</div>
+                <div class="footer-contact-row"><i class="fa-solid fa-phone"></i> +49 40 42 23 78 80</div>
+                <div class="footer-contact-row"><i class="fa-solid fa-envelope"></i> <a href="mailto:info@dub.de" style="color:inherit;text-decoration:none;">info@dub.de</a></div>
+                <a href="#" class="footer-contact-btn">Kontakt aufnehmen <i class="fa-solid fa-arrow-right" style="font-size:12px;"></i></a>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-cols">
+            <div class="footer-col">
+                <div class="footer-col-title">Nachfolge in Deutschland</div>
+                <a href="#">Baden-Württemberg</a>
+                <a href="#">Bayern</a>
+                <a href="#">Berlin</a>
+                <a href="#">Hamburg</a>
+                <a href="#">Hessen</a>
+                <a href="#">Nordrhein-Westfalen</a>
+                <a href="#">Sachsen</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Unternehmensbörse</div>
+                <a href="#">Unternehmen kaufen</a>
+                <a href="#">Unternehmen verkaufen</a>
+                <a href="#">Hotel kaufen</a>
+                <a href="#">Online Shop kaufen oder verkaufen</a>
+                <a href="#">Handwerksbetrieb verkaufen</a>
+                <a href="#">Restaurant kaufen oder verkaufen</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Service &amp; Wissen</div>
+                <a href="#">KMU Multiples</a>
+                <a href="#">Finanzierung prüfen</a>
+                <a href="#">Hilfe &amp; FAQ</a>
+                <a href="#">Glossar</a>
+                <a href="#">Wissen</a>
+                <a href="verkaufer-academy.html">Academy</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Pakete</div>
+                <a href="#">Pakete für Verkäuferseite</a>
+                <a href="#">Pakete für Käuferseite</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <span class="footer-copyright">© 2026 AMBER. All rights reserved.</span>
-            <div class="footer-links">
-                <a href="#">AGB</a>
-                <a href="#">Datenschutz</a>
+            <div class="footer-badges">
+                <span><span class="dot">•</span> Über 90.000 registrierte Nutzer</span>
+                <span><span class="dot">•</span> DSGVO-konform</span>
+                <span><span class="dot">•</span> Made in Germany</span>
                 <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">AGB</a>
             </div>
+            <span class="footer-copyright">© 2026 Deutsche Unternehmerbörse GmbH</span>
         </div>
     </footer>
 
@@ -1889,7 +1985,7 @@
         var readinessPoints = Math.round(pct * 0.6);
         if (calcEl) calcEl.innerHTML = pct + '% × 60% = <strong>' + readinessPoints + ' Punkte</strong>';
 
-        // AMBER-Score Hero aktualisieren (Readiness 60% + Endorsement 25 Punkte fix)
+        // DUB-Score Hero aktualisieren (Readiness 60% + Endorsement 25 Punkte fix)
         var endorsePts = 25;
         var amberTotal = readinessPoints + endorsePts;
         var heroPctEl = document.getElementById('hero-percent');
@@ -2358,7 +2454,7 @@
         // Kurzes visuelles Feedback
         var sections = document.querySelectorAll('.sd-editable');
         sections.forEach(function(el) {
-            el.style.background = '#F0FDF4';
+            el.style.background = '#EAF2FB';
             el.style.transition = 'background 0.6s';
             setTimeout(function() { el.style.background = ''; }, 1200);
         });
@@ -2398,7 +2494,7 @@
         btn.innerHTML = '<i class="fa-solid fa-spinner sd-spinner"></i> Importiere…';
         banner.classList.add('is-loading');
         status.style.display = 'flex';
-        status.style.color = '#2563EB';
+        status.style.color = '#0F2744';
         status.innerHTML = '<i class="fa-solid fa-spinner sd-spinner" style="font-size:11px;"></i> Profil von <strong>' + profileName + '</strong> wird analysiert…';
 
         setTimeout(function() {
@@ -2406,7 +2502,7 @@
             status.innerHTML = '<i class="fa-solid fa-spinner sd-spinner" style="font-size:11px;"></i> Erfahrungen und Skills werden extrahiert…';
 
             var fields = {
-                'sd-q1': 'Co-Founder & Managing Partner, DealCircle / AMBER, vorher Lead Portfolio Manager bei OMR, OMR X Prokurist, Spiegel-Bestsellerautor, Podcast-Host',
+                'sd-q1': 'Co-Founder & Managing Partner, DealCircle / DUB, vorher Lead Portfolio Manager bei OMR, OMR X Prokurist, Spiegel-Bestsellerautor, Podcast-Host',
                 'sd-q2': 'Plattform-Know-how aus OMR und DealCircle nutzen, eigenes Unternehmen operativ führen, unternehmerische Verantwortung',
                 'sd-q3': 'Digitale Plattformen, M&A-Markt, Portfolio-Management, Medien & Content, Unternehmensaufbau, Autor',
                 'sd-q5': 'Bestehendes Team halten, digitale Prozesse einführen, Wachstum durch Plattform-Synergien',
@@ -2422,7 +2518,7 @@
                     var el = document.getElementById(id);
                     if (el) {
                         el.value = fields[id];
-                        el.style.background = '#DBEAFE';
+                        el.style.background = '#E6F0FA';
                         el.style.transition = 'background 0.5s';
                         setTimeout(function() { el.style.background = ''; }, 900);
                     }
