@@ -100,6 +100,10 @@ tfoot td { padding-top: 6mm; }
 .check-list li strong { font-weight: 600; }
 .check-list li .sub { display: block; color: var(--grey); font-size: 12px; margin-top: 2px; }
 
+/* Zweispaltige Check-Items: feste erste Spalte, Beschreibung startet immer gleich */
+.check-list li.two-col { display: grid; grid-template-columns: 18px 54mm 1fr; column-gap: 12px; align-items: start; }
+.check-list li.two-col .sub { margin-top: 0; }
+
 /* --- Boxen --- */
 .eval-box { background: var(--orange-light); border-left: 4px solid var(--orange); border-radius: 0 8px 8px 0; padding: 13px 18px; margin-top: 5mm; break-inside: avoid; }
 .box-title { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
