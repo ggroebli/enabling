@@ -32,7 +32,7 @@ body {
 /* --- Wiederholender Kopf (thead) --- */
 .run-header {
     display: flex; align-items: center; justify-content: space-between;
-    background: var(--navy); color: #fff; padding: 6mm 18mm;
+    background: var(--navy); color: #fff; padding: 6mm 15mm;
 }
 .rh-brand { display: flex; align-items: center; gap: 9px; }
 .rh-badge {
@@ -52,23 +52,25 @@ body {
 /* --- Wiederholender Fuß (tfoot) --- */
 .run-footer {
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    padding: 5mm 18mm 6mm; border-top: 1px solid var(--line);
+    padding: 5mm 15mm 6mm; border-top: 1px solid var(--line);
     font-size: 10px; color: #8A94A6;
 }
 .run-footer a { color: var(--orange); text-decoration: none; font-weight: 600; }
+.run-footer > span:last-child { white-space: nowrap; }
+.run-footer .nowrap { white-space: nowrap; }
 
 /* --- Abstand unter Kopf / über Fuß (jede Seite) --- */
 thead td { padding-bottom: 10mm; }
 tfoot td { padding-top: 6mm; }
 
 /* --- Inhaltszelle --- */
-.content-cell { padding: 0 18mm 4mm; vertical-align: top; }
+.content-cell { padding: 0 15mm 4mm; vertical-align: top; }
 
 /* --- Titelblock (Seite 1) --- */
 .doc-lead { margin-bottom: 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--orange-light); }
 .doc-kicker { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
 .doc-title { font-size: 28px; font-weight: 800; line-height: 1.15; color: var(--navy); margin-bottom: 10px; }
-.doc-intro { font-size: 13.5px; font-weight: 400; color: var(--grey); max-width: 150mm; }
+.doc-intro { font-size: 13.5px; font-weight: 400; color: var(--grey); }
 
 /* --- Abschnitt --- */
 .doc-section { margin-bottom: 9mm; break-inside: avoid; }
