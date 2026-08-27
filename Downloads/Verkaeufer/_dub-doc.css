@@ -72,11 +72,12 @@ tfoot td { padding-top: 6mm; }
 .doc-intro { font-size: 13.5px; font-weight: 400; color: var(--grey); }
 
 /* --- Abschnitt --- */
-.doc-section { margin-bottom: 9mm; break-inside: avoid; }
+.doc-section { margin-bottom: 9mm; }
 .doc-section-title {
     display: flex; align-items: center; gap: 10px;
     font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4mm;
     padding-bottom: 8px; border-bottom: 2px solid var(--orange-light);
+    break-after: avoid;
 }
 .doc-section-title .num {
     display: inline-flex; align-items: center; justify-content: center;
@@ -98,9 +99,10 @@ tfoot td { padding-top: 6mm; }
 .check-box { flex-shrink: 0; width: 17px; height: 17px; margin-top: 1px; border: 2px solid var(--navy); border-radius: 4px; }
 .check-list li strong { font-weight: 600; }
 .check-list li .sub { display: block; color: var(--grey); font-size: 12px; margin-top: 2px; }
+.check-list li .ci-text { display: block; flex: 1; }
 
 /* Zweispaltige Check-Items: feste erste Spalte, Beschreibung startet immer gleich */
-.check-list li.two-col { display: grid; grid-template-columns: 18px 54mm 1fr; column-gap: 12px; align-items: start; }
+.check-list li.two-col { display: grid; grid-template-columns: 18px 72mm 1fr; column-gap: 12px; align-items: start; }
 .check-list li.two-col .sub { margin-top: 0; }
 
 /* --- Boxen --- */
