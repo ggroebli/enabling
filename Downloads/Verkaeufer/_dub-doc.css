@@ -154,11 +154,12 @@ tfoot td { padding-top: 6mm; }
 .steps .step-text { font-size: 12.5px; color: #444; }
 
 /* --- Tabellen (Matrix / Übersicht) --- */
-.doc-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 3mm; break-inside: avoid; }
-.doc-table th { background: var(--navy); color: #fff; font-weight: 600; text-align: left; padding: 8px 10px; }
-.doc-table td { border: 1px solid var(--line); padding: 8px 10px; vertical-align: top; }
-.doc-table tr:nth-child(even) td { background: #F7F9FC; }
-.doc-table .fill { background: #fff; height: 8mm; }
+.doc-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 4mm; border: 1px solid var(--line); break-inside: avoid; }
+.doc-table th { background: #F4F7FB; color: var(--navy); font-weight: 700; text-align: left; padding: 10px 14px; border-bottom: 2px solid var(--orange); }
+.doc-table td { border-bottom: 1px solid var(--line); padding: 12px 14px; vertical-align: middle; }
+.doc-table tbody tr:last-child td { border-bottom: none; }
+.doc-table td:first-child { font-weight: 600; color: var(--navy); }
+.doc-table .fill { height: 9mm; }
 
 /* --- Ordnerbaum (Datenraum) --- */
 .folder-tree { list-style: none; font-size: 12.5px; }
