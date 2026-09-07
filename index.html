@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DUB Enablement – Prototyp-Übersicht</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+:root{
+  --font-main:'Inter','Helvetica Neue',Arial,sans-serif;
+  --black:#1A1A1A; --grey-dark:#666; --navy:#0F2744; --navy-2:#14294A;
+  --orange:#EE7A1E; --orange-light:#FDEBD8; --line:#E5E7EB;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-main);color:var(--black);background:#F7F8FA;line-height:1.5;}
+.top{background:var(--navy);color:#fff;padding:28px 0 34px;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.badge{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--navy);
+  font-weight:800;letter-spacing:.5px;padding:6px 12px;border-radius:8px;font-size:18px;}
+.brand-text{font-size:13px;line-height:1.15;font-weight:600;}
+.brand-text span{display:block;font-weight:400;color:#AEB8CC;}
+.top h1{font-size:30px;font-weight:800;letter-spacing:-.4px;margin-bottom:8px;}
+.top p{font-size:15px;color:#C9D2E0;max-width:760px;}
+.state{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+.pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;
+  padding:5px 13px;font-size:12.5px;font-weight:500;color:#E6ECF5;}
+.pill b{color:#fff;font-weight:700;}
+main{padding:32px 0 60px;}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px 26px;margin-bottom:22px;}
+.card > h2{font-size:17px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:10px;}
+.card > h2 i{color:var(--orange);font-size:16px;}
+.card > .sub{font-size:13px;color:var(--grey-dark);margin-bottom:18px;}
+.primary{display:inline-flex;align-items:center;gap:9px;background:var(--navy);color:#fff;text-decoration:none;
+  padding:11px 20px;border-radius:8px;font-size:14px;font-weight:600;transition:background .15s;}
+.primary:hover{background:var(--navy-2);}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.grid.three{grid-template-columns:repeat(3,1fr);}
+.item{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:8px;
+  padding:11px 13px;text-decoration:none;color:var(--black);font-size:13.5px;font-weight:500;transition:all .15s;}
+.item:hover{border-color:var(--orange);background:var(--orange-light);}
+.item i{color:var(--navy);font-size:14px;width:17px;text-align:center;flex-shrink:0;}
+.item .ph{font-size:11px;color:var(--grey-dark);font-weight:400;margin-left:auto;white-space:nowrap;}
+.doc{display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:9px;}
+.doc.wip{opacity:.6;}
+.doc .fi{width:32px;height:32px;border-radius:6px;background:#FEE2E2;color:#DC2626;display:flex;
+  align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.doc .fi.xls{background:#D1FAE5;color:#059669;}
+.doc .info{flex:1;min-width:0;}
+.doc .info a{color:var(--black);text-decoration:none;font-size:14px;font-weight:600;}
+.doc .info a:hover{color:var(--orange);text-decoration:underline;}
+.doc .info .t{font-size:14px;font-weight:600;}
+.doc .info .d{font-size:12px;color:var(--grey-dark);margin-top:1px;}
+.tag{display:inline-block;margin-left:7px;padding:1px 7px;border-radius:10px;font-size:9.5px;
+  font-weight:700;letter-spacing:.3px;text-transform:uppercase;vertical-align:1px;}
+.tag.ok{background:#D1FAE5;color:#047857;}
+.tag.wip{background:#FEF3C7;color:#B45309;}
+.dl{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:6px;
+  padding:6px 13px;font-size:12.5px;font-weight:500;color:var(--orange);text-decoration:none;
+  white-space:nowrap;flex-shrink:0;transition:all .15s;}
+.dl:hover{background:var(--orange-light);border-color:var(--orange);}
+.dl.off{color:var(--grey-dark);background:#F5F5F5;cursor:default;}
+.note{background:#F0F6FC;border:1px solid #CFE0F0;border-left:3px solid var(--navy);
+  border-radius:6px;padding:13px 16px;font-size:13px;color:#33455C;margin-top:16px;}
+.note b{color:var(--navy);}
+.note code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:#E3ECF6;padding:1px 5px;border-radius:4px;}
+.phase{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+  color:var(--grey-dark);margin:16px 0 9px;}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:12.5px;color:var(--grey-dark);}
+footer a{color:var(--navy);}
+@media(max-width:820px){.grid,.grid.three{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand">
+      <span class="badge">DUB</span>
+      <span class="brand-text">Deutsche<span>Unternehmerbörse</span></span>
+    </div>
+    <h1>Enablement-Prototyp – Übersicht für das Tech-Team</h1>
+    <p>Statische HTML-Mockups der Enablement-Features für DUB: Verkäufer- und Käufer-Academy,
+       Readiness-Checks, In-Flow-Guidance und die herunterladbaren Dokumente.
+       Grundlage für den Nachbau in der DUB-Plattform – kein Production Code.</p>
+    <div class="state">
+      <span class="pill"><b>DUB-Design</b> ausgerollt</span>
+      <span class="pill"><b>10</b> Verkäufer-Module</span>
+      <span class="pill"><b>4 von 17</b> Dokumenten inhaltlich final</span>
+      <span class="pill">Ansprache: <b>du</b></span>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="card">
+    <h2><i class="fa-solid fa-graduation-cap"></i> Verkäufer-Academy</h2>
+    <div class="sub">Startseite mit Fortschritt, 4 Phasen, 10 Modulen und dem Download-Center.</div>
+    <a class="primary" href="verkaufer-academy.html"><i class="fa-solid fa-arrow-right"></i> Academy-Startseite öffnen</a>
+
+    <div class="phase">Phase 1 – Vorbereitung</div>
+    <div class="grid">
+      <a class="item" href="seller-academy-modul-exit-readiness.html"><i class="fa-solid fa-play"></i> Ist mein Unternehmen verkaufsfähig?</a>
+      <a class="item" href="seller-academy-modul-verkaufsberater.html"><i class="fa-solid fa-play"></i> Brauche ich einen Verkaufsberater?</a>
+      <a class="item" href="seller-academy-modul-verkaufsprozess.html"><i class="fa-solid fa-play"></i> So läuft ein Verkaufsprozess ab</a>
+      <a class="item" href="seller-academy-modul-bewertung.html"><i class="fa-solid fa-play"></i> Was ist mein Unternehmen wert?</a>
+      <a class="item" href="seller-academy-modul-unterlagen.html"><i class="fa-solid fa-play"></i> Deine Unterlagen vorbereiten</a>
+    </div>
+
+    <div class="phase">Phase 2 &amp; 3 – Im Verkaufsprozess</div>
+    <div class="grid">
+      <a class="item" href="seller-academy-modul-kaeufer-screening.html"><i class="fa-solid fa-play"></i> Käufer- und Angebots-Screening</a>
+      <a class="item" href="seller-academy-modul-kennenlernen.html"><i class="fa-solid fa-play"></i> Persönliches Kennenlernen</a>
+      <a class="item" href="seller-academy-modul-loi.html"><i class="fa-solid fa-play"></i> LOI verhandeln</a>
+      <a class="item" href="seller-academy-modul-dd-closing.html"><i class="fa-solid fa-play"></i> Due Diligence bis Closing</a>
+    </div>
+
+    <div class="phase">Phase 4 – Abschluss &amp; Übergabe</div>
+    <div class="grid">
+      <a class="item" href="seller-academy-modul-uebergabe.html"><i class="fa-solid fa-play"></i> Saubere Übergabe</a>
+    </div>
+
+    <div class="note"><b>Für den Nachbau relevant:</b> Jedes Modul kombiniert Video-Lektion, aufklappbares
+      Referenz-Material, Wissens-Check (Quiz) und Completion-Gating – ein Modul gilt erst als
+      abgeschlossen, wenn das Video gesehen <i>und</i> das Quiz bestanden ist. Die Sidebar zeigt
+      Modul-Fortschritt, Phasen-Navigation und die Downloads des jeweiligen Moduls.</div>
+  </div>
+
+  <div class="card">
+    <h2><i class="fa-solid fa-file-pdf"></i> Dokumente der Verkäufer-Academy</h2>
+    <div class="sub">Inhaltlich abgeschlossen und verlinkt: 4 von 17. Der Titel öffnet die Ansicht, der Button lädt die PDF-Datei.</div>
+
+    <div class="doc">
+      <div class="fi"><i class="fa-solid fa-file-pdf"></i></div>
+      <div class="info">
+        <a href="Downloads/Verkaeufer/exit-readiness-checkliste.html" target="_blank">Exit-Readiness-Checkliste</a><span class="tag ok">Final</span>
+        <div class="d">Selbsttest: Ist das Unternehmen in Finanzen, Recht, Organisation und Abhängigkeiten verkaufsbereit?</div>
+      </div>
+      <a class="dl" href="Downloads/Verkaeufer/exit-readiness-checkliste.pdf" download><i class="fa-solid fa-download"></i> PDF</a>
+    </div>
+
+    <div class="doc">
+      <div class="fi"><i class="fa-solid fa-file-pdf"></i></div>
+      <div class="info">
+        <a href="Downloads/Verkaeufer/unterlagen-checkliste.html" target="_blank">Unterlagen-Checkliste</a><span class="tag ok">Final</span>
+        <div class="d">Vollständige Liste der Dokumente, die vor Verkaufsstart zusammengestellt werden sollten.</div>
+      </div>
+      <a class="dl" href="Downloads/Verkaeufer/unterlagen-checkliste.pdf" download><i class="fa-solid fa-download"></i> PDF</a>
+    </div>
+
+    <div class="doc">
+      <div class="fi"><i class="fa-solid fa-file-pdf"></i></div>
+      <div class="info">
+        <a href="Downloads/Verkaeufer/inserat-vorlage.html" target="_blank">Inserat-Vorlage</a><span class="tag ok">Final</span>
+        <div class="d">Mustervorlage inklusive ausformuliertem Beispiel-Inserat und Erklärung der Eckdaten.</div>
+      </div>
+      <a class="dl" href="Downloads/Verkaeufer/inserat-vorlage.pdf" download><i class="fa-solid fa-download"></i> PDF</a>
+    </div>
+
+    <div class="doc">
+      <div class="fi"><i class="fa-solid fa-file-pdf"></i></div>
+      <div class="info">
+        <a href="Downloads/Verkaeufer/verkaufsprozess-uebersicht.html" target="_blank">Verkaufsprozess-Übersicht</a><span class="tag ok">Final</span>
+        <div class="d">Die sechs Phasen mit Zeitrahmen, Direktverkauf gegen Berater-Prozess, Kurz-Glossar.</div>
+      </div>
+      <a class="dl" href="Downloads/Verkaeufer/verkaufsprozess-uebersicht.pdf" download><i class="fa-solid fa-download"></i> PDF</a>
+    </div>
+
+    <div class="doc wip">
+      <div class="fi"><i class="fa-solid fa-file-pdf"></i></div>
+      <div class="info">
+        <div class="t">9 weitere Checklisten &amp; Leitfäden<span class="tag wip">in Arbeit</span></div>
+        <div class="d">Layout steht, Content-Review läuft: Beraterauswahl, Erstgespräch, Käufer-Screening, LOI,
+          DD-Vorbereitung, Datenraum, Closing-Day, Übergabe, Wissenstransfer.</div>
+      </div>
+      <span class="dl off"><i class="fa-solid fa-download"></i> PDF</span>
+    </div>
+
+    <div class="doc wip">
+      <div class="fi xls"><i class="fa-solid fa-file-excel"></i></div>
+      <div class="info">
+        <div class="t">2 Excel-Vorlagen und 2 Muster-Dokumente<span class="tag wip">offen</span></div>
+        <div class="d">Bewertungs-Template und Käufer-Bewertungsmatrix (mit Formeln) sowie
+          Muster-Vertraulichkeitserklärung und Vorlage Beratermandat.</div>
+      </div>
+      <span class="dl off"><i class="fa-solid fa-download"></i> Excel</span>
+    </div>
+
+    <div class="note"><b>Format-Hinweis:</b> Die Dokumente sind als HTML gebaut und werden über
+      „Drucken → Als PDF speichern“ exportiert – gemeinsames Stylesheet
+      <code>Downloads/Verkaeufer/_dub-doc.css</code>, A4, Kopf- und Fußzeile auf jeder Seite.
+      Die verlinkten PDF-Dateien sind daraus erzeugt.</div>
+  </div>
+
+  <div class="card">
+    <h2><i class="fa-solid fa-clipboard-check"></i> Readiness-Checks und Verkäufer-Screens</h2>
+    <div class="sub">Interaktive Selbsttests und einzelne Screens der Verkäuferseite.</div>
+    <div class="grid three">
+      <a class="item" href="verkaufsbereitschafts-check.html"><i class="fa-solid fa-list-check"></i> Verkaufsbereitschafts-Check</a>
+      <a class="item" href="deal-readiness-check.html"><i class="fa-solid fa-list-check"></i> Deal-Readiness-Check</a>
+      <a class="item" href="verkaufer-gating-ui.html"><i class="fa-solid fa-lock"></i> Inserat erstellen (Gating)</a>
+      <a class="item" href="verkaufer-bewertung-modal.html"><i class="fa-solid fa-calculator"></i> Bewertungs-Modal</a>
+      <a class="item" href="transaktion-detail-verkaeufer.html"><i class="fa-solid fa-file-signature"></i> Mein Inserat (Verkäufer)</a>
+      <a class="item" href="red-flag-formular.html"><i class="fa-solid fa-flag"></i> Red-Flag-Formular</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><i class="fa-solid fa-magnifying-glass"></i> Käuferseite</h2>
+    <div class="sub">Bestehende Plattform-Screens mit den eingebauten Enablement-Features.</div>
+    <div class="grid three">
+      <a class="item" href="academy.html"><i class="fa-solid fa-graduation-cap"></i> Käufer-Academy<span class="ph">9 Module</span></a>
+      <a class="item" href="suche.html"><i class="fa-solid fa-magnifying-glass"></i> Suche<span class="ph">Gating</span></a>
+      <a class="item" href="listing.html"><i class="fa-solid fa-building"></i> Listing<span class="ph">KI-Analyse</span></a>
+      <a class="item" href="kauferprofil.html"><i class="fa-solid fa-user"></i> Käuferprofil<span class="ph">Score</span></a>
+      <a class="item" href="suchauftraege.html"><i class="fa-solid fa-bell"></i> Suchaufträge</a>
+      <a class="item" href="transaktionen.html"><i class="fa-solid fa-folder-open"></i> Meine Transaktionen</a>
+      <a class="item" href="mitteilungen.html"><i class="fa-solid fa-envelope"></i> Mitteilungen</a>
+      <a class="item" href="postfach.html"><i class="fa-solid fa-comments"></i> Postfach</a>
+      <a class="item" href="transaktion-detail.html"><i class="fa-solid fa-file-lines"></i> Transaktions-Detail</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><i class="fa-solid fa-screwdriver-wrench"></i> Technische Referenz</h2>
+    <div class="sub">Startpunkt für den Nachbau: Feature-Logik, Trigger und Datenfelder.</div>
+    <div class="grid">
+      <a class="item" href="doku-tech-spezifikation.html"><i class="fa-solid fa-code"></i> Technische Spezifikation</a>
+      <a class="item" href="doku-feature-uebersicht.html"><i class="fa-solid fa-table-list"></i> Feature-Übersicht</a>
+    </div>
+    <div class="note"><b>Bitte beachten:</b> Die Mockups sind auf 1440px feste Breite gebaut und nicht
+      responsive. Die Farb- und Komponenten-Konventionen (DUB-Navy <code>#0F2744</code>,
+      Akzent <code>#EE7A1E</code>, Semantik-Farben für Erfolg, Warnung und Risiko) stehen in der
+      technischen Spezifikation.</div>
+  </div>
+
+</main>
+
+<footer class="wrap">
+  Interner Prototyp der Deutsche Unternehmerbörse DUB.de GmbH · Fragen zum Content:
+  <a href="mailto:graig.groebli@dealcircle.com">graig.groebli@dealcircle.com</a>
+</footer>
+
+</body>
+</html>

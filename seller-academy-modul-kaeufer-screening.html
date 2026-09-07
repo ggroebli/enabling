@@ -637,6 +637,43 @@
             color: var(--phase-blue);
         }
 
+        /* Download-Status (Content-Stand) */
+        .download-item .dl-view {
+            color: inherit;
+            text-decoration: none;
+            flex: 1;
+        }
+
+        .download-item .dl-view:hover {
+            color: var(--phase-blue);
+            text-decoration: underline;
+        }
+
+        .download-item .dl-pdf {
+            color: var(--phase-blue);
+            text-decoration: none;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .download-item .dl-wip {
+            margin-left: auto;
+            padding: 1px 6px;
+            border-radius: 10px;
+            background: #FEF3C7;
+            color: #B45309;
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .download-item.pending {
+            opacity: 0.62;
+            cursor: default;
+        }
+
         /* Next Module CTA */
         .next-module-card {
             border: 2px solid var(--phase-blue);
@@ -1760,9 +1797,8 @@
             <!-- Downloads -->
             <div class="sidebar-card download-card">
                 <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
-                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Käufer-Screening-Checkliste (PDF)</div>
-                <div class="download-item"><i class="fa-solid fa-file-excel"></i> Käufer-Bewertungsmatrix (Excel)</div>
-                <div class="download-item"><i class="fa-solid fa-file-excel"></i> Käufer-Bewertungsmatrix (Excel)</div>
+                <div class="download-item pending"><i class="fa-solid fa-file-pdf"></i> Käufer-Screening-Checkliste (PDF)<span class="dl-wip">in Arbeit</span></div>
+                <div class="download-item pending"><i class="fa-solid fa-file-excel"></i> Käufer-Bewertungsmatrix (Excel)<span class="dl-wip">in Arbeit</span></div>
             </div>
 
             <!-- Next Module -->
