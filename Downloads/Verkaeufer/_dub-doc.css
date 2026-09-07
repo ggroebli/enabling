@@ -178,6 +178,43 @@ tfoot td { padding-top: 6mm; }
     .no-print { display: none !important; }
     thead { display: table-header-group; }
     tfoot { display: table-footer-group; }
+
+    /* Seitenumbrueche: keine verwaisten Ueberschriften, keine zerrissenen Bloecke */
+    .doc-lead,
+    .doc-section-title,
+    .doc-section-lead,
+    .box-title {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    .check-list li,
+    .steps > li,
+    .folder-tree > li,
+    .glossary .row,
+    .form-field,
+    .doc-table tr,
+    .tip-box,
+    .warn-box,
+    .eval-box,
+    .glossary,
+    .doc-lead {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .doc-body-text,
+    .doc-intro,
+    .steps .step-text {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Bewusst gesetzter Umbruch: Kapitel startet auf neuer Seite */
+    .page-break {
+        break-before: page;
+        page-break-before: always;
+    }
 }
 
 /* Screen-Hinweis */
