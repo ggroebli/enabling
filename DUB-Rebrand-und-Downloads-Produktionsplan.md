@@ -20,7 +20,7 @@
 | Download-Format | **Hybrid**: Checklisten/Leitfäden/Vorlagen = PDF (aus HTML), Rechner = echtes `.xlsx` |
 | Inhaltstiefe | **Voll ausformuliert**, direkt nutzbar |
 | Content-Regel | Inhalt **kongruent zu den Academy-Modultexten**, Details aus der **Wissensdatenbank** (Single Source of Truth) |
-| Reihenfolge | **Verkäufer zuerst** (17 Dokumente), Käufer später (15) |
+| Reihenfolge | **Verkäufer zuerst** (16 Dokumente), Käufer später (15) |
 
 ---
 
@@ -74,7 +74,7 @@ Footer-Logo analog (`.footer-logo` → Badge oder weißes „DUB" auf dunklem Fo
 
 ## B. Verkäufer-Downloads – Produktion
 
-### B.1 Inventar (17 Dokumente → Modul → KB-Quelle)
+### B.1 Inventar (16 Dokumente → Modul → KB-Quelle)
 
 | # | Dokument | Typ | Modul-Sidebar | Detail-Quelle |
 |---|---|---|---|---|
@@ -85,7 +85,6 @@ Footer-Logo analog (`.footer-logo` → Badge oder weißes „DUB" auf dunklem Fo
 | 4 | Muster-Vertraulichkeitserklärung | PDF | unterlagen | „Best practices – NDA" |
 | 5 | Bewertungs-Template | **Excel** | bewertung | „Quick Guide LBO Model" |
 | 6 | Checkliste Beraterauswahl | PDF | verkaufsberater | Modultext |
-| 7 | Vorlage Beratermandat | PDF | verkaufsberater | Modultext |
 | 8 | Verkaufsprozess-Übersicht | PDF (1-Seiter) | verkaufsprozess | Modultext |
 | **Phase 2 & 3 – Im Verkaufsprozess** ||||
 | 9 | Gesprächsleitfaden Erstgespräch | PDF | kennenlernen | Modultext |
@@ -99,7 +98,9 @@ Footer-Logo analog (`.footer-logo` → Badge oder weißes „DUB" auf dunklem Fo
 | 16 | Übergabe-Checkliste | PDF | uebergabe | Modultext |
 | 17 | Wissenstransfer-Plan | PDF | uebergabe | Modultext |
 
-→ **15 PDF + 2 Excel** über **10 Module**.
+→ **14 PDF + 2 Excel** über **10 Module**.
+
+> Gestrichen am 08.09.2026: Nr. 7 „Vorlage Beratermandat“. In der Praxis legt der Berater seinen Mandatsvertrag vor, der Verkäufer prüft ihn. Die Prüfpunkte stehen in Nr. 6 (Checkliste Beraterauswahl).
 
 ### B.2 Produktions-Pipelines
 - **PDF:** gemeinsames `_template.html` (DUB-CI: Navy-Kopf mit DUB-Badge, Fußzeile mit info@dub.de + Compliance-Hinweis „Keine Rechts-/Steuerberatung") → Inhalt einsetzen → Browser „Als PDF speichern".
@@ -122,7 +123,7 @@ Downloads/
 - `href="#"` in **verkaufer-academy.html** (Download-Center) + in den **10 Modul-Sidebars** auf echte Dateien setzen.
 - **Cleanup:** doppelte Sidebar-Einträge korrigieren in
   `dd-closing` (Datenraum-Struktur-Vorlage 2×), `kaeufer-screening` (Käufer-Bewertungsmatrix 2×),
-  `uebergabe` (Wissenstransfer-Plan 2×), `verkaufsberater` (Vorlage Beratermandat 2×).
+  `uebergabe` (Wissenstransfer-Plan 2×),.
 
 ### B.5 Wellen
 1. **Prototyp (3):** Exit-Readiness-Checkliste (PDF) · Muster-NDA (KB-basiert) · Bewertungs-Template (Excel) → Freigabe Design + Inhaltstiefe.
