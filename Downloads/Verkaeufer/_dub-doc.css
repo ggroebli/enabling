@@ -133,7 +133,7 @@ tfoot td { padding-top: 6mm; }
 .form-field label { display: block; font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
 .form-field .hint { font-weight: 400; color: var(--grey); }
 .form-line { border-bottom: 1px solid #B9C2D0; height: 9mm; }
-.form-line.tall { height: 13mm; }
+.form-line.tall { height: 20mm; }
 
 /* --- Nummerierte Schritte / Timeline --- */
 .steps { list-style: none; counter-reset: step; }
