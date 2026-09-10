@@ -80,7 +80,7 @@ Footer-Logo analog (`.footer-logo` → Badge oder weißes „DUB" auf dunklem Fo
 |---|---|---|---|---|
 | **Phase 1 – Vorbereitung** ||||
 | 1 | Exit-Readiness-Checkliste | PDF | exit-readiness | Modultext |
-| 2 | Unterlagen-Checkliste | PDF | unterlagen | DD-Checkliste, IM-Guide |
+| 2 | Unterlagen-Checkliste („Welche Unterlagen müssen Käufern vorgelegt werden?“) | PDF | unterlagen | DD-Checkliste, IM-Guide |
 | 3 | Inserat-Vorlage | PDF | unterlagen | „How to create a teaser" |
 | 4 | Muster-Vertraulichkeitserklärung | PDF | unterlagen | „Best practices – NDA" |
 | 5 | Bewertungs-Template | **Excel** | bewertung | „Quick Guide LBO Model" |
