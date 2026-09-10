@@ -91,7 +91,7 @@ Footer-Logo analog (`.footer-logo` → Badge oder weißes „DUB" auf dunklem Fo
 | 10 | Käufer-Screening-Checkliste | PDF | kaeufer-screening | Modultext |
 | 11 | Käufer-Bewertungsmatrix | **Excel** | kaeufer-screening | Modultext |
 | 12 | LOI-Checkliste für Verkäufer | PDF | loi | „DealCircle LOI Best Practice Guide" |
-| 13 | DD-Vorbereitungs-Checkliste | PDF | dd-closing | „Due Diligence Checklist" |
+| 13 | Käuferprüfung-Schwerpunkte („So läuft eine Käuferprüfung“) | PDF | dd-closing | „Due Diligence Checklist" |
 | 14 | Datenraum-Struktur-Vorlage | PDF | dd-closing | DD-Checkliste |
 | **Phase 4 – Abschluss & Übergabe** ||||
 | 15 | Closing-Day-Checkliste | PDF | dd-closing | Modultext |
