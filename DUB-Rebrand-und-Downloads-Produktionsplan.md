@@ -82,7 +82,8 @@ Footer-Logo analog (`.footer-logo` → Badge oder weißes „DUB" auf dunklem Fo
 | 1 | Exit-Readiness-Checkliste | PDF | exit-readiness | Modultext |
 | 2 | Unterlagen-Checkliste („Welche Unterlagen müssen Käufern vorgelegt werden?“) | PDF | unterlagen | DD-Checkliste, IM-Guide |
 | 3 | Inserat-Vorlage | PDF | unterlagen | „How to create a teaser" |
-| 4 | Muster-Vertraulichkeitserklärung (kurz + ausführlich) | PDF | unterlagen | „Best practices – NDA" |
+| 4a | Muster-Vertraulichkeitserklärung (kurz) | PDF | unterlagen | NDA Short DE (CMS) |
+| 4b | Muster-Vertraulichkeitserklärung (ausführlich) | PDF | unterlagen | NDA Long DE (CMS) |
 | 5 | Bewertungs-Template | **Excel** | bewertung | „Quick Guide LBO Model" |
 | 6 | Checkliste Beraterauswahl | PDF | verkaufsberater | Modultext |
 | 8 | Verkaufsprozess-Übersicht | PDF (1-Seiter) | verkaufsprozess | Modultext |
@@ -98,7 +99,7 @@ Footer-Logo analog (`.footer-logo` → Badge oder weißes „DUB" auf dunklem Fo
 | 16 | Übergabe-Checkliste | PDF | uebergabe | Modultext |
 | 17 | Wissenstransfer-Plan | PDF | uebergabe | Modultext |
 
-→ **14 PDF + 2 Excel** über **10 Module**.
+→ **15 PDF + 2 Excel** über **10 Module**.
 
 > Gestrichen am 08.09.2026: Nr. 7 „Vorlage Beratermandat“. In der Praxis legt der Berater seinen Mandatsvertrag vor, der Verkäufer prüft ihn. Die Prüfpunkte stehen in Nr. 6 (Checkliste Beraterauswahl).
 
