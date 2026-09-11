@@ -73,6 +73,7 @@ tfoot td { padding-top: 6mm; }
 
 /* --- Abschnitt --- */
 .doc-section { margin-bottom: 9mm; }
+.doc-section:last-child { margin-bottom: 0; }
 .doc-section-title {
     display: flex; align-items: center; gap: 10px;
     font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4mm;
