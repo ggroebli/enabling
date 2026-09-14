@@ -636,6 +636,16 @@
             background: #FAFAFA;
         }
 
+        /* Verlinkte Downloads */
+        .download-item .dl-view { color: inherit; text-decoration: none; flex: 1; }
+        .download-item .dl-view:hover { color: var(--phase-blue); text-decoration: underline; }
+        .download-item .dl-pdf { color: var(--phase-blue); text-decoration: none; font-size: 12px; flex-shrink: 0; }
+        .download-item .dl-wip {
+            margin-left: auto; padding: 1px 6px; border-radius: 10px; background: #FEF3C7;
+            color: #B45309; font-size: 9.5px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase;
+        }
+        .download-item.pending { opacity: 0.62; }
+
         .download-item {
             display: flex;
             align-items: center;
@@ -1797,8 +1807,8 @@
             <!-- Downloads -->
             <div class="sidebar-card download-card">
                 <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
-                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Käuferprofil-Vorlage (PDF)</div>
-                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Checkliste: Deine Unterlagen als Kaufinteressent (PDF)</div>
+                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> <a class="dl-view" href="Downloads/Kaeufer/kaeuferprofil-vorlage.html" target="_blank">Käuferprofil-Vorlage (PDF)</a><a class="dl-pdf" href="Downloads/Kaeufer/kaeuferprofil-vorlage.pdf" download title="PDF herunterladen"><i class="fa-solid fa-download"></i></a></div>
+                <div class="download-item pending"><i class="fa-solid fa-file-pdf"></i> Checkliste: Deine Unterlagen als Kaufinteressent (PDF)<span class="dl-wip">in Arbeit</span></div>
             </div>
 
             <!-- Next Module -->

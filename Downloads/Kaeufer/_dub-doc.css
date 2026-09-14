@@ -1,0 +1,242 @@
+/* ============================================================
+   DUB DOWNLOAD-DOKUMENT · gemeinsames CI-Stylesheet
+   Verkäufer-Academy · Navy #0F2744 · Orange #EE7A1E · Inter
+   A4 druckfertig · wiederholender <thead>/<tfoot>-Header/Footer
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --navy: #0F2744;
+    --navy-2: #14294A;
+    --orange: #EE7A1E;
+    --orange-light: #FDEBD8;
+    --ink: #1A1A1A;
+    --grey: #666666;
+    --line: #E5E7EB;
+    --green: #10B981;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--ink);
+    background: #EEF1F5;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* --- Blatt (Screen) --- */
+.sheet { width: 210mm; margin: 24px auto; background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,.12); }
+.doc { width: 100%; border-collapse: collapse; }
+
+/* --- Wiederholender Kopf (thead) --- */
+.run-header {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--navy); color: #fff; padding: 6mm 15mm;
+}
+.rh-brand { display: flex; align-items: center; gap: 9px; }
+.rh-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--navy-2); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14);
+    font-weight: 800; font-size: 12px; letter-spacing: .5px;
+}
+.rh-brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+.rh-brand-text strong { font-size: 12.5px; font-weight: 700; }
+.rh-brand-text span { font-size: 11.5px; font-weight: 400; color: #C7D0DE; }
+.rh-title { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; text-align: right; }
+.rh-academy { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #C7D0DE; }
+.rh-doc { font-size: 12.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--orange); }
+
+/* --- Wiederholender Fuß (tfoot) --- */
+.run-footer {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 5mm 15mm 6mm; border-top: 1px solid var(--line);
+    font-size: 10px; color: #8A94A6;
+}
+.run-footer a { color: var(--orange); text-decoration: none; font-weight: 600; }
+.run-footer > span:last-child { white-space: nowrap; }
+.run-footer .nowrap { white-space: nowrap; }
+
+/* --- Abstand unter Kopf / über Fuß (jede Seite) --- */
+thead td { padding-bottom: 10mm; }
+tfoot td { padding-top: 6mm; }
+
+/* --- Inhaltszelle --- */
+.content-cell { padding: 0 15mm 4mm; vertical-align: top; }
+
+/* --- Titelblock (Seite 1) --- */
+.doc-lead { margin-bottom: 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--orange-light); }
+.doc-kicker { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+.doc-title { font-size: 28px; font-weight: 800; line-height: 1.15; color: var(--navy); margin-bottom: 10px; }
+.doc-intro { font-size: 13.5px; font-weight: 400; color: var(--grey); }
+
+/* --- Abschnitt --- */
+.doc-section { margin-bottom: 9mm; }
+.doc-section:last-child { margin-bottom: 0; }
+.doc-section-title {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4mm;
+    padding-bottom: 8px; border-bottom: 2px solid var(--orange-light);
+    break-after: avoid;
+}
+.doc-section-title .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 6px;
+    background: var(--orange); color: #fff; font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+.doc-section-lead { font-size: 13px; color: var(--grey); margin-bottom: 4mm; }
+.doc-body-text { font-size: 13px; color: #333; margin-bottom: 3mm; }
+.doc-body-text strong { font-weight: 600; color: var(--navy); }
+
+/* --- Checkliste (ankreuzbar) --- */
+.check-list { list-style: none; }
+.check-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 9px 0; border-bottom: 1px solid var(--line);
+    font-size: 13px; break-inside: avoid;
+}
+.check-list li:last-child { border-bottom: none; }
+.check-box { flex-shrink: 0; width: 17px; height: 17px; margin-top: 1px; border: 2px solid var(--navy); border-radius: 4px; }
+.check-list li strong { font-weight: 600; }
+.check-list li .sub { display: block; color: var(--grey); font-size: 12px; margin-top: 2px; }
+.check-list li .ci-text { display: block; flex: 1; }
+
+/* Zweispaltige Check-Items: feste erste Spalte, Beschreibung startet immer gleich */
+.check-list li.two-col { display: grid; grid-template-columns: 18px 72mm 1fr; column-gap: 12px; align-items: start; }
+.check-list li.two-col .sub { margin-top: 0; }
+
+/* --- Boxen --- */
+.eval-box { background: var(--orange-light); border-left: 4px solid var(--orange); border-radius: 0 8px 8px 0; padding: 13px 18px; margin-top: 5mm; break-inside: avoid; }
+.box-title { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.eval-box .box-title i { color: var(--orange); }
+.eval-box p { font-size: 12.5px; color: #3A3A3A; margin: 2px 0; }
+.eval-box b { color: var(--navy); }
+
+.tip-box { background: #F4F7FB; border: 1px solid #DCE5EF; border-radius: 8px; padding: 13px 18px; margin-top: 5mm; break-inside: avoid; }
+.tip-box .box-title i { color: var(--navy); }
+.tip-box p { font-size: 12.5px; color: #3A3A3A; }
+
+.warn-box { background: #FEF3F2; border-left: 4px solid #EF4444; border-radius: 0 8px 8px 0; padding: 13px 18px; margin-top: 5mm; break-inside: avoid; }
+.warn-box .box-title i { color: #EF4444; }
+.warn-box p { font-size: 12.5px; color: #3A3A3A; }
+
+/* --- Glossar-Fußnote --- */
+.glossary { margin-top: 6mm; padding: 12px 16px; background: #F7F9FC; border: 1px solid var(--line); border-radius: 8px; break-inside: avoid; }
+.glossary .box-title i { color: var(--navy); }
+.glossary dl { font-size: 11.5px; color: #444; margin-top: 4px; }
+.glossary dt { font-weight: 700; color: var(--navy); display: inline; }
+.glossary dd { display: inline; margin: 0 0 0 4px; }
+.glossary .row { margin-bottom: 4px; }
+
+/* --- Formularfeld (ausfüllbar) --- */
+.form-field { margin-bottom: 5mm; break-inside: avoid; }
+.form-field label { display: block; font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+.form-field .hint { font-weight: 400; color: var(--grey); }
+.form-line { border-bottom: 1px solid #B9C2D0; height: 9mm; }
+.form-line.tall { height: 20mm; }
+
+/* --- Nummerierte Schritte / Timeline --- */
+.steps { list-style: none; counter-reset: step; }
+.steps > li { position: relative; padding: 0 0 6mm 46px; break-inside: avoid; }
+.steps > li:before {
+    counter-increment: step; content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: #fff; font-weight: 700; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+}
+.steps > li:not(:last-child):after {
+    content: ""; position: absolute; left: 14px; top: 32px; bottom: 2mm;
+    width: 2px; background: var(--orange-light);
+}
+.steps .step-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+.steps .step-meta { font-size: 11.5px; font-weight: 600; color: var(--orange); margin-bottom: 4px; }
+.steps .step-text { font-size: 12.5px; color: #444; }
+
+/* --- Tabellen (Matrix / Übersicht) --- */
+.doc-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 4mm; border: 1px solid var(--line); break-inside: avoid; }
+.doc-table th { background: #F4F7FB; color: var(--navy); font-weight: 700; text-align: left; padding: 10px 14px; border-bottom: 2px solid var(--orange); }
+.doc-table td { border-bottom: 1px solid var(--line); padding: 12px 14px; vertical-align: middle; }
+.doc-table tbody tr:last-child td { border-bottom: none; }
+.doc-table td:first-child { font-weight: 600; color: var(--navy); }
+.doc-table .fill { height: 9mm; }
+
+/* --- Ordnerbaum (Datenraum) --- */
+.folder-tree { list-style: none; font-size: 12.5px; }
+.folder-tree > li { margin-bottom: 3mm; break-inside: avoid; }
+.folder-tree .folder { font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 8px; }
+.folder-tree .folder i { color: var(--orange); }
+.folder-tree ul { list-style: none; margin: 4px 0 0 26px; }
+.folder-tree ul li { padding: 3px 0; color: #444; display: flex; align-items: center; gap: 8px; }
+.folder-tree ul li i { color: #9AA6B8; font-size: 11px; }
+
+/* --- Print --- */
+@page { size: A4; margin: 0; }
+@media print {
+    body { background: #fff; }
+    .sheet { width: auto; margin: 0; box-shadow: none; }
+    .no-print { display: none !important; }
+    thead { display: table-header-group; }
+    tfoot { display: table-footer-group; }
+
+    /* Seitenumbrueche: keine verwaisten Ueberschriften, keine zerrissenen Bloecke */
+    .doc-lead,
+    .doc-section-title,
+    .doc-section-lead,
+    .box-title {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    .check-list li,
+    .steps > li,
+    .folder-tree > li,
+    .glossary .row,
+    .form-field,
+    .doc-table tr,
+    .tip-box,
+    .warn-box,
+    .eval-box,
+    .glossary,
+    .doc-lead {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .doc-body-text,
+    .doc-intro,
+    .steps .step-text {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Bewusst gesetzter Umbruch: Kapitel startet auf neuer Seite */
+    .page-break {
+        break-before: page;
+        page-break-before: always;
+    }
+}
+
+/* Screen-Hinweis */
+.print-hint { width: 210mm; margin: 20px auto -8px; padding: 12px 18px; background: var(--navy); color: #fff; border-radius: 8px; font-size: 13px; display: flex; align-items: center; gap: 10px; justify-content: center; }
+.print-hint button { margin-left: 8px; padding: 7px 16px; border: none; border-radius: 20px; background: var(--orange); color: #fff; font-weight: 600; font-size: 13px; cursor: pointer; font-family: inherit; }
+
+/* --- Vertragsmuster (NDA) --- */
+.contract { font-size: 11.5px; color: #2A2A2A; line-height: 1.5; }
+.contract .letterhead { border: 1px dashed #B9C2D0; border-radius: 6px; padding: 8px 12px; margin-bottom: 5mm; font-size: 11px; color: var(--grey); }
+.contract .addr { margin-bottom: 4mm; }
+.contract .addr div { line-height: 1.45; }
+.contract .subject { font-weight: 700; color: var(--navy); margin: 4mm 0 3mm; }
+.contract p { margin-bottom: 3mm; }
+.clause { display: grid; grid-template-columns: 9mm 1fr; column-gap: 2px; margin-bottom: 3.5mm; orphans: 3; widows: 3; }
+.clause-title { break-after: avoid; }
+.clause-no { font-weight: 700; color: var(--navy); }
+.clause-title { display: block; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+.clause p:last-child { margin-bottom: 0; }
+.clause ol { margin: 2mm 0 0 5mm; padding: 0; }
+.clause ol li { margin-bottom: 2mm; }
+.ph { background: #FFF4E0; border-radius: 3px; padding: 0 3px; color: #8A5A00; font-weight: 600; }
+.sig { display: grid; grid-template-columns: 1fr 1fr; gap: 12mm; margin-top: 10mm; break-inside: avoid; }
+.sig .line { border-bottom: 1px solid #B9C2D0; height: 13mm; }
+.sig .lbl { font-size: 10.5px; color: var(--grey); margin-top: 4px; line-height: 1.4; }
