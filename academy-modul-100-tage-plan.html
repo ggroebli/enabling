@@ -272,10 +272,19 @@
 
         /* ===== DOWNLOAD CARD ===== */
         .download-card { background: #F9FAFB; border: 1px solid #E5E7EB; }
-        .download-card .download-title { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
-        .download-card .download-desc { font-size: 13px; font-weight: 300; color: var(--grey-dark); margin-bottom: 12px; line-height: 150%; }
-        .download-card a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--phase-blue); color: var(--white); border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; }
-        .download-card a:hover { opacity: 0.85; }
+        .download-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #F0F0F0;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--black);
+            cursor: pointer;
+        }
+        .download-item:last-child { border-bottom: none; }
+        .download-item i { color: var(--phase-blue); font-size: 16px; width: 20px; text-align: center; }
 
         /* ===== FOOTER ===== */
         .footer { background: var(--black); color: var(--white); padding: 48px 48px 32px; width: 1440px; margin-top: 0; }
@@ -837,12 +846,10 @@
                 </a>
             </div>
 
-            <!-- Download Card -->
+            <!-- Downloads -->
             <div class="sidebar-card download-card">
-                <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Download</div>
-                <div class="download-title">100-Tage-Plan Template</div>
-                <div class="download-desc">Strukturierter Fahrplan für deine ersten 100 Tage als neuer Eigentümer – mit Checklisten und Meilensteinen.</div>
-                <a href="#"><i class="fa-solid fa-file-arrow-down"></i> Template herunterladen</a>
+                <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
+                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> 100-Tage-Plan Template (PDF)</div>
             </div>
 
             <!-- Berater CTA -->

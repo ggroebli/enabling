@@ -217,6 +217,10 @@
         .phase-module-item.active { background: var(--phase-blue-bg); font-weight: 600; color: var(--phase-blue); }
         .phase-module-item .module-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grey-light); flex-shrink: 0; }
         .phase-module-item.active .module-dot { background: var(--phase-blue); }
+        .download-card { background: #F9FAFB; border: 1px solid #E5E7EB; }
+        .download-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #F0F0F0; font-size: 14px; font-weight: 400; color: var(--black); cursor: pointer; }
+        .download-item:last-child { border-bottom: none; }
+        .download-item i { color: var(--phase-blue); font-size: 16px; width: 20px; text-align: center; }
         .next-module-card { border: 2px solid var(--phase-blue); }
         .next-module-card .next-label { font-size: 12px; font-weight: 400; color: var(--grey-dark); margin-bottom: 4px; }
         .next-module-card .next-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 12px; }
@@ -843,24 +847,15 @@
                 </a>
             </div>
 
+            <!-- Downloads -->
+            <div class="sidebar-card download-card">
+                <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
+                <div class="download-item"><i class="fa-solid fa-file-excel"></i> Finanzierungsplan-Vorlage (Excel)</div>
+                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Checkliste Bankgespräch (PDF)</div>
+            </div>
+
             <!-- Next Module -->
             <div class="sidebar-card next-module-card">
-
-            <!-- Downloads -->
-            <div class="sidebar-card download-card">
-                <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
-                <div class="download-item"><i class="fa-solid fa-file-excel"></i> Finanzierungsplan-Vorlage (Excel)</div>
-                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Checkliste Bankgespräch (PDF)</div>
-            </div>
-
-
-            <!-- Downloads -->
-            <div class="sidebar-card download-card">
-                <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
-                <div class="download-item"><i class="fa-solid fa-file-excel"></i> Finanzierungsplan-Vorlage (Excel)</div>
-                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Checkliste Bankgespräch (PDF)</div>
-            </div>
-
                 <div class="next-label">Nächstes Modul</div>
                 <div class="next-title">Vertragsverhandlung, Signing &amp; Closing</div>
                 <a href="academy-modul-kaufvertrag.html"><i class="fa-solid fa-arrow-right"></i> Modul starten</a>
