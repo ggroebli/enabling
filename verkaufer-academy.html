@@ -515,7 +515,6 @@
             gap: 32px;
             background: var(--black);
             border-radius: 8px;
-            margin-top: 8px;
         }
 
         .cta-banner-icon {
@@ -602,7 +601,7 @@
     
         /* ===== DOWNLOADS CENTER ===== */
         .downloads-section {
-            margin-top: 16px;
+            /* Abstand kommt aus .container { gap: 32px } */
         }
 
         .downloads-header {
@@ -827,6 +826,38 @@
             border-color: #E5E7EB;
         }
 
+    
+        /* ===== FAQ (SEO/GEO) ===== */
+        .faq-section { /* Abstand kommt aus .container { gap: 32px } */ }
+        .faq-body { display: none; padding: 24px 0 0; }
+        .faq-body.open { display: block; }
+        .faq-list { display: flex; flex-direction: column; gap: 10px; }
+        .faq-item {
+            background: var(--white); border: 1px solid #E5E7EB; border-radius: 10px;
+            transition: border-color .15s ease, box-shadow .15s ease;
+        }
+        .faq-item:hover { border-color: #CFE0F2; }
+        .faq-item[open] { border-color: #CFE0F2; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+        .faq-question {
+            display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            padding: 18px 24px; cursor: pointer; list-style: none;
+            font-size: 15px; font-weight: 600; color: var(--navy);
+        }
+        .faq-question::-webkit-details-marker { display: none; }
+        .faq-question::after {
+            content: "078"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            font-size: 12px; color: var(--grey-dark); flex-shrink: 0;
+            transition: transform .2s ease, color .2s ease;
+        }
+        .faq-item[open] .faq-question::after { transform: rotate(180deg); color: var(--dub-orange); }
+        .faq-answer { padding: 0 24px 20px; }
+        .faq-answer .faq-more { margin-top: 10px; font-size: 13.5px; font-weight: 400; }
+        .faq-answer .faq-more a { color: var(--dub-orange); text-decoration: none; font-weight: 600; }
+        .faq-answer .faq-more a:hover { text-decoration: underline; }
+        .faq-answer p {
+            font-size: 14.5px; font-weight: 300; color: var(--grey-dark);
+            line-height: 170%; margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -1149,7 +1180,7 @@
                         </div>
                         <div class="downloads-header-text">
                             <h3>Alle Downloads & Vorlagen</h3>
-                            <span>17 Dokumente: 15 inhaltlich final, weitere in Arbeit</span>
+                            <span>17 Dokumente: Checklisten, Leitfäden, Mustervorlagen und Excel-Rechner</span>
                         </div>
                     </div>
                     <div class="downloads-toggle" id="downloads-toggle">
@@ -1319,6 +1350,222 @@
                 </div>
             </div>
 
+
+
+
+
+            <!-- ===== FAQ (SEO/GEO) ===== -->
+            <div class="faq-section">
+                <div class="downloads-header" onclick="toggleFaq()">
+                    <div class="downloads-header-left">
+                        <div class="downloads-icon">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </div>
+                        <div class="downloads-header-text">
+                            <h3>Häufig gestellte Fragen zum Unternehmensverkauf</h3>
+                            <span>Bewertung, Kaufpreis, Ablauf und die Verkäufer-Akademie</span>
+                        </div>
+                    </div>
+                    <div class="downloads-toggle" id="faq-toggle">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <div class="faq-body" id="faq-body">
+                    <section aria-labelledby="faq-heading-verkaeufer">
+                        <h2 id="faq-heading-verkaeufer" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Häufig gestellte Fragen zum Unternehmensverkauf</h2>
+                        <div class="faq-list">
+                            <details class="faq-item">
+                                <summary class="faq-question">Wie wird der Wert meines Unternehmens ermittelt?</summary>
+                                <div class="faq-answer">
+                                    <p>Bei kleinen und mittleren Unternehmen ist die Multiple-Methode üblich: Das bereinigte EBITDA wird mit einem branchenüblichen Faktor multipliziert. Bereinigt heißt, dass inhaberbedingte Sondereffekte herausgerechnet werden, etwa ein nicht marktübliches Geschäftsführergehalt, private Ausgaben über die Firma oder einmalige Erträge und Aufwendungen. Erst diese bereinigte Zahl zeigt die tatsächliche Ertragskraft.</p>
+                                    <p class="faq-more"><a href="seller-academy-modul-bewertung.html">Modul: Was ist mein Unternehmen wert?</a></p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Was ist der Unterschied zwischen Unternehmenswert und Kaufpreis?</summary>
+                                <div class="faq-answer">
+                                    <p>Der Unternehmenswert aus der Multiple-Rechnung ist cash and debt free gerechnet, also so, als hätte die Firma weder Schulden noch Bankguthaben. Bis zum tatsächlichen Kaufpreis kommt die Preisbrücke dazwischen: Finanzverbindlichkeiten werden abgezogen, überschüssige Barmittel addiert, Working Capital und Investitionsstau angepasst. Zwei Angebote lassen sich nur vergleichen, wenn beide denselben Bezug haben.</p>
+                                    <p class="faq-more"><a href="seller-academy-modul-bewertung.html">Modul: Was ist mein Unternehmen wert?</a></p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Wie lange dauert ein Unternehmensverkauf?</summary>
+                                <div class="faq-answer">
+                                    <p>Ein typischer Verkaufsprozess dauert 6 bis 12 Monate. Wer unter Zeitdruck steht, macht Zugeständnisse beim Preis, deshalb lohnt sich ein früher Start. Die Phase von der Vermarktung bis zur Kandidatenauswahl sollte im Idealfall nicht länger als 2 bis 3 Monate dauern, zieht sich bei kleineren Unternehmen aber häufig.</p>
+                                    <p class="faq-more"><a href="seller-academy-modul-verkaufsprozess.html">Modul: So läuft ein Verkaufsprozess ab</a></p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Brauche ich einen M&amp;A-Berater, um mein Unternehmen zu verkaufen?</summary>
+                                <div class="faq-answer">
+                                    <p>Wenn es möglich ist: ja. Ein Verkaufsberater führt in der Regel zu einem besseren Verkaufspreis und einem professionelleren Prozess. Schwierig wird es in der Praxis, wenn das Ergebnis unter etwa 100.000 Euro liegt, weil sich ein Vollmandat für den Berater dann oft nicht rechnet. In dem Fall lohnt sich zumindest punktuelle Beratung für die kritischen Schritte. Übliches Vergütungsmodell ist eine monatliche Grundgebühr kombiniert mit einem Erfolgshonorar von 3 bis 8 Prozent des Kaufpreises.</p>
+                                    <p class="faq-more"><a href="seller-academy-modul-verkaufsberater.html">Modul: Kann/Soll ich einen Verkaufsberater mandatieren?</a></p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Woran erkenne ich einen seriösen Kaufinteressenten?</summary>
+                                <div class="faq-answer">
+                                    <p>Seriöse Interessenten haben ein ausgefülltes Käuferprofil, stellen konkrete Fragen zu Geschäftsmodell, Mitarbeitern und Zahlen statt pauschal nach allen Unterlagen zu fragen, und legen einen Eigenkapitalnachweis vor. Klare Warnsignale sind: keine Vertraulichkeitserklärung unterschreiben wollen, sofort vertrauliche Daten verlangen, unrealistische Zeitvorstellungen und lange Reaktionszeiten.</p>
+                                    <p class="faq-more"><a href="seller-academy-modul-kaeufer-screening.html">Modul: Käufer- und Angebots-Screening</a></p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Was ist ein LOI und ist er bindend?</summary>
+                                <div class="faq-answer">
+                                    <p>Der Letter of Intent ist die Absichtserklärung, mit der Käufer und Verkäufer die Eckpunkte des Deals festhalten, bevor die Prüfung beginnt. Er ist in der Regel nicht rechtlich bindend, einzelne Klauseln wie die Exklusivität aber sehr wohl. Ab dem LOI verhandelst du meist exklusiv mit einem Kandidaten, deshalb ist die Auswahl davor entscheidend.</p>
+                                    <p class="faq-more"><a href="seller-academy-modul-loi.html">Modul: LOI verhandeln</a></p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Ist ein Verkäuferdarlehen ein schlechtes Zeichen?</summary>
+                                <div class="faq-answer">
+                                    <p>Nein. Ein Verkäuferdarlehen oder ein Earn-Out ist bei kleineren Transaktionen normal und oft die Voraussetzung dafür, dass die Finanzierung des Käufers überhaupt steht. Entscheidend ist nicht, ob solche Instrumente vorkommen, sondern ihr Anteil am Kaufpreis: Kritisch wird es, wenn der sofort gezahlte Teil so klein wird, dass du den Großteil des Risikos trägst.</p>
+                                    <p class="faq-more"><a href="seller-academy-modul-kaeufer-screening.html">Modul: Käufer- und Angebots-Screening</a></p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Was ist die DUB Verkäufer-Akademie?</summary>
+                                <div class="faq-answer">
+                                    <p>Die DUB Verkäufer-Akademie ist ein kostenloses Selbstlernprogramm, das Unternehmerinnen und Unternehmer Schritt für Schritt auf den Verkauf ihres Unternehmens vorbereitet. Sie richtet sich vor allem an Inhaber, die den Verkauf aufgrund der Transaktionsgröße ohne mandatierten M&amp;A-Berater selbst führen. Sie umfasst 10 Module in 4 Phasen, von der ersten Vorbereitung über Unterlagen und Vermarktung bis zu Verhandlung, Abschluss und der Zeit nach dem Verkauf. Jedes Modul dauert 12 bis 15 Minuten.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Ist die Verkäufer-Akademie kostenlos?</summary>
+                                <div class="faq-answer">
+                                    <p>Ja. Alle Module, der Verkaufsbereitschafts-Check sowie sämtliche Vorlagen und Checklisten stehen kostenlos zur Verfügung. Der Hintergrund ist die Nachfolgewelle im deutschen Mittelstand: Gerade kleinere Unternehmen werden häufig ohne M&amp;A-Berater verkauft. Frei zugängliches Wissen soll solche Transaktionen einfacher machen und beiden Seiten mehr Sicherheit geben.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Welche Vorlagen und Checklisten stehen zum Download bereit?</summary>
+                                <div class="faq-answer">
+                                    <p>Die Akademie stellt 17 Dokumente bereit, darunter die Exit-Readiness-Checkliste, eine Unterlagen-Checkliste, eine Inserat-Vorlage, zwei Muster-Vertraulichkeitserklärungen, einen Gesprächsleitfaden fürs Erstgespräch, eine Käufer-Screening-Checkliste sowie Excel-Vorlagen zur Unternehmensbewertung und zum Vergleich mehrerer Kaufinteressenten.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Was ist der Verkaufsbereitschafts-Check?</summary>
+                                <div class="faq-answer">
+                                    <p>Der Verkaufsbereitschafts-Check ist ein rund zehnminütiger Selbsttest, der eine persönliche Einschätzung liefert, wie gut ein Unternehmen und sein Inhaber aktuell auf einen Verkauf vorbereitet sind. Er lässt sich unabhängig von den einzelnen Modulen starten.</p>
+                                    <p class="faq-more"><a href="verkaufsbereitschafts-check.html">Verkaufsbereitschafts-Check starten</a></p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary class="faq-question">Gibt es die DUB Academy auch für Unternehmenskäufer?</summary>
+                                <div class="faq-answer">
+                                    <p>Ja, neben der Verkäufer-Akademie gibt es mit der Käufer-Academy ein eigenes Programm für Kaufinteressenten. Sie umfasst 9 Module in 5 Phasen, von der Suchstrategie über Bewertung und Finanzierung bis zum 100-Tage-Plan nach der Übernahme.</p>
+                                    <p class="faq-more"><a href="academy.html">Zur Käufer-Academy</a></p>
+                                </div>
+                            </details>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie wird der Wert meines Unternehmens ermittelt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bei kleinen und mittleren Unternehmen ist die Multiple-Methode üblich: Das bereinigte EBITDA wird mit einem branchenüblichen Faktor multipliziert. Bereinigt heißt, dass inhaberbedingte Sondereffekte herausgerechnet werden, etwa ein nicht marktübliches Geschäftsführergehalt, private Ausgaben über die Firma oder einmalige Erträge und Aufwendungen. Erst diese bereinigte Zahl zeigt die tatsächliche Ertragskraft."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist der Unterschied zwischen Unternehmenswert und Kaufpreis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Unternehmenswert aus der Multiple-Rechnung ist cash and debt free gerechnet, also so, als hätte die Firma weder Schulden noch Bankguthaben. Bis zum tatsächlichen Kaufpreis kommt die Preisbrücke dazwischen: Finanzverbindlichkeiten werden abgezogen, überschüssige Barmittel addiert, Working Capital und Investitionsstau angepasst. Zwei Angebote lassen sich nur vergleichen, wenn beide denselben Bezug haben."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert ein Unternehmensverkauf?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ein typischer Verkaufsprozess dauert 6 bis 12 Monate. Wer unter Zeitdruck steht, macht Zugeständnisse beim Preis, deshalb lohnt sich ein früher Start. Die Phase von der Vermarktung bis zur Kandidatenauswahl sollte im Idealfall nicht länger als 2 bis 3 Monate dauern, zieht sich bei kleineren Unternehmen aber häufig."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Brauche ich einen M&A-Berater, um mein Unternehmen zu verkaufen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wenn es möglich ist: ja. Ein Verkaufsberater führt in der Regel zu einem besseren Verkaufspreis und einem professionelleren Prozess. Schwierig wird es in der Praxis, wenn das Ergebnis unter etwa 100.000 Euro liegt, weil sich ein Vollmandat für den Berater dann oft nicht rechnet. In dem Fall lohnt sich zumindest punktuelle Beratung für die kritischen Schritte. Übliches Vergütungsmodell ist eine monatliche Grundgebühr kombiniert mit einem Erfolgshonorar von 3 bis 8 Prozent des Kaufpreises."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Woran erkenne ich einen seriösen Kaufinteressenten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Seriöse Interessenten haben ein ausgefülltes Käuferprofil, stellen konkrete Fragen zu Geschäftsmodell, Mitarbeitern und Zahlen statt pauschal nach allen Unterlagen zu fragen, und legen einen Eigenkapitalnachweis vor. Klare Warnsignale sind: keine Vertraulichkeitserklärung unterschreiben wollen, sofort vertrauliche Daten verlangen, unrealistische Zeitvorstellungen und lange Reaktionszeiten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist ein LOI und ist er bindend?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Letter of Intent ist die Absichtserklärung, mit der Käufer und Verkäufer die Eckpunkte des Deals festhalten, bevor die Prüfung beginnt. Er ist in der Regel nicht rechtlich bindend, einzelne Klauseln wie die Exklusivität aber sehr wohl. Ab dem LOI verhandelst du meist exklusiv mit einem Kandidaten, deshalb ist die Auswahl davor entscheidend."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ist ein Verkäuferdarlehen ein schlechtes Zeichen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Ein Verkäuferdarlehen oder ein Earn-Out ist bei kleineren Transaktionen normal und oft die Voraussetzung dafür, dass die Finanzierung des Käufers überhaupt steht. Entscheidend ist nicht, ob solche Instrumente vorkommen, sondern ihr Anteil am Kaufpreis: Kritisch wird es, wenn der sofort gezahlte Teil so klein wird, dass du den Großteil des Risikos trägst."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist die DUB Verkäufer-Akademie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die DUB Verkäufer-Akademie ist ein kostenloses Selbstlernprogramm, das Unternehmerinnen und Unternehmer Schritt für Schritt auf den Verkauf ihres Unternehmens vorbereitet. Sie richtet sich vor allem an Inhaber, die den Verkauf aufgrund der Transaktionsgröße ohne mandatierten M&A-Berater selbst führen. Sie umfasst 10 Module in 4 Phasen, von der ersten Vorbereitung über Unterlagen und Vermarktung bis zu Verhandlung, Abschluss und der Zeit nach dem Verkauf. Jedes Modul dauert 12 bis 15 Minuten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ist die Verkäufer-Akademie kostenlos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Alle Module, der Verkaufsbereitschafts-Check sowie sämtliche Vorlagen und Checklisten stehen kostenlos zur Verfügung. Der Hintergrund ist die Nachfolgewelle im deutschen Mittelstand: Gerade kleinere Unternehmen werden häufig ohne M&A-Berater verkauft. Frei zugängliches Wissen soll solche Transaktionen einfacher machen und beiden Seiten mehr Sicherheit geben."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Vorlagen und Checklisten stehen zum Download bereit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Akademie stellt 17 Dokumente bereit, darunter die Exit-Readiness-Checkliste, eine Unterlagen-Checkliste, eine Inserat-Vorlage, zwei Muster-Vertraulichkeitserklärungen, einen Gesprächsleitfaden fürs Erstgespräch, eine Käufer-Screening-Checkliste sowie Excel-Vorlagen zur Unternehmensbewertung und zum Vergleich mehrerer Kaufinteressenten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist der Verkaufsbereitschafts-Check?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Verkaufsbereitschafts-Check ist ein rund zehnminütiger Selbsttest, der eine persönliche Einschätzung liefert, wie gut ein Unternehmen und sein Inhaber aktuell auf einen Verkauf vorbereitet sind. Er lässt sich unabhängig von den einzelnen Modulen starten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Gibt es die DUB Academy auch für Unternehmenskäufer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, neben der Verkäufer-Akademie gibt es mit der Käufer-Academy ein eigenes Programm für Kaufinteressenten. Sie umfasst 9 Module in 5 Phasen, von der Suchstrategie über Bewertung und Finanzierung bis zum 100-Tage-Plan nach der Übernahme."
+          }
+        }
+      ]
+    }
+            </script>
+
             <!-- ===== VERKAUFSBEREITSCHAFTS-CHECK BANNER ===== -->
             <div class="readiness-check-banner">
                 <div class="readiness-check-icon">
@@ -1351,6 +1598,7 @@
                     Berater finden
                 </a>
             </div>
+
 
         </div>
     </div>
@@ -1430,6 +1678,13 @@
                 function toggleDownloads() {
             var body = document.getElementById('downloads-body');
             var toggle = document.getElementById('downloads-toggle');
+            body.classList.toggle('open');
+            toggle.classList.toggle('open');
+        }
+
+        function toggleFaq() {
+            var body = document.getElementById('faq-body');
+            var toggle = document.getElementById('faq-toggle');
             body.classList.toggle('open');
             toggle.classList.toggle('open');
         }
