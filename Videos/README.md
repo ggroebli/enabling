@@ -1,6 +1,6 @@
 # Videos – DUB Academy
 
-Sammelordner für alle KI-generierten Lehrvideos der Käufer-Akademie (und später Verkäufer-Akademie).
+Sammelordner für alle KI-generierten Lehrvideos der Käufer-Academy (und später Verkäufer-Academy).
 Skripte werden hier abgelegt, mit dem Tool-Workflow generiert und später in die jeweiligen `academy-modul-*.html` eingebettet.
 
 ## Workflow-Übersicht
@@ -71,7 +71,7 @@ Damit alle Skripte konsistent klingen:
 
 ## Skript-Pipeline – nächste Module
 
-In Reihenfolge der Akademie (Phase 1: Vorbereitung):
+In Reihenfolge der Academy (Phase 1: Vorbereitung):
 
 1. `video-skript-modul-01-suchstrategie.md` ✓ (fertig)
 2. `video-skript-modul-02-dokumente.md`
