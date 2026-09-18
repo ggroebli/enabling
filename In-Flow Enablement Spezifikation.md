@@ -116,7 +116,7 @@ Die DUB-Prozesskette hat **9 Phasen**, die für Käufer und Verkäufer identisch
 | 1 | Notizen vom Treffen auswerten und offene Fragen notieren | ✅ Erledigt |
 | 2 | Unternehmensbewertung durchrechnen (Bewertungs-Template nutzen) | ☐ Offen |
 | 3 | Deal-Struktur festlegen: Share Deal oder Asset Deal? | ☐ Offen |
-| 4 | LOI-Entwurf vorbereiten (LOI-Mustervorlage anpassen) | ☐ Offen |
+| 4 | LOI vorbereiten (Angaben zusammenstellen, Entwurf vom Anwalt erstellen lassen) | ☐ Offen |
 | 5 | Finanzierung klären: Eigenkapital, Bankgespräch, Fördermittel | ☐ Offen |
 
 **Phasenbeschreibung:**
