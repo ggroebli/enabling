@@ -28,7 +28,7 @@ Das Download-Center auf `academy.html` listet bereits **15 Dokumente** mit Titel
 | 5 | Checkliste: Teaser bewerten | PDF | dokumente | 2 | „How to create a teaser", SAMPLE Teaser |
 | 6 | Checkliste: Vertraulichkeitsvereinbarung/NDA prüfen | PDF | dokumente | 2 | „Best practices – NDA" |
 | 7 | Checkliste: Unternehmensunterlagen bewerten | PDF | dokumente | 2 | „How to create an IM", TEMPLATE IM |
-| 8 | LOI-Mustervorlage | PDF | angebotsstrategie | 2 | „DealCircle LOI Best Practice Guide" |
+| 8 | Absichtserklärung (LOI) vorbereiten | PDF | angebotsstrategie | 2 | „DealCircle LOI Best Practice Guide" |
 | **Phase 3 – Prüfung & Finanzierung** |||||
 | 9 | DD-Checkliste | **Excel** | due-diligence | 3 | DueDiligence-Checkliste.xlsx, Guide 6 |
 | 10 | DD-Dokumentenanforderungsliste | PDF | due-diligence | 3 | DueDiligence-Checkliste.xlsx |
@@ -55,7 +55,7 @@ Das Download-Center auf `academy.html` listet bereits **15 Dokumente** mit Titel
 | Checkliste: Vertraulichkeitsvereinbarung/NDA prüfen | Muster-Vertraulichkeitserklärung (kurz/ausführlich) | gleiche Quelle, andere Rolle: prüfen statt vorlegen |
 | Checkliste: Teaser bewerten | Inserat-Vorlage | Verkäufer erstellt, Käufer bewertet |
 | Checkliste: Unternehmensunterlagen bewerten | Unterlagen-Checkliste | Verkäufer stellt zusammen, Käufer prüft |
-| LOI-Mustervorlage | LOI-Checkliste für Verkäufer | gleiche Quelle, Käufer formuliert, Verkäufer prüft |
+| Absichtserklärung (LOI) vorbereiten | LOI-Checkliste für Verkäufer | gleiche Quelle, Käufer formuliert, Verkäufer prüft |
 | DD-Checkliste + DD-Doku-Anforderungsliste | Käuferprüfung-Schwerpunkte + Datenraum-Struktur-Vorlage | dieselbe Prüfung von beiden Seiten |
 | Bewertungs-Template | Bewertungs-Template (Verkäufer) | dieselbe Methodik, Käufersicht auf den Preis |
 | Closing-Checkliste | Checkliste: Vollzug des Verkaufs | derselbe Termin, andere Pflichten |
