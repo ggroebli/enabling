@@ -632,6 +632,9 @@
             background: #FAFAFA;
         }
 
+        .download-item .dl-view { color: inherit; text-decoration: none; flex: 1; }
+        .download-item .dl-view:hover { color: var(--phase-blue); text-decoration: underline; }
+        .download-item .dl-pdf { color: var(--phase-blue); text-decoration: none; font-size: 12px; flex-shrink: 0; }
         .download-item {
             display: flex;
             align-items: center;
@@ -1493,7 +1496,8 @@
                     <li><strong>EBITDA</strong> = Gewinn vor Zinsen, Steuern und Abschreibungen (Earnings Before Interest, Taxes, Depreciation and Amortization)</li>
                     <li><strong>EBIT</strong> = Gewinn vor Zinsen und Steuern (Earnings Before Interest and Taxes)</li>
                     <li>Der Unterschied: EBITDA ignoriert Abschreibungen – das ist relevant, wenn hohe Investitionen anstehen</li>
-                    <li>In einer perfekten Welt macht es <strong>keinen Unterschied</strong>, ob du EBITDA oder EBIT nutzt – solange du den jeweils passenden Multiple anwendest (EBITDA-Multiple bzw. EBIT-Multiple). In der Praxis ist die Datenbasis aber selten perfekt. Daher ist es ratsam, <strong>EBIT-basierte Multiples</strong> zu bevorzugen, wenn das Unternehmen signifikante abschreibungspflichtige Investitionen tätigt (z.B. Maschinen, Fahrzeuge, Ausstattung)</li>
+                    <li>Grundsätzlich macht es keinen Unterschied, ob du EBITDA oder EBIT nutzt – solange du den jeweils passenden Multiple anwendest (EBITDA-Multiple bzw. EBIT-Multiple). Bei kleinen Deals ist der <strong>EBITDA-Multiple die übliche Rechengröße</strong>, und das Bewertungs-Template arbeitet auf dieser Basis</li>
+                    <li>Weil das EBITDA die Abschreibungen ausblendet, musst du den Investitionsbedarf gesondert im Blick behalten – er trifft dich nach der Übernahme trotzdem. Was der Verkäufer an Investitionen aufgeschoben hat, ziehst du über die Preisbrücke ab (siehe Abschnitt 3). Ist der Investitionsbedarf dauerhaft hoch, wählst du ein vorsichtigeres Multiple</li>
                 </ul>
 
                 <h3>Was ist „bereinigter" EBITDA?</h3>
@@ -1881,7 +1885,7 @@
             <!-- Downloads -->
             <div class="sidebar-card download-card">
                 <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
-                <div class="download-item"><i class="fa-solid fa-file-excel"></i> Bewertungs-Template (Excel)</div>
+                <div class="download-item"><i class="fa-solid fa-file-excel"></i> <a class="dl-view" href="Downloads/Kaeufer/bewertungs-template.xlsx" download>Bewertungs-Template (Excel)</a><a class="dl-pdf" href="Downloads/Kaeufer/bewertungs-template.xlsx" download title="Excel herunterladen"><i class="fa-solid fa-download"></i></a></div>
             </div>
 
             <!-- Next Module -->

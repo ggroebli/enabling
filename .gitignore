@@ -10,3 +10,6 @@ nul
 *.ps1
 # API key for KI-Assistent (NICHT committen — wird von OpenRouter automatisch deaktiviert!)
 config.js
+
+# Python-Bytecode
+__pycache__/
