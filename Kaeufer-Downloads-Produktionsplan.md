@@ -26,7 +26,7 @@ Das Download-Center auf `academy.html` listet bereits **15 Dokumente** mit Titel
 | 4 | Bewertungs-Template | **Excel** | bewertung | 1 | „Quick Guide LBO Model" |
 | **Phase 2 – Suche & Analyse** |||||
 | 5 | Checkliste: Teaser bewerten | PDF | dokumente | 2 | „How to create a teaser", SAMPLE Teaser |
-| 6 | Checkliste: NDA prüfen | PDF | dokumente | 2 | „Best practices – NDA" |
+| 6 | Checkliste: Vertraulichkeitsvereinbarung/NDA prüfen | PDF | dokumente | 2 | „Best practices – NDA" |
 | 7 | Checkliste: IM bewerten | PDF | dokumente | 2 | „How to create an IM", TEMPLATE IM |
 | 8 | LOI-Mustervorlage | PDF | angebotsstrategie | 2 | „DealCircle LOI Best Practice Guide" |
 | **Phase 3 – Prüfung & Finanzierung** |||||
@@ -52,7 +52,7 @@ Das Download-Center auf `academy.html` listet bereits **15 Dokumente** mit Titel
 
 | Käufer-Dokument | Verkäufer-Pendant | Verhältnis |
 |---|---|---|
-| Checkliste: NDA prüfen | Muster-Vertraulichkeitserklärung (kurz/ausführlich) | gleiche Quelle, andere Rolle: prüfen statt vorlegen |
+| Checkliste: Vertraulichkeitsvereinbarung/NDA prüfen | Muster-Vertraulichkeitserklärung (kurz/ausführlich) | gleiche Quelle, andere Rolle: prüfen statt vorlegen |
 | Checkliste: Teaser bewerten | Inserat-Vorlage | Verkäufer erstellt, Käufer bewertet |
 | Checkliste: IM bewerten | Unterlagen-Checkliste | Verkäufer stellt zusammen, Käufer prüft |
 | LOI-Mustervorlage | LOI-Checkliste für Verkäufer | gleiche Quelle, Käufer formuliert, Verkäufer prüft |
