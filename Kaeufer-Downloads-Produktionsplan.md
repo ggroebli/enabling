@@ -31,7 +31,7 @@ Das Download-Center auf `academy.html` listet bereits **15 Dokumente** mit Titel
 | 8 | Absichtserklärung (LOI) vorbereiten | PDF | angebotsstrategie | 2 | „DealCircle LOI Best Practice Guide" |
 | **Phase 3 – Prüfung & Finanzierung** |||||
 | 9 | DD-Checkliste | **Excel** | due-diligence | 3 | DueDiligence-Checkliste.xlsx, Guide 6 |
-| 10 | DD-Dokumentenanforderungsliste | PDF | due-diligence | 3 | DueDiligence-Checkliste.xlsx |
+| 10 | Dokumenten-Anforderungsliste | PDF | due-diligence | 3 | DueDiligence-Checkliste.xlsx |
 | 11 | Finanzierungsplan-Vorlage | **Excel** | finanzierung | 3 | Modultext |
 | 12 | Checkliste Bankgespräch | PDF | finanzierung | 3 | Modultext |
 | **Phase 4 – Abschluss** |||||
