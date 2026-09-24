@@ -32,13 +32,14 @@ Das Download-Center auf `academy.html` listet bereits **15 Dokumente** mit Titel
 | **Phase 3 – Prüfung & Finanzierung** |||||
 | 9 | DD-Checkliste | **Excel** | due-diligence | 3 | DueDiligence-Checkliste.xlsx, Guide 6 |
 | 10 | Dokumenten-Anforderungsliste | PDF | due-diligence | 3 | DueDiligence-Checkliste.xlsx |
-| 11 | Finanzierungsplan-Vorlage | **Excel** | finanzierung | 3 | Modultext |
-| 12 | Checkliste Bankgespräch | PDF | finanzierung | 3 | Modultext |
+| 11 | Finanzierungsplan und Kapitaldienst | **Excel** | finanzierung | 3 | Leitfäden Akquifin-Kollege |
+| 12 | Businessplan für die Bank | PDF | finanzierung | 3 | Leitfäden Akquifin-Kollege |
+| 13 | Fördermittel: wer finanziert was | PDF | finanzierung | 3 | Leitfäden Akquifin-Kollege |
 | **Phase 4 – Abschluss** |||||
-| 13 | Checkliste Vertragsklauseln | PDF | kaufvertrag | 4 | Modultext |
-| 14 | Closing-Checkliste | PDF | kaufvertrag | 4 | Modultext |
+| 14 | Checkliste Vertragsklauseln | PDF | kaufvertrag | 4 | Modultext |
+| 15 | Closing-Checkliste | PDF | kaufvertrag | 4 | Modultext |
 | **Phase 5 – Nach dem Deal** |||||
-| 15 | 100-Tage-Plan Template | PDF | 100-tage-plan | 5 | Modultext |
+| 16 | 100-Tage-Plan Template | PDF | 100-tage-plan | 5 | Modultext |
 
 → **12 PDF + 3 Excel**
 
