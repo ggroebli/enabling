@@ -384,7 +384,7 @@ Auf jeder Phase identisch:
 | 5 | Steuerberater/Anwalt für Kaufvertragsverhandlung einbinden | ☐ Offen |
 
 **Phasenbeschreibung:**
-"Der LOI ist unterschrieben – jetzt beginnt die Due Diligence. Bereite den Datenraum vor und stelle alle relevanten Dokumente strukturiert bereit. Der Käuferprüfung-Leitfaden hilft dir, nichts zu vergessen."
+"Der LOI ist unterschrieben – jetzt beginnt die Due Diligence. Bereite den Datenraum vor und stelle alle relevanten Dokumente strukturiert bereit. Die Datenraum-Struktur-Vorlage hilft dir, nichts zu vergessen."
 
 ---
 
@@ -533,7 +533,7 @@ Auf jeder Phase identisch:
 | 4 – Pers. Treffen | Käufer-Bewertungsmatrix (Excel) | Käufer-Screening-Checkliste (PDF) | — | — |
 | 5 – LOI vorgelegt | LOI-Checkliste (PDF) | Käuferprüfung-Leitfaden (PDF) | — | — |
 | 6 – LOI unterzeichnet | Datenraum-Struktur-Vorlage (PDF) | Käuferprüfung-Leitfaden (PDF) | — | — |
-| 7 – Notartermin | Vollzug-Checkliste (PDF) | LOI-Checkliste (PDF) | — | — |
+| 7 – Notartermin | Vollzug-Checkliste (PDF) | — | — | — |
 | 8 – Signing | Vollzug-Checkliste (PDF) | Übergabe-Checkliste (PDF) | — | — |
 | 9 – Closing | Übergabe-Checkliste (PDF) | Wissenstransfer-Plan (PDF) | — | — |
 
