@@ -160,9 +160,9 @@ Die DUB-Prozesskette hat **9 Phasen**, die für Käufer und Verkäufer identisch
 |---|---------|-------------------|
 | 1 | Notartermin vereinbart | ✅ Erledigt |
 | 2 | Kaufvertragsentwurf final prüfen (mit Anwalt) | ☐ Offen |
-| 3 | Checkliste Vertragsklauseln durchgehen | ☐ Offen |
+| 3 | Vertragsklauseln mit der Checkliste durchgehen | ☐ Offen |
 | 4 | Finanzierung final bestätigen lassen | ☐ Offen |
-| 5 | Closing-Checkliste vorbereiten | ☐ Offen |
+| 5 | Vollzug des Kaufs vorbereiten | ☐ Offen |
 
 **Phasenbeschreibung:**
 "Der Notartermin steht – du bist fast am Ziel. Prüfe den Kaufvertragsentwurf sorgfältig mit deinem Anwalt und stelle sicher, dass alle Bedingungen aus dem LOI umgesetzt wurden. Bereite die Closing-Unterlagen vor."
@@ -265,14 +265,14 @@ Auf jeder Phase identisch:
 
 | Phase | Titel | Beschreibung | Downloads | Academy-Modul | Tipp |
 |-------|-------|-------------|-----------|--------------|------|
-| 1 → 2 | "Match bestätigt – bereite dich auf das Erstgespräch vor" | "Beide Seiten haben Interesse bekundet – ihr seid jetzt ein Match! Als Nächstes wird die NDA unterzeichnet." | NDA-Checkliste, Teaser-Checkliste | Dokumente im M&A-Prozess | "Kläre frühzeitig deine Finanzierung – die KfW bietet Förderprogramme speziell für Unternehmensübernahmen an." |
-| 2 → 3 | "NDA unterzeichnet – Zugang zum Unternehmensexposé" | "Die Vertraulichkeitserklärung ist unterzeichnet. Du erhältst jetzt Zugang zum Informationsmemorandum (IM). Nutze die Checkliste, um es systematisch auszuwerten." | Checkliste IM bewerten | Dokumente im M&A-Prozess | — |
-| 3 → 4 | "Persönliches Treffen absolviert – nächster Schritt: Angebot vorbereiten" | "Das Treffen hat stattgefunden. Wenn du ein Angebot machen möchtest, bereite jetzt deinen Letter of Intent (LOI) vor. Kläre parallel deine Finanzierung." | LOI-Mustervorlage, Bewertungs-Template | Angebotsstrategie & LOI | "Die meisten Käufer auf DUB verhandeln eine Exklusivitätsklausel in ihrem ersten LOI – das gibt dir Planungssicherheit." |
+| 1 → 2 | "Match bestätigt – bereite dich auf das Erstgespräch vor" | "Beide Seiten haben Interesse bekundet – ihr seid jetzt ein Match! Als Nächstes wird die NDA unterzeichnet." | Vertraulichkeitsvereinbarung/NDA prüfen, Teaser bewerten | Dokumente im M&A-Prozess | "Kläre frühzeitig deine Finanzierung – die KfW bietet Förderprogramme speziell für Unternehmensübernahmen an." |
+| 2 → 3 | "NDA unterzeichnet – Zugang zum Unternehmensexposé" | "Die Vertraulichkeitserklärung ist unterzeichnet. Du erhältst jetzt Zugang zum Informationsmemorandum (IM). Nutze die Checkliste, um es systematisch auszuwerten." | Unternehmensunterlagen bewerten | Dokumente im M&A-Prozess | — |
+| 3 → 4 | "Persönliches Treffen absolviert – nächster Schritt: Angebot vorbereiten" | "Das Treffen hat stattgefunden. Wenn du ein Angebot machen möchtest, bereite jetzt deinen Letter of Intent (LOI) vor. Kläre parallel deine Finanzierung." | Absichtserklärung (LOI) vorbereiten, Bewertungs-Template | Angebotsstrategie & LOI | "Die meisten Käufer auf DUB verhandeln eine Exklusivitätsklausel in ihrem ersten LOI – das gibt dir Planungssicherheit." |
 | 4 → 5 | "LOI vorgelegt – dein Angebot ist beim Verkäufer" | "Dein Letter of Intent wurde übermittelt. Der Verkäufer wird dein Angebot prüfen. Bereite dich parallel auf die Due Diligence vor." | DD-Checkliste | Due Diligence meistern | — |
-| 5 → 6 | "LOI unterzeichnet – Due Diligence und Finanzierung starten" | "Der LOI ist von beiden Seiten unterschrieben. Jetzt beginnt die Due Diligence – du hast Zugang zum Datenraum." | DD-Checkliste, DD-Doku-Liste | Due Diligence meistern | "Stelle dein DD-Team zusammen: Steuerberater für die Zahlen, Anwalt für den Kaufvertrag." |
-| 6 → 7 | "Notartermin vereinbart – Kaufvertrag prüfen" | "Der Notartermin steht. Prüfe den Kaufvertragsentwurf sorgfältig mit deinem Anwalt." | Checkliste Vertragsklauseln, Closing-Checkliste | Kaufvertrag & Closing | — |
-| 7 → 8 | "Kaufvertrag unterschrieben – Closing vorbereiten" | "Der Kaufvertrag ist beim Notar unterschrieben. Erfülle die Closing-Bedingungen und bereite die Übernahme vor." | Closing-Checkliste | Kaufvertrag & Closing | — |
-| 8 → 9 | "Closing abgeschlossen – Glückwunsch, du bist Unternehmer!" | "Die Transaktion ist vollständig abgeschlossen. Starte jetzt mit deinem 100-Tage-Plan." | 100-Tage-Plan Template | 100-Tage-Plan | "Die ersten 100 Tage entscheiden über den langfristigen Erfolg. Erst zuhören, dann optimieren." |
+| 5 → 6 | "LOI unterzeichnet – Due Diligence und Finanzierung starten" | "Der LOI ist von beiden Seiten unterschrieben. Jetzt beginnt die Due Diligence – du hast Zugang zum Datenraum." | DD-Checkliste, Dokumenten-Anforderungsliste | Due Diligence meistern | "Stelle dein DD-Team zusammen: Steuerberater für die Zahlen, Anwalt für den Kaufvertrag." |
+| 6 → 7 | "Notartermin vereinbart – Kaufvertrag prüfen" | "Der Notartermin steht. Prüfe den Kaufvertragsentwurf sorgfältig mit deinem Anwalt." | Vertragsklauseln prüfen, Vollzug des Kaufs | Kaufvertrag & Closing | — |
+| 7 → 8 | "Kaufvertrag unterschrieben – Closing vorbereiten" | "Der Kaufvertrag ist beim Notar unterschrieben. Erfülle die Closing-Bedingungen und bereite die Übernahme vor." | Vollzug des Kaufs (Closing) | Kaufvertrag & Closing | — |
+| 8 → 9 | "Closing abgeschlossen – Glückwunsch, du bist Unternehmer!" | "Die Transaktion ist vollständig abgeschlossen. Starte jetzt mit deinem 100-Tage-Plan." | 100-Tage-Plan | 100-Tage-Plan | "Die ersten 100 Tage entscheiden über den langfristigen Erfolg. Erst zuhören, dann optimieren." |
 
 ---
 
@@ -283,14 +283,14 @@ Auf jeder Phase identisch:
 | Phase | Bar-Text | Download-Link | Modul-Link |
 |-------|----------|--------------|------------|
 | 1 – Interessensbekundung | "Nächster Schritt: Warte auf die Antwort des Verkäufers" | — | — |
-| 2 – Match | "Nächster Schritt: NDA prüfen und unterzeichnen" | NDA-Checkliste | Dokumente im M&A-Prozess |
-| 3 – NDA unterzeichnet | "Nächster Schritt: Unternehmensexposé auswerten" | Checkliste IM | Dokumente im M&A-Prozess |
-| 4 – Pers. Treffen | "Nächster Schritt: Angebot vorbereiten – erstelle deinen LOI" | LOI-Vorlage | Angebotsstrategie & LOI |
+| 2 – Match | "Nächster Schritt: NDA prüfen und unterzeichnen" | Vertraulichkeitsvereinbarung/NDA prüfen | Dokumente im M&A-Prozess |
+| 3 – NDA unterzeichnet | "Nächster Schritt: Unternehmensexposé auswerten" | Unternehmensunterlagen bewerten | Dokumente im M&A-Prozess |
+| 4 – Pers. Treffen | "Nächster Schritt: Angebot vorbereiten – erstelle deinen LOI" | Absichtserklärung (LOI) vorbereiten | Angebotsstrategie & LOI |
 | 5 – LOI vorgelegt | "Nächster Schritt: Due Diligence vorbereiten" | DD-Checkliste | Due Diligence meistern |
-| 6 – LOI unterzeichnet | "Nächster Schritt: Datenraum prüfen und Finanzierung finalisieren" | DD-Doku-Liste | Due Diligence meistern |
-| 7 – Notartermin | "Nächster Schritt: Kaufvertrag mit Anwalt prüfen" | Checkliste Vertragsklauseln | Kaufvertrag & Closing |
-| 8 – Signing | "Nächster Schritt: Closing-Bedingungen erfüllen" | Closing-Checkliste | Kaufvertrag & Closing |
-| 9 – Closing | "Geschafft! Starte deinen 100-Tage-Plan" | 100-Tage-Plan Template | 100-Tage-Plan |
+| 6 – LOI unterzeichnet | "Nächster Schritt: Datenraum prüfen und Finanzierung finalisieren" | Dokumenten-Anforderungsliste | Due Diligence meistern |
+| 7 – Notartermin | "Nächster Schritt: Kaufvertrag mit Anwalt prüfen" | Vertragsklauseln prüfen | Kaufvertrag & Closing |
+| 8 – Signing | "Nächster Schritt: Closing-Bedingungen erfüllen" | Vollzug des Kaufs (Closing) | Kaufvertrag & Closing |
+| 9 – Closing | "Geschafft! Starte deinen 100-Tage-Plan" | 100-Tage-Plan | 100-Tage-Plan |
 
 **Zusätzlich:** Jede Match-Karte zeigt ein **Phase-Badge** (farbiger Chip) mit dem aktuellen Phasennamen.
 
@@ -379,12 +379,12 @@ Auf jeder Phase identisch:
 |---|---------|-------------------|
 | 1 | LOI von beiden Seiten unterschrieben | ✅ Erledigt |
 | 2 | Datenraum für die Due Diligence vorbereiten | ☐ Offen |
-| 3 | Dokumente strukturiert hochladen (Datenraum-Vorlage nutzen) | ☐ Offen |
+| 3 | Dokumente strukturiert hochladen (Datenraum-Struktur-Vorlage nutzen) | ☐ Offen |
 | 4 | Mitarbeiter und Schlüsselpersonen informieren (falls nötig) | ☐ Offen |
 | 5 | Steuerberater/Anwalt für Kaufvertragsverhandlung einbinden | ☐ Offen |
 
 **Phasenbeschreibung:**
-"Der LOI ist unterschrieben – jetzt beginnt die Due Diligence. Bereite den Datenraum vor und stelle alle relevanten Dokumente strukturiert bereit. Die DD-Vorbereitungs-Checkliste hilft dir, nichts zu vergessen."
+"Der LOI ist unterschrieben – jetzt beginnt die Due Diligence. Bereite den Datenraum vor und stelle alle relevanten Dokumente strukturiert bereit. Der Käuferprüfung-Leitfaden hilft dir, nichts zu vergessen."
 
 ---
 
@@ -394,7 +394,7 @@ Auf jeder Phase identisch:
 |---|---------|-------------------|
 | 1 | Notartermin vereinbart | ✅ Erledigt |
 | 2 | Kaufvertragsentwurf mit Anwalt prüfen | ☐ Offen |
-| 3 | Closing-Checkliste durchgehen | ☐ Offen |
+| 3 | Vollzug-Checkliste durchgehen | ☐ Offen |
 | 4 | Übergabeplanung starten | ☐ Offen |
 
 **Phasenbeschreibung:**
@@ -513,28 +513,28 @@ Auf jeder Phase identisch:
 
 | Phase | Download 1 | Download 2 | Download 3 | Download 4 |
 |-------|-----------|-----------|-----------|-----------|
-| 1 – Interessensbekundung | Käuferprofil-Vorlage (PDF) | Dokumenten-Checkliste (PDF) | — | — |
-| 2 – Match | NDA-Checkliste (PDF) | Checkliste Teaser bewerten (PDF) | — | — |
-| 3 – NDA unterzeichnet | Checkliste IM bewerten (PDF) | NDA-Checkliste (PDF) | Bewertungs-Template (Excel) | — |
-| 4 – Pers. Treffen | LOI-Mustervorlage (PDF) | Bewertungs-Template (Excel) | Share Deal vs. Asset Deal (PDF) | Finanzierungsplan-Vorlage (Excel) |
-| 5 – LOI vorgelegt | DD-Checkliste (PDF) | Finanzierungsplan-Vorlage (Excel) | — | — |
-| 6 – LOI unterzeichnet | DD-Checkliste (PDF) | DD-Doku-Liste (PDF) | Finanzierungsplan (Excel) | Checkliste Bankgespräch (PDF) |
-| 7 – Notartermin | Checkliste Vertragsklauseln (PDF) | Closing-Checkliste (PDF) | — | — |
-| 8 – Signing | Closing-Checkliste (PDF) | 100-Tage-Plan Template (PDF) | — | — |
-| 9 – Closing | 100-Tage-Plan Template (PDF) | — | — | — |
+| 1 – Interessensbekundung | Käuferprofil-Vorlage (PDF) | Unterlagen-Checkliste (PDF) | — | — |
+| 2 – Match | Vertraulichkeitsvereinbarung/NDA prüfen (PDF) | Teaser bewerten (PDF) | — | — |
+| 3 – NDA unterzeichnet | Unternehmensunterlagen bewerten (PDF) | Vertraulichkeitsvereinbarung/NDA prüfen (PDF) | Bewertungs-Template (Excel) | — |
+| 4 – Pers. Treffen | Absichtserklärung (LOI) vorbereiten (PDF) | Bewertungs-Template (Excel) | Share Deal vs. Asset Deal (PDF) | Finanzierungsplan und Kapitaldienst (Excel) |
+| 5 – LOI vorgelegt | DD-Checkliste (PDF) | Finanzierungsplan und Kapitaldienst (Excel) | — | — |
+| 6 – LOI unterzeichnet | DD-Checkliste (PDF) | Dokumenten-Anforderungsliste (PDF) | Finanzierungsplan und Kapitaldienst (Excel) | Businessplan für die Bank (PDF) |
+| 7 – Notartermin | Vertragsklauseln prüfen (PDF) | Vollzug des Kaufs (PDF) | — | — |
+| 8 – Signing | Vollzug des Kaufs (PDF) | 100-Tage-Plan (PDF) | — | — |
+| 9 – Closing | 100-Tage-Plan (PDF) | — | — | — |
 
 ### Verkäufer-Downloads
 
 | Phase | Download 1 | Download 2 | Download 3 | Download 4 |
 |-------|-----------|-----------|-----------|-----------|
 | 1 – IB erhalten | Käufer-Screening-Checkliste (PDF) | Käufer-Bewertungsmatrix (Excel) | — | — |
-| 2 – Match | Gesprächsleitfaden Erstgespräch (PDF) | NDA-Vorlage (PDF) | — | — |
+| 2 – Match | Gesprächsleitfaden Erstgespräch (PDF) | Muster-Vertraulichkeitserklärung (PDF) | — | — |
 | 3 – NDA unterzeichnet | Käufer-Screening-Checkliste (PDF) | Gesprächsleitfaden (PDF) | Unterlagen-Checkliste (PDF) | — |
-| 4 – Pers. Treffen | Käufer-Bewertungsmatrix (Excel) | Referenz-Checkliste (PDF) | — | — |
-| 5 – LOI vorgelegt | LOI-Checkliste für Verkäufer (PDF) | Exklusivitäts-Merkblatt (PDF) | — | — |
-| 6 – LOI unterzeichnet | DD-Vorbereitungs-Checkliste (PDF) | Datenraum-Vorlage (Excel) | — | — |
-| 7 – Notartermin | Closing-Day-Checkliste (PDF) | Kaufvertrags-Checkliste (PDF) | — | — |
-| 8 – Signing | Closing-Day-Checkliste (PDF) | Übergabe-Checkliste (PDF) | — | — |
+| 4 – Pers. Treffen | Käufer-Bewertungsmatrix (Excel) | Käufer-Screening-Checkliste (PDF) | — | — |
+| 5 – LOI vorgelegt | LOI-Checkliste (PDF) | Käuferprüfung-Leitfaden (PDF) | — | — |
+| 6 – LOI unterzeichnet | Datenraum-Struktur-Vorlage (PDF) | Käuferprüfung-Leitfaden (PDF) | — | — |
+| 7 – Notartermin | Vollzug-Checkliste (PDF) | LOI-Checkliste (PDF) | — | — |
+| 8 – Signing | Vollzug-Checkliste (PDF) | Übergabe-Checkliste (PDF) | — | — |
 | 9 – Closing | Übergabe-Checkliste (PDF) | Wissenstransfer-Plan (PDF) | — | — |
 
 
@@ -714,7 +714,7 @@ Ein Verkäufer hat **ein Inserat** und potenziell **mehrere Käufer** in verschi
 ### Speicherung
 
 - Alle Downloads sind **statische Dateien** (PDF, Excel), die zentral auf dem Server/CDN liegen.
-- Pfad-Konvention: `/downloads/{perspektive}/{dateiname}` (z.B. `/downloads/kaeufer/loi-mustervorlage.pdf`)
+- Pfad-Konvention: `/downloads/{perspektive}/{dateiname}` (z.B. `/downloads/kaeufer/loi-vorbereiten.pdf`)
 - **Keine dynamische Generierung** – alle Vorlagen sind vorab erstellt und hochgeladen.
 
 ### Download-Katalog (vollständige Liste)
@@ -723,44 +723,48 @@ Ein Verkäufer hat **ein Inserat** und potenziell **mehrere Käufer** in verschi
 
 | ID | Dateiname | Format | Beschreibung |
 |----|-----------|--------|-------------|
-| K-01 | `kaeufer-profil-vorlage.pdf` | PDF | Vorlage für ein aussagekräftiges Käuferprofil |
-| K-02 | `dokumenten-checkliste.pdf` | PDF | Übersicht aller Dokumente im M&A-Prozess |
-| K-03 | `nda-checkliste.pdf` | PDF | Prüfpunkte für die NDA-Prüfung |
-| K-04 | `checkliste-teaser-bewerten.pdf` | PDF | Kriterien zur Teaser-Bewertung |
-| K-05 | `checkliste-im-bewerten.pdf` | PDF | Systematische Auswertung des IM |
-| K-06 | `bewertungs-template.xlsx` | Excel | Multiple-Bewertung, DCF-Ansatz, Szenarioanalyse |
-| K-07 | `loi-mustervorlage.pdf` | PDF | LOI-Template mit Erläuterungen |
-| K-08 | `share-deal-vs-asset-deal.pdf` | PDF | Vergleich der Dealstrukturen |
-| K-09 | `finanzierungsplan-vorlage.xlsx` | Excel | Kalkulation EK/FK-Mix, Kapitaldienstfähigkeit |
-| K-10 | `dd-checkliste.pdf` | PDF | Vollständige DD-Prüfungsliste |
-| K-11 | `dd-doku-liste.pdf` | PDF | Welche Dokumente im Datenraum angefordert werden |
-| K-12 | `checkliste-bankgespraech.pdf` | PDF | Vorbereitung auf das Finanzierungsgespräch |
-| K-13 | `checkliste-vertragsklauseln.pdf` | PDF | Wichtigste Klauseln im Kaufvertrag |
-| K-14 | `closing-checkliste.pdf` | PDF | Alle Schritte zwischen Signing und Closing |
-| K-15 | `100-tage-plan-template.pdf` | PDF | Strukturierte Übernahmeplanung |
+| K-01 | `kaeuferprofil-vorlage.pdf` | PDF | Vorlage für ein aussagekräftiges Käuferprofil |
+| K-02 | `unterlagen-checkliste.pdf` | PDF | Welche Unterlagen der Kaufinteressent selbst bereithalten muss |
+| K-03 | `share-deal-asset-deal.pdf` | PDF | Vergleich der Dealstrukturen |
+| K-04 | `bewertungs-template.xlsx` | Excel | EBITDA-Multiple-Bewertung mit Bereinigungen und Bandbreite |
+| K-05 | `teaser-bewerten.pdf` | PDF | Kriterien zur Teaser-Bewertung |
+| K-06 | `vertraulichkeitsvereinbarung-pruefen.pdf` | PDF | Prüfpunkte für die NDA-Prüfung |
+| K-07 | `unternehmensunterlagen-bewerten.pdf` | PDF | Systematische Auswertung von Exposé und Jahresabschlüssen |
+| K-08 | `loi-vorbereiten.pdf` | PDF | Bindungswirkung und Angaben für den LOI-Entwurf des Anwalts |
+| K-09 | `dd-checkliste.xlsx` | Excel | DD-Prüfungsliste, Kernprüfung und Zusatzbausteine |
+| K-10 | `dokumenten-anforderungsliste.pdf` | PDF | Welche Dokumente im Datenraum angefordert werden, mit Prioritäten |
+| K-11 | `finanzierungsplan-kapitaldienst.xlsx` | Excel | Kalkulation EK/FK-Mix und Kapitaldienstfähigkeit |
+| K-12 | `businessplan-fuer-die-bank.pdf` | PDF | Aufbau und Fallstricke des Businessplans |
+| K-13 | `foerdermittel-uebersicht.pdf` | PDF | Förderakteure und Hausbankprinzip |
+| K-14 | `vertragsklauseln-pruefen.pdf` | PDF | Wichtigste Klauseln im Kaufvertrag |
+| K-15 | `vollzug-des-kaufs.pdf` | PDF | Alle Schritte zwischen Signing und Closing |
+| K-16 | `100-tage-plan.pdf` | PDF | Ausfüllbarer Plan für die ersten 100 Tage |
 
 #### Verkäufer-Downloads
 
 | ID | Dateiname | Format | Beschreibung |
 |----|-----------|--------|-------------|
-| V-01 | `kaeufer-screening-checkliste.pdf` | PDF | Systematische Käuferbewertung |
-| V-02 | `kaeufer-bewertungsmatrix.xlsx` | Excel | Scoring-Matrix für Käufervergleich |
-| V-03 | `gespraechsleitfaden-erstgespraech.pdf` | PDF | Struktur für das Kennenlerngespräch |
-| V-04 | `nda-vorlage.pdf` | PDF | NDA-Template für Verkäufer |
-| V-05 | `unterlagen-checkliste.pdf` | PDF | Welche Dokumente vorbereitet werden müssen |
-| V-06 | `referenz-checkliste.pdf` | PDF | Prüfpunkte für Käufer-Referenzen |
-| V-07 | `loi-checkliste-verkaeufer.pdf` | PDF | LOI-Prüfpunkte aus Verkäufersicht |
-| V-08 | `exklusivitaets-merkblatt.pdf` | PDF | Verhandlungs- und Abschlussexklusivität erklärt |
-| V-09 | `dd-vorbereitungs-checkliste.pdf` | PDF | Datenraum-Vorbereitung |
-| V-10 | `datenraum-vorlage.xlsx` | Excel | Ordnerstruktur und Dokumentenliste für den Datenraum |
-| V-11 | `closing-day-checkliste.pdf` | PDF | Alle Schritte am Closing-Tag |
-| V-12 | `kaufvertrags-checkliste.pdf` | PDF | Wichtigste Klauseln aus Verkäufersicht |
-| V-13 | `uebergabe-checkliste.pdf` | PDF | Strukturierte Übergabe nach Closing |
-| V-14 | `wissenstransfer-plan.pdf` | PDF | Template für den Wissenstransfer-Zeitplan |
+| V-01 | `exit-readiness-checkliste.pdf` | PDF | Selbsttest zur Verkaufsbereitschaft |
+| V-02 | `verkaufsprozess-uebersicht.pdf` | PDF | Ablauf des Verkaufsprozesses im Überblick |
+| V-03 | `checkliste-beraterauswahl.pdf` | PDF | Auswahl und Mandatierung eines M&A-Beraters |
+| V-04 | `bewertungs-template.xlsx` | Excel | EBITDA-Multiple-Bewertung aus Verkäufersicht |
+| V-05 | `inserat-vorlage.pdf` | PDF | Aufbau eines anonymen Verkaufsinserats |
+| V-06 | `muster-nda-kurz.pdf` | PDF | Kurze Muster-Vertraulichkeitserklärung |
+| V-07 | `muster-nda-ausfuehrlich.pdf` | PDF | Ausführliche Muster-Vertraulichkeitserklärung |
+| V-08 | `kaeufer-screening-checkliste.pdf` | PDF | Systematische Käuferbewertung |
+| V-09 | `kaeufer-bewertungsmatrix.xlsx` | Excel | Scoring-Matrix für Käufervergleich |
+| V-10 | `gespraechsleitfaden-erstgespraech.pdf` | PDF | Struktur für das Kennenlerngespräch |
+| V-11 | `unterlagen-checkliste.pdf` | PDF | Welche Unterlagen Käufern vorgelegt werden müssen |
+| V-12 | `loi-checkliste.pdf` | PDF | LOI-Prüfpunkte aus Verkäufersicht, inkl. Exklusivität |
+| V-13 | `kaeuferpruefung-leitfaden.pdf` | PDF | Wie die Due Diligence des Käufers abläuft |
+| V-14 | `datenraum-struktur-vorlage.pdf` | PDF | Ordnerstruktur und Dokumentenliste für den Datenraum |
+| V-15 | `vollzug-checkliste.pdf` | PDF | Alle Schritte am Closing-Tag |
+| V-16 | `uebergabe-checkliste.pdf` | PDF | Strukturierte Übergabe nach Closing |
+| V-17 | `wissenstransfer-plan.pdf` | PDF | Zeitplan für den Wissenstransfer |
 
 ### Referenzierung in §11
 
-Die Download-Tabellen in §11 referenzieren die Downloads über den **Kurznamen** (z.B. "LOI-Mustervorlage"). Die exakte Datei-ID findet sich in der Tabelle oben.
+Die Download-Tabellen in §11 referenzieren die Downloads über den **Kurznamen** (z.B. "Absichtserklärung (LOI) vorbereiten"). Die exakte Datei-ID findet sich in der Tabelle oben.
 
 ---
 
@@ -942,7 +946,7 @@ In manchen Phasen wartet eine Seite auf die andere (z.B. Käufer wartet auf LOI-
 |--------|------------------------|-----------------|
 | Phase 3: Unterlagen | Jahresabschlüsse, BWA, ggf. Kundenliste | Informationsmemorandum (IM) |
 | Phase 3: Checkliste | "Jahresabschlüsse und BWA anfordern" | "IM anfordern und auswerten" |
-| Phase 3: Download | "Checkliste IM bewerten" (funktioniert für beide) | "Checkliste IM bewerten" |
+| Phase 3: Download | "Unternehmensunterlagen bewerten" (funktioniert für beide) | "Unternehmensunterlagen bewerten" |
 | Phase 4: Treffen | Oft die wichtigste Informationsquelle | Ergänzend zum IM |
 
 **Technische Umsetzung:** Das Inserat enthält ein Boolean-Feld `has_advisor` (hat der Verkäufer einen Berater mandatiert?). Basierend darauf wird in Phase 3 die passende Checklisten-Variante geladen.

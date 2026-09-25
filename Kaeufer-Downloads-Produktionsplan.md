@@ -39,7 +39,7 @@ Das Download-Center auf `academy.html` listet bereits **15 Dokumente** mit Titel
 | 14 | Vertragsklauseln prüfen | PDF | kaufvertrag | 4 | Modultext |
 | 15 | Vollzug des Kaufs (Closing) | PDF | kaufvertrag | 4 | Modultext |
 | **Phase 5 – Nach dem Deal** |||||
-| 16 | 100-Tage-Plan Template | PDF | 100-tage-plan | 5 | Modultext |
+| 16 | 100-Tage-Plan | PDF | 100-tage-plan | 5 | Modultext |
 
 → **12 PDF + 3 Excel**
 
@@ -60,7 +60,7 @@ Das Download-Center auf `academy.html` listet bereits **15 Dokumente** mit Titel
 | DD-Checkliste + DD-Doku-Anforderungsliste | Käuferprüfung-Schwerpunkte + Datenraum-Struktur-Vorlage | dieselbe Prüfung von beiden Seiten |
 | Bewertungs-Template | Bewertungs-Template (Verkäufer) | dieselbe Methodik, Käufersicht auf den Preis |
 | Vollzug des Kaufs (Closing) | Checkliste: Vollzug des Verkaufs | derselbe Termin, andere Pflichten |
-| 100-Tage-Plan Template | Wissenstransfer-Plan + Übergabe-Checkliste | Übergeber und Übernehmer |
+| 100-Tage-Plan | Wissenstransfer-Plan + Übergabe-Checkliste | Übergeber und Übernehmer |
 
 **Konsequenz für den Review:** Jedes dieser acht Dokumente wird gegen sein Pendant gelesen, nicht nur gegen das eigene Modul.
 
