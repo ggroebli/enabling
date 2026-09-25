@@ -781,17 +781,41 @@ z.B. /downloads/kaeufer/loi-vorbereiten.pdf
         </div>
 
         <div class="tech-box">
-            <h4>Hinweis zu <code>href="#"</code> in den Mockups</h4>
-            <p>Die Mockups enthalten rund 1.000 Links mit <code>href="#"</code>. Das ist gewollt: Nav-Leiste, Footer
-            (Bundeslander, Rechtstexte, Social Media, Hilfe &amp; FAQ, Glossar) und das Profil-Dropdown stammen aus der
-            bestehenden DUB-Plattform und werden in Bubble mit den dortigen Zielen verdrahtet. Sie sind <strong>keine
-            offenen Punkte des Enablement-Konzepts</strong>.</p>
-            <p>Verdrahtet sind dagegen alle Links, die auf Enablement-Inhalte zeigen: Download-Verweise in
-            <code>mitteilungen.html</code>, <code>transaktionen.html</code> und den Deal-Detailseiten gehen auf die
-            realen Dateien unter <code>Downloads/</code>, Modul-Verweise auf die jeweilige Modulseite.</p>
-            <p>Die 24 Berater-CTAs („Berater finden", „Berater anfragen", „Berater-Directory", „DUB Beraterborse")
-            in den Modul-Sidebars und CTA-Bannern zeigen auf
-            <code>https://www.dub.de/de/berater/</code>.</p>
+            <h4>Hinweis zu <code>href="#"</code> in den Mockups &ndash; was davon euch betrifft</h4>
+            <p>Die Mockups enthalten rund 950 Links mit <code>href="#"</code>. Die sind <strong>kein offener Punkt des
+            Enablement-Konzepts</strong>, sondern zerfallen in drei Gruppen mit unterschiedlicher Bedeutung fur euch:</p>
+            <table>
+                <tr><th style="width:8%">Gruppe</th><th style="width:34%">Was</th><th style="width:10%">Anzahl</th><th>Was ihr damit tut</th></tr>
+                <tr>
+                    <td><strong>A</strong></td>
+                    <td>Footer und Service-Nav: Impressum, Datenschutz, AGB, Hilfe &amp; FAQ, Glossar, KMU Multiples,
+                        Finanzierung prufen, Pakete, Bundesland- und Branchenseiten, Social-Media-Icons, Logo</td>
+                    <td>845</td>
+                    <td><strong>Ignorieren und durch euren eigenen Footer ersetzen.</strong> Das ist Chrome der
+                        bestehenden Plattform, nicht Inhalt des Enablement-Produkts. Wir haben hier bewusst keine
+                        URLs gesetzt, um keine falschen Ziele in die Live-Seite zu tragen.</td>
+                </tr>
+                <tr>
+                    <td><strong>B</strong></td>
+                    <td>App-Zustande: Abmelden, Kontoeinstellungen, DUB-Professional, Mein Inserat, Interessenten,
+                        Verkauferprofil, Zur Verkauferansicht, Mein Inserat bearbeiten</td>
+                    <td>106</td>
+                    <td><strong>Hier fehlt noch die Funktion.</strong> Diese Ziele gibt es weder im Mockup noch als
+                        Seite auf dub.de; sie entstehen erst in Bubble. Das ist die einzige Gruppe, die eine
+                        Entscheidung von euch braucht.</td>
+                </tr>
+                <tr>
+                    <td><strong>C</strong></td>
+                    <td>Zwei JavaScript-Platzhalter im Kauferprofil: Website und LinkedIn des Nutzers</td>
+                    <td>2</td>
+                    <td>Korrekt so: Die Ziele stehen erst zur Laufzeit fest, sobald der Nutzer die Felder
+                        gefullt hat.</td>
+                </tr>
+            </table>
+            <p style="margin-top:16px"><strong>Alles, was auf Enablement-Inhalte zeigt, ist verdrahtet und gepruft:</strong>
+            221 Download-Verweise gehen auf die realen Dateien unter <code>Downloads/</code>, Modul-Verweise auf die
+            jeweilige Modulseite, die 24 Berater-CTAs auf <code>https://www.dub.de/de/berater/</code>. Kein lokaler
+            Verweis im gesamten Prototyp lauft ins Leere.</p>
         </div>
     </div>
 </section>
