@@ -372,6 +372,9 @@
         .phase-module-item.active .module-dot { background: var(--phase-blue); }
 
         .download-card { background: #FAFAFA; }
+        .download-item .dl-view { color: inherit; text-decoration: none; flex: 1; }
+        .download-item .dl-view:hover { color: var(--phase-blue); text-decoration: underline; }
+        .download-item .dl-pdf { color: var(--phase-blue); text-decoration: none; font-size: 12px; flex-shrink: 0; }
         .download-item {
             display: flex; align-items: center; gap: 10px; padding: 10px 0;
             border-bottom: 1px solid #F0F0F0; font-size: 14px; font-weight: 400;
@@ -798,7 +801,7 @@
                 <h3>Wettbewerbsverbot (Non-Compete)</h3>
                 <p>Der Verkäufer verpflichtet sich, nach dem Verkauf kein konkurrierendes Unternehmen zu gründen oder für einen Wettbewerber zu arbeiten.</p>
                 <ul>
-                    <li><strong>Übliche Dauer:</strong> 2–3 Jahre nach dem Closing</li>
+                    <li><strong>Übliche Dauer:</strong> 1–2 Jahre nach dem Closing</li>
                     <li><strong>Räumliche Begrenzung:</strong> Regional oder national – muss angemessen und bestimmt sein (sonst unwirksam)</li>
                     <li><strong>Sachliche Begrenzung:</strong> Nur auf die Branche des verkauften Unternehmens beschränkt – muss im SPA sehr klar definiert werden, um Interpretationspielraum zu vermeiden</li>
                 </ul>
@@ -897,7 +900,7 @@
                         </li>
                         <li>
                             <div class="check-icon"></div>
-                            <span><strong>Bankverbindungen ausgetauscht</strong> – Für die Kaufpreiszahlung, ggf. Treuhandkonto eingerichtet</span>
+                            <span><strong>Bankverbindungen ausgetauscht</strong> – Für die Kaufpreiszahlung; ein Treuhandkonto nur, falls ein Sicherheitseinbehalt vereinbart ist</span>
                         </li>
                         <li>
                             <div class="check-icon"></div>
@@ -924,15 +927,15 @@
                 </div>
             </div>
 
-            <!-- ===== SECTION 4: Der Closing-Tag ===== -->
+            <!-- ===== SECTION 5: Der Closing-Tag ===== -->
             <div class="section" style="border-bottom: none;">
-                <h2><span class="section-number">4</span> Der Closing-Tag</h2>
+                <h2><span class="section-number">5</span> Der Closing-Tag</h2>
                 <p>Am Closing-Tag wird die Transaktion vollzogen. Der Ablauf hängt davon ab, ob es ein Share Deal oder Asset Deal ist – aber die grundsätzlichen Schritte sind ähnlich.</p>
 
                 <h3>Ablauf eines typischen Closing-Tags</h3>
                 <ol>
                     <li><strong>Notartermin (Share Deal) oder Vertragsunterschrift (Asset Deal)</strong> – Bei GmbH-Anteilen ist die notarielle Beurkundung Pflicht. Der Notar verliest den Vertrag und beide Parteien unterzeichnen.</li>
-                    <li><strong>Kaufpreiszahlung</strong> – Überweisung des Kaufpreises, oft über ein <strong>Treuhandkonto (Escrow)</strong>. Der Notar oder ein Treuhänder gibt den Kaufpreis erst frei, wenn alle Bedingungen erfüllt sind.</li>
+                    <li><strong>Kaufpreiszahlung</strong> – Bei kleinen Transaktionen wird der Kaufpreis in aller Regel <strong>direkt an den Verkäufer überwiesen</strong>. Ein Treuhandkonto (Escrow) kommt, wenn überhaupt, nur für einen kleineren Sicherheitseinbehalt ins Spiel, der dort für eine vereinbarte Zeit liegt.</li>
                     <li><strong>Übergabe der Geschäftsunterlagen</strong> – Buchhaltung, Verträge, Kundenlisten, Lieferantenverträge, Mitarbeiterakten</li>
                     <li><strong>Übergabe-Protokoll unterschreiben</strong> – Dokumentiert den Zustand bei Übergabe und was übergeben wurde</li>
                     <li><strong>Zugänge und Vollmachten übertragen</strong> – IT-Systeme, Bankkonten, Geschäftsräume, Fahrzeuge</li>
@@ -1191,7 +1194,7 @@
             <div class="sidebar-card download-card">
                 <div class="sidebar-card-title"><i class="fa-solid fa-download"></i> Downloads</div>
                 <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Closing-Checkliste (PDF)</div>
-                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> Checkliste Vertragsklauseln (PDF)</div>
+                <div class="download-item"><i class="fa-solid fa-file-pdf"></i> <a class="dl-view" href="Downloads/Kaeufer/vertragsklauseln-pruefen.html" target="_blank">Vertragsklauseln prüfen</a><a class="dl-pdf" href="Downloads/Kaeufer/vertragsklauseln-pruefen.pdf" download title="PDF herunterladen"><i class="fa-solid fa-download"></i></a></div>
             </div>
 
             <!-- Next Module -->

@@ -36,7 +36,7 @@ Das Download-Center auf `academy.html` listet bereits **15 Dokumente** mit Titel
 | 12 | Businessplan für die Bank | PDF | finanzierung | 3 | Leitfäden Akquifin-Kollege |
 | 13 | Fördermittel: wer finanziert was | PDF | finanzierung | 3 | Leitfäden Akquifin-Kollege |
 | **Phase 4 – Abschluss** |||||
-| 14 | Checkliste Vertragsklauseln | PDF | kaufvertrag | 4 | Modultext |
+| 14 | Vertragsklauseln prüfen | PDF | kaufvertrag | 4 | Modultext |
 | 15 | Closing-Checkliste | PDF | kaufvertrag | 4 | Modultext |
 | **Phase 5 – Nach dem Deal** |||||
 | 16 | 100-Tage-Plan Template | PDF | 100-tage-plan | 5 | Modultext |
